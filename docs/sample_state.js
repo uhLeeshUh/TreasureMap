@@ -10,6 +10,7 @@
         long: -34.453,
         author_id: 6,
         city_id: 49,
+        images: [3, 6],
         editing_authors: [],
       },
       4: {
@@ -21,6 +22,7 @@
         long: 48.234,
         author_id: 8,
         city_id: 16,
+        images: [5, 9],
         editing_authors: [6],
       },
       12: {
@@ -32,6 +34,7 @@
         long: -23.234,
         author_id: 8,
         city_id: 64,
+        images: [14],
         editing_authors: [],
       }
     },
@@ -72,11 +75,43 @@
         id: 6,
         name: "United States of America",
         city_ids: [52, 64],
-      }
+      },
       56: {
         id: 56,
         name: "Netherlands",
         city_ids: [49],
+      }
+    },
+    images: {
+      3: {
+        id: 3,
+        article_id: 1,
+        image_url: "some_image",
+        primary_image: true,
+      },
+      5: {
+        id: 5,
+        article_id: 4,
+        image_url: "some_image_two",
+        primary_image: true,
+      },
+      6: {
+        id: 6,
+        article_id: 1,
+        image_url: "some_image_three",
+        primary_image: false,
+      },
+      9: {
+        id: 9,
+        article_id: 4,
+        image_url: "some_image_four",
+        primary_image: false,
+      },
+      14: {
+        id: 14,
+        article_id: 12,
+        image_url: "some_image_five",
+        primary_image: true,
       }
     }
   },
