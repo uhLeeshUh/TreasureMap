@@ -10,6 +10,7 @@
         long: -34.453,
         author_id: 6,
         city_id: 49,
+        editing_authors: [],
       },
       4: {
         id: 4,
@@ -20,6 +21,7 @@
         long: 48.234,
         author_id: 8,
         city_id: 16,
+        editing_authors: [6],
       },
       12: {
         id: 12,
@@ -30,6 +32,7 @@
         long: -23.234,
         author_id: 8,
         city_id: 64,
+        editing_authors: [],
       }
     },
     users: {
