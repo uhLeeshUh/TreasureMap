@@ -10,8 +10,8 @@
         long: -34.453,
         author_id: 6,
         city_id: 49,
-        images: [3, 6],
-        editing_authors: [],
+        image_ids: [3, 6],
+        editing_user_ids: [],
       },
       4: {
         id: 4,
@@ -22,8 +22,8 @@
         long: 48.234,
         author_id: 8,
         city_id: 16,
-        images: [5, 9],
-        editing_authors: [6],
+        image_ids: [5, 9],
+        editing_user_ids: [6],
       },
       12: {
         id: 12,
@@ -34,8 +34,8 @@
         long: -23.234,
         author_id: 8,
         city_id: 64,
-        images: [14],
-        editing_authors: [],
+        image_ids: [14],
+        editing_user_ids: [],
       }
     },
     users: {
