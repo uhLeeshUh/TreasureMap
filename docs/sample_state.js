@@ -120,7 +120,7 @@
   },
   errors: {
     login: ["Invalid login credentials"],
-    articleForm: ["Article headline cannot be blank"],
+    ArticleForm: ["Article headline cannot be blank"],
   },
   session: {
     id: 57
