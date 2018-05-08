@@ -1,0 +1,2 @@
+class ArticleEdit < ApplicationRecord
+end
