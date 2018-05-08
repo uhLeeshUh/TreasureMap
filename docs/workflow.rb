@@ -17,7 +17,7 @@
 
 # store
 
-react router and session components
+# react router and session components
 
 sessionForm components!
 

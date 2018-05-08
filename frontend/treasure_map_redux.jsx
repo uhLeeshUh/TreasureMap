@@ -10,11 +10,13 @@ import * as SessionAPIUtil from './util/session_api_util';
 import * as SessionActions from './actions/session_actions';
 
 const Root = ({ store }) => {
-  return (<Provider store={store}>
+  return (
+    <Provider store={store}>
     <HashRouter>
       <App />
     </HashRouter>
-  </Provider>);
+  </Provider>
+);
 };
 
 document.addEventListener('DOMContentLoaded', () => {
