@@ -4,12 +4,12 @@ import React from 'react';
 // import all other components!
 
 const App = () => {
+  // <NavBar /> //has no route, so it will render on every page. Put dropdowns and search here
+  // //routes, which will change the content in MainPage
+  // <Footer />
   return (
     <div>
       Hellow werld
-      // <NavBar /> //has no route, so it will render on every page. Put dropdowns and search here
-      // //routes, which will change the content in MainPage
-      // <Footer />
     </div>
   );
 };
