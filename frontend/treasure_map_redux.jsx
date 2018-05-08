@@ -6,6 +6,8 @@ import { HashRouter, Route } from 'react-router-dom';
 import configureStore from './store/store'; //need to create this file
 import App from './components/app'; //need to create this file
 
+import * as SessionAPIUtil from './util/session_api_util';
+
 const Root = ({ store }) => {
   return (<Provider store={store}>
     <HashRouter>
@@ -20,3 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   ReactDOM.render(<Root store={store} />, root); //need to make root.html file for StaticPagesController
 });
+
+
+window.login = SessionAPIUtil.login;
+window.logout = SessionAPIUtil.logout;
+window.signup = SessionAPIUtil.signup;

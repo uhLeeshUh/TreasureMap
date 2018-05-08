@@ -5,6 +5,28 @@
 -show users (yes)
 -login "Alicia" "helloworld" (yes)
 -logout (yes)
+
+create sessionAPIutil file
+session actions
+session reducer
+user reducer
+entities reducer
+session errors reducer
+errors reducer
+root reducer
+
+store
+
+react router and session components
+
+sessionForm components!
+
+session protected routes
+
+bootstrap current user
+
+update store with preloadedstate
+
 2. bootstrap my current user upon login
 3. create a redirect for signup/log in if a user is logged in
 4. find a way to nicely display signup/login errors
