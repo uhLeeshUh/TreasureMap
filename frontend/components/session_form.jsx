@@ -32,7 +32,7 @@ class SessionForm extends React.Component {
         <ul>
           <li>{this.props.alternateText}</li>
           <li>
-            <Link to="{this.props.linkedRoute}">{this.props.alternateLinkText}</Link>
+            <Link to={this.props.linkedRoute}>{this.props.alternateLinkText}</Link>
           </li>
         </ul>
         <form onSubmit={this.submit}>
