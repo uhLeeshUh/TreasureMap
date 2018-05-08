@@ -35,3 +35,8 @@ Form:
 1. create form component
 2. create form containers
 3. style forms!
+
+** I can leave tonight when there is a rendered sign up /login form and logout button on the site that works
+
+DAY 2:
+-Figure out photo upload on session form -- what type of field should this be?
