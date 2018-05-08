@@ -8,14 +8,14 @@
 
 # create sessionAPIutil file
 # session actions
-session reducer
-user reducer
-entities reducer
-session errors reducer
-errors reducer
-root reducer
+# session reducer
+# user reducer
+# entities reducer
+# session errors reducer
+# errors reducer
+# root reducer
 
-store
+# store
 
 react router and session components
 

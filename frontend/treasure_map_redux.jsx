@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //end of testing
   const root = document.getElementById('root');
 
-  ReactDOM.render(<Root store={store} />, root); //need to make root.html file for StaticPagesController
+  ReactDOM.render(<Root store={store} />, root);
 });
 
 // TESTING
