@@ -87,31 +87,26 @@
         id: 3,
         article_id: 1,
         image_url: "some_image",
-        primary_image: true,
       },
       5: {
         id: 5,
         article_id: 4,
         image_url: "some_image_two",
-        primary_image: true,
       },
       6: {
         id: 6,
         article_id: 1,
         image_url: "some_image_three",
-        primary_image: false,
       },
       9: {
         id: 9,
         article_id: 4,
         image_url: "some_image_four",
-        primary_image: false,
       },
       14: {
         id: 14,
         article_id: 12,
         image_url: "some_image_five",
-        primary_image: true,
       }
     }
   },
@@ -123,6 +118,6 @@
     ArticleForm: ["Article headline cannot be blank"],
   },
   session: {
-    id: 57
+    id: 6
   }
 }
