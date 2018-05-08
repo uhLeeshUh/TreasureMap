@@ -1,13 +1,13 @@
 # Tuesday May 8
 
 1. test that I can:
--sign up (yes)
--show users (yes)
--login "Alicia" "helloworld" (yes)
--logout (yes)
+# -sign up (yes)
+# -show users (yes)
+# -login "Alicia" "helloworld" (yes)
+# -logout (yes)
 
-create sessionAPIutil file
-session actions
+# create sessionAPIutil file
+# session actions
 session reducer
 user reducer
 entities reducer
