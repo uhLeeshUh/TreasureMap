@@ -40,3 +40,4 @@ Form:
 
 DAY 2:
 -Figure out photo upload on session form -- what type of field should this be?
+-How are my errors getting added to the Session slice of state and being rendered?

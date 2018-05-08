@@ -22,6 +22,7 @@ class SessionForm extends React.Component {
   submit(e){
     e.preventDefault();
     this.props.action(this.state);
+    // this.props.history.push('/');
   }
 
   render(){
@@ -35,9 +36,15 @@ class SessionForm extends React.Component {
           </li>
         </ul>
         <form onSubmit={this.submit}>
+          <label>Username
           <input type="text" value={this.state.username} onChange={this.handleChange("username")} />
+          </label>
+          <label>Password
           <input type="password" value={this.state.password} onChange={this.handleChange("password")} />
-          <input type="" value={this.state.image_url} onChange={this.handleChange("image)url")} />
+          </label>
+          <label>Avatar Image
+          <input type="text" value={this.state.image_url} onChange={this.handleChange("image)url")} />
+          </label>
           <button>{this.props.buttonText}</button>
         </form>
       </div>
