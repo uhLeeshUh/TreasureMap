@@ -30,7 +30,23 @@
 }
 
 // SessionDropdownContainer
-#user-icon {
-  padding-top: 20px;
+#user-icon, .user-icon {
+  padding-top: 23px;
+  padding-bottom: 23px;
   font-size: 1.5em;
+}
+
+.dropdown-div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.dropdown-ul {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 80px;
+  right: 30px;
 }

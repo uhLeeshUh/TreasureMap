@@ -1,6 +1,7 @@
 import React from 'react';
 import SessionDropdownItem from './session_dropdown_item';
 import { connect } from 'react-redux';
+import { logout } from '../actions/session_actions';
 
 class SessionDropdown extends React.Component {
   constructor(props){
@@ -16,20 +17,21 @@ class SessionDropdown extends React.Component {
   }
 
   render(){
-    let userHover;
-    if (this.state.hovered){
-      userHover = <SessionDropdownItem user={this.props.user} />;
-    }
-
     let icon;
     if (this.props.user){
-      icon = <img src="image_url" alt="user image"></img>;
-    } else {
-      icon = <i onMouseEnter={this.handleHover} onMouseLeave={this.handleHover} className="fas fa-user" id="user-icon"></i>;
+      icon = <img className="user-icon" src="image_url" alt="user image"></img>;
+      } else {
+        icon = <i className="fas fa-user" id="user-icon"></i>;
+        }
+
+    let userHover;
+    if (this.state.hovered){
     }
 
+    userHover = <SessionDropdownItem user={this.props.user} logout={this.props.logout}/>;
+
     return (
-    <div>
+    <div className="dropdown-div" onMouseEnter={this.handleHover} onMouseLeave={this.handleHover}>
       {icon}
       {userHover}
     </div>
@@ -44,8 +46,14 @@ const mapStateToProps = (state) => {
   };
 };
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logout: () => dispatch(logout())
+  };
+};
 
-export default connect(mapStateToProps)(SessionDropdown);
+
+export default connect(mapStateToProps, mapDispatchToProps)(SessionDropdown);
 
 
 
