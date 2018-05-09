@@ -5,11 +5,11 @@ import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state) => {
   return {
-    headerText: "Log In to Treasure Map",
+    headerText: "Sign In to Treasure Map",
     alternateText: "Not a member yet?",
     linkedRoute: "/signup",
     alternateLinkText: "SIGN UP",
-    buttonText: "LOG IN",
+    buttonText: "SIGN IN",
     errors: state.errors.session
   };
 };

@@ -34,33 +34,36 @@ class SessionForm extends React.Component {
     } else {
       avatar = '';
     }
+
     return (
-      <div>
-        <h1>{this.props.headerText}</h1>
-        <ul>
-          <li>{this.props.alternateText}</li>
-          <li>
-            <Link to={this.props.linkedRoute}>{this.props.alternateLinkText}</Link>
-          </li>
-          <li>
-            {this.props.errors}
-          </li>
-        </ul>
-        <form onSubmit={this.submit}>
+      <div >
+        <main className="session-form">
+          <h1 className="session-title">{this.props.headerText}</h1>
+          <ul>
+            <li>{this.props.alternateText}</li>
+            <li>
+              <Link to={this.props.linkedRoute}>{this.props.alternateLinkText}</Link>
+            </li>
+            <li>
+              {this.props.errors}
+            </li>
+          </ul>
+          <form onSubmit={this.submit}>
 
-          <label>Username
-          <input type="text" value={this.state.username} onChange={this.handleChange("username")} />
-          </label>
-          <br></br>
-          <label>Password
-          <input type="password" value={this.state.password} onChange={this.handleChange("password")} />
-          </label>
-          <br></br>
-          {avatar}
+            <label className="session-form">Username
+            <input className="username" type="text" value={this.state.username} onChange={this.handleChange("username")} />
+            </label>
+            <br></br>
+            <label className="session-form">Password
+            <input className="password" type="password" value={this.state.password} onChange={this.handleChange("password")} />
+            </label>
+            <br></br>
+            {avatar}
 
-          <button>{this.props.buttonText}</button>
+            <button className="session-button">{this.props.buttonText}</button>
 
-        </form>
+          </form>
+        </main>
       </div>
     );
   }
