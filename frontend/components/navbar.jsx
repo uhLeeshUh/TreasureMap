@@ -17,11 +17,13 @@ export const NavBar = (props) => {
   }
 
   return(
-    <section>
+    <section className="nav">
       <div className="logo">I'm here!</div>
       {map}
+      <div className="right-nav">
       {sessionDropdown}
       {search}
+    </div>
     </section>
   );
 };

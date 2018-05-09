@@ -1,6 +1,17 @@
+.nav {
+  display: block;
+  background-color: green;
+  display: flex;
+  justify-content: space-between;
+}
+
 .logo {
   display: block;
   background-color: red;
   height: 60px;
   width: 240px;
+}
+
+.right-nav {
+  display: flex;
 }

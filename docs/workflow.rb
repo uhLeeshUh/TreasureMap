@@ -39,11 +39,10 @@ DAY 2 WED:
 -Create NavBar component
 give it all the parts that it needs
 style it
-conditionally render for signup and signin
+# conditionally render for signup and signin
 
 -Style form to look as close to real as possible (11)
 -Figure out photo upload on session form -- what type of field should this be? (watch AWS videos) (12)
--Figure out UI slice of state for header (create the needed components) (til break)
 -Begin styling out navbar (end of day)
 -Create a working sign out dropdown (Abby suggested making this a local component state slice)
 
@@ -52,3 +51,6 @@ Arimo
 Archivo Narrow
 
 Questions:
+
+DAY 3: THURS
+-Figure out UI slice of state for header (create the needed components) (til break)
