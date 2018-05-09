@@ -5,10 +5,21 @@
 .session-title {
   font-size: 30px;
   font-family: 'Arimo', sans-serif;
+  margin: 0;
   // font-weight: 600;
 }
 
 .session-form {
   margin: auto;
   width: 470px;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  margin-top: 0;
+}
+
+.session-form li {
+  // margin: 0;
 }

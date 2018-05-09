@@ -6,9 +6,9 @@ import { withRouter } from 'react-router-dom';
 const mapStateToProps = (state) => {
   return {
     headerText: "Sign In to Treasure Map",
-    alternateText: "Not a member yet?",
+    alternateText: "NOT A MEMBER?",
     linkedRoute: "/signup",
-    alternateLinkText: "SIGN UP",
+    alternateLinkText: "JOIN",
     buttonText: "SIGN IN",
     errors: state.errors.session
   };
