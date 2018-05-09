@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
+import { AuthRoute } from '../util/route_util';
 // import NavBar from ''
 // import Footer from ''
 // import all other components!
@@ -13,8 +14,8 @@ const App = () => {
   return (
     <div>
       Hellow werld
-      <Route path="/signup" component={SignupFormContainer} />
-      <Route path="/login" component={LoginFormContainer} />
+      <AuthRoute path="/signup" exact component={SignupFormContainer} />
+      <AuthRoute path="/login" exact component={LoginFormContainer} />
     </div>
   );
 };

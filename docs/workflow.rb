@@ -23,16 +23,11 @@
 
 session protected routes
 
-bootstrap current user
+# bootstrap current user
 
-update store with preloadedstate
+# update store with preloadedstate
 
 conditionally render the avatar input field
-
-Form:
-1. create form component
-2. create form containers
-3. style forms!
 
 ** I can leave tonight when there is a rendered sign up /login form and logout button on the site that works
 
