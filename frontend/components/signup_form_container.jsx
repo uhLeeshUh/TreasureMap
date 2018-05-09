@@ -8,7 +8,7 @@ const mapStateToProps = (state) => {
     headerText: "Sign Up for Treasure Map",
     alternateText: "Already a member?",
     linkedRoute: "/login",
-    alternateLinkText: "SIGN IN",
+    alternateLinkText: "LOG IN",
     buttonText: "SIGN UP",
     errors: state.errors.session
   };

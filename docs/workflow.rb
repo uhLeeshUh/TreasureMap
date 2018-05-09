@@ -1,6 +1,6 @@
 # Tuesday May 8
 
-1. test that I can:
+# 1. test that I can:
 # -sign up (yes)
 # -show users (yes)
 # -login "Alicia" "helloworld" (yes)
@@ -19,7 +19,7 @@
 
 # react router and session components
 
-sessionForm components!
+# sessionForm components!
 
 session protected routes
 
@@ -27,9 +27,7 @@ bootstrap current user
 
 update store with preloadedstate
 
-2. bootstrap my current user upon login
-3. create a redirect for signup/log in if a user is logged in
-4. find a way to nicely display signup/login errors
+conditionally render the avatar input field
 
 Form:
 1. create form component
@@ -40,4 +38,6 @@ Form:
 
 DAY 2:
 -Figure out photo upload on session form -- what type of field should this be?
--How are my errors getting added to the Session slice of state and being rendered?
+# -How are my errors getting added to the Session slice of state and being rendered?
+-Style form to look as close to real as possible
+-Create and style navbar and footer for homepage

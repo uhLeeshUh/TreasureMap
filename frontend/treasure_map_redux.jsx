@@ -20,8 +20,20 @@ const Root = ({ store }) => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  const store = configureStore(); //potentially give this preloadedState with frontend auth
-  //for testing
+  let store;
+  if (window.currentUser){
+    const preLoadedState = {
+      entities: {
+        users: { [window.currentUser.id]: window.currentUser}
+      },
+      session: { id: window.currentUser.id}
+    };
+    store = configureStore(preLoadedState);
+    delete window.currentUser;
+  } else {
+    store = configureStore();
+  }
+
   window.dispatch = store.dispatch;
   window.getState = store.getState;
   //end of testing

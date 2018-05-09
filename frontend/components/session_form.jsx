@@ -34,18 +34,26 @@ class SessionForm extends React.Component {
           <li>
             <Link to={this.props.linkedRoute}>{this.props.alternateLinkText}</Link>
           </li>
+          <li>
+            {this.props.errors}
+          </li>
         </ul>
         <form onSubmit={this.submit}>
+
           <label>Username
           <input type="text" value={this.state.username} onChange={this.handleChange("username")} />
           </label>
+          <br></br>
           <label>Password
           <input type="password" value={this.state.password} onChange={this.handleChange("password")} />
           </label>
+          <br></br>
           <label>Avatar Image
-          <input type="text" value={this.state.image_url} onChange={this.handleChange("image)url")} />
+          <input type="text" value={this.state.image_url} onChange={this.handleChange("image_url")} />
           </label>
+
           <button>{this.props.buttonText}</button>
+
         </form>
       </div>
     );
