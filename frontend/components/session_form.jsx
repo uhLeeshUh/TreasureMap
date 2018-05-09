@@ -26,6 +26,14 @@ class SessionForm extends React.Component {
   }
 
   render(){
+    let avatar;
+    if (this.props.buttonText === "SIGN UP"){
+      avatar = <label>Avatar Image
+      <input type="text" value={this.state.image_url} onChange={this.handleChange("image_url")} />
+      </label>;
+    } else {
+      avatar = '';
+    }
     return (
       <div>
         <h1>{this.props.headerText}</h1>
@@ -48,9 +56,7 @@ class SessionForm extends React.Component {
           <input type="password" value={this.state.password} onChange={this.handleChange("password")} />
           </label>
           <br></br>
-          <label>Avatar Image
-          <input type="text" value={this.state.image_url} onChange={this.handleChange("image_url")} />
-          </label>
+          {avatar}
 
           <button>{this.props.buttonText}</button>
 
