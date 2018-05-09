@@ -2,24 +2,38 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.session {
+  height: 100vh;
+}
+
 .session-title {
   font-size: 30px;
   font-family: 'Arimo', sans-serif;
   margin: 0;
-  // font-weight: 600;
 }
 
 .session-form {
-  margin: auto;
-  width: 470px;
+  margin: 0 auto;
+  width: 345px;
+  font-family: 'Archivo Narrow', sans-serif;
+  font-weight: 500;
+  margin-top: 100px;
 }
 
-ul {
-  list-style: none;
-  display: flex;
-  margin-top: 0;
+.session-form .altText {
+  letter-spacing: 0.0625em
 }
 
-.session-form li {
-  // margin: 0;
+.session-form .session-label {
+  letter-spacing: 0.0625em
+}
+
+.session-form .session-button {
+  font-family: 'Archivo Narrow', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.0625em
+}
+
+.altText .link{
+  margin: 5px;
 }

@@ -43,6 +43,6 @@ DAY 2 WED:
 
 Font brainstorm:
 Arimo
-
+Archivo Narrow
 
 Questions:
