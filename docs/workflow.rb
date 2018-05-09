@@ -54,3 +54,7 @@ Questions:
 
 DAY 3: THURS
 -Figure out UI slice of state for header (create the needed components) (til break)
+
+
+revisit this for the search icon:
+https://fontawesome.com/icons/search?style=solid

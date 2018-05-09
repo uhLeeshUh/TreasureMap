@@ -12,8 +12,8 @@ export const NavBar = (props) => {
 
   if (!hiddenPaths.includes(props.location.pathname)) {
     map = <MapContainer />;
-    sessionDropdown = <SessionDropdownContainer />;
-    search = <SearchContainer />;
+    sessionDropdown = <SessionDropdownContainer class="sessionDropdown"/>;
+    search = <SearchContainer class="search"/>;
   }
 
   return(
@@ -21,8 +21,10 @@ export const NavBar = (props) => {
       <div className="logo">I'm here!</div>
       {map}
       <div className="right-nav">
-      {sessionDropdown}
-      {search}
+        <ul>
+          <li>{sessionDropdown}</li>
+          <li>{search}</li>
+        </ul>
     </div>
     </section>
   );

@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default () => {
-  return "hello";
+  return "This is a session dropdown item";
 };

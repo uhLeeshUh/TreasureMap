@@ -8,6 +8,11 @@ class SessionDropdown extends React.Component {
     this.state = {
       hovered: false
     };
+    this.handleHover = this.handleHover.bind(this);
+  }
+
+  handleHover(e){
+    this.setState({hovered: (!this.state.hovered)});
   }
 
   render(){
@@ -20,7 +25,7 @@ class SessionDropdown extends React.Component {
     if (this.props.user){
       icon = <img src="image_url" alt="user image"></img>;
     } else {
-      icon = <i className="fas fa-user"></i>;
+      icon = <i onMouseEnter={this.handleHover} onMouseLeave={this.handleHover} className="fas fa-user" id="user-icon"></i>;
     }
 
     return (

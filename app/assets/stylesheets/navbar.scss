@@ -1,17 +1,36 @@
 .nav {
   display: block;
-  background-color: green;
+  height: 70px;
+  background-color: #ffffff;
   display: flex;
   justify-content: space-between;
+  border: 1px solid #e7e7e7;
 }
 
 .logo {
   display: block;
   background-color: red;
-  height: 60px;
+  height: 70px;
   width: 240px;
 }
 
-.right-nav {
+.right-nav ul {
   display: flex;
+}
+
+.right-nav li {
+  padding: 0 20px;
+  list-style: none;
+  border-left: 1px solid #e7e7e7;
+  height: 70px;
+}
+
+.right-nav ul {
+  margin: 0;
+}
+
+// SessionDropdownContainer
+#user-icon {
+  padding-top: 20px;
+  font-size: 1.5em;
 }
