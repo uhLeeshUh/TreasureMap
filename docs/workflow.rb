@@ -35,6 +35,12 @@ DAY 2 WED:
 # -How are my errors getting added to the Session slice of state and being rendered?
 
 # -Figure out how to push to heroku
+
+-Create NavBar component
+give it all the parts that it needs
+style it
+conditionally render for signup and signin
+
 -Style form to look as close to real as possible (11)
 -Figure out photo upload on session form -- what type of field should this be? (watch AWS videos) (12)
 -Figure out UI slice of state for header (create the needed components) (til break)

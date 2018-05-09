@@ -10,6 +10,7 @@ import App from './components/app'; //need to create this file
 import * as SessionAPIUtil from './util/session_api_util';
 import * as SessionActions from './actions/session_actions';
 
+
 const Root = ({ store }) => {
   return (
     <Provider store={store}>

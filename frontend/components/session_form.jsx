@@ -7,7 +7,7 @@ class SessionForm extends React.Component {
     this.state = {
       username: "",
       password: "",
-      image_url: ""
+      image_url: "Optional"
     };
 
     this.submit = this.submit.bind(this);
@@ -21,15 +21,16 @@ class SessionForm extends React.Component {
 
   submit(e){
     e.preventDefault();
-    this.props.action(this.state);
-    // this.props.history.push('/');
+    this.props.action(this.state).then(() => {
+      this.props.history.push('/');
+    });
   }
 
   render(){
     let avatar;
     if (this.props.buttonText === "SIGN UP"){
-      avatar = <label>Avatar Image
-      <input type="text" value={this.state.image_url} onChange={this.handleChange("image_url")} />
+      avatar = <label>PROFILE IMAGE
+      <input className="session-label" type="text" value={this.state.image_url} onChange={this.handleChange("image_url")}></input>
       </label>;
     } else {
       avatar = '';
@@ -46,13 +47,13 @@ class SessionForm extends React.Component {
           </div>
           <form onSubmit={this.submit} className="form-body">
             <label className="session-label">USERNAME
-            <input className="username" type="text" value={this.state.username} onChange={this.handleChange("username")} />
+              <input className="username" type="text" value={this.state.username} onChange={this.handleChange("username")} />
             </label>
 
             <label className="session-label">PASSWORD
-            <input className="password" type="password" value={this.state.password} onChange={this.handleChange("password")} />
+              <input className="password" type="password" value={this.state.password} onChange={this.handleChange("password")} />
             </label>
-          
+
             {avatar}
             <button className="session-button">{this.props.buttonText}</button>
           </form>
@@ -60,17 +61,6 @@ class SessionForm extends React.Component {
       </main>
     );
   }
-  // how do I handle the avatar input field?
-
-
-
-//headerText
-//alternateText
-//container should wrap this with router
-// linkedRoute
-// alternateLinkText
-//buttonText
-//action
 
 }
 

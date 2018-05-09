@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import { AuthRoute } from '../util/route_util';
-// import NavBar from ''
+import { NavBar } from './navbar';
 // import Footer from ''
 // import all other components!
 import SignupFormContainer from './signup_form_container';
@@ -12,8 +12,8 @@ const App = () => {
   // //routes, which will change the content in MainPage
   // <Footer />
   return (
-    <div>
-      Hellow werld
+    <div className="root-container">
+      <Route path="/" component={NavBar} />
       <AuthRoute path="/signup" exact component={SignupFormContainer} />
       <AuthRoute path="/signin" exact component={LoginFormContainer} />
     </div>

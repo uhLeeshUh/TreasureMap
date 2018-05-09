@@ -4,7 +4,6 @@
 
 .session {
   height: 100vh;
-  background-image: image_url('treasure_map_background.jpg');
 }
 
 .session-title {
@@ -15,7 +14,7 @@
 
 .session-form {
   margin: 0 auto;
-  width: 345px;
+  width: 370px;
   font-family: 'Archivo Narrow', sans-serif;
   font-weight: 500;
   margin-top: 100px;
@@ -26,19 +25,33 @@
 }
 
 .session-form .session-label {
-  letter-spacing: 0.0625em
+  letter-spacing: 0.08em
 }
 
 .session-form .session-button {
   font-family: 'Archivo Narrow', sans-serif;
   font-weight: 500;
-  letter-spacing: 0.0625em
+  letter-spacing: 0.08em;
+  font-size: 15px;
+  color: white;
+  background-color: #d36a55;
+  height: 50px;
+  width: 377px;
 }
 
 .altText .link{
   margin: 5px;
 }
 
-// .form-body .session-label{
-//   margin: 10px 0;
-// }
+label, input {
+  display: block;
+}
+
+.form-body input {
+  width: 370px;
+  height: 40px;
+}
+
+.form-body .session-label{
+  margin-bottom: 10px;
+}
