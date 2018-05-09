@@ -4,6 +4,7 @@
 
 .session {
   height: 100vh;
+  background-image: image_url('treasure_map_background.jpg');
 }
 
 .session-title {
@@ -37,3 +38,7 @@
 .altText .link{
   margin: 5px;
 }
+
+// .form-body .session-label{
+//   margin: 10px 0;
+// }
