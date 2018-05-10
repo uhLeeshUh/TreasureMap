@@ -59,12 +59,3 @@ export const logout = () => {
     );
   };
 };
-//
-// export const getUser = (user) => {
-//   return (dispatch) => {
-//     return SessionAPIUtil.getUser(user).then(
-//       (user) => {dispatch(logoutCurrentUser());},
-//       (errors) => {dispatch(receiveErrors(errors));}
-//     );
-//   };
-// };
