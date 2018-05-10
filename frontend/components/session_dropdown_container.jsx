@@ -1,7 +1,7 @@
 import React from 'react';
 import SessionDropdownItem from './session_dropdown_item';
 import { connect } from 'react-redux';
-import { logout } from '../actions/session_actions';
+import { logout, getUser } from '../actions/session_actions';
 
 class SessionDropdown extends React.Component {
   constructor(props){
@@ -10,16 +10,22 @@ class SessionDropdown extends React.Component {
     //   hovered: false
     // };
     // this.handleHover = this.handleHover.bind(this);
+    // this.retrieveImage = this.retrieveImage.bind(this);
   }
 
   // handleHover(e){
   //   this.setState({hovered: (!this.state.hovered)});
   // }
 
+  // retrieveImage(){
+  //   this.props.retrieveImage(user);
+  // }
+
   render(){
     let icon;
+    // debugger
     if (this.props.user){
-      icon = <img className="user-icon" src="" alt="user image"></img>;
+      icon = <img className="user-icon" src={this.props.user.image_url} alt="user image"></img>;
       } else {
         icon = <i className="fas fa-user" id="user-icon"></i>;
         }
@@ -42,7 +48,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    logout: () => dispatch(logout())
+    logout: () => dispatch(logout()),
+    retrieveImage: (user) => dispatch(getUser(user))
   };
 };
 

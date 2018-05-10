@@ -76,13 +76,13 @@ Questions:
 
 (left off https://github.com/appacademy/curriculum/tree/master/full-stack-project/resources/cdns/file_upload_demo)
 DAY 3: THURS
--figure out dropdown with styling
--better render errors
+# -figure out dropdown with styling
+# -better render errors
 -figure out image upload
 
 LUNCH
 
--ask about dropdown/solve by 10:30
+# -ask about dropdown/solve by 10:30
 -deal with Articles from DB level up
 -Article create/edit page (with styling)
 -make show page (with styling)

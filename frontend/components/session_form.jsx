@@ -7,12 +7,15 @@ class SessionForm extends React.Component {
     this.state = {
       username: "",
       password: "",
-      image_url: ""
+      imageFile: null,
+      imageUrl: null
+
     };
 
     this.submit = this.submit.bind(this);
     this.signinDemoUser = this.signinDemoUser.bind(this);
     this.clearErrors = this.clearErrors.bind(this);
+    this.updateFile = this.updateFile.bind(this);
   }
 
   handleChange(field){
@@ -23,7 +26,11 @@ class SessionForm extends React.Component {
 
   submit(e){
     e.preventDefault();
-    this.props.action(this.state).then(() => {
+    var formData = new FormData();
+    formData.append("user[username]", this.state.username);
+    formData.append("user[password]", this.state.password);
+    formData.append("user[image]", this.state.imageFile);
+    this.props.action(formData).then(() => {
       this.props.history.push('/');
     });
   }
@@ -36,12 +43,24 @@ class SessionForm extends React.Component {
     this.props.clearErrors();
   }
 
+  updateFile(e){
+    const file = e.target.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = function () {
+      this.setState({ imageFile: file, imageUrl: fileReader.result });
+    }.bind(this);
+
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
+  }
+
   render(){
     let avatar;
     if (this.props.buttonText === "SIGN UP"){
       avatar =
-      <label className="session-label">PROFILE IMAGE
-        <input type="text" value={this.state.image_url} onChange={this.handleChange("image_url")}></input>
+      <label className="session-label">ADD OPTIONAL PROFILE IMAGE
+        <input className="file-input" type="file" onChange={this.updateFile}></input>
       </label>;
     } else {
       avatar = '';
@@ -72,7 +91,7 @@ class SessionForm extends React.Component {
             {avatar}
             <button className="session-button">{this.props.buttonText}</button>
           </form>
-          <button className="demo-button" onClick={this.signinDemoUser}>Explore as a demo user</button>
+          <button className="demo-button" onClick={this.signinDemoUser}>EXPLORE AS DEMO USER</button>
         </div>
       </main>
     );
