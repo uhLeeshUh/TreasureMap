@@ -4,7 +4,8 @@
   background-color: #ffffff;
   display: flex;
   justify-content: space-between;
-  border: 1px solid #e7e7e7;
+  border: 1px solid #d4d4d0;
+  // #e7e7e7;
 }
 
 .logo {
@@ -20,7 +21,8 @@
 .right-nav-search, .dropdown-div {
   padding: 0 20px;
   list-style: none;
-  border-left: 1px solid #e7e7e7;
+  border-left: 1px solid #d4d4d0;
+  // #e7e7e7;
   height: 70px;
 }
 
@@ -41,10 +43,19 @@
   flex-direction: column;
 }
 
-.dropdown-ul {
-  display: flex;
+ul.dropdown-ul {
+  // display: none;
   flex-direction: column;
   position: absolute;
   top: 80px;
-  right: -35px;
+  right: 30px;
+  // may need to change these dimensions when we get user image to work
+}
+
+.dropdown-div:hover > ul{
+  display: flex;
+}
+
+div.dropdown-div, div.right-nav-search {
+  width: 40px;
 }

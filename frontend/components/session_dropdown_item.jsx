@@ -15,19 +15,22 @@ class SessionDropdownItem extends React.Component {
   render(){
     let dropdownOne;
     let dropdownTwo;
+    let dropdownThree;
 
   if (this.props.user) {
-    dropdownOne = `Welcome, ${this.props.user.username}`;
-    dropdownTwo = <button onClick={this.submit} class="session-dropdown-button">SIGN OUT</button>;
+    dropdownOne = "Welcome,";
+    dropdownTwo = `${this.props.user.username}!`;
+    dropdownThree = <button onClick={this.submit} className="session-dropdown-button">SIGN OUT</button>;
   } else {
     dropdownOne = <Link to="/signin">SIGN IN</Link>;
-    dropdownTwo = <Link to="/signup">JOIN</Link>;
+    dropdownThree = <Link to="/signup">JOIN</Link>;
   }
 
   return (
     <ul className="dropdown-ul" onMouseEnter={this.props.handleHover} onMouseLeave={this.props.handleHover}>
       <li>{dropdownOne}</li>
       <li>{dropdownTwo}</li>
+      <li>{dropdownThree}</li>
     </ul>
   );
 

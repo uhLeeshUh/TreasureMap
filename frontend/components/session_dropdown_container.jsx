@@ -6,34 +6,28 @@ import { logout } from '../actions/session_actions';
 class SessionDropdown extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      hovered: false
-    };
-    this.handleHover = this.handleHover.bind(this);
+    // this.state = {
+    //   hovered: false
+    // };
+    // this.handleHover = this.handleHover.bind(this);
   }
 
-  handleHover(e){
-    this.setState({hovered: (!this.state.hovered)});
-  }
+  // handleHover(e){
+  //   this.setState({hovered: (!this.state.hovered)});
+  // }
 
   render(){
     let icon;
     if (this.props.user){
-      icon = <img className="user-icon" src="image_url" alt="user image"></img>;
+      icon = <img className="user-icon" src="" alt="user image"></img>;
       } else {
         icon = <i className="fas fa-user" id="user-icon"></i>;
         }
 
-    let userHover;
-    if (this.state.hovered){
-      userHover = <SessionDropdownItem user={this.props.user} logout={this.props.logout} handleHover={this.handleHover}/>;
-    }
-
-
     return (
-    <div className="dropdown-div" onMouseEnter={this.handleHover} onMouseLeave={this.handleHover}>
+    <div className="dropdown-div">
       {icon}
-      {userHover}
+      <SessionDropdownItem user={this.props.user} logout={this.props.logout}/>
     </div>
     );
   }
@@ -54,9 +48,3 @@ const mapDispatchToProps = (dispatch) => {
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(SessionDropdown);
-
-
-
-//item can deal with conditionally rendering links
-
-//give SessionDropdown user prop, which it gives to item
