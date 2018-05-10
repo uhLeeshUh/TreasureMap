@@ -78,7 +78,7 @@ Questions:
 DAY 3: THURS
 # -figure out dropdown with styling
 # -better render errors
--figure out image upload
+# -figure out image upload
 
 LUNCH
 

@@ -9,10 +9,13 @@ export const signup = (user) => {
 };
 
 export const login = (user) => {
+  // debugger
   return $.ajax({
     method: 'post',
     url: 'api/session',
-    data: { user }
+    contentType: false,
+    processData: false,
+    data: user
   });
 };
 
