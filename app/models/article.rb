@@ -4,7 +4,7 @@ class Article < ApplicationRecord
 
   belongs_to :author,
   class_name: :User,
-  foreign_key: :user_id
+  foreign_key: :author_id
 
   has_many :edits,
     class_name: :ArticleEdit,
@@ -14,9 +14,9 @@ class Article < ApplicationRecord
     through: :edits,
     source: :editor
 
-  belongs_to :city,
-    class_name: :City,
-    foreign_key: :city_id
+  # belongs_to :city,
+  #   class_name: :City,
+  #   foreign_key: :city_id
 
 
 end

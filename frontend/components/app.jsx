@@ -6,6 +6,7 @@ import { NavBar } from './navbar';
 // import all other components!
 import SignupFormContainer from './signup_form_container';
 import LoginFormContainer from './login_form_container';
+import ArticleContainer from './article_container';
 
 const App = () => {
   // <NavBar /> //has no route, so it will render on every page. Put dropdowns and search here
@@ -16,6 +17,7 @@ const App = () => {
       <Route path="/" component={NavBar} />
       <AuthRoute path="/signup" exact component={SignupFormContainer} />
       <AuthRoute path="/signin" exact component={LoginFormContainer} />
+      <Route path="/articles/:articleId" component={ArticleContainer}/>
     </div>
   );
 };
