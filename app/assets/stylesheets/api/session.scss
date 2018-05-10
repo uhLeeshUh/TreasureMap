@@ -24,8 +24,8 @@
   letter-spacing: 0.0625em
 }
 
-.session-form .session-label {
-  letter-spacing: 0.08em
+.session-label {
+  letter-spacing: 0.08em;
 }
 
 .session-form .session-button {
@@ -37,6 +37,7 @@
   background-color: #d36a55;
   height: 50px;
   width: 377px;
+  margin-bottom: 10px;
 }
 
 .altText .link{
@@ -54,4 +55,12 @@ label, input {
 
 .form-body .session-label{
   margin-bottom: 10px;
+}
+
+.demo-button {
+  padding: 5px 10px;
+  // background-color: #1b614f;
+  // background-color: #8fcdc1;
+  background-color: #0f9a76;
+  color: #ffffff;
 }

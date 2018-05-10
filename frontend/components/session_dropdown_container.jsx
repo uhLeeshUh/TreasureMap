@@ -26,9 +26,9 @@ class SessionDropdown extends React.Component {
 
     let userHover;
     if (this.state.hovered){
+      userHover = <SessionDropdownItem user={this.props.user} logout={this.props.logout} handleHover={this.handleHover}/>;
     }
 
-    userHover = <SessionDropdownItem user={this.props.user} logout={this.props.logout}/>;
 
     return (
     <div className="dropdown-div" onMouseEnter={this.handleHover} onMouseLeave={this.handleHover}>

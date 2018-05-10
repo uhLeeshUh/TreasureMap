@@ -1,5 +1,8 @@
 import React from 'react';
 
 export default () => {
-  return "hello";
+  return (
+    <div className="right-nav-search">
+    </div>
+  )
 };

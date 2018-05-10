@@ -2,5 +2,5 @@ import React from 'react';
 
 
 export default () => {
-  return "hello";
+  return "I'm the map!";
 };

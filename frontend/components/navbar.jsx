@@ -18,7 +18,7 @@ export const NavBar = (props) => {
 
   return(
     <section className="nav">
-      <div className="logo">I'm here!</div>
+      <div className="logo">I'm the logo!</div>
       {map}
       <div className="right-nav">
         <ul>

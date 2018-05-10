@@ -25,7 +25,7 @@ class SessionDropdownItem extends React.Component {
   }
 
   return (
-    <ul className="dropdown-ul">
+    <ul className="dropdown-ul" onMouseEnter={this.props.handleHover} onMouseLeave={this.props.handleHover}>
       <li>{dropdownOne}</li>
       <li>{dropdownTwo}</li>
     </ul>

@@ -11,6 +11,7 @@ class SessionForm extends React.Component {
     };
 
     this.submit = this.submit.bind(this);
+    this.signinDemoUser = this.signinDemoUser.bind(this);
   }
 
   handleChange(field){
@@ -26,11 +27,16 @@ class SessionForm extends React.Component {
     });
   }
 
+  signinDemoUser(){
+    this.props.login({username: "DemoUser", password: "password"});
+  }
+
   render(){
     let avatar;
     if (this.props.buttonText === "SIGN UP"){
-      avatar = <label>PROFILE IMAGE
-      <input className="session-label" type="text" value={this.state.image_url} onChange={this.handleChange("image_url")}></input>
+      avatar =
+      <label className="session-label">PROFILE IMAGE
+        <input type="text" value={this.state.image_url} onChange={this.handleChange("image_url")}></input>
       </label>;
     } else {
       avatar = '';
@@ -57,6 +63,7 @@ class SessionForm extends React.Component {
             {avatar}
             <button className="session-button">{this.props.buttonText}</button>
           </form>
+          <button className="demo-button" onClick={this.signinDemoUser}>Explore as a demo user</button>
         </div>
       </main>
     );
