@@ -12,6 +12,7 @@ class SessionForm extends React.Component {
 
     this.submit = this.submit.bind(this);
     this.signinDemoUser = this.signinDemoUser.bind(this);
+    this.clearErrors = this.clearErrors.bind(this);
   }
 
   handleChange(field){
@@ -31,6 +32,10 @@ class SessionForm extends React.Component {
     this.props.login({username: "DemoUser", password: "password"});
   }
 
+  clearErrors(){
+    this.props.clearErrors();
+  }
+
   render(){
     let avatar;
     if (this.props.buttonText === "SIGN UP"){
@@ -42,14 +47,18 @@ class SessionForm extends React.Component {
       avatar = '';
     }
 
+    let errors = this.props.errors.map((error) => {
+      return <li>{error}</li>;
+    });
+
     return (
       <main className="session">
         <div className="session-form">
           <h1 className="session-title">{this.props.headerText}</h1>
           <div className="altText">
             {this.props.alternateText}
-              <Link className="link" to={this.props.linkedRoute}>{this.props.alternateLinkText}</Link>
-            <p>{this.props.errors}</p>
+              <Link onClick={this.clearErrors} className="link" to={this.props.linkedRoute}>{this.props.alternateLinkText}</Link>
+            <p>{errors}</p>
           </div>
           <form onSubmit={this.submit} className="form-body">
             <label className="session-label">USERNAME
