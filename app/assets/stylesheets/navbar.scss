@@ -19,7 +19,6 @@
 }
 
 .right-nav-search, .dropdown-div {
-  padding: 0 20px;
   list-style: none;
   border-left: 1px solid #d4d4d0;
   // #e7e7e7;
@@ -35,6 +34,7 @@
   padding-top: 23px;
   padding-bottom: 23px;
   font-size: 1.5em;
+  margin: auto;
 }
 
 .dropdown-div {
@@ -52,6 +52,8 @@ ul.dropdown-ul {
   text-align: center;
   top: 80px;
   right: 30px;
+  width: 80px;
+  box-sizing: border-box;
   // may need to change these dimensions when we get user image to work
 }
 
@@ -60,5 +62,6 @@ ul.dropdown-ul {
 }
 
 div.dropdown-div, div.right-nav-search {
-  width: 40px;
+  width: 80px;
+  box-sizing: border-box;
 }
