@@ -2,7 +2,6 @@ class Article < ApplicationRecord
 
   validates :name, :description, :body, :lat, :lng, :author_id, :city_id, presence: true
 
-
   belongs_to :author,
   class_name: :User,
   foreign_key: :user_id
