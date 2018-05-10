@@ -3,6 +3,10 @@ Arimo
 Archivo Narrow
 
 fontAwesome
+revisit this for the search icon:
+https://fontawesome.com/icons/search?style=solid
+
+https://medium.com/adventures-in-code/seed-dump-ruby-gem-b74cc8bdfdc
 
 
 # Tuesday May 8
@@ -50,13 +54,13 @@ DAY 2 WED:
 
 # -Style form to look as close to real as possible (11)
 -Figure out photo upload on session form -- what type of field should this be? (watch AWS videos) (12)
--Begin styling out navbar (end of day)
--Create a working sign out dropdown (Abby suggested making this a local component state slice)
+# -Begin styling out navbar (end of day)
+# -Create a working sign out dropdown (Abby suggested making this a local component state slice)
 
 
 Before I leave tonight:
 # -create a demo user login
--remove lines on signup/signin lis on navbar
+# -remove lines on signup/signin lis on navbar
 # -change text for logo and map to be more semantic
 -figure out the AWS image stuff and add that to form
 -figure out how to deal with dropdown
@@ -70,6 +74,7 @@ Questions:
 
 (left off https://github.com/appacademy/curriculum/tree/master/full-stack-project/resources/cdns/file_upload_demo)
 DAY 3: THURS
+-ask about dropdown/solve by 10:30
 -deal with Articles from DB level up
 -Article create/edit page (with styling)
 -make show page (with styling)
@@ -78,7 +83,3 @@ DAY 3: THURS
 
 
 -Figure out UI slice of state for header (create the needed components) (til break)
-
-
-revisit this for the search icon:
-https://fontawesome.com/icons/search?style=solid
