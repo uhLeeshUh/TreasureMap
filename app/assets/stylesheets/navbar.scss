@@ -32,9 +32,13 @@
 // SessionDropdownContainer
 #user-icon, .user-icon {
   padding-top: 23px;
-  padding-bottom: 23px;
+  padding-bottom: 50px;
   font-size: 1.5em;
   margin: auto;
+}
+
+#user-icon:hover {
+  color: #d36a55;
 }
 
 .dropdown-div {
@@ -44,24 +48,54 @@
 }
 
 ul.dropdown-ul {
-  // display: none;
+  display: none;
+  z-index: 1;
   flex-direction: column;
   position: absolute;
-  // align-items: center;
-  // margin: auto;
   text-align: center;
   top: 80px;
-  right: 30px;
+  // right: 30px;
   width: 80px;
   box-sizing: border-box;
   // may need to change these dimensions when we get user image to work
 }
 
-.dropdown-div:hover > ul{
-  display: flex;
+.dropdown-div:hover > ul.dropdown-ul{
+  display: block;
 }
+
+ul.dropdown-ul li {
+  padding: 15px 0;
+}
+
+ul.dropdown-ul li a {
+  text-decoration: none;
+  color: #5d4a84;
+}
+
+ul.dropdown-ul li {
+  font-family: 'Archivo Narrow', sans-serif;
+  letter-spacing: 0.0625em;
+  font-size: 15px;
+}
+
+ul.dropdown-ul li p:first-child {
+  margin-bottom: 2px;
+}
+
 
 div.dropdown-div, div.right-nav-search {
   width: 80px;
   box-sizing: border-box;
+}
+
+.session-dropdown-button {
+  font-family: 'Archivo Narrow', sans-serif;
+  letter-spacing: 0.0625em;
+  font-size: 15px;
+  border: none;
+}
+
+.session-dropdown-button:hover, .dropdown-enter-link:hover {
+  color: #ccb48c;
 }

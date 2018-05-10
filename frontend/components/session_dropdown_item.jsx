@@ -22,15 +22,16 @@ class SessionDropdownItem extends React.Component {
     dropdownTwo = `${this.props.user.username}!`;
     dropdownThree = <button onClick={this.submit} className="session-dropdown-button">SIGN OUT</button>;
   } else {
-    dropdownOne = <Link to="/signin">SIGN IN</Link>;
-    dropdownThree = <Link to="/signup">JOIN</Link>;
+    dropdownOne = <Link className="dropdown-enter-link" to="/signin">SIGN IN</Link>;
+    dropdownThree = <Link className="dropdown-enter-link" to="/signup">JOIN</Link>;
   }
 
   return (
     <ul className="dropdown-ul">
-      <li>{dropdownOne}</li>
-      <li>{dropdownTwo}</li>
-      <br></br>
+      <li>
+        <p>{dropdownOne}</p>
+        <p>{dropdownTwo}</p>
+      </li>
       <li>{dropdownThree}</li>
     </ul>
   );
