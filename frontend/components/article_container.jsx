@@ -5,19 +5,31 @@ import { Link } from 'react-router-dom';
 
 class Article extends React.Component {
   componentDidMount(){
+    debugger
     this.props.fetchArticle(this.props.match.params.articleId);
   }
 
   render(){
     //expect this.props.images to be an array of image objects
+
+    // var style = {
+    //   color: 'white',
+    //   fontSize: 200
+    // };
+    //
+    // style={{"zIndex":idx}}
+
     const images = this.props.images.map(image => {
       return (<img className="article-image" key={image.id} src={image.image_url}></img>);
     });
 
-    const articleEditors = this.props.editors.map(editor => {
+    const articleEditors = this.props.editors.map((editor, idx) => {
+      let zIndexStyle = {
+        zIndex: idx
+      };
       return (
-        <li key={editor.id}>
-          <img className="article-editor-image" src={editor.image_url} alt="editor image"></img>
+        <li className="article-editor-info" key={editor.id}>
+          <img className="article-editor-image" src={editor.image_url} alt="editor image" style={{zIndex:idx}}></img>
           <p className="article-editor-name">{editor.username}</p>
         </li>
       );
@@ -73,16 +85,26 @@ class Article extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   const defaultArticle = {
-        id: 4,
-        name: "The Blue Flash",
-        description: "Legendary Indiana backyard rollercoaster",
-        body: "One Indiana man's dream to build his own rollercoaster...",
-        lat: 65.234,
-        long: 48.234,
-        author_id: 1,
-        // city_id: 11,
-        // image_ids: [2, 3],
-        editing_user_ids: [2]};
+    id: 1,
+    name: "default",
+    description: "",
+    body: "",
+    author_id: 1,
+    city_id: 1,
+    image_ids: [],
+    editing_user_ids: []
+  };
+
+  // id: 4,
+  // name: "The Blue Flash",
+  // description: "Legendary Indiana backyard rollercoaster",
+  // body: "One Indiana man's dream to build his own rollercoaster...",
+  // lat: 65.234,
+  // long: 48.234,
+  // author_id: 1,
+  // // city_id: 11,
+  // // image_ids: [2, 3],
+  // editing_user_ids: [2]
 
   const article = state.entities.articles[ownProps.match.params.articleId] || defaultArticle;
   // const city = state.entities.cities[article.city_id] || "";

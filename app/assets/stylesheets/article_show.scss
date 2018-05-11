@@ -114,6 +114,7 @@
   border-radius: 50px;
   border: 1px solid #e7e7e7;
   margin-left: -10px;
+  position: relative; //added this for z-index
 }
 
 .article-author-image{
@@ -146,6 +147,7 @@
 
 .editor-elements{
   display: flex;
+  position: relative; //added this for z-index
 }
 
 .article-editors{
@@ -167,4 +169,8 @@
   font-size: 15px;
   letter-spacing: .12em;
   margin: auto;
+}
+
+.article-editor-info{
+  // background: white;
 }

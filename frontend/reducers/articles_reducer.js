@@ -10,7 +10,11 @@ const articlesReducer = (state = {}, action) => {
     case RECEIVE_ARTICLE:
       let appendedArticle = action.articlePayload.article;
 
-      appendedArticle.editing_user_ids = Object.keys(action.articlePayload.editors);
+      if (action.articlePayload.editors){
+        appendedArticle.editing_user_ids = Object.keys(action.articlePayload.editors);
+      } else {
+        appendedArticle.editing_user_ids = [];
+      }
 
       newState = merge({}, state, {
         [action.articlePayload.article.id]: appendedArticle
