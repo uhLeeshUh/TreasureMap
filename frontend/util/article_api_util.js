@@ -4,7 +4,7 @@ export const createArticle = (article) => {
     url: '/api/articles',
     contentType: false,
     processData: false,
-    data: article
+    data: { article }
   });
 };
 
@@ -26,7 +26,7 @@ export const editArticle = (article) => {
   return $.ajax({
     method: 'patch',
     url: `/api/articles/${article.id}`,
-    data: article
+    data: { article }
   });
 };
 

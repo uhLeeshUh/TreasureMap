@@ -70,9 +70,9 @@ Before I leave tonight:
 
 
 Questions:
--why does Heroku not work the same way localhost does?
--why is the background image not showing up?
--why does adding a image rollback for aws?
+# -why does Heroku not work the same way localhost does?
+# -why is the background image not showing up?
+# -why does adding a image rollback for aws?
 
 (left off https://github.com/appacademy/curriculum/tree/master/full-stack-project/resources/cdns/file_upload_demo)
 DAY 3: THURS
@@ -92,7 +92,19 @@ LUNCH
 DAY 4: FRIDAY
 -style out article show form
 -Article create/edit page (with styling)
+-eventually change background image
 
+
+-test that my ajax requests work
+-test that my actions and reducers are returning what I want
+-begin setting up a show page with a generic article_edits
+-how do I put real images in my DB?
+
+Questions:
+-how to deal with dropdown for signout?
 
 
 -Figure out UI slice of state for header (create the needed components) (til break)
+
+Future todo with cities:
+-create index method in articles controller to be able to serve up multiple articles to the articles reducer

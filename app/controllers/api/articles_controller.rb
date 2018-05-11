@@ -1,5 +1,8 @@
 class Api::ArticlesController < ApplicationController
 
+  #TODO: make index to serve up all articles under one city. Make json view
+  #serve them up nested under their ids!
+
   def create
     @article = Article.new(article_params)
 

@@ -1,4 +1,6 @@
-json.extract! article, :id, :name, :description, :body, :lat, :lng, :author_id, :city_id
+json.article do
+  json.extract! article, :id, :name, :description, :body, :lat, :lng, :author_id, :city_id
+end
 
 json.author do
   json.partial! 'api/users/user', user: article.author
@@ -12,3 +14,9 @@ json.editors do
     end
   end
 end
+
+#json.images needs to send up all the associated images
+
+
+#TODO: add in the city information to be served up under its city id,
+# add the images association to send up all article's images

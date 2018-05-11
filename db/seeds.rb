@@ -57,6 +57,37 @@ City.create([
   {name: 'Rayne, LA', country_id: 1},
   ])
 
+Image.create([
+  {article_id: 1, image_url: "fake_url"},
+  {article_id: 1, image_url: "fake_url2"},
+  {article_id: 1, image_url: "fake_url3"},
+  {article_id: 2, image_url: "fake_url4"},
+  {article_id: 2, image_url: "fake_url5"},
+  {article_id: 3, image_url: "fake_url6"},
+  {article_id: 4, image_url: "fake_url7"},
+  {article_id: 4, image_url: "fake_url8"},
+  {article_id: 4, image_url: "fake_url9"},
+  {article_id: 1, image_url: "fake_url10"},
+  {article_id: 5, image_url: "fake_url11"},
+  {article_id: 5, image_url: "fake_url12"},
+  ])
+
+ArticleEdit.create([
+  {article_id: 1, editor_id: 3},
+  {article_id: 2, editor_id: 4},
+  {article_id: 2, editor_id: 5},
+  {article_id: 3, editor_id: 6},
+  {article_id: 4, editor_id: 5},
+  {article_id: 5, editor_id: 3},
+  {article_id: 6, editor_id: 5},
+  {article_id: 6, editor_id: 1},
+  {article_id: 7, editor_id: 5},
+  {article_id: 7, editor_id: 2},
+  {article_id: 7, editor_id: 1},
+  {article_id: 1, editor_id: 2},
+  {article_id: 1, editor_id: 4},
+  ])
+
 Article.create([
   { name: "Blue Flash Backyard Roller Coaster",
     description: "A humble homemade ride attracts visitors from around the globe to this small Midwestern town.",

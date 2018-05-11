@@ -5,10 +5,16 @@ const articlesReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_ARTICLES:
-      let newState = merge({}, state, action.articles);
+      let newState = merge({}, state, action.articlesPayload.articles);
       return newState;
     case RECEIVE_ARTICLE:
-      newState = merge({}, state, {[action.article.id]: action.article});
+      let appendedArticle = action.articlePayload.article;
+
+      appendedArticle.editing_user_ids = Object.keys(action.articlePayload.editors);
+
+      newState = merge({}, state, {
+        [action.articlePayload.article.id]: appendedArticle
+      });
       return newState;
     case REMOVE_ARTICLE:
       newState = merge({}, state);

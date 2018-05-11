@@ -7,17 +7,18 @@ export const RECEIVE_ARTICLE_ERRORS = "RECEIVE_ARTICLE_ERRORS";
 export const CLEAR_ARTICLE_ERRORS = "CLEAR_ARTICLE_ERRORS";
 
 // synchronous action creators
-export const receiveArticles = (articles) => {
+export const receiveArticles = (articlesPayload) => {
   return {
     type: RECEIVE_ARTICLES,
-    articles
+    articlesPayload
   };
 };
 
-export const receiveArticle = (article) => {
+export const receiveArticle = (articlePayload) => {
+  debugger
   return {
     type: RECEIVE_ARTICLE,
-    article
+    articlePayload
   };
 };
 

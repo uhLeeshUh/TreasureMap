@@ -8,6 +8,20 @@ class Article extends React.Component {
   }
 
   render(){
+    //expect this.props.images to be an array of image objects
+    const images = this.props.images.map(image => {
+      return (<img key={image.id} src={image.img_url}></img>);
+    });
+
+    const articleEditors = this.props.editors.map(editor => {
+      return (
+        <li key={editor.id}>
+          <img src={editor.image_url} alt="editor image"></img>
+          <p>{editor.username}</p>
+        </li>
+      );
+    });
+
     return (
       <main>
         Hellow werld
@@ -26,12 +40,21 @@ class Article extends React.Component {
         <section className="article-main">
           <div className="article-body-holder">
             <p>{this.props.article.body}</p>
-            <ul className="article-contributors">
-              <li>{this.props.author.username}</li>
-              <ul className="article-editors">
-                {articleEditors}
-              </ul>
-            </ul>
+            <div className="article-contributors">
+              <div className="article-author">
+                <p>CONTRIBUTED BY</p>
+                <ul className="author-elements">
+                  <li><img src={this.props.author.image_url} alt="author image"></img></li>
+                  <li>{this.props.author.username}</li>
+                </ul>
+              </div>
+              <div className="article-editors">
+                <p>EDITED BY</p>
+                <ul className="editor-elements">
+                  {articleEditors}
+                </ul>
+              </div>
+            </div>
           </div>
           <div className="article-google-map"></div>
         </section>
@@ -39,38 +62,44 @@ class Article extends React.Component {
       </main>
     );
   }
-
 }
 
 const mapStateToProps = (state, ownProps) => {
-  // const defaultArticle = {
-  //       id: 4,
-  //       title: "The Blue Flash",
-  //       headline: "Legendary Indiana backyard rollercoaster",
-  //       body: "One Indiana man's dream to build his own rollercoaster...",
-  //       lat: 65.234,
-  //       long: 48.234,
-  //       author_id: 1,
-  //       city_id: 16,
-  //       image_ids: [5, 9],
-  //       editing_user_ids: [2]};
-  // const article = state.entities.articles[ownProps.match.params.articleId] || defaultArticle;
-  // const city = state.entities.cities[article.city_id];
+  // debugger
+  const defaultArticle = {
+        id: 4,
+        name: "The Blue Flash",
+        description: "Legendary Indiana backyard rollercoaster",
+        body: "One Indiana man's dream to build his own rollercoaster...",
+        lat: 65.234,
+        long: 48.234,
+        author_id: 1,
+        // city_id: 11,
+        // image_ids: [2, 3],
+        editing_user_ids: [2]};
+        // debugger
+  const article = state.entities.articles[ownProps.match.params.articleId] || defaultArticle;
+  // const city = state.entities.cities[article.city_id] || "";
   // const images = article.image_ids.map(image_id => {
-  //   return (state.entities.images[image_id]);
+  //   return (state.entities.images[image_id] || "");
   // });
-  // const author = state.entities.users[article.author_id];
-  // const editors = article.editing_user_ids.map(editor_id => {
-  //   return (state.entities.users[editor_id]);
-  // });
-  //
-  // return {
-  //   article,
-  //   city,
-  //   images,
-  //   author,
-  //   editors
-  // };
+  const author = state.entities.users[article.author_id] || {};
+  // debugger
+  const editors = article.editing_user_ids.map(editor_id => {
+    return (state.entities.users[editor_id] || {});
+  });
+
+//TODO: replace city hardcording, replace image hardcoding to return the ids
+// to be fetched from redux store
+
+
+  return {
+    article: article,
+    city: "Barcelona",
+    images: [{id: 1, image_url: "https://assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvcGxhY2VfaW1hZ2VzLzc4Nzc2OTdiNjc3YWZkODEzZl8yMTQ0MjI3MzM3XzRhN2FjYjg1OTZfby5qcGciXSxbInAiLCJ0aHVtYiIsIjEyMDB4PiJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA4MSAtYXV0by1vcmllbnQiXV0"}, {id: 2, image_url: "https://assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvcGxhY2VfaW1hZ2VzLzc4Nzc2OTdiNjc3YWZkODEzZl8yMTQ0MjI3MzM3XzRhN2FjYjg1OTZfby5qcGciXSxbInAiLCJ0aHVtYiIsIjEyMDB4PiJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA4MSAtYXV0by1vcmllbnQiXV0"}, {id: 3, image_url: "https://assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvcGxhY2VfaW1hZ2VzLzc4Nzc2OTdiNjc3YWZkODEzZl8yMTQ0MjI3MzM3XzRhN2FjYjg1OTZfby5qcGciXSxbInAiLCJ0aHVtYiIsIjEyMDB4PiJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA4MSAtYXV0by1vcmllbnQiXV0"}],
+    author: author,
+    editors: editors
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
