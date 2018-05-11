@@ -1,0 +1,29 @@
+.article-head{
+  margin: auto;
+  width: 70%;
+}
+
+#city-name{
+  font-family: 'Archivo Narrow', sans-serif;
+  font-size: 15px;
+  color: #1b624f;
+  line-height: 1em;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 7px;
+  margin-top: 7px;
+}
+
+#article-name{
+  font-family: 'Arimo', sans-serif;
+  font-weight: 700;
+  font-size: 56px;
+  color: #382d14;
+  width: 65%;
+  line-height: .9333em;
+  letter-spacing: -.02em;
+}
+
+#article-desc{
+  font-family: 'EB Garamond', serif;
+}

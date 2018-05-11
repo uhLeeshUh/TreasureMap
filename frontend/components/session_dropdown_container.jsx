@@ -23,7 +23,6 @@ class SessionDropdown extends React.Component {
 
   render(){
     let icon;
-    // debugger
     if (this.props.user){
       icon = <img className="user-icon" src={this.props.user.image_url} alt="user image"></img>;
       } else {

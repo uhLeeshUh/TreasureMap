@@ -12,7 +12,6 @@ class Article extends React.Component {
     const images = this.props.images.map(image => {
       return (<img key={image.id} src={image.image_url}></img>);
     });
-    // debugger
 
     const articleEditors = this.props.editors.map(editor => {
       return (
@@ -25,13 +24,10 @@ class Article extends React.Component {
 
     return (
       <main>
-        Hellow werld
         <section className="article-head">
-          <ul>
-            <li>{this.props.city.name}</li>
-            <li>{this.props.article.name}</li>
-            <li>{this.props.article.description}</li>
-          </ul>
+          <h2 id="city-name">{this.props.city.name}</h2>
+          <h1 id="article-name">{this.props.article.name}</h1>
+          <p id="article-desc">{this.props.article.description}</p>
         </section>
 
         <section className="article-photos">
@@ -66,7 +62,6 @@ class Article extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  // debugger
   const defaultArticle = {
         id: 4,
         name: "The Blue Flash",
@@ -78,25 +73,25 @@ const mapStateToProps = (state, ownProps) => {
         // city_id: 11,
         // image_ids: [2, 3],
         editing_user_ids: [2]};
-        // debugger
+
   const article = state.entities.articles[ownProps.match.params.articleId] || defaultArticle;
   // const city = state.entities.cities[article.city_id] || "";
   // const images = article.image_ids.map(image_id => {
   //   return (state.entities.images[image_id] || "");
   // });
+  // const country = state.entities.countries[city.country_id];
   const author = state.entities.users[article.author_id] || {};
-  // debugger
   const editors = article.editing_user_ids.map(editor_id => {
     return (state.entities.users[editor_id] || {});
   });
 
 //TODO: replace city hardcording, replace image hardcoding to return the ids
-// to be fetched from redux store
+// to be fetched from redux store. Grab the country to user with city at top
 
 
   return {
     article: article,
-    city: {name: "Barcelona"},
+    city: {name: "BARCELONA"},
     images: [{id: 1, image_url: "https://assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvcGxhY2VfaW1hZ2VzLzc4Nzc2OTdiNjc3YWZkODEzZl8yMTQ0MjI3MzM3XzRhN2FjYjg1OTZfby5qcGciXSxbInAiLCJ0aHVtYiIsIjEyMDB4PiJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA4MSAtYXV0by1vcmllbnQiXV0"}, {id: 2, image_url: "https://assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvcGxhY2VfaW1hZ2VzLzc4Nzc2OTdiNjc3YWZkODEzZl8yMTQ0MjI3MzM3XzRhN2FjYjg1OTZfby5qcGciXSxbInAiLCJ0aHVtYiIsIjEyMDB4PiJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA4MSAtYXV0by1vcmllbnQiXV0"}, {id: 3, image_url: "https://assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvcGxhY2VfaW1hZ2VzLzc4Nzc2OTdiNjc3YWZkODEzZl8yMTQ0MjI3MzM3XzRhN2FjYjg1OTZfby5qcGciXSxbInAiLCJ0aHVtYiIsIjEyMDB4PiJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA4MSAtYXV0by1vcmllbnQiXV0"}],
     author: author,
     editors: editors
