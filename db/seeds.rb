@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.destroy_all
+
 User.create([
   {username: 'Alicia', password: 'helloworld'},
   {username: 'Jimmy', password: 'starwars'},
@@ -17,6 +19,7 @@ User.create([
   {username: "DemoUser", password: "password"}
   ])
 
+Country.destroy_all
 
 Country.create([
   {name: "United States of America"},
@@ -34,7 +37,7 @@ Country.create([
   {name: "Italy"},
   ])
 
-
+City.destroy_all
 City.create([
   {name: 'Bruceville, IN', country_id: 1},
   {name: 'Hugo, OK', country_id: 1},
@@ -56,7 +59,7 @@ City.create([
   {name: 'Harbin', country_id: 3},
   {name: 'Rayne, LA', country_id: 1},
   ])
-
+Image.destroy_all
 Image.create([
   {article_id: 1, image_url: "fake_url"},
   {article_id: 1, image_url: "fake_url2"},
@@ -95,7 +98,7 @@ Image.create([
   #20, 4
   #21, 1
 
-
+ArticleEdit.destroy_all
 ArticleEdit.create([
   {article_id: 1, editor_id: 3},
   {article_id: 1, editor_id: 2},
@@ -114,6 +117,7 @@ ArticleEdit.create([
   {article_id: 7, editor_id: 1},
   ])
 
+  Article.destroy_all
   Article.create([
     #1, 7
   { name: "Blue Flash Backyard Roller Coaster",
