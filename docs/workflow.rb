@@ -84,9 +84,14 @@ LUNCH
 
 # -ask about dropdown/solve by 10:30
 -deal with Articles from DB level up
--Article create/edit page (with styling)
 -make show page (with styling)
 -seed DB
+
+
+
+DAY 4: FRIDAY
+-style out article show form
+-Article create/edit page (with styling)
 
 
 

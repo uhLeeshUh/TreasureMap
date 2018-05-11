@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { fetchArticle } from '../actions/article_actions';
 
 class Article extends React.Component {
   componentDidMount(){
@@ -42,23 +43,34 @@ class Article extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const article = state.entities.articles[ownProps.match.params.articleId];
-  const city = state.entities.cities[article.city_id];
-  const images = article.image_ids.map(image_id => {
-    return (state.entities.images[image_id]);
-  });
-  const author = state.entities.users[article.author_id];
-  const editors = article.editing_user_ids.map(editor_id => {
-    return (state.entities.users[editor_id]);
-  });
-
-  return {
-    article,
-    city,
-    images,
-    author,
-    editors
-  };
+  // const defaultArticle = {
+  //       id: 4,
+  //       title: "The Blue Flash",
+  //       headline: "Legendary Indiana backyard rollercoaster",
+  //       body: "One Indiana man's dream to build his own rollercoaster...",
+  //       lat: 65.234,
+  //       long: 48.234,
+  //       author_id: 1,
+  //       city_id: 16,
+  //       image_ids: [5, 9],
+  //       editing_user_ids: [2]};
+  // const article = state.entities.articles[ownProps.match.params.articleId] || defaultArticle;
+  // const city = state.entities.cities[article.city_id];
+  // const images = article.image_ids.map(image_id => {
+  //   return (state.entities.images[image_id]);
+  // });
+  // const author = state.entities.users[article.author_id];
+  // const editors = article.editing_user_ids.map(editor_id => {
+  //   return (state.entities.users[editor_id]);
+  // });
+  //
+  // return {
+  //   article,
+  //   city,
+  //   images,
+  //   author,
+  //   editors
+  // };
 };
 
 const mapDispatchToProps = (dispatch) => {

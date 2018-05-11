@@ -83,7 +83,7 @@ export const editArticle = (article) => {
 export const deleteArticle = (id) => {
   return (dispatch) => {
     return ArticleAPIUtil.deleteArticle(id).then(
-      (articlePayload) => {dispatch(removeArticle(articlePayload));},
+      () => {dispatch(removeArticle(id));},
       (errors) => {dispatch(receiveArticleErrors(errors));}
     );
   };
