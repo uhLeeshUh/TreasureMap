@@ -1,5 +1,5 @@
 json.article do
-  json.extract! article, :id, :name, :description, :body, :lat, :lng, :author_id, :city_id
+  json.extract! article, :id, :name, :description, :body, :lat, :lng, :author_id, :city_id, :long_description
 end
 
 json.author do

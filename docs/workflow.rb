@@ -1,12 +1,15 @@
 Font brainstorm:
 Arimo
 Archivo Narrow
+Cormorant Garamond
 
 fontAwesome
 revisit this for the search icon:
 https://fontawesome.com/icons/search?style=solid
 
 https://medium.com/adventures-in-code/seed-dump-ruby-gem-b74cc8bdfdc
+
+use slick! https://github.com/kenwheeler/slick/
 
 
 # Tuesday May 8
@@ -93,6 +96,7 @@ DAY 4: FRIDAY
 -style out article show form
 -Article create/edit page (with styling)
 -eventually change background image
+**Go back and add in enters for article text!
 
 
 -test that my ajax requests work

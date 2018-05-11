@@ -1,6 +1,7 @@
 .article-head{
   margin: auto;
   width: 70%;
+  margin-bottom: 50px;
 }
 
 #city-name{
@@ -11,19 +12,95 @@
   letter-spacing: .12em;
   text-transform: uppercase;
   margin-bottom: 7px;
-  margin-top: 7px;
+  margin-top: 50px;
 }
 
 #article-name{
   font-family: 'Arimo', sans-serif;
   font-weight: 700;
-  font-size: 56px;
+  font-size: 54px;
   color: #382d14;
   width: 65%;
-  line-height: .9333em;
+  line-height: 1.0em;
   letter-spacing: -.02em;
 }
 
 #article-desc{
-  font-family: 'EB Garamond', serif;
+  margin-top: 14px;
+  margin-bottom: 20px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  line-height: 28px;
+  letter-spacing: .01em;
+  color: #382c14;
+  letter-spacing: -.01em;
+  width: 65%;
+  line-height: 1.15em;
+}
+
+#pencil-icon {
+  margin-right: 7px;
+  font-size: 12px;
+}
+
+.edit-button{
+  color: #cdb48d;
+  border: 0.5px solid #e7e7e7;
+  border-radius: 3px;
+  padding: 6px 27px;
+  font-family: 'Archivo Narrow', sans-serif;
+}
+
+.edit-button a {
+  text-decoration: none;
+  color: #cdb48d;
+  font-size: 13px;
+  letter-spacing: .07em;
+}
+
+.edit-button:hover {
+  border: 0.5px solid #cdb48d;
+}
+
+.article-photos{
+  display: flex;
+}
+
+.article-image{
+  max-height: 400px;
+  // max-width: 750px;
+  margin: 0 3px;
+}
+
+.article-main{
+  display: flex;
+  width: 75%;
+  margin: auto;
+  margin-top: 40px;
+}
+
+.article-body-holder{
+  // border: 1px solid blue;
+  width: 70%;
+  margin-right: 75px;
+}
+
+.article-google-map{
+  border: 1px solid red;
+  height: 300px;
+  width: 30%;
+}
+
+.long-description{
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 22px;
+  line-height: 28px;
+}
+
+.article-body{
+  margin: 10px 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  line-height: 28px;
 }
