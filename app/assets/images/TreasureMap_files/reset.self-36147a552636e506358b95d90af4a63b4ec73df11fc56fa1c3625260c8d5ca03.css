@@ -1,0 +1,28 @@
+/* line 1, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/reset.scss */
+html, body, header, nav, h1, a,
+ul, li, strong, main, button, i,
+section, img, div, h2, p, form,
+fieldset, label, input, textarea,
+span, article, footer, time, small {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+
+/* line 19, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/reset.scss */
+ul, li {
+  list-style: none;
+}
+
+/* line 23, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/reset.scss */
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* line 44, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/reset.scss */
+button,
+input[type="submit"] {
+  cursor: pointer;
+}

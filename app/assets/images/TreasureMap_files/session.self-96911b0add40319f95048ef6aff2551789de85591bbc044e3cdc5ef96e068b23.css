@@ -1,0 +1,87 @@
+/* line 5, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/session.scss */
+.session {
+  height: 100vh;
+}
+
+/* line 9, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/session.scss */
+.session-title {
+  font-size: 30px;
+  font-family: 'Arimo', sans-serif;
+  margin: 0;
+}
+
+/* line 15, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/session.scss */
+.session-form {
+  margin: 0 auto;
+  width: 370px;
+  font-family: 'Archivo Narrow', sans-serif;
+  font-weight: 500;
+  margin-top: 100px;
+}
+
+/* line 23, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/session.scss */
+.session-form .altText {
+  margin-top: 2px;
+  letter-spacing: 0.0625em;
+}
+
+/* line 28, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/session.scss */
+.session-label {
+  letter-spacing: 0.08em;
+}
+
+/* line 32, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/session.scss */
+.session-form .session-button {
+  font-family: 'Archivo Narrow', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  font-size: 15px;
+  color: white;
+  background-color: #d36a55;
+  height: 50px;
+  width: 377px;
+  margin-bottom: 10px;
+}
+
+/* line 44, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/session.scss */
+.altText .link {
+  margin: 5px;
+}
+
+/* line 48, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/session.scss */
+label, input {
+  display: block;
+}
+
+/* line 52, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/session.scss */
+.form-body input {
+  width: 370px;
+  height: 40px;
+}
+
+/* line 57, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/session.scss */
+.form-body .session-label {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+/* line 62, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/session.scss */
+.demo-button {
+  padding: 5px 10px;
+  letter-spacing: 0.0625em;
+  background-color: #0f9a76;
+  color: #ffffff;
+  font-size: 9px;
+}
+
+/* line 72, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/session.scss */
+.altText p {
+  margin: 10px 0;
+  color: red;
+}
+
+/* line 77, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/session.scss */
+.file-input, .file-input button {
+  margin-top: 10px;
+  font-family: 'Archivo Narrow', sans-serif;
+}

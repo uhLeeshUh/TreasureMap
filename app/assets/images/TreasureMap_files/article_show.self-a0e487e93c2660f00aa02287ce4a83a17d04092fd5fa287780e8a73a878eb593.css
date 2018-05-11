@@ -1,0 +1,194 @@
+/* line 1, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/article_show.scss */
+.article-head {
+  margin: auto;
+  width: 70%;
+  margin-bottom: 50px;
+}
+
+/* line 7, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/article_show.scss */
+#city-name {
+  font-family: 'Archivo Narrow', sans-serif;
+  font-size: 15px;
+  color: #1b624f;
+  line-height: 1em;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 7px;
+  margin-top: 50px;
+}
+
+/* line 18, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/article_show.scss */
+#article-name {
+  font-family: 'Arimo', sans-serif;
+  font-weight: 700;
+  font-size: 54px;
+  color: #382d14;
+  width: 65%;
+  line-height: 1.0em;
+  letter-spacing: -.02em;
+}
+
+/* line 28, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/article_show.scss */
+#article-desc {
+  margin-top: 14px;
+  margin-bottom: 20px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  line-height: 28px;
+  letter-spacing: .01em;
+  color: #382c14;
+  letter-spacing: -.01em;
+  width: 65%;
+  line-height: 1.15em;
+}
+
+/* line 41, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/article_show.scss */
+#pencil-icon {
+  margin-right: 7px;
+  font-size: 12px;
+}
+
+/* line 46, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/article_show.scss */
+.edit-button {
+  color: #cdb48d;
+  border: 0.5px solid #e7e7e7;
+  border-radius: 3px;
+  padding: 6px 27px;
+  font-family: 'Archivo Narrow', sans-serif;
+}
+
+/* line 54, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/article_show.scss */
+.edit-button a {
+  text-decoration: none;
+  color: #cdb48d;
+  font-size: 13px;
+  letter-spacing: .07em;
+}
+
+/* line 61, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/article_show.scss */
+.edit-button:hover {
+  border: 0.5px solid #cdb48d;
+}
+
+/* line 65, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/article_show.scss */
+.article-photos {
+  display: flex;
+}
+
+/* line 69, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/article_show.scss */
+.article-image {
+  max-height: 400px;
+  margin: 0 3px;
+}
+
+/* line 75, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/article_show.scss */
+.article-main {
+  display: flex;
+  width: 75%;
+  margin: auto;
+  margin-top: 40px;
+}
+
+/* line 82, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/article_show.scss */
+.article-body-holder {
+  width: 70%;
+  margin-right: 75px;
+}
+
+/* line 87, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/article_show.scss */
+.article-google-map {
+  border: 1px solid red;
+  height: 300px;
+  width: 30%;
+}
+
+/* line 93, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/article_show.scss */
+.long-description {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 22px;
+  line-height: 28px;
+}
+
+/* line 100, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/article_show.scss */
+.article-body {
+  margin: 20px 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+/* line 107, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/article_show.scss */
+.article-body:last-of-type {
+  margin-bottom: 55px;
+}
+
+/* line 111, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/article_show.scss */
+.article-editor-image {
+  height: 60px;
+  width: 60px;
+  border-radius: 50px;
+  border: 1px solid #e7e7e7;
+  margin-left: -10px;
+}
+
+/* line 119, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/article_show.scss */
+.article-author-image {
+  height: 60px;
+  width: 60px;
+  border-radius: 50px;
+  border: 1px solid #e7e7e7;
+}
+
+/* line 126, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/article_show.scss */
+.contributor-display-text {
+  font-family: 'Archivo Narrow', sans-serif;
+  font-weight: 500;
+  letter-spacing: .12em;
+  margin-bottom: 17px;
+}
+
+/* line 133, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/article_show.scss */
+.article-contributors {
+  display: flex;
+  margin-bottom: 100px;
+}
+
+/* line 138, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/article_show.scss */
+.article-author {
+  border-left: 3px solid rgba(204, 180, 141, 0.3);
+  padding-left: 22px;
+}
+
+/* line 143, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/article_show.scss */
+.author-elements {
+  display: flex;
+}
+
+/* line 147, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/article_show.scss */
+.editor-elements {
+  display: flex;
+}
+
+/* line 151, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/article_show.scss */
+.article-editors {
+  margin-left: 100px;
+}
+
+/* line 155, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/article_show.scss */
+.article-author-name {
+  margin-left: 9px;
+  font-family: 'Archivo Narrow', sans-serif;
+  letter-spacing: .12em;
+  font-size: 18px;
+  padding-top: 15px;
+}
+
+/* line 163, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/article_show.scss */
+.article-editor-name {
+  display: block;
+  font-family: 'Archivo Narrow', sans-serif;
+  font-size: 15px;
+  letter-spacing: .12em;
+  margin: auto;
+}

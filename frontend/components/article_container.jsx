@@ -17,8 +17,8 @@ class Article extends React.Component {
     const articleEditors = this.props.editors.map(editor => {
       return (
         <li key={editor.id}>
-          <img src={editor.image_url} alt="editor image"></img>
-          <p>{editor.username}</p>
+          <img className="article-editor-image" src={editor.image_url} alt="editor image"></img>
+          <p className="article-editor-name">{editor.username}</p>
         </li>
       );
     });
@@ -49,14 +49,14 @@ class Article extends React.Component {
             {body}
             <div className="article-contributors">
               <div className="article-author">
-                <p>CONTRIBUTED BY</p>
+                <p className="contributor-display-text">CONTRIBUTED BY</p>
                 <ul className="author-elements">
-                  <li><img src={this.props.author.image_url} alt="author image"></img></li>
-                  <li>{this.props.author.username}</li>
+                  <li><img className="article-author-image" src={this.props.author.image_url} alt="author image"></img></li>
+                  <li className="article-author-name">{this.props.author.username}</li>
                 </ul>
               </div>
               <div className="article-editors">
-                <p>EDITED BY</p>
+                <p className="contributor-display-text">EDITED BY</p>
                 <ul className="editor-elements">
                   {articleEditors}
                 </ul>

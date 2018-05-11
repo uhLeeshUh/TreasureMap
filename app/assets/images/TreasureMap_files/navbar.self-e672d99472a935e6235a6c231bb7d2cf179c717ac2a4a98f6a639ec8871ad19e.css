@@ -1,0 +1,119 @@
+/* line 1, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/navbar.scss */
+.nav {
+  display: block;
+  height: 70px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #d4d4d0;
+}
+
+/* line 11, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/navbar.scss */
+.logo {
+  display: block;
+  height: 70px;
+  width: 240px;
+}
+
+/* line 17, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/navbar.scss */
+.right-nav ul {
+  display: flex;
+}
+
+/* line 21, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/navbar.scss */
+.right-nav-search, .dropdown-div {
+  list-style: none;
+  border-left: 1px solid #d4d4d0;
+  height: 70px;
+}
+
+/* line 28, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/navbar.scss */
+.right-nav ul {
+  margin: 0;
+}
+
+/* line 33, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/navbar.scss */
+#user-icon {
+  padding-top: 23px;
+  padding-bottom: 50px;
+  font-size: 1.5em;
+  margin: auto;
+}
+
+/* line 40, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/navbar.scss */
+#user-icon:hover {
+  color: #d36a55;
+}
+
+/* line 44, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/navbar.scss */
+.user-icon {
+  max-width: 60px;
+  max-height: 70px;
+  margin: auto;
+}
+
+/* line 50, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/navbar.scss */
+.dropdown-div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* line 56, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/navbar.scss */
+ul.dropdown-ul {
+  display: none;
+  z-index: 1;
+  flex-direction: column;
+  position: absolute;
+  text-align: center;
+  top: 80px;
+  width: 80px;
+  box-sizing: border-box;
+}
+
+/* line 69, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/navbar.scss */
+.dropdown-div:hover > ul.dropdown-ul {
+  display: block;
+}
+
+/* line 73, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/navbar.scss */
+ul.dropdown-ul li {
+  padding: 15px 0;
+}
+
+/* line 77, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/navbar.scss */
+ul.dropdown-ul li a {
+  text-decoration: none;
+  color: #5d4a84;
+}
+
+/* line 82, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/navbar.scss */
+ul.dropdown-ul li {
+  font-family: 'Archivo Narrow', sans-serif;
+  letter-spacing: 0.0625em;
+  font-size: 15px;
+}
+
+/* line 88, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/navbar.scss */
+ul.dropdown-ul li p:first-child {
+  margin-bottom: 2px;
+}
+
+/* line 93, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/navbar.scss */
+div.dropdown-div, div.right-nav-search {
+  width: 80px;
+  box-sizing: border-box;
+}
+
+/* line 98, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/navbar.scss */
+.session-dropdown-button {
+  font-family: 'Archivo Narrow', sans-serif;
+  letter-spacing: 0.0625em;
+  font-size: 15px;
+  border: none;
+}
+
+/* line 105, /Users/appacademy/Desktop/TreasureMap/app/assets/stylesheets/navbar.scss */
+.session-dropdown-button:hover, .dropdown-enter-link:hover {
+  color: #ccb48c;
+}
