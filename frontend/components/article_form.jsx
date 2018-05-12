@@ -1,7 +1,7 @@
 import React from 'react';
 
 class ArticleForm extends React.Component {
-  constructor(){
+  constructor(props){
     super(props);
     this.state = {
       name: "",
@@ -10,6 +10,9 @@ class ArticleForm extends React.Component {
       body: "",
       lat: 0,
       lng: 0,
+      author_id: 0,
+      city_id: 0,
+
     };
   }
 }

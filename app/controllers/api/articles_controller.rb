@@ -17,7 +17,7 @@ class Api::ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
-  def edit
+  def update
     @article = Article.find(params[:id])
 
     if @article.update(article_params)
