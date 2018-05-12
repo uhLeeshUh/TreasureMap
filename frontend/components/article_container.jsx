@@ -5,7 +5,26 @@ import { Link } from 'react-router-dom';
 
 class Article extends React.Component {
   componentDidMount(){
+    // debugger
     this.props.fetchArticle(this.props.match.params.articleId);
+  }
+
+
+  componentWillUpdate(nextProps, nextState){
+    // if (this.props !== nextProps) {
+    //   this.props.fetchArticle(this.props.match.params.articleId);
+    // }
+  }
+  componentDidUpdate(prevProps, prevState){
+    // debugger
+    if (this.props.match.params.articleId !== prevProps.match.params.articleId) {
+      this.props.fetchArticle(this.props.match.params.articleId);
+    }
+  }
+
+  componentWillReceiveProps(nextProps){
+    // if ()
+    // this.props.fetchArticle(this.props.match.params.articleId);
   }
 
   render(){
@@ -92,7 +111,7 @@ class Article extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   const defaultArticle = {
     id: 1,
-    name: "default",
+    name: "",
     description: "",
     body: "",
     author_id: 1,

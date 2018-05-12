@@ -5,6 +5,11 @@ enter in the url bar again?
 -how to deal with a z-index and image overlay on editors?
 
 
+On-going todos:
+-add images to the AWS database
+-fix the overlay of editor images
+-fix session dropdown
+-apply slick to image reel
 
 
 
@@ -121,14 +126,20 @@ Future todo with cities:
 -create index method in articles controller to be able to serve up multiple articles to the articles reducer
 
 
-On-going todos:
--add images to the AWS database
--fix the overlay of editor images
--fix session dropdown
--apply slick to image reel
 
 -made add/edit article form
--add a conditional delete article button for the author to use 
+-add a conditional delete article button for the author to use
 
 
+SATURDAY:
+-test my API util functions!!!! (create, edit, destroy)
+-make article create and edit forms (look at how Atlas Obscura deals with map)
+-read up on Google maps
+-add button to the footer to add an article and make it a protected route!
+-make edit article link work on article show page, but make it protected
+-create logo
+-add my images to AWS and get them to show up for seeded and created articles
 
+SUNDAY:
+-Play around with Google Maps API and figure out how to user "Place Autocomplete" in my form and
+display the map on the article show page
