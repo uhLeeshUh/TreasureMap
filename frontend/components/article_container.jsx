@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 class Article extends React.Component {
   componentDidMount(){
-    debugger
     this.props.fetchArticle(this.props.match.params.articleId);
   }
 
@@ -39,6 +38,13 @@ class Article extends React.Component {
       return (<p key={idx} className="article-body">{par}</p>);
     });
 
+    let editorsPresent = "";
+    if (articleEditors.length > 0){
+      editorsPresent =
+      <p className="contributor-display-text">EDITED BY</p>;
+    }
+
+
     return (
       <main>
         <section className="article-head">
@@ -68,7 +74,7 @@ class Article extends React.Component {
                 </ul>
               </div>
               <div className="article-editors">
-                <p className="contributor-display-text">EDITED BY</p>
+                {editorsPresent}
                 <ul className="editor-elements">
                   {articleEditors}
                 </ul>

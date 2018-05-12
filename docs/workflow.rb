@@ -1,3 +1,13 @@
+Questions:
+-why does my json jbuilder view not return an editors key for an article with no editors?
+-why when I am on one show page and enter in another wildcard to the url bar does it not work unless I hit
+enter in the url bar again?
+-how to deal with a z-index and image overlay on editors?
+
+
+
+
+
 Font brainstorm:
 Arimo
 Archivo Narrow
@@ -56,17 +66,17 @@ DAY 2 WED:
 # style it
 
 # -Style form to look as close to real as possible (11)
--Figure out photo upload on session form -- what type of field should this be? (watch AWS videos) (12)
+# -Figure out photo upload on session form -- what type of field should this be? (watch AWS videos) (12)
 # -Begin styling out navbar (end of day)
 # -Create a working sign out dropdown (Abby suggested making this a local component state slice)
 
 
-Before I leave tonight:
+# Before I leave tonight:
 # -create a demo user login
 # -remove lines on signup/signin lis on navbar
 # -change text for logo and map to be more semantic
--figure out the AWS image stuff and add that to form
--figure out how to deal with dropdown
+# -figure out the AWS image stuff and add that to form
+# -figure out how to deal with dropdown
 
 
 
@@ -86,16 +96,16 @@ DAY 3: THURS
 LUNCH
 
 # -ask about dropdown/solve by 10:30
--deal with Articles from DB level up
--make show page (with styling)
--seed DB
+# -deal with Articles from DB level up
+# -make show page (with styling)
+# -seed DB
 
 
 
 DAY 4: FRIDAY
 -style out article show form
 -Article create/edit page (with styling)
--eventually change background image
+# -eventually change background image
 **Go back and add in enters for article text!
 
 
