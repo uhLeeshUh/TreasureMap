@@ -2,7 +2,6 @@ import { RECEIVE_ARTICLES, RECEIVE_ARTICLE, REMOVE_ARTICLE } from '../actions/ar
 import { merge } from 'lodash';
 
 const articlesReducer = (state = {}, action) => {
-  debugger
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_ARTICLES:
