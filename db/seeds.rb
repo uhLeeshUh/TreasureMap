@@ -6,8 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.destroy_all
 
+
+
+User.destroy_all
 User.create([
   {username: 'Alicia', password: 'helloworld'},
   {username: 'Jimmy', password: 'starwars'},
@@ -20,7 +22,6 @@ User.create([
   ])
 
 Country.destroy_all
-
 Country.create([
   {name: "United States of America"},
   {name: "Czech Republic"},
@@ -59,6 +60,7 @@ City.create([
   {name: 'Harbin', country_id: 3},
   {name: 'Rayne, LA', country_id: 1},
   ])
+
 Image.destroy_all
 Image.create([
   {article_id: 1, image_url: "fake_url"},
@@ -98,24 +100,6 @@ Image.create([
   #20, 4
   #21, 1
 
-ArticleEdit.destroy_all
-ArticleEdit.create([
-  {article_id: 1, editor_id: 3},
-  {article_id: 1, editor_id: 2},
-  {article_id: 1, editor_id: 4},
-  {article_id: 1, editor_id: 5},
-  {article_id: 1, editor_id: 6},
-  {article_id: 2, editor_id: 4},
-  {article_id: 2, editor_id: 5},
-  {article_id: 3, editor_id: 6},
-  {article_id: 4, editor_id: 5},
-  {article_id: 5, editor_id: 3},
-  {article_id: 6, editor_id: 5},
-  {article_id: 6, editor_id: 1},
-  {article_id: 7, editor_id: 5},
-  {article_id: 7, editor_id: 2},
-  {article_id: 7, editor_id: 1},
-  ])
 
   Article.destroy_all
   Article.create([
@@ -326,3 +310,22 @@ ArticleEdit.create([
 # Image.create([
 #
 #   ])
+
+ArticleEdit.destroy_all
+ArticleEdit.create!([
+  {article_id: 1, editor_id: 3},
+  {article_id: 1, editor_id: 2},
+  {article_id: 1, editor_id: 4},
+  {article_id: 1, editor_id: 5},
+  {article_id: 1, editor_id: 6},
+  {article_id: 2, editor_id: 4},
+  {article_id: 2, editor_id: 5},
+  {article_id: 3, editor_id: 6},
+  {article_id: 4, editor_id: 5},
+  {article_id: 5, editor_id: 3},
+  {article_id: 6, editor_id: 5},
+  {article_id: 6, editor_id: 1},
+  {article_id: 7, editor_id: 5},
+  {article_id: 7, editor_id: 2},
+  {article_id: 7, editor_id: 1},
+  ])

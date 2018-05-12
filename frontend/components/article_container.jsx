@@ -21,7 +21,8 @@ class Article extends React.Component {
     const images = this.props.images.map(image => {
       return (<img className="article-image" key={image.id} src={image.image_url}></img>);
     });
-
+    
+    debugger
     const articleEditors = this.props.editors.map((editor, idx) => {
       let zIndexStyle = {
         zIndex: idx

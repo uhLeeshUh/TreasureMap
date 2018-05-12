@@ -7,6 +7,7 @@ json.author do
 end
 # json.city json.partial! 'api/cities/city', city: article.city
 
+
 json.editors do
   article.editors.each do |editor|
     json.set! editor.id do
