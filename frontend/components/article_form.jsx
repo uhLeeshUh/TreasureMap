@@ -3,9 +3,6 @@ import React from 'react';
 class ArticleForm extends React.Component {
   constructor(props){
     super(props);
-    // debugger
-    // const { formType, editorId, buttonText, action, article, errors } = this.props;
-    // debugger
     this.state = {
       article: this.props.article,
       country: {
@@ -17,9 +14,21 @@ class ArticleForm extends React.Component {
       },
       articleEdit: {
         editor_id: this.props.editorId,
-        article_id: props.match.params.articleId
+        article_id: this.props.article.id
       }
     };
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    //TODO: update this with city and country info, if needed with GM
+    if (this.props !== prevProps) {
+      this.setState({
+        article: this.props.article,
+        articleEdit: {
+          article_id: this.props.article.id
+        }
+      });
+    }
   }
 
   submit(e){
@@ -27,7 +36,6 @@ class ArticleForm extends React.Component {
   }
 
   render(){
-    // debugger
     let articleErrors;
     if (this.props.errors.length > 0) {
       articleErrors = this.props.errors.map((error, idx) => {

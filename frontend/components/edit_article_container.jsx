@@ -4,13 +4,20 @@ import ArticleForm from './article_form';
 import { editArticle, fetchArticle } from '../actions/article_actions';
 
 class EditArticleForm extends React.Component {
-  ComponentDidMount(){
+  componentDidMount(){
     this.props.fetchArticle(this.props.match.params.articleId);
   }
 
+  componentDidUpdate(prevProps, prevState){
+    if (this.props.match.params.articleId !== prevProps.match.params.articleId) {
+      this.props.fetchArticle(this.props.match.params.articleId);
+    }
+  }
+
   render(){
+    const { article, formType, editorId, buttonText, action, errors} = this.props;
     return (
-      <ArticleForm article={this.props.article} formType={this.props.formType} editorId={this.props.editorId} buttonText={this.props.buttonText} action={this.props.action} errors={this.props.errors}/>
+      <ArticleForm article={article} formType={formType} editorId={editorId} buttonText={buttonText} action={action} errors={errors}/>
     );
   }
 
@@ -29,6 +36,9 @@ const mapStateToProps = (state, ownProps) => {
     author_id: 0,
     city_id: 0,
   };
+
+//TODO: when working on countries and cities, pass down the country and city info
+// with mapStateToProps
 
   return {
     article: state.entities.articles[ownProps.match.params.articleId] || defaultArticle,
