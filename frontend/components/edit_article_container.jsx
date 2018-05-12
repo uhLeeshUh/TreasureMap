@@ -1,3 +1,4 @@
+import React from 'react';
 import { connect } from 'react-redux';
 import ArticleForm from './article_form';
 import { editArticle, fetchArticle } from '../actions/article_actions';
@@ -9,7 +10,7 @@ class EditArticleForm extends React.Component {
 
   render(){
     return (
-      <ArticleForm formInfo={this.props}/>
+      <ArticleForm article={this.props.article} formType={this.props.formType} editorId={this.props.editorId} buttonText={this.props.buttonText} action={this.props.action} errors={this.props.errors}/>
     );
   }
 
@@ -32,8 +33,9 @@ const mapStateToProps = (state, ownProps) => {
   return {
     article: state.entities.articles[ownProps.match.params.articleId] || defaultArticle,
     formType: "Edit this Place",
-    editor_id: state.entities.users[state.session.id],
-    buttonText: "SUBMIT THIS EDIT"
+    editorId: state.session.id,
+    buttonText: "SUBMIT THIS EDIT",
+    errors: state.errors.article
   };
 };
 
@@ -43,6 +45,8 @@ const mapDispatchToProps = (dispatch) => {
     fetchArticle: (id) => dispatch(fetchArticle(id))
   };
 };
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditArticleForm);
 
 //submission needs to both edit the article and create an entry in
 //ArticleEdits table

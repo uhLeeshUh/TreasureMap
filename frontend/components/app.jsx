@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import { AuthRoute } from '../util/route_util';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { NavBar } from './navbar';
 // import Footer from ''
 // import all other components!
@@ -17,11 +17,11 @@ const App = () => {
   return (
     <div className="root-container">
       <Route path="/" component={NavBar} />
-      <AuthRoute path="/signup" exact component={SignupFormContainer} />
-      <AuthRoute path="/signin" exact component={LoginFormContainer} />
-      <Route path="/articles/:articleId" component={ArticleContainer}/>
-      <Route path="articles/new" exact component={CreateArticleContainer}/>
-      <Route path="articles/:articleId/edit" exact component={EditArticleContainer}/>
+      <AuthRoute exact path="/signup" component={SignupFormContainer} />
+      <AuthRoute exact path="/signin" component={LoginFormContainer} />
+      <Route exact path="/articles/:articleId" component={ArticleContainer}/>
+      <ProtectedRoute exact path="/new-article" component={CreateArticleContainer}/>
+      <ProtectedRoute exact path="/articles/:articleId/edit" component={EditArticleContainer}/>
     </div>
   );
 };

@@ -3,9 +3,11 @@ import React from 'react';
 class ArticleForm extends React.Component {
   constructor(props){
     super(props);
-    const { formType, editor_id, buttonText, action, article } = this.props.formInfo;
+    // debugger
+    // const { formType, editorId, buttonText, action, article, errors } = this.props;
+    // debugger
     this.state = {
-      article: article,
+      article: this.props.article,
       country: {
         name: ""
       },
@@ -14,7 +16,7 @@ class ArticleForm extends React.Component {
         country_id: 0
       },
       articleEdit: {
-        editor_id: editor_id,
+        editor_id: this.props.editorId,
         article_id: props.match.params.articleId
       }
     };
@@ -25,15 +27,19 @@ class ArticleForm extends React.Component {
   }
 
   render(){
-
-    let errors = this.props.errors.map(error => {
-      return <li>{error}</li>;
-    });
+    // debugger
+    let articleErrors;
+    if (this.props.errors.length > 0) {
+      articleErrors = this.props.errors.map((error, idx) => {
+        return <li key={idx}>{error}</li>;
+        });
+    }
 
     return (
       <main>
-        <h1>{formType}</h1>
+        <h1>{this.props.formType}</h1>
         <form className="article-form">
+          {articleErrors}
         <section className="article-basic-info">
           <h3>STEP 1</h3>
           <h2>Basic Information</h2>
@@ -50,10 +56,22 @@ class ArticleForm extends React.Component {
             </label>
 
             <label>What is the address?
-              <input>GOOGLE MAPS STUFF HERE</input>
-              <input type="float" value={this.state.article.lat}></input>
-              <input type="float" value={this.state.article.lng}></input>
-              <input type="integer" value={this.state.article.city_id}></input>
+              <input type="text" placeholder="GOOGLE MAPS STUFF HERE"></input>
+            </label>
+
+            <label>Lat
+              <input type="number" value={this.state.article.lat}></input>
+            </label>
+
+            <label>Lng
+              <input type="number" value={this.state.article.lng}></input>
+            </label>
+
+            <label>City_id
+              <input type="number" value={this.state.article.city_id}></input>
+            </label>
+
+            <label>Country_name
               <input type="text" value={this.state.country.name}></input>
             </label>
         </section>
@@ -74,7 +92,7 @@ class ArticleForm extends React.Component {
             </label>
         </section>
 
-        <button className="article-form-button">{buttonText}</button>
+        <button className="article-form-button">{this.props.buttonText}</button>
         </form>
       </main>
     );

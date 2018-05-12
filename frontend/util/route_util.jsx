@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 
 
-const Auth = ({component: Component, path, loggedIn, exact}) => {
+const Auth = ({ component: Component, path, loggedIn, exact} ) => {
   return (
   <Route path={path} exact={exact} render={
       (props) => {
@@ -17,6 +17,17 @@ const Auth = ({component: Component, path, loggedIn, exact}) => {
   );
 };
 
+const Protected = ({ component: Component, path, loggedIn, exact }) => (
+  <Route path={path} exact={exact} render={(props) => (
+      loggedIn ? (
+        <Component {...props} />
+        ) : (
+          <Redirect to="/signin" />
+        )
+      )} />
+  );
+
+
 const mapStateToProps = (state) => {
   return {
     loggedIn: Boolean(state.session.id)
@@ -24,3 +35,5 @@ const mapStateToProps = (state) => {
 };
 
 export const AuthRoute = withRouter(connect(mapStateToProps)(Auth));
+
+export const ProtectedRoute = withRouter(connect(mapStateToProps)(Protected));
