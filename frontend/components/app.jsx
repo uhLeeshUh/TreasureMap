@@ -7,6 +7,8 @@ import { NavBar } from './navbar';
 import SignupFormContainer from './signup_form_container';
 import LoginFormContainer from './login_form_container';
 import ArticleContainer from './article_container';
+import CreateArticleContainer from './create_article_container';
+import EditArticleContainer from './edit_article_container';
 
 const App = () => {
   // <NavBar /> //has no route, so it will render on every page. Put dropdowns and search here
@@ -18,6 +20,8 @@ const App = () => {
       <AuthRoute path="/signup" exact component={SignupFormContainer} />
       <AuthRoute path="/signin" exact component={LoginFormContainer} />
       <Route path="/articles/:articleId" component={ArticleContainer}/>
+      <Route path="articles/new" exact component={CreateArticleContainer}/>
+      <Route path="articles/:articleId/edit" exact component={EditArticleContainer}/>
     </div>
   );
 };

@@ -36,14 +36,3 @@ export const deleteArticle = (id) => {
     url: `/api/articles/${id}`
   });
 };
-
-//
-// export const signup = (user) => {
-//   return $.ajax({
-//     method: 'post',
-//     url: 'api/users',
-//     contentType: false,
-//     processData: false,
-//     data: user
-//   });
-// };
