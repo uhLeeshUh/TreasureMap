@@ -114,11 +114,21 @@ DAY 4: FRIDAY
 -begin setting up a show page with a generic article_edits
 -how do I put real images in my DB?
 
-Questions:
--how to deal with dropdown for signout?
-
 
 -Figure out UI slice of state for header (create the needed components) (til break)
 
 Future todo with cities:
 -create index method in articles controller to be able to serve up multiple articles to the articles reducer
+
+
+On-going todos:
+-add images to the AWS database
+-fix the overlay of editor images
+-fix session dropdown
+-apply slick to image reel
+
+-made add/edit article form
+-add a conditional delete article button for the author to use 
+
+
+
