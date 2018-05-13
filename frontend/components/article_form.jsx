@@ -39,7 +39,6 @@ class ArticleForm extends React.Component {
   submit(e){
     this.props.clearArticleErrors();
     this.props.action(this.state.article).then(() => {
-      debugger
       //PICK UP HERE
       return (
         this.props.history.push(`/articles/5`)
@@ -54,7 +53,6 @@ class ArticleForm extends React.Component {
   }
 
   render(){
-    debugger
     let articleErrors;
     if (this.props.errors.length > 0) {
       articleErrors = this.props.errors.map((error, idx) => {

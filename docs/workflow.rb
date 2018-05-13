@@ -1,7 +1,7 @@
 Questions:
 -why does my json jbuilder view not return an editors key for an article with no editors?
 -how to deal with a z-index and image overlay on editors?
--why is the wildcard in my route action up for "new" vs articleId?
+-why does my switch statement not work for articles/new vs. articles/wildcard ?
 
 
 On-going todos:
