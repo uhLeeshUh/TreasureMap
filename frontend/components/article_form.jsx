@@ -1,4 +1,5 @@
 import React from 'react';
+import { merge } from 'lodash';
 
 class ArticleForm extends React.Component {
   constructor(props){
@@ -42,7 +43,9 @@ class ArticleForm extends React.Component {
 
   submit(e){
     this.props.clearArticleErrors();
-    this.props.action(this.state.article).then(() => {
+    let fullArticle = merge({}, this.state.article);
+    fullArticle.author_id = this.props.author_id || this.state.article.author_id;
+    this.props.action(fullArticle).then(() => {
       return (
         this.props.history.push(`/articles/${this.props.lastUpdatedArticleId}`)
       );
@@ -62,6 +65,9 @@ class ArticleForm extends React.Component {
         return <li key={idx}>{error}</li>;
         });
     }
+
+    let formDeleteButton;
+    // if (this.props.authorId === )
     return (
       <main className="article-main-form">
         <form className="article-form" onSubmit={this.submit}>
@@ -140,6 +146,7 @@ class ArticleForm extends React.Component {
             <hr className="step-divider" align="left"></hr>
 
           <button className="article-form-button">{this.props.buttonText}</button>
+          {formDeleteButton}
         </form>
       </main>
     );

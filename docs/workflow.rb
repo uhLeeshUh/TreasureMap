@@ -160,6 +160,13 @@ SUNDAY:
 -Play around with Google Maps API and figure out how to user "Place Autocomplete" in my form and
 display the map on the article show page
 
+What I learned on Sunday:
+-git fetch and then git checkout for development branches
+-add new columns to a table and then add them to your strong params!
+-how to come back to a page and scroll to the top of the window
+-what window object js methods there are for styling (look at this more tonight?)
+-how to use hr tags to create lines in my form
+-HOW TO MAKE MY SESSION DROPDOWN WORK HOLLERRRRRRR
 
 MONDAY:
 -complete city and country showpages with thumbs
