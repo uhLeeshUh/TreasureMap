@@ -2,8 +2,8 @@ export const createArticle = (article) => {
   return $.ajax({
     method: 'post',
     url: '/api/articles',
-    contentType: false,
-    processData: false,
+    // contentType: false,
+    // processData: false,
     data: { article }
   });
 };
@@ -36,14 +36,3 @@ export const deleteArticle = (id) => {
     url: `/api/articles/${id}`
   });
 };
-
-//
-// export const signup = (user) => {
-//   return $.ajax({
-//     method: 'post',
-//     url: 'api/users',
-//     contentType: false,
-//     processData: false,
-//     data: user
-//   });
-// };

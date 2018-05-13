@@ -5,26 +5,13 @@ import { Link } from 'react-router-dom';
 
 class Article extends React.Component {
   componentDidMount(){
-    // debugger
     this.props.fetchArticle(this.props.match.params.articleId);
   }
 
-
-  componentWillUpdate(nextProps, nextState){
-    // if (this.props !== nextProps) {
-    //   this.props.fetchArticle(this.props.match.params.articleId);
-    // }
-  }
   componentDidUpdate(prevProps, prevState){
-    // debugger
     if (this.props.match.params.articleId !== prevProps.match.params.articleId) {
       this.props.fetchArticle(this.props.match.params.articleId);
     }
-  }
-
-  componentWillReceiveProps(nextProps){
-    // if ()
-    // this.props.fetchArticle(this.props.match.params.articleId);
   }
 
   render(){
@@ -72,7 +59,7 @@ class Article extends React.Component {
           <p id="article-desc">{this.props.article.description}</p>
           <span className="edit-button">
             <i id="pencil-icon" className="fas fa-pencil-alt"></i>
-            <Link to="/">EDIT ENTRY</Link>
+            <Link to={`/articles/${this.props.article.id}/edit`}>EDIT ENTRY</Link>
           </span>
         </section>
 

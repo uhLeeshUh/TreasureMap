@@ -1,8 +1,7 @@
 Questions:
 -why does my json jbuilder view not return an editors key for an article with no editors?
--why when I am on one show page and enter in another wildcard to the url bar does it not work unless I hit
-enter in the url bar again?
 -how to deal with a z-index and image overlay on editors?
+-why is the wildcard in my route action up for "new" vs articleId?
 
 
 On-going todos:
@@ -132,7 +131,9 @@ Future todo with cities:
 
 
 SATURDAY:
--test my API util functions!!!! (create, edit, destroy)
+# -test my API util functions!!!! (create, edit, destroy)
+-make sure forms work
+-add footer with button
 -make article create and edit forms (look at how Atlas Obscura deals with map)
 -read up on Google maps
 -add button to the footer to add an article and make it a protected route!
@@ -140,6 +141,12 @@ SATURDAY:
 -create logo
 -add my images to AWS and get them to show up for seeded and created articles
 
+/deal with new country and city creation
+//deal with adding an article edit and updating the slices of state
+//deal with updating the image slice of state and image_ids array for article, need to send up the images in the json view for article
+
 SUNDAY:
+-Figure out image upload for my articles
 -Play around with Google Maps API and figure out how to user "Place Autocomplete" in my form and
 display the map on the article show page
+-Reorganize the components folder by category when everything is working
