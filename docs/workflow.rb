@@ -3,6 +3,9 @@ Questions:
 -how to deal with a z-index and image overlay on editors?
 -why does my switch statement not work for articles/new vs. articles/wildcard ?
 
+Go back and re-factor:
+-Article show so it doesnt fetch the article again after its been navigated to by a create or edit page (recieve article action logs twice)
+-Components folder
 
 On-going todos:
 -add images to the AWS database

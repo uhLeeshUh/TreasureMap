@@ -39,9 +39,8 @@ class ArticleForm extends React.Component {
   submit(e){
     this.props.clearArticleErrors();
     this.props.action(this.state.article).then(() => {
-      //PICK UP HERE
       return (
-        this.props.history.push(`/articles/5`)
+        this.props.history.push(`/articles/${this.props.lastUpdatedArticleId}`)
       );
     });
   }
