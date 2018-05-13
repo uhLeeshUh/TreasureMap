@@ -66,8 +66,6 @@ class ArticleForm extends React.Component {
         });
     }
 
-    let formDeleteButton;
-    // if (this.props.authorId === )
     return (
       <main className="article-main-form">
         <form className="article-form" onSubmit={this.submit}>
@@ -146,7 +144,6 @@ class ArticleForm extends React.Component {
             <hr className="step-divider" align="left"></hr>
 
           <button className="article-form-button">{this.props.buttonText}</button>
-          {formDeleteButton}
         </form>
       </main>
     );

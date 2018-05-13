@@ -1,9 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchArticle } from '../actions/article_actions';
+import { fetchArticle, deleteArticle } from '../actions/article_actions';
 import { Link } from 'react-router-dom';
 
 class Article extends React.Component {
+  constructor(props){
+    super(props);
+    this.deleteArticle = this.deleteArticle.bind(this);
+  }
+
   componentDidMount(){
     this.props.fetchArticle(this.props.match.params.articleId);
     window.scrollTo(0,0);
@@ -13,6 +18,12 @@ class Article extends React.Component {
     if (this.props.match.params.articleId !== prevProps.match.params.articleId) {
       this.props.fetchArticle(this.props.match.params.articleId);
     }
+  }
+
+  deleteArticle(){
+    this.props.deleteArticle(this.props.article.id).then(
+      () => this.props.history.push("/")
+    );
   }
 
   render(){
@@ -51,16 +62,29 @@ class Article extends React.Component {
       <p className="contributor-display-text">EDITED BY</p>;
     }
 
+    let deleteArticleButton;
+    if (this.props.article.author_id === this.props.viewerId) {
+      deleteArticleButton =
+      <span>
+        <button onClick={this.deleteArticle} className="article-delete-button">
+          <i id="trash-icon" className="fas fa-trash-alt"></i>
+          DELETE ENTRY</button>
+      </span>;
+    }
+
     return (
       <main>
         <section className="article-head">
           <h2 id="city-name">{this.props.city.name}</h2>
           <h1 id="article-name">{this.props.article.name}</h1>
           <p id="article-desc">{this.props.article.description}</p>
-          <span className="edit-button">
-            <i id="pencil-icon" className="fas fa-pencil-alt"></i>
-            <Link to={`/articles/${this.props.article.id}/edit`}>EDIT ENTRY</Link>
-          </span>
+          <div className="article-buttons">
+            <span className="edit-button">
+              <i id="pencil-icon" className="fas fa-pencil-alt"></i>
+              <Link to={`/articles/${this.props.article.id}/edit`}>EDIT ENTRY</Link>
+            </span>
+            {deleteArticleButton}
+          </div>
         </section>
 
         <section className="article-photos">
@@ -107,17 +131,6 @@ const mapStateToProps = (state, ownProps) => {
     editing_user_ids: []
   };
 
-  // id: 4,
-  // name: "The Blue Flash",
-  // description: "Legendary Indiana backyard rollercoaster",
-  // body: "One Indiana man's dream to build his own rollercoaster...",
-  // lat: 65.234,
-  // long: 48.234,
-  // author_id: 1,
-  // // city_id: 11,
-  // // image_ids: [2, 3],
-  // editing_user_ids: [2]
-
   const article = state.entities.articles[ownProps.match.params.articleId] || defaultArticle;
   // const city = state.entities.cities[article.city_id] || "";
   // const images = article.image_ids.map(image_id => {
@@ -128,13 +141,14 @@ const mapStateToProps = (state, ownProps) => {
   const editors = article.editing_user_ids.map(editor_id => {
     return (state.entities.users[editor_id] || {});
   });
+  const viewerId = state.session.id;
 
 //TODO: replace city hardcording, replace image hardcoding to return the ids
 // to be fetched from redux store. Grab the country to user with city at top
 
 
   return {
-    article: article,
+    article,
     city: {name: "BARCELONA"},
     images: [{id: 1, image_url: "https://assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvcGxhY2VfaW1hZ2VzLzc4Nzc2OTdiNjc3YWZkODEzZl8yMTQ0MjI3MzM3XzRhN2FjYjg1OTZfby5qcGciXSxbInAiLCJ0aHVtYiIsIjEyMDB4PiJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA4MSAtYXV0by1vcmllbnQiXV0"},
     {id: 2, image_url: "https://assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvcGxhY2VfaW1hZ2VzLzc4Nzc2OTdiNjc3YWZkODEzZl8yMTQ0MjI3MzM3XzRhN2FjYjg1OTZfby5qcGciXSxbInAiLCJ0aHVtYiIsIjEyMDB4PiJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA4MSAtYXV0by1vcmllbnQiXV0"},
@@ -142,14 +156,16 @@ const mapStateToProps = (state, ownProps) => {
     {id: 4, image_url: "https://assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvcGxhY2VfaW1hZ2VzLzc4Nzc2OTdiNjc3YWZkODEzZl8yMTQ0MjI3MzM3XzRhN2FjYjg1OTZfby5qcGciXSxbInAiLCJ0aHVtYiIsIjEyMDB4PiJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA4MSAtYXV0by1vcmllbnQiXV0"},
     {id: 5, image_url: "https://assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvcGxhY2VfaW1hZ2VzLzc4Nzc2OTdiNjc3YWZkODEzZl8yMTQ0MjI3MzM3XzRhN2FjYjg1OTZfby5qcGciXSxbInAiLCJ0aHVtYiIsIjEyMDB4PiJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA4MSAtYXV0by1vcmllbnQiXV0"}
   ],
-    author: author,
-    editors: editors
+    author,
+    editors,
+    viewerId
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchArticle: (id) => {dispatch(fetchArticle(id));}
+    fetchArticle: (id) => dispatch(fetchArticle(id)),
+    deleteArticle: (id) => dispatch(deleteArticle(id))
   };
 };
 

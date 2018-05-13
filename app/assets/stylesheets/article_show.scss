@@ -43,6 +43,10 @@
   font-size: 12px;
 }
 
+.article-buttons {
+  display: flex;
+}
+
 .edit-button{
   color: #cdb48d;
   border: 0.5px solid #e7e7e7;
@@ -60,6 +64,26 @@
 
 .edit-button:hover {
   border: 0.5px solid #cdb48d;
+}
+
+.article-delete-button{
+  border: 0.5px solid #e7e7e7;
+  color: red;
+  border-radius: 3px;
+  padding: 6px 20px;
+  font-family: 'Archivo Narrow', sans-serif;
+  font-size: 13px;
+  letter-spacing: .07em;
+  background-color: Transparent;
+  margin-left: 20px;
+}
+
+.article-delete-button:hover {
+  border: 0.5px solid red;
+}
+
+#trash-icon {
+  margin-right: 6px;
 }
 
 .article-photos{
