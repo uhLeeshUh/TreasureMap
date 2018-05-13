@@ -38,17 +38,23 @@ class ArticleForm extends React.Component {
 
   submit(e){
     this.props.clearArticleErrors();
-    this.props.action(this.state.article);
-    this.props.history.push(`/articles/${this.props.article.id}`);
+    this.props.action(this.state.article).then(() => {
+      debugger
+      //PICK UP HERE
+      return (
+        this.props.history.push(`/articles/5`)
+      );
+    });
   }
 
   handleChange(field, e){
     let inProgressArticle = this.state.article;
     inProgressArticle[field] = e.target.value;
-    return this.setState( { inProgressArticle});
+    return this.setState({ inProgressArticle });
   }
 
   render(){
+    debugger
     let articleErrors;
     if (this.props.errors.length > 0) {
       articleErrors = this.props.errors.map((error, idx) => {

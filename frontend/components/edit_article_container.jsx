@@ -16,9 +16,9 @@ class EditArticleForm extends React.Component {
   }
 
   render(){
-    const { article, formType, editorId, buttonText, action, errors, clearArticleErrors, history} = this.props;
+    const { article, formType, editorId, buttonText, action, errors, clearArticleErrors, history, lastUpdatedArticleId} = this.props;
     return (
-      <ArticleForm article={article} formType={formType} editorId={editorId} buttonText={buttonText} action={action} errors={errors} clearArticleErrors={clearArticleErrors} history={history}/>
+      <ArticleForm article={article} formType={formType} editorId={editorId} buttonText={buttonText} action={action} errors={errors} clearArticleErrors={clearArticleErrors} history={history} lastUpdatedArticleId={lastUpdatedArticleId}/>
     );
   }
 
@@ -46,7 +46,8 @@ const mapStateToProps = (state, ownProps) => {
     formType: "Edit this Place",
     editorId: state.session.id,
     buttonText: "SUBMIT THIS EDIT",
-    errors: state.errors.article
+    errors: state.errors.article,
+    lastUpdatedArticleId: state.ui.lastArticleId
   };
 };
 

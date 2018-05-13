@@ -59,7 +59,7 @@ class Article extends React.Component {
           <p id="article-desc">{this.props.article.description}</p>
           <span className="edit-button">
             <i id="pencil-icon" className="fas fa-pencil-alt"></i>
-            <Link to="/">EDIT ENTRY</Link>
+            <Link to={`/articles/${this.props.article.id}/edit`}>EDIT ENTRY</Link>
           </span>
         </section>
 

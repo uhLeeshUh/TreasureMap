@@ -20,7 +20,8 @@ const mapStateToProps = (state, ownProps) => {
     formType: "Add a Place",
     author_id: state.session.id,
     buttonText: "SUBMIT THIS PLACE",
-    errors: state.errors.article
+    errors: state.errors.article,
+    lastUpdatedArticleId: state.ui.lastArticleId[0]
   };
 };
 

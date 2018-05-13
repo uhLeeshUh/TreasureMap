@@ -6,3 +6,6 @@
 // -My article page wasnt updating when I navigated to a new article in the url bar
 // because the ComponentDidMount method wasnt being called. So, I researched component lifecycle methods and found ComponentDidUpdate and used that to compare
 // this.props with prevProps to conditionally send off a network request to hit my database if I didn't have the needed article information already in my redux store
+
+//created a new slice of state for lastUpdatedArticleId so I could navigate to the show
+//page when an article is created
