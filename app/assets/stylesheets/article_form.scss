@@ -1,0 +1,95 @@
+.article-main-form {
+  width: 70%;
+  margin: auto;
+  margin-top: 100px;
+}
+
+.article-form-header {
+  font-size: 55px;
+  font-family: 'Arimo', sans-serif;
+  color: #382d14;
+  letter-spacing: -0.015em;
+  margin-bottom: 55px;
+}
+
+.article-form h3 {
+  font-family: 'Archivo Narrow', sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.0625em;
+}
+
+.article-form h2 {
+  font-family: 'Arimo', sans-serif;
+  letter-spacing: -0.015em;
+  color: #382d14;
+  font-size: 28px;
+  margin-bottom: 32px;
+}
+
+.article-form{
+  font-family: 'Archivo Narrow', sans-serif;
+  letter-spacing: 0.0325em;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.article-form-label{
+  margin-bottom: 11px;
+}
+
+.article-form input{
+  margin-top: 10px;
+  margin-bottom: 27px;
+  height: 49px;
+  width: 60%;
+  padding-left: 15px;
+  font-size: 17px;
+  color: black;
+  letter-spacing: 0.0525em;
+  font-family: 'Archivo Narrow', sans-serif;
+}
+
+
+::placeholder {
+  color: #c3c3c3;
+}
+
+.step-divider{
+  width: 61.5%;
+  border-top: 1px solid #e3e3e3;
+  margin-bottom: 45px;
+  margin-top: 53px;
+}
+
+#article-form-body{
+  margin-top: 15px;
+  margin-bottom: -5px;
+  min-height: 400px;
+  width: 60%;
+  padding-left: 15px;
+  padding-top: 15px;
+}
+
+.article-photo-upload{
+  height: 30px;
+}
+
+.article-photo-upload-button{
+  border: 1px dashed #ccc;
+  margin-top: 10px;
+  height: 200px;
+  width: 200px;
+}
+
+.article-form-button{
+  font-family: 'Archivo Narrow', sans-serif;
+  width: 19%;
+  color: #fff;
+  background-color: #1b624f;
+  height: 50px;
+  letter-spacing: .12em;
+  margin-top: 15px;
+  font-size: 16px;
+  margin-bottom: 50px;
+  box-shadow: none;
+}

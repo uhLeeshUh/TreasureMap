@@ -2,6 +2,7 @@ Questions:
 -why does my json jbuilder view not return an editors key for an article with no editors?
 -how to deal with a z-index and image overlay on editors?
 -why does my switch statement not work for articles/new vs. articles/wildcard ?
+-when to use javascript window object methods vs. doing something with css for stylistic choices?
 
 Go back and re-factor:
 -Article show so it doesnt fetch the article again after its been navigated to by a create or edit page (recieve article action logs twice)
@@ -149,7 +150,30 @@ SATURDAY:
 //deal with updating the image slice of state and image_ids array for article, need to send up the images in the json view for article
 
 SUNDAY:
+-Style add and edit forms
+-Add delete button to edit form if current user is the author
+-build out image resource and figure out image upload for articles
+
+
 -Figure out image upload for my articles
 -Play around with Google Maps API and figure out how to user "Place Autocomplete" in my form and
 display the map on the article show page
--Reorganize the components folder by category when everything is working
+
+
+MONDAY:
+-complete city and country showpages with thumbs
+
+TUESDAY:
+-finish map dropdown
+-work on search
+
+WEDNESDAY:
+-finish search
+-finish Google Maps integration
+
+THURSDAY:
+-finish Atlas index page
+-style slick photo carousel
+
+FRIDAY:
+-Production README

@@ -59,34 +59,35 @@ class ArticleForm extends React.Component {
         });
     }
     return (
-      <main>
-        <h1>{this.props.formType}</h1>
+      <main className="article-main-form">
         <form className="article-form" onSubmit={this.submit}>
+          <h1 className="article-form-header">{this.props.formType}</h1>
           {articleErrors}
+
           <section className="article-basic-info">
             <h3>STEP 1</h3>
             <h2>Basic Information</h2>
-              <label>What is the place commonly called?
+              <label className="article-form-label">What is the place commonly called?
                 <input type="text" placeholder="E.g. Bean Puzzle Tombstone" value={this.state.article.name}
                   onChange={
                     (e) => this.handleChange("name", e)}>
                   </input>
               </label>
 
-              <label>What's the gist? Keep this to a couple of words.
+              <label className="article-form-label">What's the gist? Keep this to a couple of words.
                 <input type="text" placeholder="E.g. A tombstone made of beans!" value={this.state.article.description}
                   onChange={
                     (e) => this.handleChange("description", e)}>
                 </input>
               </label>
 
-              <label>Optionally in a single sentence, what makes this place special?
+              <label className="article-form-label">Optionally in a single sentence, what makes this place special?
                 <input type="text" placeholder="E.g. It took over 100 years to decode this enigmatic epitaph for two buried brides." value={this.state.article.long_description} onChange={
                     (e) => this.handleChange("long_description", e)}>
                   </input>
               </label>
 
-              <label>What is the address?
+              <label className="article-form-label">What is the address?
                 <input type="text" placeholder="GOOGLE MAPS STUFF HERE"></input>
               </label>
 
@@ -107,21 +108,32 @@ class ArticleForm extends React.Component {
               </label>
           </section>
 
+            <hr className="step-divider" align="left"></hr>
+
           <section className="article-body-section">
             <h3>STEP 2</h3>
             <h2>Write Your Entry</h2>
-              <label>Please use your own words to tell the unique story of the place in an engaging, concise way.
-                <input type="text" value={this.state.article.body} onChange={(e) => this.handleChange("body", e)}></input>
+              <label id="article-form-label">Please use your own words to tell the unique story of the place in an engaging, concise way.
+                <br></br>
+                <textarea id="article-form-body" type="text" value={this.state.article.body} onChange={(e) => this.handleChange("body", e)}></textarea>
               </label>
           </section>
+
+          <hr className="step-divider" align="left"></hr>
 
           <section className="article-photo-add">
             <h3>STEP 3</h3>
             <h2>Add Photos</h2>
-              <label>Please add at least one photo of the place.
-                <input type="file"></input>
+              <label className="article-form-label">Please add at least one photo of the place.
+                <br></br>
+                <button className="article-photo-upload-button">
+                  <input className="article-photo-upload" type="file"></input>
+                </button>
+
               </label>
           </section>
+
+            <hr className="step-divider" align="left"></hr>
 
           <button className="article-form-button">{this.props.buttonText}</button>
         </form>

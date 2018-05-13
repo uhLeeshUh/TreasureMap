@@ -22,7 +22,7 @@
 
 .session-form .altText {
   margin-top: 2px;
-  letter-spacing: 0.0625em
+  letter-spacing: 0.0625em;
 }
 
 .session-label {
@@ -52,6 +52,7 @@ label, input {
 .form-body input {
   width: 370px;
   height: 40px;
+  padding-left: 15px;
 }
 
 .form-body .session-label{
