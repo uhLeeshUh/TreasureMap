@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ArticleForm from './article_form';
-import { editArticle, fetchArticle } from '../actions/article_actions';
+import { editArticle, fetchArticle, clearArticleErrors } from '../actions/article_actions';
 
 class EditArticleForm extends React.Component {
   componentDidMount(){
@@ -15,9 +15,9 @@ class EditArticleForm extends React.Component {
   }
 
   render(){
-    const { article, formType, editorId, buttonText, action, errors} = this.props;
+    const { article, formType, editorId, buttonText, action, errors, clearArticleErrors} = this.props;
     return (
-      <ArticleForm article={article} formType={formType} editorId={editorId} buttonText={buttonText} action={action} errors={errors}/>
+      <ArticleForm article={article} formType={formType} editorId={editorId} buttonText={buttonText} action={action} errors={errors} clearArticleErrors={clearArticleErrors}/>
     );
   }
 
