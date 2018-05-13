@@ -40,7 +40,7 @@ class Api::ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:name, :description, :body, :lat, :lng, :author_id, :city_id)
+    params.require(:article).permit(:name, :description, :body, :lat, :lng, :author_id, :city_id, :long_description)
   end
 
 end

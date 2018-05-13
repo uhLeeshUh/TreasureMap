@@ -51,7 +51,6 @@ class Article extends React.Component {
       <p className="contributor-display-text">EDITED BY</p>;
     }
 
-
     return (
       <main>
         <section className="article-head">
