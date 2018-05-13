@@ -30,8 +30,9 @@ class SessionDropdownItem extends React.Component {
     <ul className="dropdown-ul">
       <li>
         <p>{dropdownOne}</p>
-        <p>{dropdownTwo}</p>
+        <p className="dropdown-username">{dropdownTwo}</p>
       </li>
+      <li id="dropdown-divider"></li>
       <li>{dropdownThree}</li>
     </ul>
   );

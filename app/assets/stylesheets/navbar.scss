@@ -58,11 +58,17 @@ ul.dropdown-ul {
   z-index: 1;
   flex-direction: column;
   position: absolute;
-  text-align: center;
-  top: 80px;
+  text-align: left;
+  top: 71px;
+  left: -80px;
   // right: 30px;
-  width: 80px;
+  width: 160px;
   box-sizing: border-box;
+  background-color: white;
+  margin-top: 0;
+  border-bottom: 1px solid #d4d4d0;
+  border-left: 1px solid #d4d4d0;
+  border-right: 1px solid #d4d4d0;
   // may need to change these dimensions when we get user image to work
 }
 
@@ -70,8 +76,12 @@ ul.dropdown-ul {
   display: block;
 }
 
+.dropdown-div:hover {
+  border-bottom: 1px solid white;
+}
+
 ul.dropdown-ul li {
-  padding: 15px 0;
+  padding: 15px;
 }
 
 ul.dropdown-ul li a {
@@ -86,9 +96,21 @@ ul.dropdown-ul li {
 }
 
 ul.dropdown-ul li p:first-child {
-  margin-bottom: 2px;
+  margin-bottom: 5px;
 }
 
+#dropdown-divider{
+  border-top: 1px solid #d4d4d0;
+  width: 80%;
+  height: 1px;
+  margin: auto;
+  padding: 0;
+}
+
+.dropdown-username{
+  font-weight: 500;
+  font-size: 18px;
+}
 
 div.dropdown-div, div.right-nav-search {
   width: 80px;
