@@ -33,8 +33,8 @@ const mapStateToProps = (state, ownProps) => {
     body: "",
     lat: 0,
     lng: 0,
-    author_id: 0,
-    city_id: 0,
+    author_id: 1,
+    city_id: 1,
   };
 
 //TODO: when working on countries and cities, pass down the country and city info
@@ -52,7 +52,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     action: (article) => dispatch(editArticle(article)),
-    fetchArticle: (id) => dispatch(fetchArticle(id))
+    fetchArticle: (id) => dispatch(fetchArticle(id)),
+    clearArticleErrors: () => dispatch(clearArticleErrors())
   };
 };
 

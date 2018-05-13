@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ArticleForm from './article_form';
-import { createArticle } from '../actions/article_actions';
+import { createArticle, clearArticleErrors } from '../actions/article_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const defaultArticle = {
@@ -10,8 +10,8 @@ const mapStateToProps = (state, ownProps) => {
     body: "",
     lat: 0,
     lng: 0,
-    author_id: 0,
-    city_id: 0,
+    author_id: 1,
+    city_id: 1,
   };
 
   return {
@@ -25,7 +25,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    action: (article) => dispatch(createArticle(article))
+    action: (article) => dispatch(createArticle(article)),
+    clearArticleErrors: () => dispatch(clearArticleErrors())
   };
 };
 

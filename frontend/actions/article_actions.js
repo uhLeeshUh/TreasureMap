@@ -15,6 +15,7 @@ export const receiveArticles = (articlesPayload) => {
 };
 
 export const receiveArticle = (articlePayload) => {
+  debugger
   return {
     type: RECEIVE_ARTICLE,
     articlePayload

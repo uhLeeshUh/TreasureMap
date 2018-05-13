@@ -132,6 +132,8 @@ Future todo with cities:
 
 SATURDAY:
 # -test my API util functions!!!! (create, edit, destroy)
+-make sure forms work
+-add footer with button
 -make article create and edit forms (look at how Atlas Obscura deals with map)
 -read up on Google maps
 -add button to the footer to add an article and make it a protected route!
@@ -144,6 +146,7 @@ SATURDAY:
 //deal with updating the image slice of state and image_ids array for article, need to send up the images in the json view for article
 
 SUNDAY:
+-Figure out image upload for my articles
 -Play around with Google Maps API and figure out how to user "Place Autocomplete" in my form and
 display the map on the article show page
 -Reorganize the components folder by category when everything is working
