@@ -1,8 +1,7 @@
 Questions:
 -why does my json jbuilder view not return an editors key for an article with no editors?
--why when I am on one show page and enter in another wildcard to the url bar does it not work unless I hit
-enter in the url bar again?
 -how to deal with a z-index and image overlay on editors?
+-why is the wildcard in my route action up for "new" vs articleId?
 
 
 On-going todos:

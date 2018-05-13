@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { NavBar } from './navbar';
 // import Footer from ''
@@ -19,8 +19,10 @@ const App = () => {
       <Route path="/" component={NavBar} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <AuthRoute exact path="/signin" component={LoginFormContainer} />
-      <Route exact path="/articles/:articleId" component={ArticleContainer}/>
-      <ProtectedRoute exact path="/new-article" component={CreateArticleContainer}/>
+      <Switch>
+        <ProtectedRoute exact path="/articles/new" component={CreateArticleContainer}/>
+        <Route exact path="/articles/:articleId" component={ArticleContainer}/>
+      </Switch>
       <ProtectedRoute exact path="/articles/:articleId/edit" component={EditArticleContainer}/>
     </div>
   );
