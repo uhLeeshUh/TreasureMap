@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ArticleForm from './article_form';
 import { editArticle, fetchArticle, clearArticleErrors } from '../actions/article_actions';
+import { withRouter } from 'react-router-dom';
 
 class EditArticleForm extends React.Component {
   componentDidMount(){
@@ -15,9 +16,9 @@ class EditArticleForm extends React.Component {
   }
 
   render(){
-    const { article, formType, editorId, buttonText, action, errors, clearArticleErrors} = this.props;
+    const { article, formType, editorId, buttonText, action, errors, clearArticleErrors, history} = this.props;
     return (
-      <ArticleForm article={article} formType={formType} editorId={editorId} buttonText={buttonText} action={action} errors={errors} clearArticleErrors={clearArticleErrors}/>
+      <ArticleForm article={article} formType={formType} editorId={editorId} buttonText={buttonText} action={action} errors={errors} clearArticleErrors={clearArticleErrors} history={history}/>
     );
   }
 
@@ -57,7 +58,7 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditArticleForm);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(EditArticleForm));
 
 //submission needs to both edit the article and create an entry in
 //ArticleEdits table

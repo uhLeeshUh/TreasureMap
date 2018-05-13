@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import ArticleForm from './article_form';
 import { createArticle, clearArticleErrors } from '../actions/article_actions';
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
   const defaultArticle = {
@@ -30,4 +31,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ArticleForm);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ArticleForm));

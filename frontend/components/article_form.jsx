@@ -37,9 +37,9 @@ class ArticleForm extends React.Component {
   }
 
   submit(e){
-    debugger
     this.props.clearArticleErrors();
     this.props.action(this.state.article);
+    this.props.history.push(`/articles/${this.props.article.id}`);
   }
 
   handleChange(field, e){
