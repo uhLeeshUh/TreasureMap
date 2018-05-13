@@ -24,6 +24,10 @@ class ArticleForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  componentDidMount(){
+    window.scrollTo(0,0);
+  }
+
   componentDidUpdate(prevProps, prevState){
     //TODO: update this with city and country info, if needed with GM
     if (this.props !== prevProps) {

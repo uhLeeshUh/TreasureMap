@@ -3,6 +3,7 @@ Questions:
 -how to deal with a z-index and image overlay on editors?
 -why does my switch statement not work for articles/new vs. articles/wildcard ?
 -when to use javascript window object methods vs. doing something with css for stylistic choices?
+-why does my demoUser no longer work? Nothing is coming in as params do the session#create method?
 
 Go back and re-factor:
 -Article show so it doesnt fetch the article again after its been navigated to by a create or edit page (recieve article action logs twice)

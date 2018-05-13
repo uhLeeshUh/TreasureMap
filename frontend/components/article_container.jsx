@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 class Article extends React.Component {
   componentDidMount(){
     this.props.fetchArticle(this.props.match.params.articleId);
+    window.scrollTo(0,0);
   }
 
   componentDidUpdate(prevProps, prevState){
