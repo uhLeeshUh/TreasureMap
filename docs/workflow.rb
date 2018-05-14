@@ -179,6 +179,8 @@ MONDAY:
 -figure out why editors arent auto added to a page
 -make a part of a form required (upload an image, and required input values)
 
+#Left off wondering what url I should use in my images AJAX request
+
 
 Todo:
 -create separate image component
