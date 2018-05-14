@@ -1,6 +1,6 @@
 import React from 'react';
 import { merge } from 'lodash';
-import GoogleMapsArticleForm from '../article_form/google_maps_article_form';
+import GoogleMapsArticleForm from './article_form/google_maps_article_form';
 
 class ArticleForm extends React.Component {
   constructor(props){
@@ -82,14 +82,15 @@ class ArticleForm extends React.Component {
       console.log(file);
       file = file;
       fileReader.readAsDataURL(file);
-    })
+    });
 
   }
 
   sendUpLocation(e){
     let inProgressArticle = this.state.article;
     inProgressArticle.city_id = e.target.value;
-    this.setState{ article: inProgressArticle };
+    this.setState({ article: inProgressArticle });
+    debugger
   }
 
 

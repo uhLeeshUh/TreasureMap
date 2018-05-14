@@ -1,12 +1,13 @@
 import React from 'react';
 
-const GoogleMaps = (props) = {
-  const locOptions = this.props.cities.map(city => {
-    return (<option key={city.id} value={city.id}>{city.name}, {this.props.countries[city.country_id]}</option>)
-  })
+const GoogleMaps = (props) => {
+  let locOptions = props.cities.map(city => {
+    return (<option key={city.id} value={city.id}>{city.name}, {props.countries[city.country_id].name}</option>);
+  });
 
   return (
-    <select onChange={this.props.sendUpLocation}>
+    <select onChange={props.sendUpLocation}>
+      <option disabled selected value> -- Select a location -- </option>
       {locOptions}
     </select>
   );

@@ -10,7 +10,7 @@ const Footer = function(props){
       <div className="footer-outline"></div>
       <div className="footer-button">
         <Link className="footer-link" to="/articles/new">
-          <i id="map-pin" class="fas fa-map-pin"></i>
+          <i id="map-pin" className="fas fa-map-pin"></i>
           ADD A PLACE TO THE ATLAS
         </Link>
       </div>
