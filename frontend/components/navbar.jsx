@@ -18,8 +18,15 @@ export const NavBar = (props) => {
 
   return(
     <section className="nav">
-      <div className="logo">I'm the logo!</div>
+      <div className="logo">
+        <span>
+          <img className="logo-image" src={ window.images.treasureMapLogo }></img>
+          <p>Treasure Map</p>
+        </span>
+      </div>
+
       {map}
+
       <div className="right-nav">
         <ul>
           <li>{sessionDropdown}</li>
