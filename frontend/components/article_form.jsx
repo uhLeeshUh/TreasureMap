@@ -1,6 +1,7 @@
 import React from 'react';
 import { merge } from 'lodash';
 import GoogleMapsArticleForm from './article_form/google_maps_article_form';
+import PreviewImage from './article_form/preview_image';
 
 class ArticleForm extends React.Component {
   constructor(props){
@@ -18,7 +19,7 @@ class ArticleForm extends React.Component {
         editor_id: this.props.editorId || "",
         article_id: this.props.article.id
       },
-      images: [{imageUrl: null, imageFile: null}]
+      images: []
     };
     this.submit = this.submit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -44,10 +45,11 @@ class ArticleForm extends React.Component {
   }
 
   submit(e){
+    debugger
     this.props.clearArticleErrors();
-    if (this.state.images.length > 0) {
-      this.props.createImages(this.state.images);
-    }
+    // if (this.state.images.length > 0) {
+    //   this.props.createImages(this.state.images);
+    // }
     //would I need to chain this as a promise? I don't want to show article until its images are uploaded
     let fullArticle = merge({}, this.state.article);
     fullArticle.author_id = this.props.author_id || this.state.article.author_id;
@@ -65,24 +67,30 @@ class ArticleForm extends React.Component {
   }
 
   updateFile(e){
+    debugger
     const inputFiles = e.currentTarget.files;
     const fileReader = new FileReader();
-    let file;
 
     fileReader.onloadend = function() {
-      console.log(file);
       console.log(inputFiles);
-      let currentImages = this.state.images.push({imageFile: file, imageUrl: fileReader.result});
+      let currentImages;
+      Array.from(inputFiles).forEach(file => {
+        debugger
+        this.state.images.push({imageFile: file, imageUrl: fileReader.result});
+        currentImages = this.state.images;
+        debugger
+      });
+      // let currentImages = this.state.images.push({imageFile: file, imageUrl: fileReader.result});
       this.setState({ images: currentImages });
+      debugger
     }.bind(this);
 
 
-    Array.from(inputFiles).forEach(file => {
-      console.log("From forEach");
-      console.log(file);
-      file = file;
-      fileReader.readAsDataURL(file);
-    });
+    if (inputFiles) {
+      Array.from(inputFiles).forEach(file => {
+        fileReader.readAsDataURL(file);
+      });
+    }
 
   }
 
@@ -90,7 +98,15 @@ class ArticleForm extends React.Component {
     let inProgressArticle = this.state.article;
     inProgressArticle.city_id = e.target.value;
     this.setState({ article: inProgressArticle });
-    debugger
+  }
+
+  removePreview(idx){
+    return (e) => {
+      let newImages = this.state.images;
+      newImages.splice(idx);
+      this.setState({ images: newImages });
+    };
+    //change the images that are in this.state.images, which are what is being rendered in preview and what will be submitted
   }
 
 
@@ -100,6 +116,13 @@ class ArticleForm extends React.Component {
       articleErrors = this.props.errors.map((error, idx) => {
         return <li key={idx}>{error}</li>;
         });
+    }
+
+    let previewImages;
+    if (this.state.images.length > 0) {
+      previewImages = this.state.images.map((image, idx) => {
+        return <PreviewImage key={idx} imageUrl={image.imageUrl} removePreview={this.removePreview}/>;
+      });
     }
 
     return (
@@ -158,7 +181,7 @@ class ArticleForm extends React.Component {
                 <button className="article-photo-upload-button">
                   <input className="article-photo-upload" type="file" multiple onChange={this.updateFile}></input>
                 </button>
-                <img src={this.state.images[this.state.images.length - 1].imageUrl}/>
+              {previewImages}
               </label>
           </section>
 
