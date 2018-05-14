@@ -2,7 +2,6 @@ class Api::ImagesController < ApplicationController
 
   def create
     @image = Image.new(image_params)
-    @image.article_id = params[:article_id]
 
     if @image.save
       render 'api/images/show'

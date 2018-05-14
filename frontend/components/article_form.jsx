@@ -25,6 +25,7 @@ class ArticleForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.updateFile = this.updateFile.bind(this);
     this.sendUpLocation = this.sendUpLocation.bind(this);
+    this.removePreview = this.removePreview.bind(this);
   }
 
   componentDidMount(){
@@ -45,20 +46,24 @@ class ArticleForm extends React.Component {
   }
 
   submit(e){
-    debugger
     this.props.clearArticleErrors();
-    // if (this.state.images.length > 0) {
-    //   this.props.createImages(this.state.images);
-    // }
-    //would I need to chain this as a promise? I don't want to show article until its images are uploaded
     let fullArticle = merge({}, this.state.article);
     fullArticle.author_id = this.props.author_id || this.state.article.author_id;
-    this.props.action(fullArticle).then(() => {
-      debugger
+    this.props.action(fullArticle).then( () => {
+      if (this.state.images.length > 0) {
+        this.state.images.forEach(image => {
+          let formData = new FormData();
+          formData.append("image[article_id]", this.props.lastUpdatedArticleId);
+          formData.append("image[image]", image.imageFile);
+          this.props.createImage(formData);
+        });
+      }
+    }).then(() => {
       return (
         this.props.history.push(`/articles/${this.props.lastUpdatedArticleId}`)
       );
     });
+    //lastly I would need to create a new ArticleEdit
   }
 
   handleChange(field, e){
@@ -72,11 +77,10 @@ class ArticleForm extends React.Component {
     const fileReader = new FileReader();
 
     fileReader.onloadend = function() {
-      console.log(inputFiles);
+      // console.log(inputFiles);
       let currentImages;
       Array.from(inputFiles).forEach(file => {
         this.state.images.push({imageFile: file, imageUrl: fileReader.result});
-        debugger
         currentImages = this.state.images;
       });
       this.setState({ images: currentImages });
@@ -99,11 +103,11 @@ class ArticleForm extends React.Component {
 
   removePreview(idx){
     return (e) => {
+      e.preventDefault();
       let newImages = this.state.images;
       newImages.splice(idx);
       this.setState({ images: newImages });
     };
-    //change the images that are in this.state.images, which are what is being rendered in preview and what will be submitted
   }
 
 
@@ -118,12 +122,8 @@ class ArticleForm extends React.Component {
     let previewImages;
     if (this.state.images.length > 0) {
       previewImages = this.state.images.map((image, idx) => {
-        // debugger
-        console.log(image);
-        console.log(image.imageUrl);
-        return <PreviewImage key={idx} imageUrl={image.imageUrl} removePreview={this.removePreview}/>;
+        return <PreviewImage key={idx} idx={idx} imageUrl={image.imageUrl} removePreview={this.removePreview}/>;
       });
-      // debugger
     }
 
     return (

@@ -13,7 +13,7 @@ const mapStateToProps = (state, ownProps) => {
     lng: 0,
     author_id: 1,
     city_id: 1,
-  }
+  };
 
   return {
     article: state.entities.articles[ownProps.match.params.articleId] || defaultArticle,

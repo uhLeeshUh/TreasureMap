@@ -1,9 +1,8 @@
 import React from 'react';
 
 const PreviewImage = (props) => {
-  debugger
   return (
-    <button onClick={props.removePreview(props.key)}>
+    <button onClick={props.removePreview(props.idx)}>
       <img src={props.imageUrl}></img>
     </button>
   );
