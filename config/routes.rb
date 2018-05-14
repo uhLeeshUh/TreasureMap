@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :articles, only: [:create, :show, :update, :destroy] do
       resources :images, only: [:create]
     end
+    resources :cities, only: [:show, :create]
   end
 
 end

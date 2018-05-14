@@ -1,9 +1,9 @@
-export const createImage = (image) => {
+export const createImage = (articleId, image) => {
   return $.ajax({
     method: "post",
-    url: ?,
+    url: `/api/article/${articleId}/images`,
     contentType: false,
     processData: false,
     data: image
-  })
+  });
 };

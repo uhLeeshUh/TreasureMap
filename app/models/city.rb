@@ -9,4 +9,8 @@ belongs_to :country,
   class_name: :Country,
   foreign_key: :country_id
 
+  def self.top_ten_cities
+    cities = City.select(:id, :name).joins(:articles).group('cities.id').order('COUNT(articles.id) DESC').limit(10)
+  end
+
 end
