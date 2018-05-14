@@ -193,6 +193,10 @@ BOTH OF THESE COMPONENTS need a passdown inline function that will set state in 
 -provide a mapDispatchToProps callback to be able to create an image of everything in this.state.images
 **NOW, change whats passed up as images to not be a dummy array!!!
 
+Did today:
+-figured out multi image upload with previews(go back and change do all at once)
+-wrote active record query!!
+
 
 
 TUESDAY:

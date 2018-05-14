@@ -7,6 +7,7 @@ class Api::CitiesController < ApplicationController
 
   def create
     @city = City.new(city_params)
+    @city.country_id = params[:country_id]
 
     if @city.save
       render 'api/cities/show'
@@ -14,6 +15,11 @@ class Api::CitiesController < ApplicationController
       render json: @city.errors.full_messages, status: 422
     end
 
+  end
+
+  def top_cities
+    @cities = City.top_cities_by_article_count
+    render 'api/cities/top_cities'
   end
 
   #custom route for the top X cities

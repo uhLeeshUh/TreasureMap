@@ -8,7 +8,14 @@ Rails.application.routes.draw do
     resources :articles, only: [:create, :show, :update, :destroy] do
       resources :images, only: [:create]
     end
-    resources :cities, only: [:show, :create]
+    resources :countries, only: [:create, :show] do
+      resources :cities, only: [:create]
+    end
+    resources :cities, only: [:show] do
+      collection do
+        get 'top_cities'
+      end
+    end
   end
 
 end
