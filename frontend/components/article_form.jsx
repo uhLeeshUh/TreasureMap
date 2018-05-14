@@ -54,6 +54,7 @@ class ArticleForm extends React.Component {
     let fullArticle = merge({}, this.state.article);
     fullArticle.author_id = this.props.author_id || this.state.article.author_id;
     this.props.action(fullArticle).then(() => {
+      debugger
       return (
         this.props.history.push(`/articles/${this.props.lastUpdatedArticleId}`)
       );
@@ -67,7 +68,6 @@ class ArticleForm extends React.Component {
   }
 
   updateFile(e){
-    debugger
     const inputFiles = e.currentTarget.files;
     const fileReader = new FileReader();
 
@@ -75,14 +75,11 @@ class ArticleForm extends React.Component {
       console.log(inputFiles);
       let currentImages;
       Array.from(inputFiles).forEach(file => {
-        debugger
         this.state.images.push({imageFile: file, imageUrl: fileReader.result});
-        currentImages = this.state.images;
         debugger
+        currentImages = this.state.images;
       });
-      // let currentImages = this.state.images.push({imageFile: file, imageUrl: fileReader.result});
       this.setState({ images: currentImages });
-      debugger
     }.bind(this);
 
 
@@ -121,8 +118,12 @@ class ArticleForm extends React.Component {
     let previewImages;
     if (this.state.images.length > 0) {
       previewImages = this.state.images.map((image, idx) => {
+        // debugger
+        console.log(image);
+        console.log(image.imageUrl);
         return <PreviewImage key={idx} imageUrl={image.imageUrl} removePreview={this.removePreview}/>;
       });
+      // debugger
     }
 
     return (

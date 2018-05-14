@@ -36,7 +36,10 @@ class SessionForm extends React.Component {
   }
 
   signinDemoUser(){
-    this.props.login({user: {username: "DemoUser", password: "password"}});
+    var formData = new FormData();
+    formData.append("user[username]", "DemoUser");
+    formData.append("user[password]", "password");
+    this.props.login(formData);
   }
 
   clearErrors(){
