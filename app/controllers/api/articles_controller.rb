@@ -2,6 +2,8 @@ class Api::ArticlesController < ApplicationController
 
   #TODO: make index to serve up all articles under one city. Make json view
   #serve them up nested under their ids!
+  #The view for #index should only serve up the article name, description and image
+
 
   def create
     @article = Article.new(article_params)

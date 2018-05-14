@@ -16,7 +16,13 @@ json.editors do
   end
 end
 
-#json.images needs to send up all the associated images
+json.images do
+  article.images.each do |image|
+    json.set! image.id do
+      json.partial! 'api/images/image', image: image
+    end
+  end
+end
 
 
 #TODO: add in the city information to be served up under its city id,

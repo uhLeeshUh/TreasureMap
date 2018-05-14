@@ -61,21 +61,6 @@ City.create([
   {name: 'Rayne, LA', country_id: 1},
   ])
 
-Image.destroy_all
-Image.create([
-  {article_id: 1, image_url: "fake_url"},
-  {article_id: 1, image_url: "fake_url2"},
-  {article_id: 1, image_url: "fake_url3"},
-  {article_id: 2, image_url: "fake_url4"},
-  {article_id: 2, image_url: "fake_url5"},
-  {article_id: 3, image_url: "fake_url6"},
-  {article_id: 4, image_url: "fake_url7"},
-  {article_id: 4, image_url: "fake_url8"},
-  {article_id: 4, image_url: "fake_url9"},
-  {article_id: 1, image_url: "fake_url10"},
-  {article_id: 5, image_url: "fake_url11"},
-  {article_id: 5, image_url: "fake_url12"},
-  ])
 
   #Article, Author
   #1, 7
@@ -303,6 +288,24 @@ Image.create([
     city_id: 4},
 
 ])
+
+Image.destroy_all
+Image.create([
+  {article_id: 1},
+  {article_id: 1},
+  {article_id: 1},
+  {article_id: 2},
+  {article_id: 2},
+  {article_id: 3},
+  {article_id: 4},
+  {article_id: 4},
+  {article_id: 4},
+  {article_id: 1},
+  {article_id: 5},
+  {article_id: 5},
+  ])
+
+
 #
 # articles.map do |article|
 #   article_found = Article.find(article.id)

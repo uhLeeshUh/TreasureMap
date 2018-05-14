@@ -1,0 +1,42 @@
+.footer-bottom {
+  width: 70%;
+  background-color: none;
+  margin: auto;
+  height: 100px;
+}
+
+.footer-button {
+  width: 80%;
+  height: 50%;
+  margin: auto;
+  display: block;
+  color: #fff;
+  background-color: #1b624f;
+  margin-bottom: 50px;
+}
+
+.footer-link {
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Archivo Narrow', sans-serif;
+  letter-spacing: 0.1em;
+  font-size: 15px;
+  width: auto;
+  display: block;
+  padding: 16px;
+  text-align: center;
+  background-color: #1b624f;
+}
+
+#map-pin{
+  padding-right: 3px;
+}
+
+.footer-outline{
+  height: 1px;
+  width: 90%;
+  margin: auto;
+  border-top: 1px solid #d4d4d0;
+  margin-bottom: 30px;
+  margin-top: 50px;
+}

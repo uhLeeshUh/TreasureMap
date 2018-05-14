@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { NavBar } from './navbar';
-// import Footer from ''
+import Footer from './anchors/footer';
 // import all other components!
 import SignupFormContainer from './signup_form_container';
 import LoginFormContainer from './login_form_container';
@@ -24,6 +24,7 @@ const App = () => {
         <Route exact path="/articles/:articleId" component={ArticleContainer}/>
       </Switch>
       <ProtectedRoute exact path="/articles/:articleId/edit" component={EditArticleContainer}/>
+      <Route path="/" component={Footer}/>
     </div>
   );
 };

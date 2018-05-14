@@ -4,6 +4,8 @@ Questions:
 -why does my switch statement not work for articles/new vs. articles/wildcard ?
 -when to use javascript window object methods vs. doing something with css for stylistic choices?
 -why does my demoUser no longer work? Nothing is coming in as params do the session#create method?
+-NESTED ROUTES: should I be sending up all images when I fetch an article? How about editors?
+  -therefore, should my only image controller method be a nested create?
 
 Go back and re-factor:
 -Article show so it doesnt fetch the article again after its been navigated to by a create or edit page (recieve article action logs twice)
@@ -167,8 +169,10 @@ What I learned on Sunday:
 -what window object js methods there are for styling (look at this more tonight?)
 -how to use hr tags to create lines in my form
 -HOW TO MAKE MY SESSION DROPDOWN WORK HOLLERRRRRRR
+-how to get font awesome icons down pat
 
 MONDAY:
+-figure out why editors arent auto added to a page
 -complete city and country showpages with thumbs
 
 TUESDAY:

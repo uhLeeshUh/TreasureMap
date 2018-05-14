@@ -18,7 +18,8 @@ class ArticleForm extends React.Component {
         article_id: this.props.article.id
       },
       images:{
-        //will I need this?
+        imageFile: null,
+        imageUrl: null
       }
     };
     this.submit = this.submit.bind(this);
@@ -57,6 +58,17 @@ class ArticleForm extends React.Component {
     inProgressArticle[field] = e.target.value;
     return this.setState({ inProgressArticle });
   }
+
+  updateFile(e){
+    // let file = e.currentTarget.file[0];
+    // const fileReader = new FileReader();
+    // let updatedImageState = merge({}, this.state.images);
+    // fileReader.onloadend = function() {
+    //   this.setState({});
+    // };
+  }
+
+
 
   render(){
     let articleErrors;
@@ -135,7 +147,7 @@ class ArticleForm extends React.Component {
               <label className="article-form-label">Please add at least one photo of the place.
                 <br></br>
                 <button className="article-photo-upload-button">
-                  <input className="article-photo-upload" type="file"></input>
+                  <input className="article-photo-upload" type="file" multiple ></input>
                 </button>
 
               </label>
