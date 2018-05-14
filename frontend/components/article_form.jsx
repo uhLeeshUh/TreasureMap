@@ -1,5 +1,6 @@
 import React from 'react';
 import { merge } from 'lodash';
+import GoogleMapsArticleForm from '../article_form/google_maps_article_form';
 
 class ArticleForm extends React.Component {
   constructor(props){
@@ -14,20 +15,20 @@ class ArticleForm extends React.Component {
         country_id: 0
       },
       articleEdit: {
-        editor_id: this.props.editorId,
+        editor_id: this.props.editorId || "",
         article_id: this.props.article.id
       },
-      images:{
-        imageFile: null,
-        imageUrl: null
-      }
+      images: [{imageUrl: null, imageFile: null}]
     };
     this.submit = this.submit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.updateFile = this.updateFile.bind(this);
+    this.sendUpLocation = this.sendUpLocation.bind(this);
   }
 
   componentDidMount(){
     window.scrollTo(0,0);
+    //fetch the images in an edit form
   }
 
   componentDidUpdate(prevProps, prevState){
@@ -44,6 +45,10 @@ class ArticleForm extends React.Component {
 
   submit(e){
     this.props.clearArticleErrors();
+    if (this.state.images.length > 0) {
+      this.props.createImages(this.state.images);
+    }
+    //would I need to chain this as a promise? I don't want to show article until its images are uploaded
     let fullArticle = merge({}, this.state.article);
     fullArticle.author_id = this.props.author_id || this.state.article.author_id;
     this.props.action(fullArticle).then(() => {
@@ -56,18 +61,36 @@ class ArticleForm extends React.Component {
   handleChange(field, e){
     let inProgressArticle = this.state.article;
     inProgressArticle[field] = e.target.value;
-    return this.setState({ inProgressArticle });
+    this.setState({ inProgressArticle });
   }
 
   updateFile(e){
-    // let file = e.currentTarget.file[0];
-    // const fileReader = new FileReader();
-    // let updatedImageState = merge({}, this.state.images);
-    // fileReader.onloadend = function() {
-    //   this.setState({});
-    // };
+    const inputFiles = e.currentTarget.files;
+    const fileReader = new FileReader();
+    let file;
+
+    fileReader.onloadend = function() {
+      console.log(file);
+      console.log(inputFiles);
+      let currentImages = this.state.images.push({imageFile: file, imageUrl: fileReader.result});
+      this.setState({ images: currentImages });
+    }.bind(this);
+
+
+    Array.from(inputFiles).forEach(file => {
+      console.log("From forEach");
+      console.log(file);
+      file = file;
+      fileReader.readAsDataURL(file);
+    })
+
   }
 
+  sendUpLocation(e){
+    let inProgressArticle = this.state.article;
+    inProgressArticle.city_id = e.target.value;
+    this.setState{ article: inProgressArticle };
+  }
 
 
   render(){
@@ -107,25 +130,10 @@ class ArticleForm extends React.Component {
                   </input>
               </label>
 
-              <label className="article-form-label">What is the address?
-                <input type="text" placeholder="GOOGLE MAPS STUFF HERE"></input>
+              <label className="article-form-label">Where is the place?
+                <GoogleMapsArticleForm sendUpLocation={this.sendUpLocation}/>
               </label>
 
-              <label>Lat
-                <input type="number" value={this.state.article.lat}></input>
-              </label>
-
-              <label>Lng
-                <input type="number" value={this.state.article.lng}></input>
-              </label>
-
-              <label>City_id
-                <input type="number" value={this.state.article.city_id}></input>
-              </label>
-
-              <label>Country_name
-                <input type="text" value={this.state.country.name}></input>
-              </label>
           </section>
 
             <hr className="step-divider" align="left"></hr>
@@ -147,9 +155,9 @@ class ArticleForm extends React.Component {
               <label className="article-form-label">Please add at least one photo of the place.
                 <br></br>
                 <button className="article-photo-upload-button">
-                  <input className="article-photo-upload" type="file" multiple ></input>
+                  <input className="article-photo-upload" type="file" multiple onChange={this.updateFile}></input>
                 </button>
-
+                <img src={this.state.images[this.state.images.length - 1].imageUrl}/>
               </label>
           </section>
 

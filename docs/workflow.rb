@@ -1,7 +1,7 @@
 Questions:
 -why does my json jbuilder view not return an editors key for an article with no editors?
 -how to deal with a z-index and image overlay on editors?
--why does my switch statement not work for articles/new vs. articles/wildcard ?
+# -why does my switch statement not work for articles/new vs. articles/wildcard ?
 -when to use javascript window object methods vs. doing something with css for stylistic choices?
 -why does my demoUser no longer work? Nothing is coming in as params do the session#create method?
 -NESTED ROUTES: should I be sending up all images when I fetch an article? How about editors?
@@ -15,8 +15,8 @@ Go back and re-factor:
 On-going todos:
 -add images to the AWS database
 -fix the overlay of editor images
--fix session dropdown
 -apply slick to image reel
+
 
 
 
@@ -178,6 +178,20 @@ MONDAY:
 
 -figure out why editors arent auto added to a page
 -make a part of a form required (upload an image, and required input values)
+
+
+Todo:
+-create separate image component
+-create separate city and country dropdown menus as a component (make it the map component now which will be updated with GoogleMaps)
+BOTH OF THESE COMPONENTS need a passdown inline function that will set state in the parent form
+
+(by the end of lunch:)
+-to deal with image this.state:
+-map over fileReader again
+-provide a mapDispatchToProps callback to be able to create an image of everything in this.state.images
+**NOW, change whats passed up as images to not be a dummy array!!!
+
+
 
 TUESDAY:
 -finish map dropdown

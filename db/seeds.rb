@@ -305,6 +305,8 @@ Image.create([
   {article_id: 5},
   ])
 
+  # {article_id: 2, image = "aws_url"}
+
 
 #
 # articles.map do |article|
