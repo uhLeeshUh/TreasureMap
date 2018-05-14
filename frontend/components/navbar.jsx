@@ -20,10 +20,10 @@ export const NavBar = (props) => {
   return(
     <section className="nav">
       <div className="logo">
-        <span>
+        <Link to="/">
           <img className="logo-image" src={ window.images.treasureMapLogo }></img>
-          <Link to="/">Treasure Map</Link>
-        </span>
+          <p>Treasure Map</p>
+        </Link>
       </div>
 
       {map}

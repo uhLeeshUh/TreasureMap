@@ -16,10 +16,11 @@
   border-right: 1px solid #d4d4d0;
 }
 
-.logo span {
+.logo a {
   display: flex;
   width: 100%;
   margin: 10px;
+  text-decoration: none;
 }
 
 .logo-image {
@@ -30,14 +31,13 @@
   padding-left: 10px;
 }
 
-.logo a {
+.logo p {
   font-size: 28px;
   font-family: 'Arimo', sans-serif;
   letter-spacing: -0.01em;
   font-weight: 600;
   margin-top: 8px;
   color: #382d14;
-  text-decoration: none;
 }
 
 .right-nav ul {
