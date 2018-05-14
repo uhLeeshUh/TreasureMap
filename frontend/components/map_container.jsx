@@ -2,5 +2,7 @@ import React from 'react';
 
 
 export default () => {
-  return "I'm the map!";
+  return (
+    "Discover the world's most hidden places."
+  );
 };

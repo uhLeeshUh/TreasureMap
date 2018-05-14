@@ -6,6 +6,7 @@ Questions:
 -why does my demoUser no longer work? Nothing is coming in as params do the session#create method?
 -NESTED ROUTES: should I be sending up all images when I fetch an article? How about editors?
   -therefore, should my only image controller method be a nested create?
+-heroku help
 
 Go back and re-factor:
 -Article show so it doesnt fetch the article again after its been navigated to by a create or edit page (recieve article action logs twice)
@@ -172,8 +173,11 @@ What I learned on Sunday:
 -how to get font awesome icons down pat
 
 MONDAY:
--figure out why editors arent auto added to a page
+-add multiple images at once!
 -complete city and country showpages with thumbs
+
+-figure out why editors arent auto added to a page
+-make a part of a form required (upload an image, and required input values)
 
 TUESDAY:
 -finish map dropdown
@@ -184,8 +188,8 @@ WEDNESDAY:
 -finish Google Maps integration
 
 THURSDAY:
--finish Atlas index page
 -style slick photo carousel
+-finish Atlas index page
 
 FRIDAY:
 -Production README

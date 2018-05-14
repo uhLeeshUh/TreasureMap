@@ -3,6 +3,7 @@ import MapContainer from './map_container';
 import SessionDropdownContainer from './session_dropdown_container';
 import SearchContainer from './search_container';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 export const NavBar = (props) => {
   let map;
@@ -21,7 +22,7 @@ export const NavBar = (props) => {
       <div className="logo">
         <span>
           <img className="logo-image" src={ window.images.treasureMapLogo }></img>
-          <p>Treasure Map</p>
+          <Link to="/">Treasure Map</Link>
         </span>
       </div>
 
