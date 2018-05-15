@@ -12,10 +12,10 @@ export const fetchTopCities = () => {
   });
 };
 
-export const createCity = (city) => {
+export const createCity = (country, city) => {
   return $.ajax({
     method: 'post',
-    url: 'api/cities',
+    url: `api/countries/${country.id}/cities`,
     data: { city }
   });
 };

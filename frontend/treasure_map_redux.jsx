@@ -11,6 +11,8 @@ import App from './components/app'; //need to create this file
 import * as SessionActions from './actions/session_actions';
 import * as ArticleAPIUtil from './util/article_api_util';
 import * as ArticleActions from './actions/article_actions';
+import * as CityAPIUtil from './util/city_api_util';
+import * as CityActions from './actions/city_actions';
 
 
 const Root = ({ store }) => {
@@ -55,12 +57,17 @@ window.login = SessionActions.login;
 window.logout = SessionActions.logout;
 // window.fetchArticle = ArticleAPIUtil.fetchArticle;
 // window.fetchArticles = ArticleAPIUtil.fetchArticles;
-window.createArticle = ArticleAPIUtil.createArticle;
+// window.createArticle = ArticleAPIUtil.createArticle;
 // window.editArticle = ArticleAPIUtil.editArticle;
 // window.deleteArticle = ArticleAPIUtil.deleteArticle;
-
 // window.createArticle = ArticleActions.createArticle;
 // window.deleteArticle = ArticleActions.deleteArticle;
+window.fetchCity = CityAPIUtil.fetchCity;
+window.fetchTopCities = CityAPIUtil.fetchTopCities;
+window.createCity = CityAPIUtil.createCity;
+
+
+
 // {name: "test", description: "test desc", long_description: 'long', body: 'hey', lat: 23.2, lng: 34.1, author_id: 1, city_id: 3}
 
 // {id: 24, name: "testEDITED", description: "test desc", long_description: 'long', body: 'hey', lat: 23.2, lng: 34.1, author_id: 1, city_id: 3}
