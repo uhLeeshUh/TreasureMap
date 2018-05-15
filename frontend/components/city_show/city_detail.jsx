@@ -26,7 +26,7 @@ class CityDetail extends React.Component {
     if (articleCount === 1) {thing = "thing";}
 
     const articleThumbs = this.props.articles.map(article => {
-      return <ArticleThumb key={article.id} article={article}/>;
+      return <ArticleThumb key={article.id} article={article} image={this.props.images[article.image_ids.first]}/>;
     });
 
     return (
@@ -75,10 +75,19 @@ const mapStateToProps = (state, ownProps) => {
     });
   }
 
+  let images = {};
+  if (city.article_ids){
+    city.article_ids.forEach(article_id => {
+      let firstImage = state.entities.images[state.entities.articles.article_id.image_ids.first];
+      images.firstImage.id = firstImage;
+    });
+  }
+
   return {
     city,
     country,
-    articles
+    articles,
+    images
   };
 };
 

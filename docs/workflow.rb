@@ -1,5 +1,5 @@
 Questions:
--why does my json jbuilder view not return an editors key for an article with no editors?
+???????-why does my json jbuilder view not return an editors key for an article with no editors?
 -how to deal with a z-index and image overlay on editors?
 # -why does my switch statement not work for articles/new vs. articles/wildcard ?
 -when to use javascript window object methods vs. doing something with css for stylistic choices?
@@ -206,6 +206,16 @@ Notes on image upload:
 -tested the AJAX call from the console and it is working without passing in an image
 
 TUESDAY:
+-configure jBuilder views to send me editing_user_ids and image_ids! (for article show and index(editing_user_ids, image_ids, and cities index and show(article_ids))
+  -this will allow me to always have a normalized state off the bat - match to model in wiki (10:00)
+-make sure I can dummy get what I need for city index page
+-build out article thumbnail (11:00 )
+-build out country index page (by end of lunch)
+-style both of these (3:00 pm)
+-figure out image saving!!!! (4:30)
+-create map dropdown (6 pm)
+-spend night working on search
+
 -finish map dropdown
 -work on search
 
