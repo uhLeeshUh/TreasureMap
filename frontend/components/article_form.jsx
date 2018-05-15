@@ -49,18 +49,26 @@ class ArticleForm extends React.Component {
     //get this as images into an array of image objects wit their necessary form data
     this.props.clearArticleErrors();
 
-    const imageInfo = this.state.images.map(image => {
-
-      // return { "image[image]": image.imageFile };
-      let formData = new FormData();
-      formData.append("image[image]", image.imageFile);
-      return formData;
+    let formData = new FormData();
+    Object.keys(this.state.article).forEach(key => {
+      formData.append(`article[${key}]`, this.state.article[key]);
     });
 
-    let fullArticle = merge({}, this.state.article, { images_attributes: imageInfo });
-    fullArticle.author_id = this.props.author_id || this.state.article.author_id;
+    this.state.images.forEach(image => {
+      formData.append("article[images_attributes[][image]]", image.imageFile);
+    });
 
-    this.props.action(fullArticle).then(
+    // const imageInfo = this.state.images.map(image => {
+    //
+    //   // return { "image[image]": image.imageFile };
+    //   formData.append("image[image]", image.imageFile);
+    //   return formData;
+    // });
+
+
+    // let fullArticle = merge({}, this.state.article, { images_attributes: imageInfo });
+    // fullArticle.author_id = this.props.author_id || this.state.article.author_id;
+    this.props.action(formData).then(
       () => {
         return (
           this.props.history.push(`/articles/${this.props.lastUpdatedArticleId}`)
@@ -92,10 +100,10 @@ class ArticleForm extends React.Component {
     const fileReader = new FileReader();
 
     fileReader.onloadend = function() {
-      let currentImages;
+      let currentImages = this.state.images.slice();
+
       Array.from(inputFiles).forEach(file => {
-        this.state.images.push({imageFile: file, imageUrl: fileReader.result});
-        currentImages = this.state.images;
+        currentImages.push({imageFile: file, imageUrl: fileReader.result});
       });
       this.setState({ images: currentImages });
     }.bind(this);
@@ -118,7 +126,7 @@ class ArticleForm extends React.Component {
   removePreview(idx){
     return (e) => {
       e.preventDefault();
-      let newImages = this.state.images;
+      let newImages = this.state.images.slice();
       newImages.splice(idx);
       this.setState({ images: newImages });
     };

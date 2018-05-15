@@ -18,6 +18,10 @@ class SessionForm extends React.Component {
     this.updateFile = this.updateFile.bind(this);
   }
 
+  componentDidMount(){
+    window.scrollTo(0,0);
+  }
+
   handleChange(field){
     return (e) => {
       this.setState({[field]: e.target.value});

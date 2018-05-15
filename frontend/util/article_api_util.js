@@ -1,10 +1,11 @@
 export const createArticle = (article) => {
+  debugger
   return $.ajax({
     method: 'post',
     url: '/api/articles',
-    // contentType: false,
-    // processData: false,
-    data:  { article }
+    contentType: false,
+    processData: false,
+    data:   article 
   });
 };
 
