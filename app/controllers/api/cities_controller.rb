@@ -13,12 +13,16 @@ class Api::CitiesController < ApplicationController
     else
       render json: @city.errors.full_messages, status: 422
     end
+  end
 
+  def index
+    @cities = City.all
+    render 'api/cities/index'
   end
 
   def top_cities
     @cities = City.top_cities_by_article_count
-    render 'api/cities/top_cities'
+    render 'api/cities/index'
   end
 
   #custom route for the top X cities

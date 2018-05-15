@@ -1,5 +1,6 @@
 import { RECEIVE_IMAGE, RECEIVE_IMAGES } from '../../actions/image_actions';
 import { RECEIVE_ARTICLE } from '../../actions/article_actions';
+import { RECEIVE_CITY } from '../../actions/city_actions';
 import { merge } from 'lodash';
 
 const imagesReducer = (state = {} , action) => {
@@ -13,6 +14,9 @@ const imagesReducer = (state = {} , action) => {
       return newState;
     case RECEIVE_ARTICLE:
       newState = merge({}, state, action.articlePayload.images);
+      return newState;
+    case RECEIVE_CITY:
+      newState = merge({}, state, action.cityPayload.images);
       return newState;
     default:
       return state;
