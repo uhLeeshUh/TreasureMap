@@ -1,7 +1,8 @@
 import React from 'react';
-import Link from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import ArticleThumb from '../article_thumb';
 import { connect } from 'react-redux';
+import { fetchCity } from '../../actions/city_actions';
 
 class CityDetail extends React.Component {
   constructor(props){
@@ -9,7 +10,14 @@ class CityDetail extends React.Component {
   }
 
   componentDidMount(){
-    this.props.fetchCity(props.match.params.cityId);
+    this.props.fetchCity(this.props.match.params.cityId);
+    window.scrollTo(0,0);
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    if (this.props.match.params.articleId !== prevProps.match.params.articleId) {
+      this.props.fetchCity(this.props.match.params.cityId);
+    }
   }
 
   render(){
@@ -23,7 +31,7 @@ class CityDetail extends React.Component {
 
     return (
       <main>
-        <Link to={`/countries/${this.props.country.id}`}>(this.props.country.name)</Link>
+        <Link to={`/countries/${this.props.country.id}`}>{this.props.country.name}</Link>
 
         <section className="city-show-header">
           <h1>Hidden {this.props.city.name}</h1>
@@ -39,24 +47,37 @@ class CityDetail extends React.Component {
           <div>Google Maps goes here
           </div>
         </section>
+
       </main>
     );
   }
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const cityId = ownProps.match.params.cityId;
-  const city = state.entities.cities.cityId;
-  const articles = city.article_ids.map(article_id => {
-    return state.entities.articles[article_id];
-  });
+  //TODO: comment back in countries when add in countries reducer
+  const defaultCity = {id: 17, name: "Beijing", country_id: 3 };
+  const defaultCountry = {id: 3, name: "China"};
 
-  const defaultCity = {id: 0, name: "Barcelona", country_id: 12 };
-  const defaultCountry = {id: 0, name: "Spain"};
+  const cityId = ownProps.match.params.cityId;
+  let city = defaultCity;
+  if (state.entities.cities.length > 0) {
+    city = state.entities.cities.cityId || defaultCity;
+  }
+  let country = defaultCountry;
+  // if (state.entities.countries.length > 0) {
+  //   country = state.entities.countries[city.country_id] || defaultCountry;
+  // }
+
+  let articles = [];
+  if (city.article_ids) {
+    articles = city.article_ids.map(article_id => {
+      return state.entities.articles[article_id];
+    });
+  }
 
   return {
-    city: city || defaultCity,
-    country: state.entities.countries[city.country_id] || defaultCountry,
+    city,
+    country,
     articles
   };
 };
@@ -67,7 +88,7 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps)(CityDetail);
+export default connect(mapStateToProps, mapDispatchToProps)(CityDetail);
 
 
 //send down country (id, name)

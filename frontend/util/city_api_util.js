@@ -20,7 +20,6 @@ export const createCity = (country, city) => {
   });
 };
 
-//test that these AJAX calls work
 //write the reducers
 //check state
 //test action creators
