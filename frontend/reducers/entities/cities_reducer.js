@@ -8,7 +8,11 @@ const citiesReducer = (state = {}, action) => {
       let newState = merge({}, state, action.citiesPayload.cities);
       return newState;
     case RECEIVE_CITY:
-      newState = merge({}, state, {[action.cityPayload.city.id]: action.cityPayload.city});
+      let updatedCity = action.cityPayload.city;
+      if (action.cityPayload.articles){
+        updatedCity.article_ids = Object.keys(action.cityPayload.articles);
+      }
+      newState = merge({}, state, {[action.cityPayload.city.id]: updatedCity});
       return newState;
     default:
       return state;

@@ -1,4 +1,5 @@
 import { RECEIVE_ARTICLES, RECEIVE_ARTICLE, REMOVE_ARTICLE } from '../actions/article_actions';
+import { RECEIVE_CITY } from '../actions/city_actions';
 import { merge } from 'lodash';
 
 const articlesReducer = (state = {}, action) => {
@@ -15,15 +16,20 @@ const articlesReducer = (state = {}, action) => {
       } else {
         appendedArticle.editing_user_ids = [];
       }
-
       newState = merge({}, state, {
         [action.articlePayload.article.id]: appendedArticle
       });
       return newState;
+
     case REMOVE_ARTICLE:
       newState = merge({}, state);
       delete newState[action.id];
       return newState;
+
+    case RECEIVE_CITY:
+      newState = merge({}, state, action.cityPayload.articles);
+      return newState;
+
     default:
       return state;
   }
