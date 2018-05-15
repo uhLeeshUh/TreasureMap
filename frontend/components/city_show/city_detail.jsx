@@ -32,12 +32,16 @@ class CityDetail extends React.Component {
 
     return (
       <main>
-        <Link to={`/countries/${this.props.country.id}`}>{this.props.country.name}</Link>
+        <div className="city-show-header">
+          <Link className="city-show-country-link" to={`/countries/${this.props.country.id}`}>
+            <p>{this.props.country.name}</p>
+          </Link>
 
-        <section className="city-show-header">
-          <h1>Hidden {this.props.city.name}</h1>
-          <p>Discover {articleCount} cool and unusual {thing} to do in {this.props.city.name}</p>
-        </section>
+          <section className="city-show-holder">
+              <h1>Hidden {this.props.city.name}</h1>
+              <p>Discover {articleCount} cool and unusual {thing} to do in {this.props.city.name}</p>
+          </section>
+        </div>
 
         <section className="city-show-article-thumbs">
           {articleThumbs}
