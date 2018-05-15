@@ -46,23 +46,38 @@ class ArticleForm extends React.Component {
   }
 
   submit(e){
+    //get this as images into an array of image objects wit their necessary form data
     this.props.clearArticleErrors();
-    let fullArticle = merge({}, this.state.article);
-    fullArticle.author_id = this.props.author_id || this.state.article.author_id;
-    this.props.action(fullArticle).then( () => {
-      if (this.state.images.length > 0) {
-        this.state.images.forEach(image => {
-          let formData = new FormData();
-          formData.append("image[article_id]", this.props.lastUpdatedArticleId);
-          formData.append("image[image]", image.imageFile);
-          this.props.createImage(formData);
-        });
-      }
-    }).then(() => {
-      return (
-        this.props.history.push(`/articles/${this.props.lastUpdatedArticleId}`)
-      );
+
+    const imageInfo = this.state.images.map(image => {
+
+      // return { "image[image]": image.imageFile };
+      let formData = new FormData();
+      formData.append("image[image]", image.imageFile);
+      return formData;
     });
+
+    let fullArticle = merge({}, this.state.article, { images_attributes: imageInfo });
+    fullArticle.author_id = this.props.author_id || this.state.article.author_id;
+
+    this.props.action(fullArticle).then(
+      () => {
+        return (
+          this.props.history.push(`/articles/${this.props.lastUpdatedArticleId}`)
+        );
+      });
+
+    //   () => {
+    //   if (this.state.images.length > 0) {
+    //     this.state.images.forEach(image => {
+    //       let formData = new FormData();
+    //       formData.append("image[article_id]", this.props.lastUpdatedArticleId);
+    //       formData.append("image[image]", image.imageFile);
+    //       this.props.createImage(formData);
+    //     });
+    //   }
+    // }).then(
+
     //lastly I would need to create a new ArticleEdit
   }
 
@@ -77,7 +92,6 @@ class ArticleForm extends React.Component {
     const fileReader = new FileReader();
 
     fileReader.onloadend = function() {
-      // console.log(inputFiles);
       let currentImages;
       Array.from(inputFiles).forEach(file => {
         this.state.images.push({imageFile: file, imageUrl: fileReader.result});
@@ -102,6 +116,7 @@ class ArticleForm extends React.Component {
   }
 
   removePreview(idx){
+    debugger
     return (e) => {
       e.preventDefault();
       let newImages = this.state.images;
@@ -177,12 +192,12 @@ class ArticleForm extends React.Component {
           <section className="article-photo-add">
             <h3>STEP 3</h3>
             <h2>Add Photos</h2>
-              <label className="article-form-label">Please add at least one photo of the place.
+              <label className="article-form-label">Please add at least one photo of the place. Click the image preview to delete it.
                 <br></br>
-                <button className="article-photo-upload-button">
                   <input className="article-photo-upload" type="file" multiple onChange={this.updateFile}></input>
-                </button>
-              {previewImages}
+                  <span className="preview-wrapper">
+                    {previewImages}
+                  </span>
               </label>
           </section>
 

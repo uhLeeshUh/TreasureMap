@@ -77,11 +77,20 @@
   height: 30px;
 }
 
-.article-photo-upload-button{
-  border: 1px dashed #ccc;
-  margin-top: 10px;
-  height: 200px;
-  width: 200px;
+// .article-photo-upload-button{
+//   border: 1px dashed #ccc;
+//   margin-top: 10px;
+//   height: 200px;
+//   width: 200px;
+// }
+
+.preview-wrapper {
+  display: flex;
+}
+
+.preview-image {
+  max-height: 200px;
+  max-width: 200px;
 }
 
 .article-form-button{

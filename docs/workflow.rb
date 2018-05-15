@@ -8,13 +8,16 @@ Questions:
   -therefore, should my only image controller method be a nested create?
 -heroku help
 
-Go back and re-factor:
+
+
+Go back and work on:
+-when I click on the first image, it deletes the ones after it?
+-fix the overlay of editor images
 -Article show so it doesnt fetch the article again after its been navigated to by a create or edit page (recieve article action logs twice)
 -Components folder
 
 On-going todos:
 -add images to the AWS database
--fix the overlay of editor images
 -apply slick to image reel
 
 
@@ -198,6 +201,9 @@ Did today:
 -wrote active record query!!
 
 
+Notes on image upload:
+-Getting Uncaught TypeError: Illegal invocation at article_api_util line 4
+-tested the AJAX call from the console and it is working without passing in an image
 
 TUESDAY:
 -finish map dropdown

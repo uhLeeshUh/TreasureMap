@@ -9,6 +9,7 @@ import LoginFormContainer from './login_form_container';
 import ArticleContainer from './article_container';
 import CreateArticleContainer from './create_article_container';
 import EditArticleContainer from './edit_article_container';
+import CityDetailContainer from './city_show/city_detail';
 
 const App = () => {
   // <NavBar /> //has no route, so it will render on every page. Put dropdowns and search here
@@ -24,6 +25,7 @@ const App = () => {
         <Route exact path="/articles/:articleId" component={ArticleContainer}/>
       </Switch>
       <ProtectedRoute exact path="/articles/:articleId/edit" component={EditArticleContainer}/>
+      <Route exact path="/cities/:cityId" component={CityDetailContainer}/>
       <Route path="/" component={Footer}/>
     </div>
   );

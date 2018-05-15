@@ -4,7 +4,7 @@ export const createArticle = (article) => {
     url: '/api/articles',
     // contentType: false,
     // processData: false,
-    data: { article }
+    data:  { article }
   });
 };
 

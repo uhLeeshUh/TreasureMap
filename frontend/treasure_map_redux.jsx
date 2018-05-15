@@ -55,7 +55,7 @@ window.login = SessionActions.login;
 window.logout = SessionActions.logout;
 // window.fetchArticle = ArticleAPIUtil.fetchArticle;
 // window.fetchArticles = ArticleAPIUtil.fetchArticles;
-// window.createArticle = ArticleAPIUtil.createArticle;
+window.createArticle = ArticleAPIUtil.createArticle;
 // window.editArticle = ArticleAPIUtil.editArticle;
 // window.deleteArticle = ArticleAPIUtil.deleteArticle;
 

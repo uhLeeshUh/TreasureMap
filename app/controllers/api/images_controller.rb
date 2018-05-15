@@ -13,7 +13,7 @@ class Api::ImagesController < ApplicationController
   private
 
   def image_params
-    params.require(:image).permit(:article_id, :image)
+    params.require(:image).permit(:image)
   end
 
 end
