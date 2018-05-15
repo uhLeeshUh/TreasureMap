@@ -210,11 +210,14 @@ TUESDAY:
 #   and cities index and show(article_ids))
 #   -this will allow me to always have a normalized state off the bat - match to model in wiki (10:00)
 # -make sure I can dummy get what I need for city index page
--build out article thumbnail (11:45 )
+# -build out article thumbnail (11:45 )
+-style article thumbnail (12:30)
+-style city show page (1 pm)
 -build out country index page (by end of lunch)
 -style both of these (3:00 pm)
 -figure out image saving!!!! (4:30)
 -create map dropdown (6 pm)
+-seed db with images and indented articles
 -spend night working on search
 
 -finish map dropdown

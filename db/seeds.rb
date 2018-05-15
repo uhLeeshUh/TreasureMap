@@ -290,19 +290,34 @@ City.create([
 ])
 
 Image.destroy_all
+# Image.create([
+#   {article_id: 1, image},
+#   {article_id: 1},
+#   {article_id: 1},
+#   {article_id: 21},
+#   {article_id: 20},
+#   {article_id: 2},
+#   {article_id: 3},
+#   {article_id: 4},
+#   {article_id: 4},
+#   {article_id: 4},
+#   {article_id: 1},
+#   {article_id: 6},
+#   {article_id: 5},
+#   ])
+#
+#   Image.create({
+#   :id => 52,
+#   :asset => File.new(Rails.root.join('path', 'to', 'somefile.jpg')),
+#   :product_id => 52
+# })
+
 Image.create([
-  {article_id: 1},
-  {article_id: 1},
-  {article_id: 1},
-  {article_id: 2},
-  {article_id: 2},
-  {article_id: 3},
-  {article_id: 4},
-  {article_id: 4},
-  {article_id: 4},
-  {article_id: 1},
-  {article_id: 5},
-  {article_id: 5},
+  {article_id: 4, image: File.new("app/assets/images/treasure_chest.jpg")},
+  {article_id: 5, image: File.new("app/assets/images/toy_explorer.jpg")},
+  {article_id: 6, image: File.new("app/assets/images/seed_images/bones1.jpg")},
+  {article_id: 20, image: File.new("app/assets/images/seed_images/isla1.jpg")},
+  {article_id: 21, image: File.new("app/assets/images/seed_images/mao2.jpg")},
   ])
 
   # {article_id: 2, image = "aws_url"}
