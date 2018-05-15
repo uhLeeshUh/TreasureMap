@@ -58,33 +58,12 @@ class ArticleForm extends React.Component {
       formData.append("article[images_attributes[][image]]", image.imageFile);
     });
 
-    // const imageInfo = this.state.images.map(image => {
-    //
-    //   // return { "image[image]": image.imageFile };
-    //   formData.append("image[image]", image.imageFile);
-    //   return formData;
-    // });
-
-
-    // let fullArticle = merge({}, this.state.article, { images_attributes: imageInfo });
-    // fullArticle.author_id = this.props.author_id || this.state.article.author_id;
     this.props.action(formData).then(
       () => {
         return (
           this.props.history.push(`/articles/${this.props.lastUpdatedArticleId}`)
         );
       });
-
-    //   () => {
-    //   if (this.state.images.length > 0) {
-    //     this.state.images.forEach(image => {
-    //       let formData = new FormData();
-    //       formData.append("image[article_id]", this.props.lastUpdatedArticleId);
-    //       formData.append("image[image]", image.imageFile);
-    //       this.props.createImage(formData);
-    //     });
-    //   }
-    // }).then(
 
     //lastly I would need to create a new ArticleEdit
   }

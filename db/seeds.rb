@@ -312,13 +312,24 @@ Image.destroy_all
 #   :product_id => 52
 # })
 
+# Image.create([
+#   {article_id: 4, image: File.new("app/assets/images/treasure_chest.jpg")},
+#   {article_id: 5, image: File.new("app/assets/images/toy_explorer.jpg")},
+#   {article_id: 6, image: File.new("app/assets/images/seed_images/bones1.jpg")},
+#   {article_id: 20, image: File.new("app/assets/images/seed_images/isla1.jpg")},
+#   {article_id: 21, image: File.new("app/assets/images/seed_images/mao2.jpg")},
+#   ])
+
+
 Image.create([
-  {article_id: 4, image: File.new("app/assets/images/treasure_chest.jpg")},
+  {article_id: 4, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"
+},
   {article_id: 5, image: File.new("app/assets/images/toy_explorer.jpg")},
   {article_id: 6, image: File.new("app/assets/images/seed_images/bones1.jpg")},
   {article_id: 20, image: File.new("app/assets/images/seed_images/isla1.jpg")},
   {article_id: 21, image: File.new("app/assets/images/seed_images/mao2.jpg")},
   ])
+
 
   # {article_id: 2, image = "aws_url"}
 

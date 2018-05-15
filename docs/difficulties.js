@@ -9,3 +9,5 @@
 
 //created a new slice of state for lastUpdatedArticleId so I could navigate to the show
 //page when an article is created
+
+//upload images simultaneously with articles, requires one large FormData object
