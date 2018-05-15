@@ -116,7 +116,6 @@ class ArticleForm extends React.Component {
   }
 
   removePreview(idx){
-    debugger
     return (e) => {
       e.preventDefault();
       let newImages = this.state.images;

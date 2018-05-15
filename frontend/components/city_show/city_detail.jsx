@@ -60,8 +60,8 @@ const mapStateToProps = (state, ownProps) => {
 
   const cityId = ownProps.match.params.cityId;
   let city = defaultCity;
-  if (state.entities.cities.length > 0) {
-    city = state.entities.cities.cityId || defaultCity;
+  if (state.entities.cities) {
+    city = state.entities.cities[cityId] || defaultCity;
   }
   let country = defaultCountry;
   // if (state.entities.countries.length > 0) {
@@ -69,20 +69,25 @@ const mapStateToProps = (state, ownProps) => {
   // }
 
   let articles = [];
-  if (city.article_ids) {
-    articles = city.article_ids.map(article_id => {
-      return state.entities.articles[article_id];
-    });
-  }
-
   let images = {};
-  if (city.article_ids){
+  if (city.article_ids) {
     city.article_ids.forEach(article_id => {
-      let firstImage = state.entities.images[state.entities.articles.article_id.image_ids.first];
-      images.firstImage.id = firstImage;
+      articles.push(state.entities.articles[article_id]);
+
+    if (state.entities.articles[article_id] && state.entities.articles[article_id].image_ids.length > 0){
+        let thumbImage = state.entities.images[state.entities.articles[article_id].image_ids[0]];
+        images[thumbImage.id] = thumbImage;
+      }
+
     });
   }
 
+  // if (city.article_ids){
+  //   city.article_ids.forEach(article_id => {
+  //     let thumbImage = state.entities.images[state.entities.articles[article_id].image_ids.first];
+  //     images.thumbImage.id = thumbImage;
+  //   });
+  // }
   return {
     city,
     country,
