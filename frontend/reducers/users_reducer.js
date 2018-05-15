@@ -9,7 +9,9 @@ const usersReducer = (state = {}, action) => {
       let newState = merge({}, state, {[action.user.id]: action.user});
       return newState;
     case RECEIVE_ARTICLE:
-      newState = merge({}, state, {[action.articlePayload.author.id]: action.articlePayload.author}, action.articlePayload.editors
+      newState = merge({}, state,
+        {[action.articlePayload.author.id]: action.articlePayload.author},
+         action.articlePayload.editors
       );
       return newState;
     default:

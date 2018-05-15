@@ -19,9 +19,9 @@ class Article < ApplicationRecord
     foreign_key: :article_id,
     inverse_of: :article
 
-  # belongs_to :city,
-  #   class_name: :City,
-  #   foreign_key: :city_id
+  belongs_to :city,
+    class_name: :City,
+    foreign_key: :city_id
 
   accepts_nested_attributes_for :images
 

@@ -1,29 +1,32 @@
+###what the article needs to hold in redux state
 json.article do
   json.extract! article, :id, :name, :description, :body, :lat, :lng, :author_id, :city_id, :long_description
+  json.image_ids article.images.ids
+  json.editing_user_ids article.editors.ids
 end
+
+###what the article needs to reference
 
 json.author do
-  json.partial! 'api/users/user', user: article.author
+  json.extract! article.author, :id, :username, :image
 end
-# json.city json.partial! 'api/cities/city', city: article.city
-
 
 json.editors do
   article.editors.each do |editor|
     json.set! editor.id do
-      json.partial! 'api/users/user', user: editor
+      json.extract! editor, :id, :username, :image
     end
   end
+end
+
+json.city do
+  json.extract! article.city, :id, :name
 end
 
 json.images do
   article.images.each do |image|
     json.set! image.id do
-      json.partial! 'api/images/image', image: image
+      json.extract! image, :id, :image
     end
   end
 end
-
-
-#TODO: add in the city information to be served up under its city id,
-# add the images association to send up all article's images
