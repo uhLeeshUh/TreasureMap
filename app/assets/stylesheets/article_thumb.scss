@@ -1,11 +1,88 @@
+.thumb-holder{
+  // display: flex;
+  // width: 75%;
+  // height: 60%;
+  // background-color: red;
+  // margin: auto;
+  // flex-wrap: wrap;
+}
+
 .article-thumb-image {
-  max-height: 200px;
+  height: 200px;
   max-width: 100%;
 }
 
 .article-thumb {
   height: 400px;
   box-sizing: border-box;
-  padding: 10px;
+  padding: 9px;
+  position: relative;
+  // border-bottom: 1px solid #e7e7e7;
   // margin: 8px;
+}
+
+.article-thumb-count{
+  border-radius: 50px;
+  background-color: white;
+  width: 35px;
+  height: 35px;
+  box-shadow: 0 0 0 3px rgba(144,144,144,.4);
+  color: #ccb48d;
+  position: absolute;
+  left: 78%;
+  top: 48%;
+  // align-items: center;
+}
+
+.article-thumb-count p {
+  padding: 8px 12px;
+  font-family: 'Archivo Narrow', sans-serif;
+  font-size: 20px;
+}
+
+.article-thumb-summary{
+  padding-top: 10px;
+}
+
+.thumb-city-name{
+  font-family: 'Archivo Narrow', sans-serif;
+  font-size: 16px;
+  color: #1b624f;
+  text-transform: uppercase;
+  font-weight: 600;
+  line-height: 1em;
+  letter-spacing: .045em;
+  padding-top: 10px;
+}
+
+.thumb-border{
+  border-bottom: 1px solid #d4d4d0;
+  width: 93%;
+  margin: auto;
+  margin-bottom: 13px;
+}
+
+.thumb-holder a {
+  text-decoration: none;
+}
+
+.thumb-article-name {
+  font-family: 'Arimo', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #382d14;
+  padding-top: 4px;
+}
+
+.thumb-article-name:hover {
+  text-decoration: underline;
+  text-decoration-color: #919193;
+}
+
+.thumb-article-desc{
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  line-height: 23px;
+  color: #382d14;
+  margin-top: 10px;
 }
