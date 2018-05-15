@@ -209,8 +209,8 @@ TUESDAY:
 # -configure jBuilder views to send me editing_user_ids and image_ids! (for article show and index(editing_user_ids, image_ids,
 #   and cities index and show(article_ids))
 #   -this will allow me to always have a normalized state off the bat - match to model in wiki (10:00)
--make sure I can dummy get what I need for city index page
--build out article thumbnail (11:30 )
+# -make sure I can dummy get what I need for city index page
+-build out article thumbnail (11:45 )
 -build out country index page (by end of lunch)
 -style both of these (3:00 pm)
 -figure out image saving!!!! (4:30)

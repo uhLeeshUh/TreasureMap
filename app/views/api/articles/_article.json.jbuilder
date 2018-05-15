@@ -8,13 +8,15 @@ end
 ###what the article needs to reference
 
 json.author do
-  json.extract! article.author, :id, :username, :image
+  json.extract! article.author, :id, :username
+  json.image_url asset_path(article.author.image.url)
 end
 
 json.editors do
   article.editors.each do |editor|
     json.set! editor.id do
-      json.extract! editor, :id, :username, :image
+      json.extract! editor, :id, :username
+      json.image_url asset_path(article.author.image.url)
     end
   end
 end
@@ -26,7 +28,8 @@ end
 json.images do
   article.images.each do |image|
     json.set! image.id do
-      json.extract! image, :id, :image
+      json.extract! image, :id
+      json.image_url asset_path(image.image.url)
     end
   end
 end
