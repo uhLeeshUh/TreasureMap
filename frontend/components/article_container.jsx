@@ -127,29 +127,29 @@ const mapStateToProps = (state, ownProps) => {
       articleLoaded: false
     };
   }
+  //
+  // const defaultArticle = {
+  //   id: 1,
+  //   name: "",
+  //   description: "",
+  //   body: "",
+  //   author_id: 1,
+  //   city_id: 1,
+  //   image_ids: [],
+  //   editing_user_ids: []
+  // };
 
-  const defaultArticle = {
-    id: 1,
-    name: "",
-    description: "",
-    body: "",
-    author_id: 1,
-    city_id: 1,
-    image_ids: [],
-    editing_user_ids: []
-  };
-
-  const article = state.entities.articles[ownProps.match.params.articleId] || defaultArticle;
-  const city = state.entities.cities[article.city_id] || "";
+  const article = state.entities.articles[ownProps.match.params.articleId];
+  const city = state.entities.cities[article.city_id];
   // const images = article.image_ids.map(image_id => {
   //   return (state.entities.images[image_id] || "");
   // });
   // const country = state.entities.countries[city.country_id];
-  const author = state.entities.users[article.author_id] || {};
+  const author = state.entities.users[article.author_id];
   let editors;
   if (article.editing_user_ids){
     editors = article.editing_user_ids.map(editor_id => {
-      return (state.entities.users[editor_id] || {});
+      return (state.entities.users[editor_id]);
     });
   }
   const viewerId = state.session.id;

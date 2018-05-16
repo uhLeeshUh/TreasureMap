@@ -22,6 +22,10 @@ class CityDetail extends React.Component {
 
   render(){
 
+    if (!this.props.cityLoaded){
+      return <div></div>;
+    }
+
     const articleCount = this.props.articles.length;
     let thing = "things";
     if (articleCount === 1) {thing = "thing";}
@@ -70,41 +74,31 @@ class CityDetail extends React.Component {
 const mapStateToProps = (state, ownProps) => {
 
   const cityId = ownProps.match.params.cityId;
-  // let loading = true;
-  // if (state.entities.cities[cityId]){
-  //   loading = false;
-  // }
-
-  const defaultCity = {id: 17, name: "Beijing", country_id: 3 };
-  const defaultCountry = {id: 3, name: "China"};
-
-  let city = defaultCity;
-  if (state.entities.cities) {
-    city = state.entities.cities[cityId] || defaultCity;
+  let cityLoaded = true;
+  if (!(state.entities.cities[cityId] && state.entities.cities[cityId].article_ids)){
+    return {
+      cityLoaded: false
+    };
   }
-  let country = defaultCountry;
-  if (state.entities.countries[city.country_id]) {
-    country = state.entities.countries[city.country_id];
-  }
+
+  const city = state.entities.cities[cityId];
+  const country = state.entities.countries[city.country_id];
+
 
   let articles = [];
   let images = {};
-  if (city.article_ids) {
-    city.article_ids.forEach(article_id => {
-      articles.push(state.entities.articles[article_id]);
-
-    if (state.entities.articles[article_id] && state.entities.articles[article_id].image_ids.length > 0){
-        let thumbImage = state.entities.images[state.entities.articles[article_id].image_ids[0]];
-        images[thumbImage.id] = thumbImage;
-      }
-
+  city.article_ids.forEach(article_id => {
+    articles.push(state.entities.articles[article_id]);
+    let thumbImage = state.entities.images[state.entities.articles[article_id].image_ids[0]];
+    images[thumbImage.id] = thumbImage;
     });
-  }
+
   return {
     city,
     country,
     articles,
-    images
+    images,
+    cityLoaded
   };
 };
 
