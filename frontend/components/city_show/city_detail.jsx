@@ -38,21 +38,29 @@ class CityDetail extends React.Component {
             <p>{this.props.country.name}</p>
           </Link>
 
-          <section className="city-show-holder">
-              <h1>Hidden {this.props.city.name}</h1>
-              <p>Discover {articleCount} cool and unusual {thing} to do in {this.props.city.name}</p>
-          </section>
+          <div className="city-show-holder-wrapper">
+            <section className="city-show-holder" />
+
+            <div className="city-show-text">
+              <h2 className="city-show-intro">The Treasure Map guide to</h2>
+              <h2 className="city-show-main-title">Hidden {this.props.city.name}</h2>
+              <p className="city-show-tag">Discover {articleCount} cool and unusual {thing} to do in {this.props.city.name}, {this.props.country.name}</p>
+            </div>
+          </div>
+
         </div>
 
         <section className="city-show-article-thumbs">
           {articleThumbs}
         </section>
 
-        <section className="city-show-google-map">
-          <h2>Explore {this.props.city.name}</h2>
-          <div>Google Maps goes here
+        <div className="city-show-map-wrapper">
+          <section className="city-show-google-map"></section>
+          <div className="city-show-map-text">
+            <h2 className="city-show-footer">Explore {this.props.city.name}</h2>
+            <div className="city-show-google-maps-container">Google Maps goes here</div>
           </div>
-        </section>
+        </div>
 
       </main>
     );

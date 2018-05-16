@@ -239,6 +239,8 @@ TUESDAY:
 -create map dropdown (11:30)
 
 WEDNESDAY:
+**ask about opacity for the show pages(bottom)
+-try to figure out whats wrong with heroku
 -finish search
 -finish Google Maps integration
 

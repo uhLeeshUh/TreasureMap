@@ -23,7 +23,7 @@ User.create!([
 
 Country.destroy_all
 Country.create!([
-  {name: "United States of America"},
+  {name: "USA"},
   {name: "Czech Republic"},
   {name: "China"},
   {name: "Germany"},
@@ -40,10 +40,10 @@ Country.create!([
 
 City.destroy_all
 City.create!([
-  {name: 'Bruceville, IN', country_id: Country.find_by(name: "United States of America").id},
-  {name: 'Hugo, OK', country_id: Country.find_by(name: "United States of America").id},
-  {name: 'Paris, TX', country_id: Country.find_by(name: "United States of America").id},
-  {name: 'New York City, NY', country_id: Country.find_by(name: "United States of America").id},
+  {name: 'Bruceville, IN', country_id: Country.find_by(name: "USA").id},
+  {name: 'Hugo, OK', country_id: Country.find_by(name: "USA").id},
+  {name: 'Paris, TX', country_id: Country.find_by(name: "USA").id},
+  {name: 'New York, NY', country_id: Country.find_by(name: "USA").id},
   {name: 'Kutna Hora', country_id: Country.find_by(name: "Czech Republic").id},
   {name: 'Shanghai', country_id: Country.find_by(name: "China").id},
   {name: 'Mannheim', country_id: Country.find_by(name: "Germany").id},
@@ -58,7 +58,7 @@ City.create!([
   {name: 'Rome', country_id: Country.find_by(name: "Italy").id},
   {name: 'Beijing', country_id: Country.find_by(name: "China").id},
   {name: 'Harbin', country_id: Country.find_by(name: "China").id},
-  {name: 'Rayne, LA', country_id: Country.find_by(name: "United States of America").id},
+  {name: 'Rayne, LA', country_id: Country.find_by(name: "USA").id},
   ])
 
 
@@ -134,7 +134,7 @@ City.create!([
     lat: 40.7085,
     lng: -74.0086,
     author_id: User.find_by(username: "Alicia").id,
-    city_id: City.find_by(name: "New York City, NY").id},
+    city_id: City.find_by(name: "New York, NY").id},
 #5, 1
   { name: "Hare Krishna Tree",
     description: "One of the few remaining American elm trees in New York’s Tompkins Square Park was the birthplace of a new religion.",
@@ -146,7 +146,7 @@ City.create!([
     lat: 40.7261,
     lng: -73.9820,
     author_id: User.find_by(username: "Pouli").id,
-    city_id: City.find_by(name: "New York City, NY").id},
+    city_id: City.find_by(name: "New York, NY").id},
 #6, 3
   { name: "New York Marble Cemetery",
     description: "Hidden down an alley in the bustling East Village.",
@@ -159,7 +159,7 @@ City.create!([
     lat: 40.7256,
     lng: -73.9909,
     author_id: User.find_by(username: "Yiayia").id,
-    city_id: City.find_by(name: "New York City, NY").id},
+    city_id: City.find_by(name: "New York, NY").id},
 
 #7, 4
   { name: "Showmen's Rest",
@@ -323,11 +323,11 @@ City.create!([
     On the lower (platform) level of the Museum are featured subway cars dating back to 1916 and wooden elevated cars dating back to 1903 as well as other miscellaneous equipment used in subway operation.
     Do you remember old tokens? They were the predominate fare on New York Subways and buses from 1953 until 2003, when the brass coins were replaced by the now-ubiquitous MetroCard. A permanent collection at the New York Transit Museum presents the token-operated turnstiles and the ticket chopping machines dating back to 1904; visitors enter the Museum through the same street entrance their grandparents once did.
     The Museum has an Annex/Gallery in Grand Central Terminal (to the left of the Station Master’s office). The original Court Street station opened in 1936 as part of an intended connection to Manhattan (approximately where the World Trade Center station on the E line is today), it served HH trains until 1946 when it was closed due to lack of use and lack of funds to build the tunnel to Manhattan. After that was used to film scenes for many movies — the opening scene of the 1974 movie The Taking of Pelham 1-2-3 shows a train entering the station (with a false wall on the right side).
-    In 1976, the New York City Transit Authority wanted to contribute to the US Bicentennial celebration and opened the New York City Transit Exhibit in July 1976. The station was only intended to remain until September 1976, but public reaction was so overwhelming it remained open and eventually became the New York Transit Museum. Responsibility of the museum was subsequently transferred to the Metropolitan Transportation Authority to allow for expansion of exhibits to include other MTA facilities, such as Metro-North & Long Island Railroads, and MTA Bridges & Tunnels.",
+    In 1976, the editor_id: User.find(6).id Transit Authority wanted to contribute to the US Bicentennial celebration and opened the editor_id: User.find(6).id Transit Exhibit in July 1976. The station was only intended to remain until September 1976, but public reaction was so overwhelming it remained open and eventually became the New York Transit Museum. Responsibility of the museum was subsequently transferred to the Metropolitan Transportation Authority to allow for expansion of exhibits to include other MTA facilities, such as Metro-North & Long Island Railroads, and MTA Bridges & Tunnels.",
     lat: 40.6890,
     lng: -73.9861,
     author_id: User.find_by(username: "Pouli").id,
-    city_id: City.find_by(name: "New York City, NY").id},
+    city_id: City.find_by(name: "New York, NY").id},
 #21, 1
   { name: "Fearless Girl Statue",
     description: "Wall Street has a new heroine, a bronze statue of a small but fierce girl.",
@@ -337,7 +337,7 @@ City.create!([
     lat: 40.7056,
     lng: -74.0134,
     author_id: User.find_by(username: "Alicia").id,
-    city_id: City.find_by(name: "New York City, NY").id},
+    city_id: City.find_by(name: "New York, NY").id},
 
 ])
 
