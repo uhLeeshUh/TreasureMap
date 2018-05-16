@@ -21,6 +21,7 @@ class Api::ArticlesController < ApplicationController
   end
 
   def update
+    debugger
     @article = Article.find(params[:id])
 
     if @article.update(article_params)
@@ -44,7 +45,9 @@ class Api::ArticlesController < ApplicationController
 
   def article_params
     params.require(:article).permit(:name, :description, :body, :lat, :lng,
-       :author_id, :city_id, :long_description, images_attributes: [:image])
+       :author_id, :city_id, :long_description, images_attributes: [:image], edits_attributes: [:editor_id])
   end
+
+  # , edits_attributes: [:editor_id]
 
 end

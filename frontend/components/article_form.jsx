@@ -58,6 +58,10 @@ class ArticleForm extends React.Component {
       formData.append("article[images_attributes[][image]]", image.imageFile);
     });
 
+    if (this.props.editorId){
+      formData.append("article[edits_attributes][][editor_id]", this.props.editorId);
+    }
+
     this.props.action(formData).then(
       () => {
         return (

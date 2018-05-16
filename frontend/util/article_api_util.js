@@ -1,11 +1,10 @@
 export const createArticle = (article) => {
-  debugger
   return $.ajax({
     method: 'post',
     url: '/api/articles',
     contentType: false,
     processData: false,
-    data:   article 
+    data:   article
   });
 };
 
@@ -26,10 +25,14 @@ export const fetchArticles = (cityId) => {
 export const editArticle = (article) => {
   return $.ajax({
     method: 'patch',
-    url: `/api/articles/${article.id}`,
-    data: { article }
+    url: `/api/articles/${article.get("article[id]")}`,
+    contentType: false,
+    processData: false,
+    data: article
   });
 };
+
+// url: `/api/articles/${article.id}`,
 
 export const deleteArticle = (id) => {
   return $.ajax({

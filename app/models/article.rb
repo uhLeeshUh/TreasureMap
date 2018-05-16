@@ -23,6 +23,6 @@ class Article < ApplicationRecord
     class_name: :City,
     foreign_key: :city_id
 
-  accepts_nested_attributes_for :images
+  accepts_nested_attributes_for :images, :edits
 
 end
