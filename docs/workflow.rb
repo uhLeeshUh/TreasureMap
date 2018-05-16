@@ -285,3 +285,9 @@ make a ui slice of state that holds the following keys:
 -top_countries
 -top_cities
 -countryDetailLoaded
+
+
+-fix up city and country show pages
+-finish map dropdown
+-finish seeding db with images
+-finish homepage

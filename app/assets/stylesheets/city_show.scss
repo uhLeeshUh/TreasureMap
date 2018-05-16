@@ -92,48 +92,79 @@
   font-size: 23px;
 }
 
+
+
+
+
+
+
+//footer
+
 .city-show-footer{
-  font-family: 'Arimo', sans-serif;
-  font-weight: 700;
-  font-size: 40px;
-  color: #382d14;
-  width: 100%;
-  letter-spacing: -.02em;
-  text-align: center;
-  margin-bottom: 20px;
+  padding-top: 10px;
+  display: block;
+  // margin: auto;
+  // text-align: center;
+  height: 800px;
+  position: relative;
 }
 
-.city-show-google-maps-container{
-  height: 300px;
-  width: 50%;
-  margin: auto;
-  text-align: center;
-  border: 1px solid  #e7e7e7;
+.city-show-footer{
+  // font-family: 'Arimo', sans-serif;
+  // font-weight: 700;
+  // font-size: 40px;
+  // color: #382d14;
+  // width: 100%;
+  // letter-spacing: -.02em;
+  // text-align: center;
+  // margin-bottom: 20px;
+}
+
+.city-show-map-wrapper{
+  // // margin: 10px 0;
+  // margin-top: 20px;
+  height: 100%;
+  width: 100%;
+  border-bottom: 1px solid #e7e7e7;
+  border-top: 1px solid #e7e7e7;
+  // text-align: center;
+  // // position: absolute  ;
 }
 
 .city-show-google-map{
   border: 1px solid #e7e7e7;
+  height: 100%;
+  width: 100%;
   // padding: 20px;
   background: image-url('topography.png');
   background-color: #cdb48d;
   background-size: 425px;
   // margin-top: 20px;
   opacity: .05;
-  z-index: -1;
-  position: relative;
-}
-
-.city-show-map-wrapper{
-  // margin: 10px 0;
-  margin-top: 20px;
-  height: 100%;
-  width: 100%;
-  border-bottom: 1px solid #e7e7e7;
-  border-top: 1px solid #e7e7e7;
-  // position: absolute  ;
+  // z-index: -1;
+  // position: relative;
 }
 
 .city-show-map-text{
-  // position: absolute;
-  // z-index: 1;
+  position: absolute;
+  z-index: 1;
+  top: 10%;
+  width: 100%;
+  text-align: center;
+}
+
+.city-show-footer-holder{
+  margin-bottom: 60px;
+  font-family: 'Arimo', sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  color: #382d14;
+  letter-spacing: -.02em;
+}
+
+.city-show-google-maps-container{
+  height: 450px;
+  width: 50%;
+  margin: auto;
+  border: 1px solid  #e7e7e7;
 }
