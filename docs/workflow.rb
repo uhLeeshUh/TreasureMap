@@ -291,3 +291,4 @@ make a ui slice of state that holds the following keys:
 -finish map dropdown
 -finish seeding db with images
 -finish homepage
+-push to heroku!

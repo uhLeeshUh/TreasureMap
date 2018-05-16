@@ -73,10 +73,11 @@ class mapDropdown extends React.Component {
           <p className="tag-line">Discover the world's most hidden places</p>
         </div>
         <section className="map-dropdown-holder">
-          <h1>Top Destinations</h1>
+          <h1 className="top-destinations">Top Destinations</h1>
           <section className="map-lists-holder">
             <section className="country-holder">
-              <h2>Countries</h2>
+              <h2 className="map-label-text">Countries</h2>
+              <hr className="map-label-divider"></hr>
               <div className="country-list-holder">
                 <ul className="country-list-one">
                   {this.firstHalfCountries()}
@@ -88,7 +89,8 @@ class mapDropdown extends React.Component {
             </section>
 
             <section className="city-holder">
-              <h2>Cities</h2>
+              <h2 className="map-label-text">Cities</h2>
+              <hr className="map-label-divider"></hr>
               <div className="city-list-holder">
                 <ul className="city-list-one">
                   {this.firstThirdCities()}

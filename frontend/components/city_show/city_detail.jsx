@@ -77,7 +77,7 @@ const mapStateToProps = (state, ownProps) => {
 
   const cityId = ownProps.match.params.cityId;
   let cityLoaded = true;
-  if (!(state.entities.cities[cityId] && state.entities.cities[cityId].article_ids)){
+  if ((!state.entities.cities[cityId] || !state.entities.cities[cityId].article_ids)){
     return {
       cityLoaded: false
     };
