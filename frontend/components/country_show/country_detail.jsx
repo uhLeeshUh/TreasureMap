@@ -2,21 +2,21 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ArticleThumb from '../article_thumb';
 import { connect } from 'react-redux';
-import { fetchCity } from '../../actions/city_actions';
+import { fetchCountry } from '../../actions/country_actions';
 
-class CityDetail extends React.Component {
+class CountryDetail extends React.Component {
   constructor(props){
     super(props);
   }
 
   componentDidMount(){
-    this.props.fetchCity(this.props.match.params.cityId);
+    this.props.fetchCountry(this.props.match.params.countryId);
     window.scrollTo(0,0);
   }
 
   componentDidUpdate(prevProps, prevState){
-    if (this.props.match.params.cityId !== prevProps.match.params.cityId) {
-      this.props.fetchCity(this.props.match.params.cityId);
+    if (this.props.match.params.countryId !== prevProps.match.params.countryId) {
+      this.props.fetchCountry(this.props.match.params.countryId);
     }
   }
 
@@ -27,7 +27,6 @@ class CityDetail extends React.Component {
     if (articleCount === 1) {thing = "thing";}
 
     const articleThumbs = this.props.articles.map((article, idx) => {
-      console.log(this.props.images[article.image_ids[0]]);
       return <ArticleThumb key={article.id} city={this.props.city} article={article} image={this.props.images[article.image_ids[0]]} count={idx + 1}/>;
     });
 
@@ -70,26 +69,34 @@ class CityDetail extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   //TODO: comment back in countries when add in countries reducer
 
-  const cityId = ownProps.match.params.cityId;
+  const countryId = ownProps.match.params.countryId;
   // let loading = true;
   // if (state.entities.cities[cityId]){
   //   loading = false;
   // }
 
-  const defaultCity = {id: 17, name: "Beijing", country_id: 3 };
   const defaultCountry = {id: 3, name: "China"};
+  const defaultCity = {id: 17, name: "Beijing", country_id: 3 };
 
-  let city = defaultCity;
-  if (state.entities.cities) {
-    city = state.entities.cities[cityId] || defaultCity;
-  }
   let country = defaultCountry;
-  if (state.entities.countries[city.country_id]) {
-    country = state.entities.countries[city.country_id];
+  if (state.entities.countries[countryId]) {
+    country = state.entities.countries[countryId];
+  }
+
+  let cities = [];
+  if (country.city_ids) {
+    country.city_ids.forEach(city_id => {
+      cities.push(state.entities.cities[city_id]);
+    });
   }
 
   let articles = [];
   let images = {};
+  //PICK UP HERE!!
+  // if (country.city_ids){
+  //   country.city_ids.forEach(city_id)
+  // }
+
   if (city.article_ids) {
     city.article_ids.forEach(article_id => {
       articles.push(state.entities.articles[article_id]);
@@ -102,8 +109,8 @@ const mapStateToProps = (state, ownProps) => {
     });
   }
   return {
-    city,
     country,
+    cities,
     articles,
     images
   };
@@ -111,11 +118,11 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchCity: (id) => dispatch(fetchCity(id))
+    fetchCountry: (id) => dispatch(fetchCountry(id))
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CityDetail);
+export default connect(mapStateToProps, mapDispatchToProps)(CountryDetail);
 
 
 //send down country (id, name)
