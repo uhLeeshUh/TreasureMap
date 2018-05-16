@@ -1,0 +1,28 @@
+.atlas-holder{
+  text-align: center;
+}
+
+.tag-line{
+  text-transform: uppercase;
+  font-family: 'Archivo Narrow', sans-serif;
+  letter-spacing: 0.0625em;
+  font-size: 18px;
+  margin-top: 23px;
+  font-weight: 500;
+}
+
+.the-atlas{
+  width: 100%;
+}
+
+// .the-atlas:hover > section.map-dropdown-holder{
+//   display: block;
+// }
+
+.map-dropdown-holder{
+  display: none;
+}
+
+// .dropdown-div:hover > ul.dropdown-ul{
+//   display: block;
+// }

@@ -71,7 +71,6 @@ class mapDropdown extends React.Component {
       <main className="the-atlas">
         <div className="atlas-holder">
           <p className="tag-line">Discover the world's most hidden places</p>
-          <p className="atlas-click-dropdown">THE ATLAS</p>
         </div>
         <section className="map-dropdown-holder">
           <h1>Top Destinations</h1>

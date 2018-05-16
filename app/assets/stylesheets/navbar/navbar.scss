@@ -12,7 +12,7 @@
   display: block;
   // justify-content: space-around;
   height: 70px;
-  min-width: 270px;
+  min-width: 190px;
   border-right: 1px solid #d4d4d0;
 }
 
@@ -24,20 +24,21 @@
 }
 
 .logo-image {
-  height: 38px;
-  width: 38px;
+  height: 35px;
+  width: 35px;
   padding-top: 4px;
   padding-right: 5px;
-  padding-left: 10px;
+  // padding-left: 10px;
 }
 
 .logo p {
-  font-size: 28px;
+  font-size: 20px;
   font-family: 'Arimo', sans-serif;
   letter-spacing: -0.01em;
   font-weight: 600;
-  margin-top: 8px;
+  margin-top: 11px;
   color: #382d14;
+  padding-right: 5px;
 }
 
 .right-nav ul {
