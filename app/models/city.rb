@@ -10,7 +10,7 @@ belongs_to :country,
   foreign_key: :country_id
 
   def self.top_cities_by_article_count
-    cities = City.select(:id, :name).joins(:articles).group('cities.id').order('COUNT(articles.id) DESC').limit(10)
+    cities = City.select('cities.*').joins(:articles).group('cities.id').order('COUNT(articles.id) DESC').limit(12)
   end
 
 end

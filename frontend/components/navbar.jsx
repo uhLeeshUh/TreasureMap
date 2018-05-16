@@ -1,5 +1,5 @@
 import React from 'react';
-import MapContainer from './map_container';
+import MapDropdown from './anchors/map_dropdown';
 import SessionDropdownContainer from './session_dropdown_container';
 import SearchContainer from './search_container';
 import { connect } from 'react-redux';
@@ -12,7 +12,7 @@ export const NavBar = (props) => {
   const hiddenPaths = ["/signin", "/signup"];
 
   if (!hiddenPaths.includes(props.location.pathname)) {
-    map = <MapContainer />;
+    map = <MapDropdown />;
     sessionDropdown = <SessionDropdownContainer class="sessionDropdown"/>;
     search = <SearchContainer class="search"/>;
   }

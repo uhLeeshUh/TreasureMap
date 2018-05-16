@@ -1,6 +1,7 @@
 import * as CountryAPIUtil from '../util/country_api_util';
 
 export const RECEIVE_COUNTRIES = "RECEIVE_COUNTRIES";
+export const RECEIVE_TOP_COUNTRIES = "RECEIVE_TOP_COUNTRIES";
 export const RECEIVE_COUNTRY = "RECEIVE_COUNTRY";
 export const RECEIVE_COUNTRY_ERRORS = "RECEIVE_COUNTRY_ERRORS";
 export const REMOVE_COUNTRY_ERRORS = "REMOVE_COUNTRY_ERRORS";
@@ -15,6 +16,13 @@ export const receiveCountries = (countriesPayload) => {
   };
 };
 
+export const receiveTopCountries = (countriesPayload) => {
+  return {
+    type: RECEIVE_TOP_COUNTRIES,
+    countriesPayload
+  };
+};
+
 export const receiveCountry = (countryPayload) => {
   return {
     type: RECEIVE_COUNTRY,
@@ -22,7 +30,7 @@ export const receiveCountry = (countryPayload) => {
   };
 };
 
-export const recieveCountryErrors = (errors) => {
+export const receiveCountryErrors = (errors) => {
   return {
     type: RECEIVE_COUNTRY_ERRORS,
     errors
@@ -65,7 +73,7 @@ export const fetchCountry = (id) => {
 export const fetchTopCountries = () => {
   return (dispatch) => {
     return CountryAPIUtil.fetchTopCountries().then(
-      (countriesPayload) => dispatch(receiveCountries(countriesPayload)),
+      (countriesPayload) => dispatch(receiveTopCountries(countriesPayload)),
       (errors) => dispatch(receiveCountryErrors)
     );
   };

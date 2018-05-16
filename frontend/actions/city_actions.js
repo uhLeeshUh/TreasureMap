@@ -1,6 +1,7 @@
 import * as CityAPIUtil from '../util/city_api_util';
 
 export const RECEIVE_CITIES = "RECEIVE_CITIES";
+export const RECEIVE_TOP_CITIES = "RECEIVE_TOP_CITIES";
 export const RECEIVE_CITY = "RECEIVE_CITY";
 export const RECEIVE_CITY_ERRORS = "RECEIVE_CITY_ERRORS";
 export const REMOVE_CITY_ERRORS = "REMOVE_CITY_ERRORS";
@@ -10,6 +11,13 @@ export const REMOVE_CITY_ERRORS = "REMOVE_CITY_ERRORS";
 export const receiveCities = (citiesPayload) => {
   return {
     type: RECEIVE_CITIES,
+    citiesPayload
+  };
+};
+
+export const receiveTopCities = (citiesPayload) => {
+  return {
+    type: RECEIVE_TOP_CITIES,
     citiesPayload
   };
 };
@@ -48,7 +56,7 @@ export const fetchCity = (id) => {
 export const fetchTopCities = () => {
   return (dispatch) => {
     return CityAPIUtil.fetchTopCities().then(
-      (citiesPayload) => dispatch(receiveCities(citiesPayload)),
+      (citiesPayload) => dispatch(receiveTopCities(citiesPayload)),
       (errors) => dispatch(receiveCityErrors(errors))
     );
   };
