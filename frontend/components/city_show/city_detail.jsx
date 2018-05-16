@@ -31,7 +31,6 @@ class CityDetail extends React.Component {
     if (articleCount === 1) {thing = "thing";}
 
     const articleThumbs = this.props.articles.map((article, idx) => {
-      console.log(this.props.images[article.image_ids[0]]);
       return <ArticleThumb key={article.id} city={this.props.city} article={article} image={this.props.images[article.image_ids[0]]} count={idx + 1}/>;
     });
 

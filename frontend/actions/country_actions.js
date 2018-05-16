@@ -4,6 +4,7 @@ export const RECEIVE_COUNTRIES = "RECEIVE_COUNTRIES";
 export const RECEIVE_COUNTRY = "RECEIVE_COUNTRY";
 export const RECEIVE_COUNTRY_ERRORS = "RECEIVE_COUNTRY_ERRORS";
 export const REMOVE_COUNTRY_ERRORS = "REMOVE_COUNTRY_ERRORS";
+export const CHANGE_COUNTRY_DETAIL_LOADED = "CHANGE_COUNTRY_DETAIL_LOADED";
 
 //synchronous action creators
 
@@ -31,6 +32,13 @@ export const recieveCountryErrors = (errors) => {
 export const removeCountryErrors = () => {
   return {
     type: REMOVE_COUNTRY_ERRORS
+  };
+};
+
+export const changeCountryDetailLoaded = (boolean) => {
+  return {
+    type: CHANGE_COUNTRY_DETAIL_LOADED,
+    boolean
   };
 };
 

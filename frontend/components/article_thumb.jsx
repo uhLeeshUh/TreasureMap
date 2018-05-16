@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ArticleThumb = (props) => {
+  debugger
   if (!props.image){
     return <div></div>;
   }

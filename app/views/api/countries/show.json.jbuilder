@@ -15,7 +15,7 @@ end
 json.articles do
   @country.articles.each do |article|
     json.set! article.id do
-      json.extract! article, :id, :name, :description
+      json.extract! article, :id, :name, :description, :city_id
       json.image_ids article.images.ids
     end
   end

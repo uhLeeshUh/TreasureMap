@@ -277,11 +277,11 @@ it's not clear if that's successful. Also don't forget to render form errors if 
 
 
 
-create ui country_detail boolean (default true)
+create ui countryDetailLoaded boolean (default true)
 RECEIVE_COUNTRY action, ui reducer is listening for this action and will change it to false
 componentDidUnmount => pass down a synchronous action in mapDispatchToProps that will change the boolean back to true
 
 make a ui slice of state that holds the following keys:
 -top_countries
 -top_cities
--country_detail_loading
+-countryDetailLoaded
