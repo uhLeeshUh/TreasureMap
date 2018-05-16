@@ -84,9 +84,9 @@ const mapStateToProps = (state, ownProps) => {
     city = state.entities.cities[cityId] || defaultCity;
   }
   let country = defaultCountry;
-  // if (state.entities.countries.length > 0) {
-  //   country = state.entities.countries[city.country_id] || defaultCountry;
-  // }
+  if (state.entities.countries[city.country_id]) {
+    country = state.entities.countries[city.country_id];
+  }
 
   let articles = [];
   let images = {};
@@ -101,7 +101,6 @@ const mapStateToProps = (state, ownProps) => {
 
     });
   }
-
   return {
     city,
     country,

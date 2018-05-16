@@ -53,6 +53,10 @@ class ArticleForm extends React.Component {
       formData.append(`article[${key}]`, this.state.article[key]);
     });
 
+    if (this.props.formType === "Add a Place"){
+      formData.append("article[author_id]", this.props.author_id);
+    }
+
     this.state.images.forEach(image => {
       formData.append("article[images_attributes[][image]]", image.imageFile);
     });

@@ -245,6 +245,7 @@ WEDNESDAY:
 *Figure out country class method
 -look at Abbys call out to render form errors
 *do I need an errors reducer for city and country (aka things that arent forms)
+*figure out why when I navigate to an article or city show page, it doesnt go on first click
 
 -finish search
 -finish Google Maps integration
