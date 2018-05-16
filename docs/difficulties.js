@@ -11,3 +11,5 @@
 //page when an article is created
 
 //upload images simultaneously with articles, requires one large FormData object
+
+//created custom routes for top cities and countries 

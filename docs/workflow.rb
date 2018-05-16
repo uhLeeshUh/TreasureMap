@@ -15,6 +15,7 @@ Go back and work on:
 -fix the overlay of editor images
 -Article show so it doesnt fetch the article again after its been navigated to by a create or edit page (recieve article action logs twice)
 -Components folder
+-eventually make lazy loading for the index pages of thumbs
 
 On-going todos:
 -add images to the AWS database
@@ -241,6 +242,9 @@ TUESDAY:
 WEDNESDAY:
 **ask about opacity for the show pages(bottom)
 -try to figure out whats wrong with heroku
+*Figure out country class method
+-look at Abbys call out to render form errors
+
 -finish search
 -finish Google Maps integration
 

@@ -23,6 +23,10 @@ class Article < ApplicationRecord
     class_name: :City,
     foreign_key: :city_id
 
+  has_one :country,
+    through: :city,
+    source: :country
+
   accepts_nested_attributes_for :images, :edits
 
 end
