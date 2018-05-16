@@ -32,7 +32,7 @@ class CountryDetail extends React.Component {
   }
 
   render(){
-    if (!this.props.countryDetailLoaded){
+    if ((!this.props.countryDetailLoaded) || (this.props.newCountryNotFetched)){
       return <div></div>;
     }
 
@@ -43,7 +43,6 @@ class CountryDetail extends React.Component {
     if (articleCount === 1) {thing = "thing";}
 
     const articleThumbs = this.props.articles.map((article, idx) => {
-      debugger
       const city = that.props.cities[that.props.articles[idx].city_id];
       return <ArticleThumb key={article.id} city={city} article={article} image={that.props.images[article.image_ids[0]]} count={idx + 1}/>;
     });
@@ -88,6 +87,15 @@ const mapStateToProps = (state, ownProps) => {
       countryDetailLoaded
     };
   }
+  let currentCountryDetailId = state.ui.currentCountryDetailId[0];
+  currentCountryDetailId = currentCountryDetailId.toString();
+  console.log(currentCountryDetailId);
+  let newCountryNotFetched = false;
+  if (currentCountryDetailId !== ownProps.match.params.countryId){
+    return {
+      newCountryNotFetched: true
+    };
+  }
 
   const countryId = ownProps.match.params.countryId;
 
@@ -97,8 +105,9 @@ const mapStateToProps = (state, ownProps) => {
   // let country = defaultCountry;
   // if (state.entities.countries[countryId]) {
   const country = state.entities.countries[countryId];
+  //
+  // {id: 1, name: "USA", city_ids: []};
   // }
-
   let cities = {};
   // if (country.city_ids) {
     country.city_ids.forEach(city_id => {
@@ -120,7 +129,6 @@ const mapStateToProps = (state, ownProps) => {
       articles.push(state.entities.articles[article_id]);
 
       // if (state.entities.articles[article_id] && state.entities.articles[article_id].image_ids.length > 0){
-      // debugger
       let thumbImage = state.entities.images[state.entities.articles[article_id].image_ids[0]];
       images[thumbImage.id] = thumbImage;
       // }
@@ -132,7 +140,8 @@ const mapStateToProps = (state, ownProps) => {
     cities,
     articles,
     images,
-    countryDetailLoaded
+    countryDetailLoaded,
+    newCountryNotFetched
   };
 };
 

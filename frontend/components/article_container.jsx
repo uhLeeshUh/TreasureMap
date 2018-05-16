@@ -122,7 +122,7 @@ class Article extends React.Component {
 const mapStateToProps = (state, ownProps) => {
 
   let articleLoaded = true;
-  if (!state.entities.articles[ownProps.match.params.articleId]){
+  if ((!state.entities.articles[ownProps.match.params.articleId] || !state.entities.articles[ownProps.match.params.articleId].body)){
     return {
       articleLoaded: false
     };

@@ -16,3 +16,9 @@
 
 //find a way to circumvent the initial country show page render if we don't have all the needed information for the page
 //by setting a ui "country_detail_loaded" slice of state
+
+//when on a country show page and I enter a different wildcard in the url bar, i was getting an issue that
+//it was hitting mapStateToProps before hitting componentWillReceiveProps to fetch the new country. So I created a
+//different ui slice of state with the id of the current country (set every time a country is fetched via hitting countries#show)
+//and I can compare that value in mapStateToProps to the ownProps.match.params.countryId and will return early from MSTPs if
+// these do not match
