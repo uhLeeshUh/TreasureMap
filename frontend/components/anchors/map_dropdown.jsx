@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchTopCities } from '../../actions/city_actions';
 import { fetchTopCountries } from '../../actions/country_actions';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class mapDropdown extends React.Component {
   constructor(props){
@@ -15,7 +15,6 @@ class mapDropdown extends React.Component {
   }
 
   componentDidMount(){
-    debugger
     this.props.fetchTopCities().then(
       () => this.props.fetchTopCountries()
     );
@@ -24,7 +23,7 @@ class mapDropdown extends React.Component {
   firstHalfCountries(){
     let first = this.props.countries.slice(0,3);
     let firstCountries = first.map(country => {
-      return <Link key={country.id} to={`/countries/${country.id}`}><li>{country.name}</li></Link>;
+      return <Link key={country.id} to={`/countries/${country.id}`} ><li>{country.name}</li></Link>;
     });
     return firstCountries;
   }
@@ -32,7 +31,7 @@ class mapDropdown extends React.Component {
   secondHalfCountries(){
     let second = this.props.countries.slice(3);
     let secondCountries = second.map(country => {
-      return <Link key={country.id} to={`/countries/${country.id}`}><li>{country.name}</li></Link>;
+      return <Link key={country.id} to={`/countries/${country.id}`} ><li>{country.name}</li></Link>;
     });
     return secondCountries;
   }
@@ -40,7 +39,7 @@ class mapDropdown extends React.Component {
   firstThirdCities(){
     let first = this.props.cities.slice(0,4);
     let firstCities = first.map(city => {
-      return <Link key={city.id} to={`cities/${city.id}`}><li>{city.name}</li></Link>;
+      return <Link key={city.id} to={`/cities/${city.id}`} ><li>{city.name}</li></Link>;
     });
     return firstCities;
   }
@@ -48,7 +47,7 @@ class mapDropdown extends React.Component {
   secondThirdCities(){
     let second = this.props.cities.slice(4,8);
     let secondCities = second.map(city => {
-      return <Link key={city.id} to={`cities/${city.id}`}><li>{city.name}</li></Link>;
+      return <Link key={city.id} to={`/cities/${city.id}`} ><li>{city.name}</li></Link>;
     });
     return secondCities;
   }
@@ -56,7 +55,7 @@ class mapDropdown extends React.Component {
   thirdThirdCities(){
     let third = this.props.cities.slice(8);
     let thirdCities = third.map(city => {
-      return <Link key={city.id} to={`cities/${city.id}`}><li>{city.name}</li></Link>;
+      return <Link key={city.id} to={`/cities/${city.id}`} ><li>{city.name}</li></Link>;
     });
     return thirdCities;
   }
@@ -143,4 +142,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(mapDropdown);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(mapDropdown));
