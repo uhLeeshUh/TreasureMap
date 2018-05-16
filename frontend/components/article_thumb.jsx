@@ -2,7 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ArticleThumb = (props) => {
-
+  if (!props.image){
+    return <div></div>;
+  }
   return (
     <div className="thumb-holder col-1-4">
       <Link to={`/articles/${props.article.id}`}>

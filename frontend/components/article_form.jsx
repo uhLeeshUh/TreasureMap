@@ -46,7 +46,6 @@ class ArticleForm extends React.Component {
   }
 
   submit(e){
-    //get this as images into an array of image objects wit their necessary form data
     this.props.clearArticleErrors();
 
     let formData = new FormData();
@@ -69,7 +68,6 @@ class ArticleForm extends React.Component {
         );
       });
 
-    //lastly I would need to create a new ArticleEdit
   }
 
   handleChange(field, e){

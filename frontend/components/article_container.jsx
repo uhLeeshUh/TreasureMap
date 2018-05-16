@@ -27,30 +27,26 @@ class Article extends React.Component {
   }
 
   render(){
-    //expect this.props.images to be an array of image objects
-
-    // var style = {
-    //   color: 'white',
-    //   fontSize: 200
-    // };
-    //
-    // style={{"zIndex":idx}}
 
     const images = this.props.images.map(image => {
       return (<img className="article-image" key={image.id} src={image.image_url}></img>);
     });
 
-    const articleEditors = this.props.editors.map((editor, idx) => {
-      let zIndexStyle = {
-        zIndex: idx
-      };
-      return (
-        <li className="article-editor-info" key={editor.id}>
-          <img className="article-editor-image" src={editor.image_url} alt="editor image" style={{zIndex:idx}}></img>
-          <p className="article-editor-name">{editor.username}</p>
-        </li>
-      );
-    });
+    let articleEditors;
+    if (this.props.editors){
+      articleEditors = this.props.editors.map((editor, idx) => {
+        let zIndexStyle = {
+          zIndex: idx
+        };
+        return (
+          <li className="article-editor-info" key={editor.id}>
+            <img className="article-editor-image" src={editor.image_url} alt="editor image" style={{zIndex:idx}}></img>
+            <p className="article-editor-name">{editor.username}</p>
+          </li>
+        );
+      });
+
+    }
 
     const body = this.props.article.body.split("\n").map((par, idx) => {
       return (<p key={idx} className="article-body">{par}</p>);
@@ -138,9 +134,12 @@ const mapStateToProps = (state, ownProps) => {
   // });
   // const country = state.entities.countries[city.country_id];
   const author = state.entities.users[article.author_id] || {};
-  const editors = article.editing_user_ids.map(editor_id => {
-    return (state.entities.users[editor_id] || {});
-  });
+  let editors;
+  if (article.editing_user_ids){
+    editors = article.editing_user_ids.map(editor_id => {
+      return (state.entities.users[editor_id] || {});
+    });
+  }
   const viewerId = state.session.id;
 
   let images = [];

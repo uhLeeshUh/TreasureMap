@@ -7,7 +7,6 @@ class Api::ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-    debugger
 
     if @article.save
       render 'api/articles/show'
@@ -21,7 +20,6 @@ class Api::ArticlesController < ApplicationController
   end
 
   def update
-    debugger
     @article = Article.find(params[:id])
 
     if @article.update(article_params)

@@ -234,6 +234,10 @@ TUESDAY:
 -finish map dropdown
 -work on search
 
+-style city show page (9:30)
+-create country show page (10:30)
+-create map dropdown (11:30)
+
 WEDNESDAY:
 -finish search
 -finish Google Maps integration
