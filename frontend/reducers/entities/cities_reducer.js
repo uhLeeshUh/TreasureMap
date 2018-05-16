@@ -1,5 +1,6 @@
 import { RECEIVE_CITIES, RECEIVE_CITY } from '../../actions/city_actions';
 import { RECEIVE_ARTICLE } from '../../actions/article_actions';
+import { RECEIVE_COUNTRY } from '../../actions/country_actions';
 import { merge } from 'lodash';
 
 const citiesReducer = (state = {}, action) => {
@@ -13,6 +14,9 @@ const citiesReducer = (state = {}, action) => {
       return newState;
     case RECEIVE_ARTICLE:
       newState = merge({}, state, {[action.articlePayload.city.id]: action.articlePayload.city});
+      return newState;
+    case RECEIVE_COUNTRY:
+      newState = merge({}, state, action.countryPayload.cities);
       return newState;
     default:
       return state;

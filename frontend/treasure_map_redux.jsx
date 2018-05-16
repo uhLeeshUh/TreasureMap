@@ -13,6 +13,8 @@ import * as ArticleAPIUtil from './util/article_api_util';
 import * as ArticleActions from './actions/article_actions';
 import * as CityAPIUtil from './util/city_api_util';
 import * as CityActions from './actions/city_actions';
+import * as CountryAPIUtil from './util/country_api_util';
+import * as CountryActions from './actions/country_actions';
 
 
 const Root = ({ store }) => {
@@ -62,10 +64,13 @@ window.logout = SessionActions.logout;
 // window.deleteArticle = ArticleAPIUtil.deleteArticle;
 // window.createArticle = ArticleActions.createArticle;
 // window.deleteArticle = ArticleActions.deleteArticle;
-window.fetchCity = CityAPIUtil.fetchCity;
-window.fetchTopCities = CityAPIUtil.fetchTopCities;
-window.createCity = CityAPIUtil.createCity;
-
+// window.fetchCity = CityAPIUtil.fetchCity;
+// window.fetchTopCities = CityAPIUtil.fetchTopCities;
+// window.createCity = CityAPIUtil.createCity;
+// window.fetchCountries = CountryAPIUtil.fetchCountries;
+// window.fetchCountry = CountryAPIUtil.fetchCountry;
+window.fetchCountries = CountryActions.fetchCountries;
+window.fetchCountry = CountryActions.fetchCountry;
 
 
 // {name: "test", description: "test desc", long_description: 'long', body: 'hey', lat: 23.2, lng: 34.1, author_id: 1, city_id: 3}

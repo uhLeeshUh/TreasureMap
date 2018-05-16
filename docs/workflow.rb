@@ -244,6 +244,7 @@ WEDNESDAY:
 -try to figure out whats wrong with heroku
 *Figure out country class method
 -look at Abbys call out to render form errors
+*do I need an errors reducer for city and country (aka things that arent forms)
 
 -finish search
 -finish Google Maps integration

@@ -3,7 +3,7 @@ class Country < ApplicationRecord
   validates :name, presence: true
 
   has_many :cities,
-    class_name: :Country,
+    class_name: :City,
     foreign_key: :country_id
 
   has_many :articles,
