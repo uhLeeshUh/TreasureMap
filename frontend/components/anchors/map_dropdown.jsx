@@ -22,7 +22,7 @@ class mapDropdown extends React.Component {
   firstHalfCountries(){
     let first = this.props.countries.slice(0,4);
     let firstCountries = first.map(country => {
-      return <Link to={`/countries/${country.id}`}><li>{country.name}</li></Link>
+      return <Link to={`/countries/${country.id}`}><li>{country.name}</li></Link>;
     });
     return firstCountries;
   }
@@ -30,7 +30,7 @@ class mapDropdown extends React.Component {
   secondHalfCountries(){
     let second = this.props.countries.slice(4);
     let secondCountries = second.map(country => {
-      return <Link to={`/countries/${country.id}`}><li>{country.name}</li></Link>
+      return <Link to={`/countries/${country.id}`}><li>{country.name}</li></Link>;
     });
     return secondCountries;
   }
@@ -38,27 +38,31 @@ class mapDropdown extends React.Component {
   firstThirdCities(){
     let first = this.props.cities.slice(0,4);
     let firstCities = first.map(city => {
-      return <Link to={`cities/${city.id}`}><li>{city.name}</li></Link>
+      return <Link to={`cities/${city.id}`}><li>{city.name}</li></Link>;
     });
   }
 
   secondThirdCities(){
     let second = this.props.cities.slice(4,8);
     let secondCities = second.map(city => {
-      return <Link to={`cities/${city.id}`}><li>{city.name}</li></Link>
+      return <Link to={`cities/${city.id}`}><li>{city.name}</li></Link>;
     });
   }
 
   thirdThirdCities(){
     let third = this.props.cities.slice(8);
     let thirdCities = third.map(city => {
-      return <Link to={`cities/${city.id}`}><li>{city.name}</li></Link>
+      return <Link to={`cities/${city.id}`}><li>{city.name}</li></Link>;
     });
   }
 
 
 
   render(){
+    if (this.props.firstRender){
+      return <div></div>;
+    }
+
     return (
       <main>
         <h1>Top Destinations</h1>
@@ -104,28 +108,28 @@ const mapStateToProps = (state) => {
   }
 
   if (firstRender){
-    return;
+    return {firstRender};
   }
 
   let countries = state.ui.topCountryIds.map(country_id => {
     return state.entities.countries[country_id];
-  })
+  });
 
   let cities = state.ui.topCityIds.map(city_id => {
     return state.ui.cities[city_id];
-  })
+  });
 
   return {
     countries,
     cities
-  }
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchTopCities: dipsatch(fetchTopCities()),
     fetchTopCountries: dipsatch(fetchTopCountries())
-  }
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(mapDropdown);

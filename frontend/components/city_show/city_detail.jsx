@@ -68,7 +68,6 @@ class CityDetail extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  //TODO: comment back in countries when add in countries reducer
 
   const cityId = ownProps.match.params.cityId;
   // let loading = true;

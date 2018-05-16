@@ -11,7 +11,15 @@ class Country < ApplicationRecord
     source: :articles
 
   def self.top_countries_by_article_count
-    countries = Country.select(:id, :name).joins(:cities).joins(:articles).group('countries.id').order('COUNT(articles.id) DESC').limit(10)
+    countries = Country.select('countries.id, countries.name').joins(:cities).joins(:articles).group('countries.id').order('COUNT(articles.id) DESC').limit(6)
   end
+  
+  # SELECT countries.*
+  # FROM countries
+  # JOIN cities on cities.country_id = countries.id
+  # JOIN articles on articles.city_id = cities.id
+  # GROUP BY countries.id
+  # ORDER BY COUNT(articles.id) DESC
+  # LIMIT 8
 
 end

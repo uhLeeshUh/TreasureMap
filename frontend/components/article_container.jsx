@@ -28,6 +28,10 @@ class Article extends React.Component {
 
   render(){
 
+    if (!this.props.articleLoaded){
+      return <div></div>;
+    }
+
     const images = this.props.images.map(image => {
       return (<img className="article-image" key={image.id} src={image.image_url}></img>);
     });
@@ -116,6 +120,14 @@ class Article extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
+
+  let articleLoaded = true;
+  if (!state.entities.articles[ownProps.match.params.articleId]){
+    return {
+      articleLoaded: false
+    };
+  }
+
   const defaultArticle = {
     id: 1,
     name: "",
@@ -165,7 +177,8 @@ const mapStateToProps = (state, ownProps) => {
     images,
     author,
     editors,
-    viewerId
+    viewerId,
+    articleLoaded
   };
 };
 

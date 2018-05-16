@@ -102,7 +102,8 @@ City.create!([
     lat: 38.7817,
     lng: -87.4668,
     author_id: User.find_by(username: "Collin").id,
-    city_id: City.find_by(name: "Bruceville, IN").id},
+    city_id: City.find_by(name: "Bruceville, IN").id
+  },
 #2, 2
   { name: "Texas Eiffel Tower",
     description: "In Paris, Texas they have their own Eiffel Tower, it just has a cowboy hat on it.",
@@ -113,7 +114,8 @@ City.create!([
     lat: 33.6431,
     lng: -95.5361,
     author_id: User.find_by(username: "Jimmy").id,
-    city_id: City.find_by(name: "Paris, TX").id},
+    city_id: City.find_by(name: "Paris, TX").id
+  },
 #3, 3
   { name: "Tuned Mass Damper of Taipei 101",
     description: "Enormous pendulum helps keep Taiwan's tallest building from swaying.",
@@ -124,7 +126,8 @@ City.create!([
     lat: 25.0336,
     lng: 121.5650,
     author_id: User.find_by(username: "Yiayia").id,
-    city_id: City.find_by(name: "Taipei").id},
+    city_id: City.find_by(name: "Taipei").id
+  },
 #4, 1
   { name: "New York Federal Gold Vault",
     description: "More gold than anywhere else ever.",
@@ -134,7 +137,8 @@ City.create!([
     lat: 40.7085,
     lng: -74.0086,
     author_id: User.find_by(username: "Alicia").id,
-    city_id: City.find_by(name: "New York, NY").id},
+    city_id: City.find_by(name: "New York, NY").id
+  },
 #5, 1
   { name: "Hare Krishna Tree",
     description: "One of the few remaining American elm trees in New York’s Tompkins Square Park was the birthplace of a new religion.",
@@ -146,7 +150,8 @@ City.create!([
     lat: 40.7261,
     lng: -73.9820,
     author_id: User.find_by(username: "Pouli").id,
-    city_id: City.find_by(name: "New York, NY").id},
+    city_id: City.find_by(name: "New York, NY").id
+  },
 #6, 3
   { name: "New York Marble Cemetery",
     description: "Hidden down an alley in the bustling East Village.",
@@ -159,7 +164,8 @@ City.create!([
     lat: 40.7256,
     lng: -73.9909,
     author_id: User.find_by(username: "Yiayia").id,
-    city_id: City.find_by(name: "New York, NY").id},
+    city_id: City.find_by(name: "New York, NY").id
+  },
 
 #7, 4
   { name: "Showmen's Rest",
@@ -172,7 +178,8 @@ City.create!([
     lat: 33.9987,
     lng: -95.5012,
     author_id: User.find_by(username: "Val").id,
-    city_id: City.find_by(name: "Hugo, OK").id},
+    city_id: City.find_by(name: "Hugo, OK").id
+  },
 #8, 5
   { name: "La Isla de las Muñecas (Island of the Dolls)",
     description: "An island filled with hundreds of hanging, decomposing, decapitated dolls.",
@@ -184,7 +191,8 @@ City.create!([
     lat: 19.2908,
     lng: -99.0986,
     author_id: User.find_by(username: "Craig").id,
-    city_id: City.find_by(name: "Mexico City").id},
+    city_id: City.find_by(name: "Mexico City").id
+  },
 #9, 5
   { name: "Naki Sumo Baby Crying Contest",
     description: "For hundreds of years, participants in this Japanese festival have been making babies cry to ward off demons.",
@@ -196,7 +204,8 @@ City.create!([
     lat: 35.7140,
     lng: 139.7965,
     author_id: User.find_by(username: "Craig").id,
-    city_id: City.find_by(name: "Tokyo").id},
+    city_id: City.find_by(name: "Tokyo").id
+  },
 #10, 6
   { name: "Shanghai Marriage Market",
     description: "When it comes to love, Mom and Dad know best.",
@@ -209,7 +218,8 @@ City.create!([
     lat: 31.2323,
     lng: 121.4732,
     author_id: User.find_by(username: "Val").id,
-    city_id: City.find_by(name: "Shanghai").id},
+    city_id: City.find_by(name: "Shanghai").id
+  },
 #11, 1
   { name: "The Central Perk, Beijing",
     description: "This working replica of the 'Friends' coffee shop is more accurate to the show than the set itself.",
@@ -220,7 +230,8 @@ City.create!([
     lat: 39.9205,
     lng: 116.4543,
     author_id: User.find_by(username: "Alicia").id,
-    city_id: City.find_by(name: "Beijing").id},
+    city_id: City.find_by(name: "Beijing").id
+  },
 #12, 1
   { name: "Chairman Mao Memorial Hall",
     description: "The embalmed remains of the communist leader lie within a custom crystal coffin.",
@@ -232,7 +243,8 @@ City.create!([
     lat: 39.9025,
     lng: 116.3978,
     author_id: User.find_by(username: "Alicia").id,
-    city_id: City.find_by(name: "Beijing").id},
+    city_id: City.find_by(name: "Beijing").id
+  },
 #13, 1
   { name: "798 Art District",
     description: "Exotic and hidden works of art.",
@@ -244,7 +256,8 @@ City.create!([
     lat: 39.9042,
     lng: 116.4074,
     author_id: User.find_by(username: "Alicia").id,
-    city_id: City.find_by(name: "Beijing").id},
+    city_id: City.find_by(name: "Beijing").id
+  },
 #14, 1
   { name: "Great Wall of China Slide",
     description: "Why walk on this historical site when you can zoom down instead?",
@@ -255,7 +268,8 @@ City.create!([
     lat: 40.4318,
     lng: 116.5704,
     author_id: User.find_by(username: "Alicia").id,
-    city_id: City.find_by(name: "Beijing").id},
+    city_id: City.find_by(name: "Beijing").id
+  },
 #15, 1
   { name: "The World Park",
     description: "Beijing's World Park offers the excitment of international travel without the hassle of actually traveling.",
@@ -266,7 +280,8 @@ City.create!([
     lat: 39.8107,
     lng: 116.2875,
     author_id: User.find_by(username: "Alicia").id,
-    city_id: City.find_by(name: "Beijing").id},
+    city_id: City.find_by(name: "Beijing").id
+  },
 #16, 6
   { name: "China Watermelon Museum",
     description: "This Chinese museum proves that it's a watermelon world, we're all just living in it.",
@@ -277,7 +292,8 @@ City.create!([
     lat: 39.6732,
     lng: 116.3251,
     author_id: User.find_by(username: "Val").id,
-    city_id: City.find_by(name: "Beijing").id},
+    city_id: City.find_by(name: "Beijing").id
+  },
 #17, 7
   { name: "Harbin Ice and Snow Festival",
     description: "One of the world's largest ice festivals dazzles visitors for over a month with radiant sculptures and carvings.",
@@ -289,7 +305,8 @@ City.create!([
     lat: 45.7570,
     lng: 126.6425,
     author_id: User.find_by(username: "Collin").id,
-    city_id: City.find_by(name: "Harbin").id},
+    city_id: City.find_by(name: "Harbin").id
+  },
 #18, 3
   { name: "Rayne Frog Festival",
     description: "The only place to see live frogs don pigtails and top hats, then eat their scrumptious legs.",
@@ -303,7 +320,8 @@ City.create!([
     lat: 30.2349,
     lng: -92.2685,
     author_id: User.find_by(username: "Yiayia").id,
-    city_id: City.find_by(name: "Rayne, LA").id},
+    city_id: City.find_by(name: "Rayne, LA").id
+  },
 #19, 5
   { name: "Sedlec Ossuary Bone Church",
     description: "A church of bones, decorated with 40,000 human skeletons.",
@@ -314,7 +332,8 @@ City.create!([
     lat: 49.9482,
     lng: 15.2676,
     author_id: User.find_by(username: "Jimmy").id,
-    city_id: City.find_by(name: "Kutna Hora").id},
+    city_id: City.find_by(name: "Kutna Hora").id
+  },
 #20, 4
   { name: "New York Transit Museum",
     description: "Ride the subways of yesteryear.",
@@ -323,11 +342,12 @@ City.create!([
     On the lower (platform) level of the Museum are featured subway cars dating back to 1916 and wooden elevated cars dating back to 1903 as well as other miscellaneous equipment used in subway operation.
     Do you remember old tokens? They were the predominate fare on New York Subways and buses from 1953 until 2003, when the brass coins were replaced by the now-ubiquitous MetroCard. A permanent collection at the New York Transit Museum presents the token-operated turnstiles and the ticket chopping machines dating back to 1904; visitors enter the Museum through the same street entrance their grandparents once did.
     The Museum has an Annex/Gallery in Grand Central Terminal (to the left of the Station Master’s office). The original Court Street station opened in 1936 as part of an intended connection to Manhattan (approximately where the World Trade Center station on the E line is today), it served HH trains until 1946 when it was closed due to lack of use and lack of funds to build the tunnel to Manhattan. After that was used to film scenes for many movies — the opening scene of the 1974 movie The Taking of Pelham 1-2-3 shows a train entering the station (with a false wall on the right side).
-    In 1976, the editor_id: User.find(6).id Transit Authority wanted to contribute to the US Bicentennial celebration and opened the editor_id: User.find(6).id Transit Exhibit in July 1976. The station was only intended to remain until September 1976, but public reaction was so overwhelming it remained open and eventually became the New York Transit Museum. Responsibility of the museum was subsequently transferred to the Metropolitan Transportation Authority to allow for expansion of exhibits to include other MTA facilities, such as Metro-North & Long Island Railroads, and MTA Bridges & Tunnels.",
+    In 1976, the Transit Authority wanted to contribute to the US Bicentennial celebration and opened the Transit Exhibit in July 1976. The station was only intended to remain until September 1976, but public reaction was so overwhelming it remained open and eventually became the New York Transit Museum. Responsibility of the museum was subsequently transferred to the Metropolitan Transportation Authority to allow for expansion of exhibits to include other MTA facilities, such as Metro-North & Long Island Railroads, and MTA Bridges & Tunnels.",
     lat: 40.6890,
     lng: -73.9861,
     author_id: User.find_by(username: "Pouli").id,
-    city_id: City.find_by(name: "New York, NY").id},
+    city_id: City.find_by(name: "New York, NY").id
+  },
 #21, 1
   { name: "Fearless Girl Statue",
     description: "Wall Street has a new heroine, a bronze statue of a small but fierce girl.",
@@ -337,7 +357,8 @@ City.create!([
     lat: 40.7056,
     lng: -74.0134,
     author_id: User.find_by(username: "Alicia").id,
-    city_id: City.find_by(name: "New York, NY").id},
+    city_id: City.find_by(name: "New York, NY").id
+  },
 
 ])
 
@@ -379,22 +400,22 @@ Image.create!([
   {article_id: Article.find_by(name: "Blue Flash Backyard Roller Coaster").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/blueflash3.JPG"},
   {article_id: Article.find_by(name: "Blue Flash Backyard Roller Coaster").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/blueflash4.png"},
   {article_id: Article.find_by(name: "Blue Flash Backyard Roller Coaster").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/blueflash5.png"},
-  # {article_id: Article.find_by(name: "Texas Eiffel Tower").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"},
-  # {article_id: Article.find_by(name: "Tuned Mass Damper of Taipei 101").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"},
-  # {article_id: Article.find_by(name: "New York Federal Gold Vault").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"},
-  # {article_id: Article.find_by(name: "Hare Krishna Tree").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"},
-  # {article_id: Article.find_by(name: "New York Marble Cemetery").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"},
-  # {article_id: Article.find_by(name: "Showmen's Rest").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"},
-  # {article_id: Article.find_by(name: "La Isla de las Muñecas (Island of the Dolls)").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"},
-  # {article_id: Article.find_by(name: "Naki Sumo Baby Crying Contest").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"},
-  # {article_id: Article.find_by(name: "Shanghai Marriage Market").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"},
-  # {article_id: Article.find_by(name: "The Central Perk, Beijing").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"},
-  # {article_id: Article.find_by(name: "Chairman Mao Memorial Hall").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"},
-  # {article_id: Article.find_by(name: "798 Art District").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"},
-  # {article_id: Article.find_by(name: "Great Wall of China Slide").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"},
-  # {article_id: Article.find_by(name: "The World Park").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"},
-  # {article_id: Article.find_by(name: "China Watermelon Museum").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"},
-  # {article_id: Article.find_by(name: "Harbin Ice and Snow Festival").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"},
+  {article_id: Article.find_by(name: "Texas Eiffel Tower").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"},
+  {article_id: Article.find_by(name: "Tuned Mass Damper of Taipei 101").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"},
+  {article_id: Article.find_by(name: "New York Federal Gold Vault").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"},
+  {article_id: Article.find_by(name: "Hare Krishna Tree").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"},
+  {article_id: Article.find_by(name: "New York Marble Cemetery").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"},
+  {article_id: Article.find_by(name: "Showmen's Rest").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"},
+  {article_id: Article.find_by(name: "La Isla de las Muñecas (Island of the Dolls)").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"},
+  {article_id: Article.find_by(name: "Naki Sumo Baby Crying Contest").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"},
+  {article_id: Article.find_by(name: "Shanghai Marriage Market").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"},
+  {article_id: Article.find_by(name: "The Central Perk, Beijing").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"},
+  {article_id: Article.find_by(name: "Chairman Mao Memorial Hall").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"},
+  {article_id: Article.find_by(name: "798 Art District").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"},
+  {article_id: Article.find_by(name: "Great Wall of China Slide").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"},
+  {article_id: Article.find_by(name: "The World Park").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"},
+  {article_id: Article.find_by(name: "China Watermelon Museum").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"},
+  {article_id: Article.find_by(name: "Harbin Ice and Snow Festival").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"},
   {article_id: Article.find_by(name: "Rayne Frog Festival").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/frog1.jpeg"},
   {article_id: Article.find_by(name: "Rayne Frog Festival").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/frog2.jpeg"},
   {article_id: Article.find_by(name: "Rayne Frog Festival").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/frog3.jpeg"},
@@ -406,27 +427,27 @@ Image.create!([
   # {article_id: Article.find_by(name: "Sedlec Ossuary Bone Church").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/bones4.jpg"},
   # {article_id: Article.find_by(name: "Sedlec Ossuary Bone Church").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/bones5.jpg"},
   # {article_id: Article.find_by(name: "Sedlec Ossuary Bone Church").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/bones6.JPG"},
-  # {article_id: Article.find_by(name: "New York Transit Museum").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"},
-  # {article_id: Article.find_by(name: "Fearless Girl Statue").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"},
+  {article_id: Article.find_by(name: "New York Transit Museum").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"},
+  {article_id: Article.find_by(name: "Fearless Girl Statue").id, image: "https://s3.amazonaws.com/treasure-map-dev/images/images/000/000/008/original/Screen_Shot_2018-05-15_at_12.38.33_PM.png"},
 
   ])
 
 
 ArticleEdit.destroy_all
 ArticleEdit.create!([
-  {article_id: Article.find_by(name: "Blue Flash Backyard Roller Coaster").id, editor_id: User.find(3).id},
-  {article_id: Article.find_by(name: "Blue Flash Backyard Roller Coaster").id, editor_id: User.find(2).id},
-  {article_id: Article.find_by(name: "Blue Flash Backyard Roller Coaster").id, editor_id: User.find(4).id},
-  {article_id: Article.find_by(name: "Blue Flash Backyard Roller Coaster").id, editor_id: User.find(5).id},
-  {article_id: Article.find_by(name: "Blue Flash Backyard Roller Coaster").id, editor_id: User.find(6).id},
-  {article_id: Article.find_by(name: "Texas Eiffel Tower").id, editor_id: User.find(4).id},
-  {article_id: Article.find_by(name: "Texas Eiffel Tower").id, editor_id: User.find(5).id},
-  {article_id: Article.find_by(name: "Tuned Mass Damper of Taipei 101").id, editor_id: User.find(6).id},
-  {article_id: Article.find_by(name: "New York Federal Gold Vault").id, editor_id: User.find(5).id},
-  {article_id: Article.find_by(name: "Hare Krishna Tree").id, editor_id: User.find(3).id},
-  {article_id: Article.find_by(name: "New York Marble Cemetery").id, editor_id: User.find(5).id},
-  {article_id: Article.find_by(name: "New York Marble Cemetery").id, editor_id: User.find(1).id},
-  {article_id: Article.find_by(name: "Showmen's Rest").id, editor_id: User.find(5).id},
-  {article_id: Article.find_by(name: "Showmen's Rest").id, editor_id: User.find(2).id},
-  {article_id: Article.find_by(name: "Showmen's Rest").id, editor_id: User.find(1).id},
+  {article_id: Article.find_by(name: "Blue Flash Backyard Roller Coaster").id, editor_id: User.find_by(username: "Alicia").id},
+  {article_id: Article.find_by(name: "Blue Flash Backyard Roller Coaster").id, editor_id: User.find_by(username: "Jimmy").id},
+  {article_id: Article.find_by(name: "Blue Flash Backyard Roller Coaster").id, editor_id: User.find_by(username: "Pouli").id},
+  {article_id: Article.find_by(name: "Blue Flash Backyard Roller Coaster").id, editor_id: User.find_by(username: "Craig").id},
+  {article_id: Article.find_by(name: "Blue Flash Backyard Roller Coaster").id, editor_id: User.find_by(username: "Val").id},
+  {article_id: Article.find_by(name: "Texas Eiffel Tower").id, editor_id: User.find_by(username: "Pouli").id},
+  {article_id: Article.find_by(name: "Texas Eiffel Tower").id, editor_id: User.find_by(username: "Craig").id},
+  {article_id: Article.find_by(name: "Tuned Mass Damper of Taipei 101").id, editor_id: User.find_by(username: "Val").id},
+  {article_id: Article.find_by(name: "New York Federal Gold Vault").id, editor_id: User.find_by(username: "Craig").id},
+  {article_id: Article.find_by(name: "Hare Krishna Tree").id, editor_id: User.find_by(username: "Yiayia").id},
+  {article_id: Article.find_by(name: "New York Marble Cemetery").id, editor_id: User.find_by(username: "Craig").id},
+  {article_id: Article.find_by(name: "New York Marble Cemetery").id, editor_id: User.find_by(username: "Alicia").id},
+  {article_id: Article.find_by(name: "Showmen's Rest").id, editor_id: User.find_by(username: "Craig").id},
+  {article_id: Article.find_by(name: "Showmen's Rest").id, editor_id: User.find_by(username: "Jimmy").id},
+  {article_id: Article.find_by(name: "Showmen's Rest").id, editor_id: User.find_by(username: "Alicia").id},
   ])

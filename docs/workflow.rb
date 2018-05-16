@@ -242,7 +242,7 @@ TUESDAY:
 WEDNESDAY:
 **ask about opacity for the show pages(bottom)
 -try to figure out whats wrong with heroku
-*Figure out country class method
+# *Figure out country class method
 -look at Abbys call out to render form errors
 *do I need an errors reducer for city and country (aka things that arent forms)
 *figure out why when I navigate to an article or city show page, it doesnt go on first click
@@ -251,6 +251,17 @@ WEDNESDAY:
 
 -finish search
 -finish Google Maps integration
+
+
+******
+-get country show page to render
+-get map dropdown to render (and create a reducer for the ui slice of state of top cities and country ids)
+(hold off on styling of both)
+-read GM docs and try to figure that out
+-style country show and map dropdown
+-style homepage
+
+Ask about 403 forbidden error!!!!
 
 THURSDAY:
 -style slick photo carousel
@@ -263,3 +274,14 @@ FRIDAY:
 
 Hey Alicia your app looks great! I'm not sure what happens when I try to submit a place or edit one though,
 it's not clear if that's successful. Also don't forget to render form errors if necessary
+
+
+
+create ui country_detail boolean (default true)
+RECEIVE_COUNTRY action, ui reducer is listening for this action and will change it to false
+componentDidUnmount => pass down a synchronous action in mapDispatchToProps that will change the boolean back to true
+
+make a ui slice of state that holds the following keys:
+-top_countries
+-top_cities
+-country_detail_loading

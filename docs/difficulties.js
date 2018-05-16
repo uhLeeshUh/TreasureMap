@@ -12,4 +12,7 @@
 
 //upload images simultaneously with articles, requires one large FormData object
 
-//created custom routes for top cities and countries 
+//created custom routes for top cities and countries
+
+//find a way to circumvent the initial country show page render if we don't have all the needed information for the page
+//by setting a ui "country_detail_loaded" slice of state

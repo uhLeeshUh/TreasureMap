@@ -70,10 +70,10 @@ const mapStateToProps = (state, ownProps) => {
   //TODO: comment back in countries when add in countries reducer
 
   const countryId = ownProps.match.params.countryId;
-  // let loading = true;
-  // if (state.entities.cities[cityId]){
-  //   loading = false;
-  // }
+  let loading = true;
+  if (state.entities.cities[cityId]){
+    loading = false;
+  }
 
   const defaultCountry = {id: 3, name: "China"};
   const defaultCity = {id: 17, name: "Beijing", country_id: 3 };
