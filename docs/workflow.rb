@@ -244,3 +244,8 @@ THURSDAY:
 
 FRIDAY:
 -Production README
+
+
+
+Hey Alicia your app looks great! I'm not sure what happens when I try to submit a place or edit one though,
+it's not clear if that's successful. Also don't forget to render form errors if necessary

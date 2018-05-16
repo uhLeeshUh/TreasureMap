@@ -21,6 +21,7 @@ class CityDetail extends React.Component {
   }
 
   render(){
+
     const articleCount = this.props.articles.length;
     let thing = "things";
     if (articleCount === 1) {thing = "thing";}
@@ -60,10 +61,16 @@ class CityDetail extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   //TODO: comment back in countries when add in countries reducer
+
+  const cityId = ownProps.match.params.cityId;
+  // let loading = true;
+  // if (state.entities.cities[cityId]){
+  //   loading = false;
+  // }
+
   const defaultCity = {id: 17, name: "Beijing", country_id: 3 };
   const defaultCountry = {id: 3, name: "China"};
 
-  const cityId = ownProps.match.params.cityId;
   let city = defaultCity;
   if (state.entities.cities) {
     city = state.entities.cities[cityId] || defaultCity;
