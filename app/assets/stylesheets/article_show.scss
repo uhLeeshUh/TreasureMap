@@ -109,8 +109,8 @@
 }
 
 .article-google-map{
-  border: 1px solid red;
-  height: 300px;
+  // border: 1px solid red;
+  height: 500px;
   width: 30%;
 }
 
@@ -192,7 +192,7 @@
   font-family: 'Archivo Narrow', sans-serif;
   font-size: 15px;
   letter-spacing: .12em;
-  margin: auto;
+  // margin: auto;
   text-align: center;
 }
 
@@ -202,4 +202,8 @@
 
 .article-editor-info{
   // background: white;
+}
+
+#map{
+  height: 100%;
 }

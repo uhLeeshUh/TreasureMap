@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchArticle, deleteArticle } from '../actions/article_actions';
 import { Link } from 'react-router-dom';
+import Map from './map';
 
 class Article extends React.Component {
   constructor(props){
@@ -111,7 +112,9 @@ class Article extends React.Component {
               </div>
             </div>
           </div>
-          <div className="article-google-map"></div>
+          <div className="article-google-map">
+            <Map lat={this.props.article.lat} lng={this.props.article.lng} name={this.props.article.name}/>
+          </div>
         </section>
 
       </main>
