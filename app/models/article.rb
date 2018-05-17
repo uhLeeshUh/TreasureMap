@@ -29,6 +29,9 @@ class Article < ApplicationRecord
 
   accepts_nested_attributes_for :images, :edits
 
+  include PgSearch
+  multisearchable :against => [:name, :description]
+
 
   def self.select_random_article
     article = Article.all.sample

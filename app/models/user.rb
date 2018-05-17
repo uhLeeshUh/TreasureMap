@@ -16,6 +16,9 @@ class User < ApplicationRecord
     through: :article_edits,
     source: :article
 
+  # include PgSearch
+  # multisearchable :against => [:username]
+
   attr_reader :password
 
   after_initialize :ensure_session_token

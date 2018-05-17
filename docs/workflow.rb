@@ -16,6 +16,7 @@ Go back and work on:
 -Article show so it doesnt fetch the article again after its been navigated to by a create or edit page (recieve article action logs twice)
 -Components folder
 -eventually make lazy loading for the index pages of thumbs
+-use the GM search bar for accurate lat/lng in article creation form
 
 On-going todos:
 -add images to the AWS database
@@ -292,3 +293,15 @@ make a ui slice of state that holds the following keys:
 -finish seeding db with images
 -finish homepage
 -push to heroku!
+
+
+-creat the PgSearch model and controller (just use the create action, which returns a PgSearch object with matches)
+-create searchIndexItem components based on the search results (display whats at key :content), this will have onClick navigateToPage prop passed to it (links to the right page)
+-on user click (with js), dispatch a conditional action depending on :searchable_type (which will be the class name)
+-search bar is a component with an input field, onChange will update internal controlled state
+-use .setinterval to send an AJAX call to PgSearch after a few milliseconds to show updated results based off of this.state
+-user will either click the search result or click to leave the search bar
+-have some conditional logic that if the return value of the PgSearch is of length 0, have a default "We're sorry, nothing matches this"
+-render a component that takes up the whole page (z-index of 5) with a transparent background and has an onClick closeSearchBar function
+-child holder is sized and is rendered in the transparent parent, has an onClick stopPropagation action
+-render the search component in this child container

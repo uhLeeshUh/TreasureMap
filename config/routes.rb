@@ -11,17 +11,21 @@ Rails.application.routes.draw do
       end
       resources :images, only: [:create]
     end
+
     resources :countries, only: [:create, :show, :index] do
       collection do
         get 'top_countries'
       end
       resources :cities, only: [:create]
     end
+
     resources :cities, only: [:show] do
       collection do
         get 'top_cities'
       end
     end
+
+    resources :pg_search_documents, only: [:index]
   end
 
 end

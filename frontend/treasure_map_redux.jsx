@@ -15,6 +15,7 @@ import * as CityAPIUtil from './util/city_api_util';
 import * as CityActions from './actions/city_actions';
 import * as CountryAPIUtil from './util/country_api_util';
 import * as CountryActions from './actions/country_actions';
+import * as PgSearchAPIUtil from './util/pg_search_api_util';
 
 
 const Root = ({ store }) => {
@@ -57,6 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
 window.signup = SessionActions.signup;
 window.login = SessionActions.login;
 window.logout = SessionActions.logout;
+window.fetchSearchItems = PgSearchAPIUtil.fetchSearchItems;
 // window.fetchArticle = ArticleAPIUtil.fetchArticle;
 // window.fetchArticles = ArticleAPIUtil.fetchArticles;
 // window.createArticle = ArticleAPIUtil.createArticle;

@@ -10,6 +10,9 @@ class Country < ApplicationRecord
     through: :cities,
     source: :articles
 
+  include PgSearch
+  multisearchable :against => [:name]
+
   def self.top_countries_by_article_count
     countries = Country.select('countries.*').joins(:cities).joins(:articles).group('countries.id').order('COUNT(articles.id) DESC').limit(6)
   end
