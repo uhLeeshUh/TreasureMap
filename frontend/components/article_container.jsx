@@ -76,7 +76,7 @@ class Article extends React.Component {
     return (
       <main>
         <section className="article-head">
-          <h2 id="city-name">{this.props.city.name}</h2>
+          <Link to={`/cities/${this.props.city.id}`}><h2 id="city-name">{this.props.city.name}</h2></Link>
           <h1 id="article-name">{this.props.article.name}</h1>
           <p id="article-desc">{this.props.article.description}</p>
           <div className="article-buttons">

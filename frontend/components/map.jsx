@@ -1,12 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { withRouter } from 'react-router-dom';
 
 class Map extends React.Component{
   constructor(props){
     super(props);
+    this.generateMap = this.generateMap.bind(this);
   }
 
   componentDidMount(){
+    this.generateMap();
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot){
+    if (this.props.match !== prevProps.match){
+      this.generateMap();
+    }
+  }
+
+  generateMap(){
     const map = ReactDOM.findDOMNode(this.refs.map);
     const firstLoc = this.props.articles[0];
     const options = {
@@ -33,11 +45,10 @@ class Map extends React.Component{
   }
 
   render(){
-
     return (
       <div id="map" ref="map"/>
     );
   }
 }
 
-export default Map;
+export default withRouter(Map);
