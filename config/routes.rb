@@ -25,7 +25,7 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :pg_search_documents, only: [:index]
+    resources :pg_search_documents, only: [:create]
   end
 
 end

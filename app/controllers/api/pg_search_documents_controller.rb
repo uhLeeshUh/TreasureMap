@@ -1,6 +1,6 @@
 class Api::PgSearchDocumentsController < ApplicationController
 
-  def index
+  def create
     resultDocuments = PgSearch.multisearch(params[:query])
     @articles = resultDocuments.where(searchable_type: "Article");
     @cities = resultDocuments.where(searchable_type: "City");
