@@ -187,12 +187,17 @@
 }
 
 .article-editor-name{
-  display: block;
-  // display: none;
+  // display: block;
+  display: none;
   font-family: 'Archivo Narrow', sans-serif;
   font-size: 15px;
   letter-spacing: .12em;
   margin: auto;
+  text-align: center;
+}
+
+.article-editor-info:hover > .article-editor-name{
+  display: block;
 }
 
 .article-editor-info{

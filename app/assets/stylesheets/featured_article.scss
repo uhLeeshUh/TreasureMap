@@ -1,0 +1,59 @@
+.feature-article-holder{
+  width: 60%;
+  margin: auto;
+}
+
+.feature-article-headline-holder{
+  margin-top: 50px;
+}
+
+.feature-article-header{
+  font-family: 'Arimo', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: #382d14;
+  padding-top: 4px;
+  width: 100%;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  text-decoration: underline;
+  text-decoration-color: #d4d4d0;
+}
+
+.feature-article-image{
+  border-radius: 3px;
+}
+
+.feature-article-content{
+}
+
+.feature-article-link{
+  text-decoration: none;
+}
+
+.feature-article-city{
+  text-transform: uppercase;
+  font-family: 'Archivo Narrow', sans-serif;
+  font-size: 19px;
+  color: #1b624f;
+  letter-spacing: .09em;
+  margin: 15px 0;
+}
+
+.feature-article-title{
+  font-family: 'Arimo', sans-serif;
+  font-weight: 700;
+  font-size: 45px;
+  color: #382d14;
+}
+
+.feature-article-description{
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  line-height: 28px;
+  letter-spacing: .01em;
+  color: #382c14;
+  letter-spacing: -.01em;
+  width: 65%;
+  line-height: 1.15em;
+}
