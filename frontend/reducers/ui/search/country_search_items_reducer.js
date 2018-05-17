@@ -4,7 +4,11 @@ const countrySearchItemsReducer = (state = [], action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_SEARCH_ITEMS:
-      return action.searchItemsPayload.countries;
+    if (action.searchItemsPayload.countries){
+      return [action.searchItemsPayload.countries];
+    } else {
+      return [];
+    }
     default:
       return state;
   }

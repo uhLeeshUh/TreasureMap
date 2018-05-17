@@ -1,7 +1,7 @@
 import React from 'react';
 import MapDropdown from './anchors/map_dropdown';
 import SessionDropdownContainer from './session_dropdown_container';
-import SearchContainer from './search_container';
+import SearchContainer from './anchors/search/search_container';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 

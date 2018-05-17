@@ -4,7 +4,11 @@ const articleSearchItemsReducer = (state = [], action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_SEARCH_ITEMS:
-      return action.searchItemsPayload.articles;
+    if (action.searchItemsPayload.articles){
+      return [action.searchItemsPayload.articles];
+    } else {
+      return [];
+    }
     default:
       return state;
   }

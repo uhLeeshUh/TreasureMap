@@ -305,3 +305,47 @@ make a ui slice of state that holds the following keys:
 -render a component that takes up the whole page (z-index of 5) with a transparent background and has an onClick closeSearchBar function
 -child holder is sized and is rendered in the transparent parent, has an onClick stopPropagation action
 -render the search component in this child container
+
+SearchButton (renders SearchBar)
+SearchBar (class) needs to be connected
+
+handleChange -->
+-update this.state
+-setTimeout(submit fetchSearchItems after 2 seconds)
+
+createSearchItems(itemsObject){
+  let searchItems = [];
+  Object.keys(itemsObject).forEach(type => {
+    itemsObject[type].forEach((item, idx) => {
+      searchItems.push(<SearchIndexItem key={idx} type={type} content={item.content} id={item.searchable_id}/>)
+
+      })
+    })
+
+}
+
+render(){
+  let searchIndexItems = <li>Sorry, but nothing matches your search. Try adding it yourself!</li>
+  if (this.props.itemsObject[:articles] || this.props.itemsObject[:cities] || this.props.itemsObject[:countries] ){
+    searchIndexItems = createSearchItems(this.props.itemsObject)
+  }
+  return (
+    <div className="modal-background" onClick={closeModal}>
+      <div className="modal-child" onClick={e => e.stopPropagation()}>
+        <input onChange={this.handleChange}>Type here searchers!
+        <ul>
+          { component } <= SearchIndexItem(s)
+        </ul>
+      </div>
+    </div>
+    );
+}
+
+#pass in itemsObject from state.ui.search
+
+SearchIndexItem (functional component)
+
+
+return (
+  <Link to={`${props.type}/${props.searchable_id}`}></Link>
+)
