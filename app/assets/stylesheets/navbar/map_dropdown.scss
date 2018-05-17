@@ -28,7 +28,7 @@
 }
 
 .map-dropdown-holder{
-  display: block;
+  display: none;
   width: 500%;
   background: #e5ebe7;
   position: absolute;
@@ -37,10 +37,13 @@
   top: 70px;
 }
 
-
-// .dropdown-div:hover > ul.dropdown-ul{
-//   display: block;
+// .map-dropdown-holder a > .map-dropdown-holder{
+//   display: none;
 // }
+
+.the-atlas:hover > .map-dropdown-holder{
+  display: block;
+}
 
 .top-destinations{
   font-family: 'Arimo', sans-serif;

@@ -67,11 +67,14 @@ class CountryDetail extends React.Component {
           {articleThumbs}
         </section>
 
-        <div className="city-show-map-wrapper">
-          <section className="city-show-google-map"></section>
-          <div className="city-show-map-text">
-            <h2 className="city-show-footer">Explore {this.props.country.name}</h2>
-            <div className="city-show-google-maps-container">Google Maps goes here</div>
+        <div className="city-show-footer">
+          <div className="city-show-map-wrapper">
+            <section className="city-show-google-map"></section>
+
+            <div className="city-show-map-text">
+              <h2 className="city-show-footer-holder">Explore {this.props.country.name}</h2>
+              <div className="city-show-google-maps-container">Google Maps goes here</div>
+            </div>
           </div>
         </div>
 
