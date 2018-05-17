@@ -11,8 +11,7 @@ const mapStateToProps = (state, ownProps) => {
     body: "",
     lat: 0,
     lng: 0,
-    author_id: 1,
-    city_id: 1,
+    author_id: 0,
   };
 
   return {

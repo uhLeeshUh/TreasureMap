@@ -7,6 +7,10 @@ class Api::ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
+    debugger
+    @article.city_id = City.find_by({name: params["article"]["city_name"]}).id
+    debugger
+
 
     if @article.save
       render 'api/articles/show'

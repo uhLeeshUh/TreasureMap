@@ -34,8 +34,8 @@ const mapStateToProps = (state, ownProps) => {
     body: "",
     lat: 0,
     lng: 0,
-    author_id: 1,
-    city_id: 1,
+    author_id: 0,
+    city_id: 0,
   };
 
 //TODO: when working on countries and cities, pass down the country and city info

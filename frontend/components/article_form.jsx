@@ -104,7 +104,7 @@ class ArticleForm extends React.Component {
 
   sendUpLocation(e){
     let inProgressArticle = this.state.article;
-    inProgressArticle.city_id = e.target.value;
+    inProgressArticle.city_name = e.target.value;
     this.setState({ article: inProgressArticle });
   }
 

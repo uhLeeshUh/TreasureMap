@@ -2,7 +2,7 @@ import React from 'react';
 
 const GoogleMaps = (props) => {
   let locOptions = props.cities.map(city => {
-    return (<option key={city.id} value={city.id}>{city.name}, {props.countries[city.country_id].name}</option>);
+    return (<option key={city.id} value={city.name}>{city.name}, {props.countries[city.country_id].name}</option>);
   });
 
   return (

@@ -33,4 +33,5 @@ class Article < ApplicationRecord
   def self.select_random_article
     article = Article.all.sample
   end
+
 end
