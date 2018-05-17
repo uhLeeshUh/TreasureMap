@@ -287,8 +287,8 @@ make a ui slice of state that holds the following keys:
 -countryDetailLoaded
 
 
--fix up city and country show pages
--finish map dropdown
+# -fix up city and country show pages
+# -finish map dropdown
 -finish seeding db with images
 -finish homepage
 -push to heroku!

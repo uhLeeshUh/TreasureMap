@@ -122,7 +122,7 @@ class ArticleForm extends React.Component {
     let articleErrors;
     if (this.props.errors.length > 0) {
       articleErrors = this.props.errors.map((error, idx) => {
-        return <li key={idx}>{error}</li>;
+        return <li className="article-errors" key={idx}>{error}</li>;
         });
     }
 

@@ -11,6 +11,7 @@ import CreateArticleContainer from './create_article_container';
 import EditArticleContainer from './edit_article_container';
 import CityDetailContainer from './city_show/city_detail';
 import CountryDetailContainer from './country_show/country_detail';
+import FeaturedArticleContainer from './featured_article';
 
 const App = () => {
   // <NavBar /> //has no route, so it will render on every page. Put dropdowns and search here
@@ -21,6 +22,7 @@ const App = () => {
       <Route path="/" component={NavBar} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <AuthRoute exact path="/signin" component={LoginFormContainer} />
+      <Route exact path="/" component={FeaturedArticleContainer}/>
       <Switch>
         <ProtectedRoute exact path="/articles/new" component={CreateArticleContainer}/>
         <Route exact path="/articles/:articleId" component={ArticleContainer}/>
