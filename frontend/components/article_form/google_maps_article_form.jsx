@@ -14,7 +14,7 @@ const mapStateToProps = (state) => {
       [{id: 1, name: 'Bruceville, IN', country_id: 1},
       {id: 2, name: 'Hugo, OK', country_id: 1},
       {id: 3, name: 'Paris, TX', country_id: 1},
-      {id: 4, name: 'New York City, NY', country_id: 1},
+      {id: 4, name: 'New York, NY', country_id: 1},
       {id: 5, name: 'Kutna Hora', country_id: 2}],
     countries: {
       1: {id: 1, name: "United States of America"},
