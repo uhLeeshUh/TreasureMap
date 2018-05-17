@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import ArticleThumb from '../article_thumb';
 import { connect } from 'react-redux';
 import { fetchCity } from '../../actions/city_actions';
+import Map from '../map';
 
 class CityDetail extends React.Component {
   constructor(props){
@@ -63,7 +64,9 @@ class CityDetail extends React.Component {
 
             <div className="city-show-map-text">
               <h2 className="city-show-footer-holder">Explore {this.props.city.name}, {this.props.country.name}</h2>
-              <div className="city-show-google-maps-container">Google Maps goes here</div>
+              <div className="city-show-google-maps-container">
+                <Map articles={this.props.articles}/>
+              </div>
             </div>
           </div>
         </div>

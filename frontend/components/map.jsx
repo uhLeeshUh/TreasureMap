@@ -8,26 +8,32 @@ class Map extends React.Component{
 
   componentDidMount(){
     const map = ReactDOM.findDOMNode(this.refs.map);
+    const firstLoc = this.props.articles[0];
     const options = {
-      center: {lat: this.props.lat, lng: this.props.lng},
-      zoom: 10
+      center: { lat: firstLoc.lat, lng: firstLoc.lng },
+      zoom: 12
     };
     this.map = new google.maps.Map(map, options);
-    this.addMarker({lat: this.props.lat, lng: this.props.lng});
+    this.addMarkers(this.props.articles);
   }
 
-  addMarker(location){
-    const pos = new google.maps.LatLng(location.lat, location.lng);
-    const marker = new google.maps.Marker({
-      position: pos,
-      map: this.map
+  addMarkers(articles){
+
+    articles.forEach(article => {
+      let marker = new google.maps.Marker({
+        position: new google.maps.LatLng(article.lat, article.lng),
+        map: this.map
+      });
+      marker.addListener('click', () => {
+        alert(article.name);
+      });
+      return marker;
     });
-    marker.addListener('click', () => {
-      alert(this.props.name);
-    });
+
   }
 
   render(){
+
     return (
       <div id="map" ref="map"/>
     );
@@ -35,5 +41,3 @@ class Map extends React.Component{
 }
 
 export default Map;
-
-//need to pass down lat/lng,name

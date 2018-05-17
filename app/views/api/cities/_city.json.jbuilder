@@ -10,7 +10,7 @@ end
 json.articles do
   city.articles.each do |article|
     json.set! article.id do
-      json.extract! article, :id, :name, :description
+      json.extract! article, :id, :name, :description, :lat, :lng
       json.image_ids article.images.ids
     end
   end
