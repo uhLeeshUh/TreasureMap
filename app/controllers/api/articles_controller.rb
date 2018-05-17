@@ -39,13 +39,17 @@ class Api::ArticlesController < ApplicationController
      end
   end
 
+  def random_article
+    @article = Article.select_random_article
+
+    render :show
+  end
+
   private
 
   def article_params
     params.require(:article).permit(:name, :description, :body, :lat, :lng,
        :author_id, :city_id, :long_description, images_attributes: [:image], edits_attributes: [:editor_id])
   end
-
-  # , edits_attributes: [:editor_id]
 
 end

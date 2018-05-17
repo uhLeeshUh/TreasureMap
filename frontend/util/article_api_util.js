@@ -15,6 +15,13 @@ export const fetchArticle = (id) => {
   });
 };
 
+export const fetchRandomArticle = () => {
+  return $.ajax({
+    method: 'get',
+    url: '/api/articles/random_article'
+  });
+};
+
 export const fetchArticles = (cityId) => {
   return $.ajax({
     method: 'get',

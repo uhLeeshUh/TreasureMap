@@ -1,6 +1,7 @@
 .feature-article-holder{
   width: 60%;
   margin: auto;
+  padding-left: 50px;
 }
 
 .feature-article-headline-holder{
@@ -22,6 +23,8 @@
 
 .feature-article-image{
   border-radius: 3px;
+  max-height: 1000px;
+  max-width: 1000px;
 }
 
 .feature-article-content{

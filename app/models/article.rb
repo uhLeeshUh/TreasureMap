@@ -29,4 +29,8 @@ class Article < ApplicationRecord
 
   accepts_nested_attributes_for :images, :edits
 
+
+  def self.select_random_article
+    article = Article.all.sample
+  end
 end

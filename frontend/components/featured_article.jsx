@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ArticleThumb from './article_thumb';
-import { fetchArticle } from '../actions/article_actions';
+import { fetchArticle, fetchRandomArticle } from '../actions/article_actions';
 import { Link } from 'react-router-dom';
 
 class FeaturedArticle extends React.Component {
@@ -10,7 +10,7 @@ class FeaturedArticle extends React.Component {
   }
 
   componentDidMount(){
-    this.props.fetchArticle(1);
+    this.props.fetchRandomArticle();
   }
 
   render(){
@@ -21,7 +21,7 @@ class FeaturedArticle extends React.Component {
     return (
       <main className="feature-article-holder">
         <div className="feature-article-headline-holder">
-          <h1 className="feature-article-header">Today's Featured Find</h1>
+          <h1 className="feature-article-header">Our Random Place</h1>
         </div>
         <Link className="feature-article-link" to={`/articles/${this.props.article.id}`}>
           <section className="feature-article-content">
@@ -42,13 +42,13 @@ const mapStateToProps = (state) => {
   let image;
   let articleInState = true;
 
-  if (!state.entities.articles[1]){
+  if (state.ui.randomArticleId.length === 0){
     return{
       articleInState: false
     };
   }
 
-  article = state.entities.articles[1];
+  article = state.entities.articles[state.ui.randomArticleId];
   city = state.entities.cities[article.city_id];
   image = state.entities.images[article.image_ids[0]];
 
@@ -63,7 +63,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchArticle: (id) => dispatch(fetchArticle(id))
+    fetchArticle: (id) => dispatch(fetchArticle(id)),
+    fetchRandomArticle: () => dispatch(fetchRandomArticle())
   };
 };
 

@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show]
     resource :session, only: [:create, :destroy]
     resources :articles, only: [:create, :show, :update, :destroy] do
+      collection do
+        get 'random_article'
+      end
       resources :images, only: [:create]
     end
     resources :countries, only: [:create, :show, :index] do

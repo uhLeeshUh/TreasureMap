@@ -1,5 +1,5 @@
 import { RECEIVE_IMAGE, RECEIVE_IMAGES } from '../../actions/image_actions';
-import { RECEIVE_ARTICLE } from '../../actions/article_actions';
+import { RECEIVE_ARTICLE, RECEIVE_RANDOM_ARTICLE } from '../../actions/article_actions';
 import { RECEIVE_CITY } from '../../actions/city_actions';
 import { RECEIVE_COUNTRY } from '../../actions/country_actions';
 import { merge } from 'lodash';
@@ -14,6 +14,7 @@ const imagesReducer = (state = {} , action) => {
       newState = merge({}, state, {[action.image.id]: action.image});
       return newState;
     case RECEIVE_ARTICLE:
+    case RECEIVE_RANDOM_ARTICLE:
       newState = merge({}, state, action.articlePayload.images);
       return newState;
     case RECEIVE_CITY:

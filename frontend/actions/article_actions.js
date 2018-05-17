@@ -2,6 +2,7 @@ import * as ArticleAPIUtil from '../util/article_api_util';
 
 export const RECEIVE_ARTICLES = "RECEIVE_ARTICLES";
 export const RECEIVE_ARTICLE = "RECEIVE_ARTICLE";
+export const RECEIVE_RANDOM_ARTICLE = "RECEIVE_RANDOM_ARTICLE";
 export const REMOVE_ARTICLE = "REMOVE_ARTICLE";
 export const RECEIVE_ARTICLE_ERRORS = "RECEIVE_ARTICLE_ERRORS";
 export const CLEAR_ARTICLE_ERRORS = "CLEAR_ARTICLE_ERRORS";
@@ -17,6 +18,13 @@ export const receiveArticles = (articlesPayload) => {
 export const receiveArticle = (articlePayload) => {
   return {
     type: RECEIVE_ARTICLE,
+    articlePayload
+  };
+};
+
+export const receiveRandomArticle = (articlePayload) => {
+  return {
+    type: RECEIVE_RANDOM_ARTICLE,
     articlePayload
   };
 };
@@ -58,6 +66,15 @@ export const fetchArticle = (id) => {
     return ArticleAPIUtil.fetchArticle(id).then(
       (articlePayload) => {dispatch(receiveArticle(articlePayload));},
       (errors) => {dispatch(receiveArticleErrors(errors));}
+    );
+  };
+};
+
+export const fetchRandomArticle = () => {
+  return (dispatch) => {
+    return ArticleAPIUtil.fetchRandomArticle().then(
+      (articlePayload) => dispatch(receiveRandomArticle(articlePayload)),
+      (errors) => dispatch(receiveArticleErrors(errors))
     );
   };
 };

@@ -63,6 +63,7 @@ window.logout = SessionActions.logout;
 // window.editArticle = ArticleAPIUtil.editArticle;
 // window.deleteArticle = ArticleAPIUtil.deleteArticle;
 // window.createArticle = ArticleActions.createArticle;
+// window.fetchRandomArticle = ArticleActions.fetchRandomArticle;
 // window.deleteArticle = ArticleActions.deleteArticle;
 // window.fetchCity = CityAPIUtil.fetchCity;
 // window.fetchTopCities = CityAPIUtil.fetchTopCities;
