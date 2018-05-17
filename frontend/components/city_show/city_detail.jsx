@@ -65,7 +65,7 @@ class CityDetail extends React.Component {
             <div className="city-show-map-text">
               <h2 className="city-show-footer-holder">Explore {this.props.city.name}, {this.props.country.name}</h2>
               <div className="city-show-google-maps-container">
-                <Map articles={this.props.articles}/>
+                <Map articles={this.props.articles} zoom="12"/>
               </div>
             </div>
           </div>

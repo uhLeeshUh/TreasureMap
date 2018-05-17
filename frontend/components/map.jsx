@@ -23,14 +23,13 @@ class Map extends React.Component{
     const firstLoc = this.props.articles[0];
     const options = {
       center: { lat: firstLoc.lat, lng: firstLoc.lng },
-      zoom: 12
+      zoom: parseInt(this.props.zoom)
     };
     this.map = new google.maps.Map(map, options);
     this.addMarkers(this.props.articles);
   }
 
   addMarkers(articles){
-
     articles.forEach(article => {
       let marker = new google.maps.Marker({
         position: new google.maps.LatLng(article.lat, article.lng),
@@ -52,3 +51,7 @@ class Map extends React.Component{
 }
 
 export default withRouter(Map);
+
+//12 for cities and locs
+
+// 8 for countries

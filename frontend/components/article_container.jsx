@@ -113,7 +113,7 @@ class Article extends React.Component {
             </div>
           </div>
           <div className="article-google-map">
-            <Map articles={[this.props.article]}/>
+            <Map articles={[this.props.article]} zoom="12"/>
           </div>
         </section>
 

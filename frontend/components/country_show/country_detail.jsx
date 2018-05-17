@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ArticleThumb from '../article_thumb';
+import Map from '../map';
 import { connect } from 'react-redux';
 import { fetchCountry, changeCountryDetailLoaded } from '../../actions/country_actions';
 
@@ -73,7 +74,9 @@ class CountryDetail extends React.Component {
 
             <div className="city-show-map-text">
               <h2 className="city-show-footer-holder">Explore {this.props.country.name}</h2>
-              <div className="city-show-google-maps-container">Google Maps goes here</div>
+              <div className="city-show-google-maps-container">
+                <Map articles={this.props.articles} zoom="4"/>
+              </div>
             </div>
           </div>
         </div>
