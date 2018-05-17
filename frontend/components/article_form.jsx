@@ -47,6 +47,7 @@ class ArticleForm extends React.Component {
 
   submit(e){
     this.props.clearArticleErrors();
+    e.preventDefault();
 
     let formData = new FormData();
     Object.keys(this.state.article).forEach(key => {
