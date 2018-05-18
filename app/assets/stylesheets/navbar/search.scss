@@ -8,10 +8,13 @@
   background-color: blue;
   margin-top: 300px;
   position: absolute;
+  z-index: 2;
 }
 
 .search-modal-child{
   height: 300px;
   width: 300px;
   background-color: yellow;
+  position: absolute;
+  z-index: 3;
 }

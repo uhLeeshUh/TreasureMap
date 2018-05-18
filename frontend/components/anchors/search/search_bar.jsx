@@ -22,7 +22,8 @@ class SearchBar extends React.Component{
     this.setState({ query: e.target.value});
   }
 
-  closeModal(){
+  closeModal(e){
+    e.stopPropagation();
     this.props.updateSearchStatus(false);
   }
 
@@ -31,7 +32,7 @@ class SearchBar extends React.Component{
     Object.keys(itemsObject).forEach(type => {
       itemsObject[type].forEach((item, idx) => {
         let num = Math.floor(Math.random(item.searchable_id));
-        searchItems.push(<SearchIndexItem key={num} type={type} content={item.content} id={item.searchable_id}/>);
+        searchItems.push(<SearchIndexItem key={num} type={type} content={item.content} id={item.searchable_id} updateSearchStatus={this.props.updateSearchStatus}/>);
       });
     });
     return searchItems;
