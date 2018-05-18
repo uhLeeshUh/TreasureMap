@@ -1,4 +1,4 @@
-import { RECEIVE_SEARCH_ITEMS } from '../../../actions/pg_search_actions';
+import { RECEIVE_SEARCH_ITEMS, UPDATE_SEARCH_STATUS } from '../../../actions/pg_search_actions';
 
 const countrySearchItemsReducer = (state = [], action) => {
   Object.freeze(state);
@@ -9,6 +9,8 @@ const countrySearchItemsReducer = (state = [], action) => {
     } else {
       return [];
     }
+    case UPDATE_SEARCH_STATUS:
+      return [];
     default:
       return state;
   }

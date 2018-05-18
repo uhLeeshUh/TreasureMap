@@ -25,6 +25,7 @@ class SearchBar extends React.Component{
   closeModal(e){
     e.stopPropagation();
     this.props.updateSearchStatus(false);
+
   }
 
   createSearchItems(itemsObject){
