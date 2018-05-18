@@ -40,7 +40,7 @@ class SearchBar extends React.Component{
   }
 
   render(){
-    let searchIndexItems = <li>Sorry, but nothing matches your search. <Link onClick={this.closeModal} to="/articles/new">Try adding it yourself!</Link></li>;
+    let searchIndexItems = <li className="search-index-item">Sorry, but nothing matches your search. <Link className="default-search-link" onClick={this.closeModal} to="/articles/new">Try adding it yourself!</Link></li>;
 
     if ( this.props.itemsObject.articles.length > 0 || this.props.itemsObject.cities.length > 0 || this.props.itemsObject.countries.length > 0 ){
       searchIndexItems = this.createSearchItems(this.props.itemsObject);
@@ -49,8 +49,8 @@ class SearchBar extends React.Component{
     return (
       <div className="search-modal-background" onClick={this.closeModal}>
         <div className="search-modal-child" onClick={(e) => e.stopPropagation()}>
-          <input onChange={this.handleChange} value={this.state.query}/>
-            <ul>
+          <input placeholder="What are you looking for?" className="search-input" onChange={this.handleChange} value={this.state.query}/>
+            <ul className="search-index-items-holder">
               { searchIndexItems }
             </ul>
         </div>

@@ -24,7 +24,7 @@ class SearchContainer extends React.Component{
 
     return (
       <div className="right-nav-search" onClick={this.renderSearchBar}>
-        
+        <i id="search-icon" className="fas fa-search"></i>
         {searchBar}
       </div>
     );
