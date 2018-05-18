@@ -5,7 +5,7 @@ const citySearchItemsReducer = (state = [], action) => {
   switch (action.type) {
     case RECEIVE_SEARCH_ITEMS:
     if(action.searchItemsPayload.cities){
-      return [action.searchItemsPayload.cities];
+      return action.searchItemsPayload.cities;
     } else {
       return [];
     }
