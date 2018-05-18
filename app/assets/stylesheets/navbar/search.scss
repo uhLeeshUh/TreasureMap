@@ -1,14 +1,17 @@
 .right-nav-search{
-  background-color: red;
+  // background-color: red;
 }
 
 .search-modal-background{
-  height: 500px;
-  width: 500px;
-  background-color: blue;
-  margin-top: 300px;
+  height: 150%;
+  width: 100%;
+  background-color: none;
+  margin-top: 70px;
   position: absolute;
-  z-index: 2;
+  z-index: 10;
+  left: 0px;
+  top: -100px;
+
 }
 
 .search-modal-child{
@@ -16,5 +19,6 @@
   width: 300px;
   background-color: yellow;
   position: absolute;
-  z-index: 3;
+  z-index: 11;
+  top: 102px;
 }

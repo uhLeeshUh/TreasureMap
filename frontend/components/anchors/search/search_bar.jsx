@@ -40,7 +40,7 @@ class SearchBar extends React.Component{
   }
 
   render(){
-    let searchIndexItems = <li>Sorry, but nothing matches your search. <Link to="/articles/new">Try adding it yourself!</Link></li>;
+    let searchIndexItems = <li>Sorry, but nothing matches your search. <Link onClick={this.closeModal} to="/articles/new">Try adding it yourself!</Link></li>;
 
     if ( this.props.itemsObject.articles.length > 0 || this.props.itemsObject.cities.length > 0 || this.props.itemsObject.countries.length > 0 ){
       searchIndexItems = this.createSearchItems(this.props.itemsObject);
