@@ -5,6 +5,8 @@ import topCountryReducer from './ui/top_country_reducer';
 import topCityReducer from './ui/top_city_reducer';
 import randomArticleReducer from './ui/random_article_reducer';
 import searchItemsReducer from './ui/search/search_items_reducer';
+import searchBarStatusReducer from './ui/search/search_bar_status_reducer';
+
 
 import { combineReducers } from 'redux';
 
@@ -15,5 +17,6 @@ export default combineReducers({
   topCountryIds: topCountryReducer,
   topCityIds: topCityReducer,
   randomArticleId: randomArticleReducer,
-  searchItems: searchItemsReducer
+  searchItems: searchItemsReducer,
+  searchBarOpen: searchBarStatusReducer
 });

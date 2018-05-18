@@ -307,6 +307,7 @@ make a ui slice of state that holds the following keys:
 -render the search component in this child container
 
 SearchButton (renders SearchBar)
+
 SearchBar (class) needs to be connected
 
 handleChange -->
@@ -347,5 +348,5 @@ SearchIndexItem (functional component)
 
 
 return (
-  <Link to={`${props.type}/${props.searchable_id}`}></Link>
+  <Link to={`/${props.type}/${props.searchable_id}`}></Link>
 )
