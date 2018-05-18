@@ -2,9 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Footer = function(props){
+  const restrictedPaths = ["/articles/new", "/signin", "/signup"];
 
   let footerButton = "";
-  if (props.location.pathname !== "/articles/new"){
+  if (!restrictedPaths.includes(props.location.pathname)){
     footerButton =
     <section className="footer-bottom">
       <div className="footer-outline"></div>

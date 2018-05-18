@@ -14,6 +14,8 @@ class FeaturedArticle extends React.Component {
   }
 
   render(){
+    console.log(this.props.articleInState);
+
     if (!this.props.articleInState){
       return <div></div>;
     }
@@ -51,6 +53,7 @@ const mapStateToProps = (state) => {
   article = state.entities.articles[state.ui.randomArticleId];
   city = state.entities.cities[article.city_id];
   image = state.entities.images[article.image_ids[0]];
+
 
   return {
     article,
