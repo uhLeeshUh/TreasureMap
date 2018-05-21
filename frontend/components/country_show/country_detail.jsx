@@ -18,15 +18,8 @@ class CountryDetail extends React.Component {
   componentDidUpdate(prevProps, prevState){
     if (this.props.match.params.countryId !== prevProps.match.params.countryId) {
       this.props.fetchCountry(this.props.match.params.countryId);
-      // .then(
-      //   () => this.props.changeCountryDetailLoaded(true)
-      // );
     }
   }
-  //
-  // shouldComponentUpdate(nextProps, nextState){
-  //   if (!this.props.countryDetailLoaded)
-  // }
 
   componentWillUnmount(){
     this.props.changeCountryDetailLoaded(false);
@@ -95,7 +88,6 @@ const mapStateToProps = (state, ownProps) => {
   }
   let currentCountryDetailId = state.ui.currentCountryDetailId[0];
   currentCountryDetailId = currentCountryDetailId.toString();
-  console.log(currentCountryDetailId);
   let newCountryNotFetched = false;
   if (currentCountryDetailId !== ownProps.match.params.countryId){
     return {

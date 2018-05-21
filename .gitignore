@@ -28,3 +28,6 @@ npm-debug.log
 
 # Ignore application configuration
 /config/application.yml
+
+workflow.rb
+difficulties.js

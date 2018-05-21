@@ -350,3 +350,9 @@ SearchIndexItem (functional component)
 return (
   <Link to={`/${props.type}/${props.searchable_id}`}></Link>
 )
+
+
+-concurrent creation of articles, images and article edits
+-querying for top countries and cities, and handling that conditional logic in country show page (show my active record queries)
+  -current country detail ID (to know when fetchCountry needs to be called)
+  

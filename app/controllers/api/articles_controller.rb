@@ -7,6 +7,8 @@ class Api::ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
+    @article.author_id = current_user.id
+    #removed author_id from strong params - make sure this works
     city = City.find_by({name: params["article"]["city_name"]})
     @article.city_id = city && city.id
 
@@ -51,7 +53,7 @@ class Api::ArticlesController < ApplicationController
 
   def article_params
     params.require(:article).permit(:name, :description, :body, :lat, :lng,
-       :author_id, :city_id, :long_description, images_attributes: [:image], edits_attributes: [:editor_id])
+      :city_id, :long_description, images_attributes: [:image], edits_attributes: [:editor_id])
   end
 
 end
