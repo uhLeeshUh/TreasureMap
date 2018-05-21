@@ -30,7 +30,11 @@ class Article < ApplicationRecord
   accepts_nested_attributes_for :images, :edits
 
   include PgSearch
-  multisearchable :against => [:name]
+  multisearchable :against => [:name], using: {
+    tsearch: {
+      prefix: true
+    }
+  }
 
 
   def self.select_random_article
