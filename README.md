@@ -154,7 +154,7 @@ For example, to determine when a country show page needs to bypass its render me
 
 The below demo illustrates how the user can interact with the navbar dropdown (requiring a shallow information set for countries and cities) and click a link directed toward a country or city show page (requiring another AJAX call for the full page information).
 
-
+![map dropdown link](https://github.com/AliciaUnderhill/TreasureMap/blob/master/app/assets/images/atlas_dropdown_demo.mov)
 
 ## Future Direction
 I am excited to continue improving the site! In the future I plan to:
