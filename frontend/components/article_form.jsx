@@ -50,30 +50,39 @@ class ArticleForm extends React.Component {
     this.props.clearArticleErrors();
     e.preventDefault();
 
-    let formData = new FormData();
-    Object.keys(this.state.article).forEach(key => {
-      formData.append(`article[${key}]`, this.state.article[key]);
-    });
+    this.props.createCountry(this.state.country).then(
+      //what is this in here?
+      (countryResponse) => {
+        this.state.city.country_id = countryResponse.id;
+        this.props.createCity(this.state.city)
+      }).then(
+          (cityResponse) => {
+            let formData = new FormData();
+            Object.keys(this.state.article).forEach(key => {
+              formData.append(`article[${key}]`, this.state.article[key]);
+            });
 
-    if (this.props.formType === "Add a Place"){
-      formData.append("article[author_id]", this.props.author_id);
-    }
+            formData.append("article[city_id]", cityResponse.id);
 
-    this.state.images.forEach(image => {
-      formData.append("article[images_attributes[][image]]", image.imageFile);
-    });
+            if (this.props.formType === "Add a Place"){
+              formData.append("article[author_id]", this.props.author_id);
+            }
 
-    if (this.props.editorId){
-      formData.append("article[edits_attributes][][editor_id]", this.props.editorId);
-    }
+            this.state.images.forEach(image => {
+              formData.append("article[images_attributes[][image]]", image.imageFile);
+            });
 
-    this.props.action(formData).then(
-      () => {
-        return (
-          this.props.history.push(`/articles/${this.props.lastUpdatedArticleId}`)
-        );
-      });
+            if (this.props.editorId){
+              formData.append("article[edits_attributes][][editor_id]", this.props.editorId);
+            }
 
+            this.props.action(formData)
+              }).then(
+                  () => {
+                    return (
+                      this.props.history.push(`/articles/${this.props.lastUpdatedArticleId}`)
+                    );
+                  });
   }
 
   handleChange(field, e){
