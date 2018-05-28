@@ -1,7 +1,7 @@
 export const fetchCountries = () => {
   return $.ajax({
     method: 'get',
-    url: 'api/countries'
+    url: '/api/countries'
   });
 };
 
@@ -16,5 +16,13 @@ export const fetchCountry = (id) => {
   return $.ajax({
     method: 'get',
     url: `/api/countries/${id}`
+  });
+};
+
+export const createCountry = (country) => {
+  return $.ajax({
+    method: 'post',
+    url: '/api/countries',
+    data: { country }
   });
 };

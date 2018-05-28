@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import ArticleForm from './article_form';
 import { createArticle, clearArticleErrors } from '../actions/article_actions';
+import { createCountry } from '../actions/country_actions';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
@@ -27,7 +28,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     action: (article) => dispatch(createArticle(article)),
-    clearArticleErrors: () => dispatch(clearArticleErrors())
+    clearArticleErrors: () => dispatch(clearArticleErrors()),
+    createCountry: (country) => dispatch(createCountry(country))
   };
 };
 

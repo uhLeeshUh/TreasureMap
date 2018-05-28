@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ArticleForm from './article_form';
 import { editArticle, fetchArticle, clearArticleErrors } from '../actions/article_actions';
+import { createCountry } from '../actions/country_actions';
 import { withRouter } from 'react-router-dom';
 
 class EditArticleForm extends React.Component {
@@ -55,7 +56,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     action: (article) => dispatch(editArticle(article)),
     fetchArticle: (id) => dispatch(fetchArticle(id)),
-    clearArticleErrors: () => dispatch(clearArticleErrors())
+    clearArticleErrors: () => dispatch(clearArticleErrors()),
+    createCountry: (country) => dispatch(createCountry(country))
   };
 };
 

@@ -78,3 +78,12 @@ export const fetchTopCountries = () => {
     );
   };
 };
+
+export const createCountry = (country) => {
+  return (dispatch) => {
+    return CountryAPIUtil.createCountry(country).then(
+      (countryResponse) => dispatch(receiveCountry(countryResponse)),
+      (errors) => dispatch(receiveCountryErrors)
+    );
+  };
+};

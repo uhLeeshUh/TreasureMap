@@ -73,8 +73,10 @@ window.fetchSearchItems = PgSearchActions.fetchSearchItems;
 // window.createCity = CityAPIUtil.createCity;
 // window.fetchCountries = CountryAPIUtil.fetchCountries;
 // window.fetchCountry = CountryAPIUtil.fetchCountry;
-window.fetchCountries = CountryActions.fetchCountries;
-window.fetchCountry = CountryActions.fetchCountry;
+// window.fetchCountries = CountryActions.fetchCountries;
+// window.fetchCountry = CountryActions.fetchCountry;
+// window.createCountry = CountryAPIUtil.createCountry;
+window.createCountry = CountryActions.createCountry;
 
 
 // {name: "test", description: "test desc", long_description: 'long', body: 'hey', lat: 23.2, lng: 34.1, author_id: 1, city_id: 3}
