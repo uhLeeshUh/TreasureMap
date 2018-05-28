@@ -1,6 +1,7 @@
 import React from 'react';
 import { merge } from 'lodash';
-import GoogleMapsArticleForm from './article_form/google_maps_article_form';
+// import GoogleMapsArticleForm from './article_form/google_maps_article_form';
+import FormMap from './article_form/form_map';
 import PreviewImage from './article_form/preview_image';
 
 class ArticleForm extends React.Component {
@@ -134,6 +135,7 @@ class ArticleForm extends React.Component {
       });
     }
 
+    // <GoogleMapsArticleForm sendUpLocation={this.sendUpLocation}/>
     return (
       <main className="article-main-form">
         <form className="article-form" onSubmit={this.submit}>
@@ -164,7 +166,7 @@ class ArticleForm extends React.Component {
               </label>
 
               <label className="article-form-label">Where is the place?
-                <GoogleMapsArticleForm sendUpLocation={this.sendUpLocation}/>
+                <FormMap />
               </label>
 
           </section>

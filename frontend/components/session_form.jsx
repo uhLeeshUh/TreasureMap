@@ -98,7 +98,7 @@ class SessionForm extends React.Component {
             {avatar}
             <button className="session-button">{this.props.buttonText}</button>
           </form>
-          <button className="demo-button" onClick={this.signinDemoUser}>EXPLORE AS DEMO USER</button>
+          <button className="demo-button" onClick={this.signinDemoUser}>EXPLORE AS GUEST</button>
         </div>
       </main>
     );
