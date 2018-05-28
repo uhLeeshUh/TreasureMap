@@ -11,6 +11,15 @@
   font-weight: 500;
 }
 
+#map-dropdown-discover{
+  opacity: 0.5;
+}
+
+#map-dropdown-discover-holder{
+  border-bottom: 4px solid transparent;
+  padding-bottom: 2px;
+}
+
 .the-atlas{
   width: 100%;
   position: relative;
@@ -20,12 +29,18 @@
 //   display: block;
 // }
 
-.the-atlas:hover > p.tag-line{
+.the-atlas:hover {
   // text-decoration: underline;
   // text-decoration-color: #e7eeea;
   // border-bottom: 5px solid red;
   // #e7eeea;
+  cursor: pointer;
+
+  #map-dropdown-discover-holder{
+    border-bottom: 4px solid #1b624f;
+  }
 }
+
 
 .map-dropdown-holder{
   display: none;

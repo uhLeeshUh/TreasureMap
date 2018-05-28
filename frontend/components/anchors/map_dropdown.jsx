@@ -70,7 +70,7 @@ class mapDropdown extends React.Component {
     return (
       <main className="the-atlas">
         <div className="atlas-holder">
-          <p className="tag-line">Discover the world's most hidden places</p>
+          <p className="tag-line"><span id="map-dropdown-discover-holder"><span id="map-dropdown-discover">Discover</span></span> the world's most hidden places</p>
         </div>
         <section className="map-dropdown-holder">
           <h1 className="top-destinations">Top Destinations</h1>
