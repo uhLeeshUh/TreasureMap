@@ -17,6 +17,14 @@ class Api::CountriesController < ApplicationController
 
   def create
     @country = Country.new(country_params)
+    @country.name = @country.name.capitalize
+
+    already_created_country = Country.existing_country(@country.name)
+    if already_created_country
+      @country = already_created_country
+      render '/api/countries/new_country'
+      return
+    end
 
     if @country.save
       render '/api/countries/new_country'

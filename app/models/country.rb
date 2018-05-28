@@ -21,12 +21,8 @@ class Country < ApplicationRecord
     countries = Country.select('countries.*').joins(:cities).joins(:articles).group('countries.id').order('COUNT(articles.id) DESC').limit(6)
   end
 
-  # SELECT countries.*
-  # FROM countries
-  # JOIN cities on cities.country_id = countries.id
-  # JOIN articles on articles.city_id = cities.id
-  # GROUP BY countries.id
-  # ORDER BY COUNT(articles.id) DESC
-  # LIMIT 8
+  def self.existing_country(country_name)
+    Country.find_by(name: country_name.capitalize)
+  end
 
 end
