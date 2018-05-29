@@ -13,8 +13,7 @@ class ArticleForm extends React.Component {
         name: ""
       },
       city: {
-        name: "",
-        country_id: 0
+        name: ""
       },
       articleEdit: {
         editor_id: this.props.editorId || "",

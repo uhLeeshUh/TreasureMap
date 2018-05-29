@@ -22,8 +22,6 @@ class Api::CountriesController < ApplicationController
     already_created_country = Country.existing_country(@country.name)
     #above will return a country instance or nil
 
-    debugger
-    
     if already_created_country
       @country = already_created_country
       render '/api/countries/new_country'

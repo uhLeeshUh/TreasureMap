@@ -13,6 +13,7 @@ const mapStateToProps = (state, ownProps) => {
     lat: 0,
     lng: 0,
     author_id: 0,
+    city_id: 0,
   };
 
   return {
