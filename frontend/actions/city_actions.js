@@ -62,10 +62,10 @@ export const fetchTopCities = () => {
   };
 };
 
-export const createCity = (city) => {
+export const createCity = (country, city) => {
   return (dispatch) => {
-    return CityAPIUtil.createCity(city).then(
-      (city) => dispatch(receieveCity(city)),
+    return CityAPIUtil.createCity(country, city).then(
+      (city) => dispatch(receiveCity(city)),
       (errors) => dispatch(receiveCityErrors(errors))
     );
   };

@@ -8,8 +8,19 @@ class Api::CitiesController < ApplicationController
   def create
     @city = City.new(city_params)
     @city.country_id = params[:country_id]
+
+    already_created_city = City.existing_city(@city.name)
+    #above will return a city instance or nil
+    debugger
+
+    if already_created_city
+      @city = already_created_city
+      render '/api/cities/new_city'
+      return
+    end
+
     if @city.save
-      render 'api/cities/show'
+      render 'api/cities/new_city'
     else
       render json: @city.errors.full_messages, status: 422
     end

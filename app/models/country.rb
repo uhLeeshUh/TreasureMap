@@ -22,7 +22,7 @@ class Country < ApplicationRecord
   end
 
   def self.existing_country(country_name)
-    Country.find_by(name: country_name.capitalize)
+    Country.find_by(name: country_name.titleize)
   end
 
 end

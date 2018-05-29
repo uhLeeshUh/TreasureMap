@@ -53,8 +53,7 @@ class ArticleForm extends React.Component {
     this.props.createCountry(this.state.country).then(
       //what is 'this' in here?
       (countryResponse) => {
-        this.state.city.country_id = countryResponse.id;
-        this.props.createCity(this.state.city)
+        this.props.createCity(countryResponse, this.state.city)
       }).then(
           (cityResponse) => {
             let formData = new FormData();

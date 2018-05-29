@@ -20,6 +20,10 @@ class Api::CountriesController < ApplicationController
     @country.name = @country.name.capitalize
 
     already_created_country = Country.existing_country(@country.name)
+    #above will return a country instance or nil
+
+    debugger
+    
     if already_created_country
       @country = already_created_country
       render '/api/countries/new_country'
@@ -29,7 +33,7 @@ class Api::CountriesController < ApplicationController
     if @country.save
       render '/api/countries/new_country'
     else
-      render json: @country.errors.full_messages
+      render json: @country.errors.full_messages, status: 422
     end
   end
 

@@ -71,6 +71,7 @@ window.fetchSearchItems = PgSearchActions.fetchSearchItems;
 // window.fetchCity = CityAPIUtil.fetchCity;
 // window.fetchTopCities = CityAPIUtil.fetchTopCities;
 // window.createCity = CityAPIUtil.createCity;
+// window.createCity = CityActions.createCity;
 // window.fetchCountries = CountryAPIUtil.fetchCountries;
 // window.fetchCountry = CountryAPIUtil.fetchCountry;
 // window.fetchCountries = CountryActions.fetchCountries;
