@@ -21,7 +21,6 @@ class City < ApplicationRecord
   end
 
   def self.existing_city(city_name)
-    debugger
     City.find_by(name: city_name.titleize)
   end
 

@@ -46,8 +46,9 @@ class ArticleForm extends React.Component {
   }
 
   submit(e){
-    this.props.clearArticleErrors();
     e.preventDefault();
+    this.props.clearArticleErrors();
+    this.collectMapData();
 
     this.props.createCountry(this.state.country).then(
       //what is 'this' in here?
@@ -81,6 +82,10 @@ class ArticleForm extends React.Component {
                       this.props.history.push(`/articles/${this.props.lastUpdatedArticleId}`)
                     );
                   });
+  }
+
+  collectMapData(){
+    
   }
 
   handleChange(field, e){

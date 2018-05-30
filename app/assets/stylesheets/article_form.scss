@@ -110,8 +110,18 @@
   color: red;
 }
 
-#form-map{
-  // display: none;
+// #form-map{
+//   // display: none;
+//   height: 300px;
+//   width: 62%;
+// }
+
+.map-shown{
+  display: block;
   height: 300px;
   width: 62%;
+}
+
+.map-hidden{
+  display: none;
 }
