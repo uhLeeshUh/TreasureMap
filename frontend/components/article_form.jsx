@@ -137,10 +137,8 @@ class ArticleForm extends React.Component {
     inProgressArticle["lat"] = lat;
     inProgressArticle["lng"] = lng;
     let inProgressCountry = this.state.country;
-    // inProgressCountry["name"] = "Greece";
     inProgressCountry["name"] = countryName;
     let inProgressCity = this.state.city;
-    // inProgressCity["name"] = "Athens";
     inProgressCity["name"] = cityName;
 
     this.setState({

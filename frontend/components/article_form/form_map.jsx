@@ -13,17 +13,11 @@
         mapDisplayClass: "map-hidden"
       };
 
-      // this.handleInputSelect = this.handleInputSelect.bind(this);
     }
 
     componentDidMount(){
       this.createAutoComplete();
-      // this.createFormMap();
     }
-
-    //create search bar
-    //create map to view location chosen
-    //needs to return lat/lng coordinates as a callback to the parent to store in formData
 
     createAutoComplete(){
       const autocomplete = new google.maps.places.Autocomplete(
@@ -43,13 +37,8 @@
         })
         let cityName = cityAndCountry[0];
         let countryName = cityAndCountry[1];
-        debugger
         this.lat = this.place.geometry.location.lat();
         this.lng = this.place.geometry.location.lng();
-
-
-// "<span class="locality">Da’an District</span>, <span class="region">Taipei City</span>, <span class="country-name">Taiwan</span> <span class="postal-code">106</span>"
-
 
         this.createFormMap();
 
@@ -60,12 +49,6 @@
           cityName,
           countryName
         });
-        //get lat and lng
-          //feed these to the map and have it appear on this page
-          //send them to article form for article creation
-
-        //send the country to the article form
-        //send the city to the article form
       } );
     }
 

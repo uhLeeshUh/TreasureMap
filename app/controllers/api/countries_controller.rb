@@ -17,7 +17,7 @@ class Api::CountriesController < ApplicationController
 
   def create
     @country = Country.new(country_params)
-    @country.name = @country.name.capitalize
+    # @country.name = @country.name.capitalize
 
     already_created_country = Country.existing_country(@country.name)
     #above will return a country instance or nil
