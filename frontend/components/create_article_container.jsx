@@ -17,13 +17,18 @@ const mapStateToProps = (state, ownProps) => {
     // city_id: 0,
   };
 
+  const country = {name: ""};
+  const city = {name: ""};
+
   return {
     article: state.entities.articles[ownProps.match.params.articleId] || defaultArticle,
     formType: "Add a Place",
     author_id: state.session.id,
     buttonText: "SUBMIT THIS PLACE",
     errors: state.errors.article,
-    lastUpdatedArticleId: state.ui.lastArticleId[0]
+    lastUpdatedArticleId: state.ui.lastArticleId[0],
+    country,
+    city
   };
 };
 

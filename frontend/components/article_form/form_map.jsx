@@ -6,9 +6,14 @@
       super(props);
       this.input = React.createRef();
       this.formMap = React.createRef();
-      this.place = null;
-      this.lat = null;
-      this.lng = null;
+      // this.place = null;
+      this.lat = this.props.placeCoords.lat;
+      this.lng = this.props.placeCoords.lng;
+      if (this.lat === 0 && this.lng === 0){
+        this.placeAddress = "";
+      } else {
+        //write logic for geocode AJAX request
+      }
       this.state = {
         mapDisplayClass: "map-hidden"
       };
@@ -73,7 +78,7 @@
       return (
         <section>
           <div>
-            <input ref={this.input} id="autocomplete" placeholder="E.g. 304 Deerfield Way, Normal, Illinois" type="text" ></input>
+            <input ref={this.input} id="autocomplete" placeholder="E.g. 304 Deerfield Way, Normal, Illinois" type="text" value={this.placeAddress}></input>
             <div id="form-map" ref={this.formMap} className={this.state.mapDisplayClass}></div>
           </div>
         </section>

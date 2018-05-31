@@ -10,10 +10,10 @@ class ArticleForm extends React.Component {
     this.state = {
       article: this.props.article,
       country: {
-        name: "USA"
+        name: this.props.country.name
       },
       city: {
-        name: "New York, NY"
+        name: this.props.city.name
       },
       articleEdit: {
         editor_id: this.props.editorId || "",
@@ -21,10 +21,11 @@ class ArticleForm extends React.Component {
       },
       images: []
     };
+    debugger
     this.submit = this.submit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.updateFile = this.updateFile.bind(this);
-    this.sendUpLocation = this.sendUpLocation.bind(this);
+    // this.sendUpLocation = this.sendUpLocation.bind(this);
     this.removePreview = this.removePreview.bind(this);
     this.updateArticle = this.updateArticle.bind(this);
     this.createCountry = this.props.createCountry.bind(this);
@@ -116,12 +117,6 @@ class ArticleForm extends React.Component {
 
   }
 
-  sendUpLocation(e){
-    let inProgressArticle = this.state.article;
-    inProgressArticle.city_name = e.target.value;
-    this.setState({ article: inProgressArticle });
-  }
-
   removePreview(idx){
     return (e) => {
       e.preventDefault();
@@ -164,6 +159,8 @@ class ArticleForm extends React.Component {
       });
     }
 
+    const placeCoords = {lat: this.props.article.lat, lng: this.props.article.lng};
+
     return (
       <main className="article-main-form">
         <form className="article-form" onSubmit={this.submit}>
@@ -194,7 +191,7 @@ class ArticleForm extends React.Component {
               </label>
 
               <label className="article-form-label">Where is the place?
-                <FormMap updateArticle={this.updateArticle}/>
+                <FormMap updateArticle={this.updateArticle} placeCoords={placeCoords}/>
               </label>
 
           </section>

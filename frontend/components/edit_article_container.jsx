@@ -3,10 +3,12 @@ import { connect } from 'react-redux';
 import ArticleForm from './article_form';
 import { editArticle, fetchArticle, clearArticleErrors } from '../actions/article_actions';
 import { createCountry } from '../actions/country_actions';
+import { createCity } from '../actions/city_actions';
 import { withRouter } from 'react-router-dom';
 
 class EditArticleForm extends React.Component {
   componentDidMount(){
+    debugger
     this.props.fetchArticle(this.props.match.params.articleId);
   }
 
@@ -17,9 +19,25 @@ class EditArticleForm extends React.Component {
   }
 
   render(){
-    const { article, formType, editorId, buttonText, action, errors, clearArticleErrors, history, lastUpdatedArticleId} = this.props;
+    const { article, formType, editorId, buttonText, action, errors, clearArticleErrors, history, lastUpdatedArticleId, fetchArticle, createCountry, createCity, city, country} = this.props;
     return (
-      <ArticleForm article={article} formType={formType} editorId={editorId} buttonText={buttonText} action={action} errors={errors} clearArticleErrors={clearArticleErrors} history={history} lastUpdatedArticleId={lastUpdatedArticleId}/>
+      <ArticleForm
+        article={article}
+        formType={formType}
+        editorId={editorId}
+        buttonText={buttonText}
+        errors={errors}
+        lastUpdatedArticleId={lastUpdatedArticleId}
+        city={city}
+        country={country}
+        action={action}
+        fetchArticle={fetchArticle}
+        clearArticleErrors={clearArticleErrors}
+        createCountry={createCountry}
+        createCity={createCity}
+        history={history}
+
+        />
     );
   }
 
@@ -39,16 +57,22 @@ const mapStateToProps = (state, ownProps) => {
     city_id: 0,
   };
 
+  const article = state.entities.articles[ownProps.match.params.articleId] || defaultArticle;
+  const city = state.entities.cities[article.city_id] || {name: ""};
+  const country = state.entities.countries[city.country_id] || {name: ""};
+
 //TODO: when working on countries and cities, pass down the country and city info
 // with mapStateToProps
 
   return {
-    article: state.entities.articles[ownProps.match.params.articleId] || defaultArticle,
+    article,
     formType: "Edit this Place",
     editorId: state.session.id,
     buttonText: "SUBMIT THIS EDIT",
     errors: state.errors.article,
-    lastUpdatedArticleId: state.ui.lastArticleId
+    lastUpdatedArticleId: state.ui.lastArticleId,
+    city,
+    country
   };
 };
 
@@ -57,7 +81,8 @@ const mapDispatchToProps = (dispatch) => {
     action: (article) => dispatch(editArticle(article)),
     fetchArticle: (id) => dispatch(fetchArticle(id)),
     clearArticleErrors: () => dispatch(clearArticleErrors()),
-    createCountry: (country) => dispatch(createCountry(country))
+    createCountry: (country) => dispatch(createCountry(country)),
+    createCity: (country, city) => dispatch(createCity(country, city))
   };
 };
 
