@@ -39,7 +39,6 @@ class Api::CountriesController < ApplicationController
   private
 
   def country_params
-    debugger
     params.require(:country).permit(:name)
   end
 

@@ -132,24 +132,22 @@ class ArticleForm extends React.Component {
   }
 
   updateArticle(articleInfoObject){
-    debugger
     let { lat, lng, countryName, cityName } = articleInfoObject;
     let inProgressArticle = this.state.article;
     inProgressArticle["lat"] = lat;
     inProgressArticle["lng"] = lng;
     let inProgressCountry = this.state.country;
-    inProgressCountry["name"] = "Greece";
-    // inProgressCountry["name"] = countryName;
+    // inProgressCountry["name"] = "Greece";
+    inProgressCountry["name"] = countryName;
     let inProgressCity = this.state.city;
-    inProgressCity["name"] = "Athens";
-    // inProgressCity["name"] = cityName;
+    // inProgressCity["name"] = "Athens";
+    inProgressCity["name"] = cityName;
 
     this.setState({
       article: inProgressArticle,
       country: inProgressCountry,
       city: inProgressCity
     });
-    debugger
   }
 
 

@@ -32,17 +32,39 @@
       );
 
       autocomplete.addListener('place_changed', () => {
+
         this.place = autocomplete.getPlace();
+        let htmlAddressStr = this.place.adr_address;
+        let strSearchTerms = ['locality', 'country-name'];
+        let cityAndCountry = strSearchTerms.map(searchVal => {
+          let parseSearch = new RegExp(`"${searchVal}">(.*?)</span>`);
+          let result = parseSearch.exec(htmlAddressStr);
+          return result[1];
+        })
+        let cityName = cityAndCountry[0];
+        let countryName = cityAndCountry[1];
+        debugger
         this.lat = this.place.geometry.location.lat();
         this.lng = this.place.geometry.location.lng();
+
+
+// "<span class="locality">Da’an District</span>, <span class="region">Taipei City</span>, <span class="country-name">Taiwan</span> <span class="postal-code">106</span>"
+
+
         this.createFormMap();
+
         this.setState({ mapDisplayClass: "map-shown" });
-        this.props.updateArticle({ lat: this.lat, lng: this.lng });
+        this.props.updateArticle({
+          lat: this.lat,
+          lng: this.lng,
+          cityName,
+          countryName
+        });
         //get lat and lng
           //feed these to the map and have it appear on this page
           //send them to article form for article creation
 
-        //send the country to the article form 
+        //send the country to the article form
         //send the city to the article form
       } );
     }
