@@ -36,12 +36,13 @@
         this.lat = this.place.geometry.location.lat();
         this.lng = this.place.geometry.location.lng();
         this.createFormMap();
-        this.setState({mapDisplayClass: "map-shown"});
+        this.setState({ mapDisplayClass: "map-shown" });
+        this.props.updateArticle({ lat: this.lat, lng: this.lng });
         //get lat and lng
           //feed these to the map and have it appear on this page
           //send them to article form for article creation
 
-        //send the country to the article form
+        //send the country to the article form 
         //send the city to the article form
       } );
     }

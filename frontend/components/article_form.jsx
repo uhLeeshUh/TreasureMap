@@ -48,10 +48,10 @@ class ArticleForm extends React.Component {
   }
 
   submit(e){
-    let { article } = this.state;
+    let { article, country } = this.state;
     e.preventDefault();
     this.props.clearArticleErrors();
-
+    debugger
     this.createCountry(this.state.country).then(
       (countryResponse) => {
         this.props.createCity(countryResponse.countryPayload.country, this.state.city).then(
@@ -61,8 +61,6 @@ class ArticleForm extends React.Component {
               formData.append(`article[${key}]`, article[key]);
             });
             formData.append("article[city_id]", cityResponse.cityPayload.city.id);
-            debugger
-
             // if (this.props.formType === "Add a Place"){
             //   formData.append("article[author_id]", this.props.author_id);
             // }
@@ -74,7 +72,6 @@ class ArticleForm extends React.Component {
             if (this.props.editorId){
               formData.append("article[edits_attributes][][editor_id]", this.props.editorId);
             }
-            debugger
 
             this.props.action(formData).then(
                 () => {
@@ -94,7 +91,7 @@ class ArticleForm extends React.Component {
   handleChange(field, e){
     let inProgressArticle = this.state.article;
     inProgressArticle[field] = e.target.value;
-    this.setState({ inProgressArticle });
+    this.setState({ article: inProgressArticle });
   }
 
   updateFile(e){
@@ -135,9 +132,24 @@ class ArticleForm extends React.Component {
   }
 
   updateArticle(articleInfoObject){
-    let {lat, lng, countryName, cityName } = articleInfoObject;
+    debugger
+    let { lat, lng, countryName, cityName } = articleInfoObject;
+    let inProgressArticle = this.state.article;
+    inProgressArticle["lat"] = lat;
+    inProgressArticle["lng"] = lng;
+    let inProgressCountry = this.state.country;
+    inProgressCountry["name"] = "Greece";
+    // inProgressCountry["name"] = countryName;
+    let inProgressCity = this.state.city;
+    inProgressCity["name"] = "Athens";
+    // inProgressCity["name"] = cityName;
 
-    this.setState({});
+    this.setState({
+      article: inProgressArticle,
+      country: inProgressCountry,
+      city: inProgressCity
+    });
+    debugger
   }
 
 
