@@ -37,7 +37,6 @@
         this.lng = this.place.geometry.location.lng();
         this.createFormMap();
         this.setState({mapDisplayClass: "map-shown"});
-        // this.mapDisplay = {display:"block"};
         //get lat and lng
           //feed these to the map and have it appear on this page
           //send them to article form for article creation
@@ -62,7 +61,6 @@
         map: map,
         title: 'treasure-map-destination'
         });
-
     }
 
     render(){

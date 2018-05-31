@@ -20,8 +20,8 @@ class City < ApplicationRecord
     cities = City.select('cities.*').joins(:articles).group('cities.id').order('COUNT(articles.id) DESC').limit(12)
   end
 
-  def self.existing_city(city_name)
-    City.find_by(name: city_name.titleize)
+  def self.existing_city(city_name, country_id)
+    City.find_by(name: city_name, country_id: country_id)
   end
 
 end

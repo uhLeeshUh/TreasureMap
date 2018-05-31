@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import ArticleForm from './article_form';
 import { createArticle, clearArticleErrors } from '../actions/article_actions';
 import { createCountry } from '../actions/country_actions';
+import { createCity } from '../actions/city_actions';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
@@ -12,8 +13,8 @@ const mapStateToProps = (state, ownProps) => {
     body: "",
     lat: 0,
     lng: 0,
-    author_id: 0,
-    city_id: 0,
+    // author_id: 0,
+    // city_id: 0,
   };
 
   return {
@@ -30,7 +31,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     action: (article) => dispatch(createArticle(article)),
     clearArticleErrors: () => dispatch(clearArticleErrors()),
-    createCountry: (country) => dispatch(createCountry(country))
+    createCountry: (country) => dispatch(createCountry(country)),
+    createCity: (country, city) => dispatch(createCity(country, city))
   };
 };
 

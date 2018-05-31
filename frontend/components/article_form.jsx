@@ -10,10 +10,10 @@ class ArticleForm extends React.Component {
     this.state = {
       article: this.props.article,
       country: {
-        name: ""
+        name: "USA"
       },
       city: {
-        name: ""
+        name: "New York, NY"
       },
       articleEdit: {
         editor_id: this.props.editorId || "",
@@ -26,6 +26,8 @@ class ArticleForm extends React.Component {
     this.updateFile = this.updateFile.bind(this);
     this.sendUpLocation = this.sendUpLocation.bind(this);
     this.removePreview = this.removePreview.bind(this);
+    this.updateArticle = this.updateArticle.bind(this);
+    this.createCountry = this.props.createCountry.bind(this);
   }
 
   componentDidMount(){
@@ -46,26 +48,24 @@ class ArticleForm extends React.Component {
   }
 
   submit(e){
+    let { article } = this.state;
     e.preventDefault();
     this.props.clearArticleErrors();
-    this.collectMapData();
 
-    this.props.createCountry(this.state.country).then(
-      //what is 'this' in here?
+    this.createCountry(this.state.country).then(
       (countryResponse) => {
-        this.props.createCity(countryResponse, this.state.city)
-      }).then(
+        this.props.createCity(countryResponse.countryPayload.country, this.state.city).then(
           (cityResponse) => {
             let formData = new FormData();
-            Object.keys(this.state.article).forEach(key => {
-              formData.append(`article[${key}]`, this.state.article[key]);
+            Object.keys(article).forEach(key => {
+              formData.append(`article[${key}]`, article[key]);
             });
+            formData.append("article[city_id]", cityResponse.cityPayload.city.id);
+            debugger
 
-            formData.append("article[city_id]", cityResponse.id);
-
-            if (this.props.formType === "Add a Place"){
-              formData.append("article[author_id]", this.props.author_id);
-            }
+            // if (this.props.formType === "Add a Place"){
+            //   formData.append("article[author_id]", this.props.author_id);
+            // }
 
             this.state.images.forEach(image => {
               formData.append("article[images_attributes[][image]]", image.imageFile);
@@ -74,19 +74,22 @@ class ArticleForm extends React.Component {
             if (this.props.editorId){
               formData.append("article[edits_attributes][][editor_id]", this.props.editorId);
             }
+            debugger
 
-            this.props.action(formData)
-              }).then(
-                  () => {
-                    return (
-                      this.props.history.push(`/articles/${this.props.lastUpdatedArticleId}`)
-                    );
-                  });
-  }
+            this.props.action(formData).then(
+                () => {
+                  return (
+                    this.props.history.push(`/articles/${this.props.lastUpdatedArticleId}`)
+                  );
+                });
+          });
+          }
+        );
+      }
 
-  collectMapData(){
-    
-  }
+  // collectMapData(){
+  //
+  // }
 
   handleChange(field, e){
     let inProgressArticle = this.state.article;
@@ -131,6 +134,12 @@ class ArticleForm extends React.Component {
     };
   }
 
+  updateArticle(articleInfoObject){
+    let {lat, lng, countryName, cityName } = articleInfoObject;
+
+    this.setState({});
+  }
+
 
   render(){
     let articleErrors;
@@ -147,7 +156,6 @@ class ArticleForm extends React.Component {
       });
     }
 
-    // <GoogleMapsArticleForm sendUpLocation={this.sendUpLocation}/>
     return (
       <main className="article-main-form">
         <form className="article-form" onSubmit={this.submit}>
@@ -178,7 +186,7 @@ class ArticleForm extends React.Component {
               </label>
 
               <label className="article-form-label">Where is the place?
-                <FormMap />
+                <FormMap updateArticle={this.updateArticle}/>
               </label>
 
           </section>

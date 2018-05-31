@@ -9,10 +9,9 @@ class Api::CitiesController < ApplicationController
     @city = City.new(city_params)
     @city.country_id = params[:country_id]
 
-    already_created_city = City.existing_city(@city.name)
-    #above will return a city instance or nil
+    already_created_city = City.existing_city(@city.name, @city.country_id)
     debugger
-
+    #above will return a city instance or nil
     if already_created_city
       @city = already_created_city
       render '/api/cities/new_city'
