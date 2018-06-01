@@ -8,7 +8,6 @@ import { withRouter } from 'react-router-dom';
 
 class EditArticleForm extends React.Component {
   componentDidMount(){
-    debugger
     this.props.fetchArticle(this.props.match.params.articleId);
   }
 
@@ -60,9 +59,6 @@ const mapStateToProps = (state, ownProps) => {
   const article = state.entities.articles[ownProps.match.params.articleId] || defaultArticle;
   const city = state.entities.cities[article.city_id] || {name: ""};
   const country = state.entities.countries[city.country_id] || {name: ""};
-
-//TODO: when working on countries and cities, pass down the country and city info
-// with mapStateToProps
 
   return {
     article,

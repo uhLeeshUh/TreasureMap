@@ -21,7 +21,6 @@ class ArticleForm extends React.Component {
       },
       images: []
     };
-    debugger
     this.submit = this.submit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.updateFile = this.updateFile.bind(this);
@@ -34,11 +33,13 @@ class ArticleForm extends React.Component {
   componentDidMount(){
     window.scrollTo(0,0);
     //fetch the images in an edit form
+
+    //I would need to fetch the component here for an edit form?
   }
 
   componentDidUpdate(prevProps, prevState){
     //TODO: update this with city and country info, if needed with GM
-    if (this.props !== prevProps) {
+    if (this.props.article.name !== prevProps.article.name) {
       this.setState({
         article: this.props.article,
         articleEdit: {
@@ -159,8 +160,8 @@ class ArticleForm extends React.Component {
       });
     }
 
-    const placeCoords = {lat: this.props.article.lat, lng: this.props.article.lng};
-
+    const placeCoords = { lat: this.props.article.lat, lng: this.props.article.lng };
+    // debugger;
     return (
       <main className="article-main-form">
         <form className="article-form" onSubmit={this.submit}>
@@ -191,7 +192,7 @@ class ArticleForm extends React.Component {
               </label>
 
               <label className="article-form-label">Where is the place?
-                <FormMap updateArticle={this.updateArticle} placeCoords={placeCoords}/>
+                <FormMap updateArticle={this.updateArticle} placeCoords={placeCoords} formType={this.props.formType}/>
               </label>
 
           </section>

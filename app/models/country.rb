@@ -22,7 +22,6 @@ class Country < ApplicationRecord
   end
 
   def self.existing_country(country_name)
-    debugger
     Country.find_by(name: country_name)
   end
 

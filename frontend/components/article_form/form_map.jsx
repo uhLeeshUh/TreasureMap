@@ -7,21 +7,58 @@
       this.input = React.createRef();
       this.formMap = React.createRef();
       // this.place = null;
-      this.lat = this.props.placeCoords.lat;
-      this.lng = this.props.placeCoords.lng;
-      if (this.lat === 0 && this.lng === 0){
-        this.placeAddress = "";
+      if (this.props.formType === "Add a Place"){
+        this.placeholderText = "E.g. 304 Deerfield Way, Normal, Illinois";
       } else {
-        //write logic for geocode AJAX request
+        this.placeholderText = "Type to edit your place's address";
       }
+      // if (this.state.lat === 0 && this.lng === 0){
+      //   this.placeAddress = "";
+      // } else {
+      //   //write logic for geocode AJAX request
+      // }
+
       this.state = {
-        mapDisplayClass: "map-hidden"
+        mapDisplayClass: "map-hidden",
+        lat: this.props.placeCoords.lat,
+        lng: this.props.placeCoords.lng,
       };
+      // debugger
 
     }
 
     componentDidMount(){
+      debugger
       this.createAutoComplete();
+      if (this.props.formType === 'Edit this Place'){
+        this.setState({
+          mapDisplayClass: 'map-shown',
+        }, () => this.createFormMap()
+      );
+      }
+    }
+
+    componentDidUpdate(prevProps){
+      // debugger
+      //
+      // if (this.props.formType === 'Edit this Place'){
+      //   this.setState({
+      //     mapDisplayClass: 'map-shown',
+      //   }, () => this.createFormMap()
+      // );
+      // }
+      // if ((prevProps.placeCoords.lat !== this.props.placeCoords.lat) &&
+      //     (prevProps.placeCoords.lng !== this.props.placeCoords.lng)){
+      //       let lat = this.props.placeCoords.lat;
+      //       let lng = this.props.placeCoords.lng;
+        //   this.setState({
+        //     mapDisplayClass: 'map-shown',
+        //     lat: this.props.placeCoords.lat,
+        //     lng: this.props.placeCoords.lng,
+        //   }, () =>
+        //   this.createFormMap()
+        // );
+      // }
     }
 
     createAutoComplete(){
@@ -42,31 +79,33 @@
         })
         let cityName = cityAndCountry[0];
         let countryName = cityAndCountry[1];
-        this.lat = this.place.geometry.location.lat();
-        this.lng = this.place.geometry.location.lng();
+        this.setState({
+          lat: this.place.geometry.location.lat(),
+          lng: this.place.geometry.location.lng(),
+        });
+        // this.state.lat = this.place.geometry.location.lat();
+        // this.lng = this.place.geometry.location.lng();
 
         this.createFormMap();
 
         this.setState({ mapDisplayClass: "map-shown" });
         this.props.updateArticle({
-          lat: this.lat,
-          lng: this.lng,
+          lat: this.state.lat,
+          lng: this.state.lng,
           cityName,
           countryName
         });
-      } );
+      });
     }
 
     createFormMap(){
-      let placeLatLng = { lat: this.lat, lng: this.lng };
-
+      debugger
+      const placeLatLng = { lat: this.state.lat, lng: this.state.lng };
       const options = {
         center: placeLatLng,
         zoom: 15
       };
-
       const map = new google.maps.Map(this.formMap.current, options);
-
       const marker = new google.maps.Marker({
         position: placeLatLng,
         map: map,
@@ -75,10 +114,20 @@
     }
 
     render(){
+      // debugger
+      // if (this.props.formType === 'Edit this Place'){
+      //   this.setState({
+      //     mapDisplayClass: 'map-shown',
+      //     lat: this.props.placeCoords.lat,
+      //     lng: this.props.placeCoords.lng,
+      //   });
+      //   this.createFormMap();
+      // }
+
       return (
         <section>
           <div>
-            <input ref={this.input} id="autocomplete" placeholder="E.g. 304 Deerfield Way, Normal, Illinois" type="text" value={this.placeAddress}></input>
+            <input ref={this.input} id="autocomplete" placeholder={this.placeholderText} type="text" value={this.placeAddress}></input>
             <div id="form-map" ref={this.formMap} className={this.state.mapDisplayClass}></div>
           </div>
         </section>
