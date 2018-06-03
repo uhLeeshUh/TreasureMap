@@ -47,7 +47,8 @@ class ArticleForm extends React.Component {
         city: this.props.city,
         articleEdit: {
           article_id: this.props.article.id
-        }
+        },
+        images: this.props.images,
       });
     }
   }
@@ -106,7 +107,8 @@ class ArticleForm extends React.Component {
       let currentImages = this.state.images.slice();
 
       Array.from(inputFiles).forEach(file => {
-        currentImages.push({imageFile: file, imageUrl: fileReader.result});
+        currentImages.push({imageFile: file, image_url: fileReader.result});
+        //changed imageUrl to image_url
       });
       this.setState({ images: currentImages });
     }.bind(this);
@@ -124,7 +126,7 @@ class ArticleForm extends React.Component {
     return (e) => {
       e.preventDefault();
       let newImages = this.state.images.slice();
-      newImages.splice(idx);
+      newImages.splice(idx, 1);
       this.setState({ images: newImages });
     };
   }
@@ -148,6 +150,7 @@ class ArticleForm extends React.Component {
 
 
   render(){
+    debugger
     let articleErrors;
     if (this.props.errors.length > 0) {
       articleErrors = this.props.errors.map((error, idx) => {
@@ -158,9 +161,10 @@ class ArticleForm extends React.Component {
     let previewImages;
     if (this.state.images.length > 0) {
       previewImages = this.state.images.map((image, idx) => {
-        return <PreviewImage key={idx} idx={idx} imageUrl={image.imageUrl} removePreview={this.removePreview}/>;
+        return <PreviewImage key={idx} idx={idx} imageUrl={image.image_url} removePreview={this.removePreview}/>;
       });
     }
+    debugger
 
     const placeCoords = { lat: this.props.article.lat, lng: this.props.article.lng };
     return (

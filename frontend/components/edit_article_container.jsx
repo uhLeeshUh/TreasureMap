@@ -18,7 +18,7 @@ class EditArticleForm extends React.Component {
   }
 
   render(){
-    const { article, formType, editorId, buttonText, action, errors, clearArticleErrors, history, lastUpdatedArticleId, fetchArticle, createCountry, createCity, city, country} = this.props;
+    const { article, formType, editorId, buttonText, action, errors, clearArticleErrors, history, lastUpdatedArticleId, fetchArticle, createCountry, createCity, city, country, images} = this.props;
     return (
       <ArticleForm
         article={article}
@@ -35,6 +35,7 @@ class EditArticleForm extends React.Component {
         createCountry={createCountry}
         createCity={createCity}
         history={history}
+        images={images}
 
         />
     );
@@ -54,11 +55,15 @@ const mapStateToProps = (state, ownProps) => {
     lng: 0,
     author_id: 0,
     city_id: 0,
+    image_ids: [],
   };
 
   const article = state.entities.articles[ownProps.match.params.articleId] || defaultArticle;
   const city = state.entities.cities[article.city_id] || {name: ""};
   const country = state.entities.countries[city.country_id] || {name: ""};
+  const images = article.image_ids.map(image_id => {
+    return (state.entities.images[image_id]);
+  })
 
   return {
     article,
@@ -68,7 +73,8 @@ const mapStateToProps = (state, ownProps) => {
     errors: state.errors.article,
     lastUpdatedArticleId: state.ui.lastArticleId,
     city,
-    country
+    country,
+    images
   };
 };
 
