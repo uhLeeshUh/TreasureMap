@@ -89,6 +89,7 @@
         this.createFormMap();
 
         this.setState({ mapDisplayClass: "map-shown" });
+        debugger
         this.props.updateArticle({
           lat: this.state.lat,
           lng: this.state.lng,

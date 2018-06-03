@@ -39,24 +39,29 @@ class ArticleForm extends React.Component {
 
   componentDidUpdate(prevProps, prevState){
     //TODO: update this with city and country info, if needed with GM
+    // will need to add images here too! Completely reset this.state
+    // debugger
     if (this.props.article.name !== prevProps.article.name) {
       this.setState({
         article: this.props.article,
+        country: this.props.country,
+        city: this.props.city,
         articleEdit: {
           article_id: this.props.article.id
         }
       });
     }
+    // debugger
   }
 
   submit(e){
-    let { article, country } = this.state;
+    let { article, country, city } = this.state;
     e.preventDefault();
     this.props.clearArticleErrors();
     debugger
     this.createCountry(this.state.country).then(
       (countryResponse) => {
-        this.props.createCity(countryResponse.countryPayload.country, this.state.city).then(
+        this.props.createCity(countryResponse.countryPayload.country, city).then(
           (cityResponse) => {
             let formData = new FormData();
             Object.keys(article).forEach(key => {
@@ -128,6 +133,7 @@ class ArticleForm extends React.Component {
   }
 
   updateArticle(articleInfoObject){
+    debugger
     let { lat, lng, countryName, cityName } = articleInfoObject;
     let inProgressArticle = this.state.article;
     inProgressArticle["lat"] = lat;

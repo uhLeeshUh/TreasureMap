@@ -14,7 +14,6 @@ class FeaturedArticle extends React.Component {
   }
 
   render(){
-    console.log(this.props.articleInState);
 
     if (!this.props.articleInState){
       return <div></div>;

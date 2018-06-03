@@ -22,7 +22,11 @@ json.editors do
 end
 
 json.city do
-  json.extract! article.city, :id, :name
+  json.extract! article.city, :id, :name, :country_id
+end
+
+json.country do
+  json.extract! article.country, :id, :name
 end
 
 json.images do
