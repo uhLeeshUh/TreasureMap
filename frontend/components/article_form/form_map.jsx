@@ -23,12 +23,10 @@
         lat: this.props.placeCoords.lat,
         lng: this.props.placeCoords.lng,
       };
-      // debugger
 
     }
 
     componentDidMount(){
-      debugger
       this.createAutoComplete();
       if (this.props.formType === 'Edit this Place'){
         this.setState({
@@ -39,7 +37,6 @@
     }
 
     componentDidUpdate(prevProps){
-      // debugger
       //
       // if (this.props.formType === 'Edit this Place'){
       //   this.setState({
@@ -89,7 +86,6 @@
         this.createFormMap();
 
         this.setState({ mapDisplayClass: "map-shown" });
-        debugger
         this.props.updateArticle({
           lat: this.state.lat,
           lng: this.state.lng,
@@ -100,7 +96,6 @@
     }
 
     createFormMap(){
-      debugger
       const placeLatLng = { lat: this.state.lat, lng: this.state.lng };
       const options = {
         center: placeLatLng,
@@ -115,7 +110,6 @@
     }
 
     render(){
-      // debugger
       // if (this.props.formType === 'Edit this Place'){
       //   this.setState({
       //     mapDisplayClass: 'map-shown',

@@ -20,7 +20,6 @@ export const fetchCountry = (id) => {
 };
 
 export const createCountry = (country) => {
-  debugger
   return $.ajax({
     method: 'post',
     url: '/api/countries',
