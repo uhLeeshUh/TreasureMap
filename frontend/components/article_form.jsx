@@ -19,12 +19,11 @@ class ArticleForm extends React.Component {
         editor_id: this.props.editorId || "",
         article_id: this.props.article.id
       },
-      images: []
+      images: [],
     };
     this.submit = this.submit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.updateFile = this.updateFile.bind(this);
-    // this.sendUpLocation = this.sendUpLocation.bind(this);
     this.removePreview = this.removePreview.bind(this);
     this.updateArticle = this.updateArticle.bind(this);
     this.createCountry = this.props.createCountry.bind(this);
@@ -61,17 +60,24 @@ class ArticleForm extends React.Component {
       (countryResponse) => {
         this.props.createCity(countryResponse.countryPayload.country, city).then(
           (cityResponse) => {
+            debugger
             let formData = new FormData();
-            Object.keys(article).forEach(key => {
+            const articleStrongParams = ["name", "description", "long_description", "body", "lat", "lng"];
+            // Object.keys(article).forEach(key => {
+            articleStrongParams.forEach(key => {
               formData.append(`article[${key}]`, article[key]);
             });
+            if (article.id){
+              formData.append("id", article.id);  
+            }
             formData.append("article[city_id]", cityResponse.cityPayload.city.id);
             // if (this.props.formType === "Add a Place"){
             //   formData.append("article[author_id]", this.props.author_id);
             // }
 
             this.state.images.forEach(image => {
-              formData.append("article[images_attributes[][image]]", image.imageFile);
+              let imageInfo = image.imageFile || image;
+              formData.append("article[images_attributes[][image]]", imageInfo);
             });
 
             if (this.props.editorId){

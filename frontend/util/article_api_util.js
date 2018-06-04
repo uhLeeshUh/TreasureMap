@@ -30,9 +30,11 @@ export const fetchArticles = (cityId) => {
 };
 
 export const editArticle = (article) => {
+  debugger
+  // url: `/api/articles/${article.get("article[id]")}`,
   return $.ajax({
     method: 'patch',
-    url: `/api/articles/${article.get("article[id]")}`,
+    url: `/api/articles/${article.get("id")}`,
     contentType: false,
     processData: false,
     data: article

@@ -47,6 +47,7 @@ class EditArticleForm extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   const defaultArticle = {
+    id: null,
     name: "",
     description: "",
     long_description: "",
