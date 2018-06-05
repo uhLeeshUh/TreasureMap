@@ -35,12 +35,16 @@ class FeaturedArticle extends React.Component {
           <h1 className="feature-article-header">Today's Featured Finds</h1>
         </div>
         <FeaturedArticleThumb className="main-feature" key={this.props.articles[0].id} article={this.props.articles[0]} />
-        <FeaturedArticleThumb className="bottom-thumb" key={this.props.articles[1].id} article={this.props.articles[1]} />
-        <FeaturedArticleThumb className="bottom-thumb" key={this.props.articles[2].id} article={this.props.articles[2]} />
-        <FeaturedArticleThumb className="side-title" key={this.props.articles[3].id} article={this.props.articles[3]} />
-        <FeaturedArticleThumb className="side-title" key={this.props.articles[4].id} article={this.props.articles[4]} />
-        <FeaturedArticleThumb className="side-title" key={this.props.articles[5].id} article={this.props.articles[5]} />
-        <FeaturedArticleThumb className="side-title" key={this.props.articles[6].id} article={this.props.articles[6]} />
+        <section className="feature-bottom-row">
+          <FeaturedArticleThumb className="bottom-thumb" key={this.props.articles[1].id} article={this.props.articles[1]} />
+          <FeaturedArticleThumb className="bottom-thumb" key={this.props.articles[2].id} article={this.props.articles[2]} />
+          <div className="side-title-holder">
+            <FeaturedArticleThumb className="side-title" key={this.props.articles[3].id} article={this.props.articles[3]} />
+            <FeaturedArticleThumb className="side-title" key={this.props.articles[4].id} article={this.props.articles[4]} />
+            <FeaturedArticleThumb className="side-title" key={this.props.articles[5].id} article={this.props.articles[5]} />
+            <FeaturedArticleThumb className="side-title" key={this.props.articles[6].id} article={this.props.articles[6]} />
+          </div>
+        </section>
       </main>
     );
   }

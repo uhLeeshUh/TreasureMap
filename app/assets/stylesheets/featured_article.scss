@@ -27,7 +27,7 @@
 }
 
 .main-feature{
-  margin: 15px 0;
+  margin: 20px 0;
   display: flex;
   justify-content: space-between;
 }
@@ -41,7 +41,7 @@
   text-transform: uppercase;
   font-family: 'Archivo Narrow', sans-serif;
   letter-spacing: 0.04em;
-  font-size: 21px;
+  font-size: 25px;
   color: #1b624f;
   margin-bottom: 5px;
 }
@@ -91,6 +91,10 @@
   display: none;
 }
 
+.feature-bottom-row{
+  display: flex;
+}
+
 .bottom-thumb .feature-author-name{
   display: none;
 }
@@ -102,10 +106,15 @@
 .feature-article-thumb .bottom-thumb {
   max-height: 420px;
   max-width: 365px;
+  margin-right: 20px;
 }
 
 .bottom-thumb .other-feature-image{
   max-height: 250px;
+  max-width: 365px;
+}
+
+.side-title-holder{
   max-width: 365px;
 }
 
@@ -114,6 +123,14 @@
 }
 
 .side-title .feature-image {
+  display: none;
+}
+
+.side-title .other-feature-image{
+  display: none;
+}
+
+.side-title .feature-city{
   display: none;
 }
 

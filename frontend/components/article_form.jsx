@@ -73,8 +73,9 @@ class ArticleForm extends React.Component {
             formData.append("article[city_id]", cityResponse.cityPayload.city.id);
 
             this.state.images.forEach(image => {
-              let imageInfo = image.imageFile || image;
-              formData.append("article[images_attributes[][image]]", imageInfo);
+              //image_url
+              // let imageInfo = image.imageFile || image;
+              formData.append("article[images_attributes[][image]]", image.image_url);
             });
 
             if (this.props.editorId){

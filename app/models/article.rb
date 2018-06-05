@@ -40,6 +40,11 @@ class Article < ApplicationRecord
   def self.select_random_articles
     articles = Article.all.sample(7)
   end
+
+  def images_attributes=(images_data)
+    self.images.destroy_all
+    super(images_data)
+  end
   # def self.select_random_article
   #   article = Article.all.sample
   # end
