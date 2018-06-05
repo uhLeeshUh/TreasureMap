@@ -4,21 +4,21 @@ import { connect } from 'react-redux';
 
 const FeaturedArticleThumb = (props) => {
 
-  // if (!props.articleInfoFetched){
-  //   return <div></div>;
-  // }
-
   return (
-    <Link to={`/articles/${props.article.id}`}>
-      <section>
-        <img key={props.image.id} src={props.image.image_url}></img>
-        <div>
-          <h3>{props.city.name}</h3>
-          <h1>{props.article.name}</h1>
-          <p>{props.article.description}</p>
-        </div>
-      </section>
-    </Link>
+    <div className="feature-article-thumb">
+      <Link to={`/articles/${props.article.id}`}>
+        <section className={props.className}>
+          <img className="other-feature-image" key={props.image.id} src={props.image.image_url}></img>
+          <div className="feature-thumb-holder">
+            <h3 className="feature-city">{props.city.name}</h3>
+            <h1 className="feature-article-name">{props.article.name}</h1>
+            <p className="feature-article-desc">{props.article.description}</p>
+            <p className="feature-author-name">Contributed by: {props.author.username}</p>
+          </div>
+          <img className="feature-image" key={props.image.id} src={props.image.image_url}></img>
+        </section>
+      </Link>
+    </div>
   );
 };
 
@@ -26,12 +26,13 @@ const mapStateToProps = (state, ownProps) => {
   const article = ownProps.article;
   const image = state.entities.images[article.image_ids[0]];
   const city = state.entities.cities[article.city_id];
+  const author = state.entities.users[article.author_id];
 
   return {
     image,
     city,
+    author,
   };
-
 };
 
 export default connect(mapStateToProps)(FeaturedArticleThumb);
