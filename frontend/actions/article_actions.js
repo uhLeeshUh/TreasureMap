@@ -22,10 +22,10 @@ export const receiveArticle = (articlePayload) => {
   };
 };
 
-export const receiveRandomArticles = (articlePayload) => {
+export const receiveRandomArticles = (articlesPayload) => {
   return {
     type: RECEIVE_RANDOM_ARTICLES,
-    articlePayload
+    articlesPayload
   };
 };
 // export const receiveRandomArticle = (articlePayload) => {

@@ -13,7 +13,7 @@ const articlesReducer = (state = {}, action) => {
       return newState;
 
     case RECEIVE_RANDOM_ARTICLES:
-      newState = merge({}, state, action.articlePayload.articles);
+      newState = merge({}, state, action.articlesPayload.articles);
       return newState;
 
     case REMOVE_ARTICLE:
