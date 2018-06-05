@@ -37,8 +37,11 @@ class Article < ApplicationRecord
   }
 
 
-  def self.select_random_article
-    article = Article.all.sample
+  def self.select_random_articles
+    articles = Article.all.sample(7)
   end
+  # def self.select_random_article
+  #   article = Article.all.sample
+  # end
 
 end

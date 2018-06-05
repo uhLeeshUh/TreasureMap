@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :articles, only: [:create, :show, :update, :destroy] do
       collection do
-        get 'random_article'
+        get 'random_articles'
       end
       resources :images, only: [:create]
     end

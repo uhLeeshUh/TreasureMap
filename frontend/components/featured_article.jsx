@@ -27,41 +27,47 @@ class FeaturedArticle extends React.Component {
     //     <p className="feature-article-description">{this.props.article.description}</p>
     //   </section>
     // </Link>
+
+    // articleId={this.props.articles[0]}
     return (
       <main className="feature-article-holder">
         <div className="feature-article-headline-holder">
           <h1 className="feature-article-header">Our Random Place</h1>
         </div>
-        <FeaturedArticleThumb key={this.props.article.id} article={this.props.article} image={this.props.image} city={this.props.city}/>
-        <FeaturedArticleThumb key={this.props.article.id} article={this.props.article} image={this.props.image} city={this.props.city}/>
-        <FeaturedArticleThumb key={this.props.article.id} article={this.props.article} image={this.props.image} city={this.props.city}/>
+        <FeaturedArticleThumb className="main-feature" key={this.props.articles[0]}  />
       </main>
     );
   }
 }
 
 const mapStateToProps = (state) => {
-  let article;
-  let city;
-  let image;
-  let articleInState = true;
+  let articles;
+  // let article;
+  // let city;
+  // let image;
+  let articlesInState = true;
 
-  if (state.ui.randomArticleId.length === 0){
+  if (state.ui.featuredArticleIds.length === 0){
+  // if (state.ui.randomArticleId.length === 0){
     return{
-      articleInState: false
+      articlesInState: false
     };
   }
 
-  article = state.entities.articles[state.ui.randomArticleId];
-  city = state.entities.cities[article.city_id];
-  image = state.entities.images[article.image_ids[0]];
+  articles = state.ui.featuredArticleIds.map(articleId => {
+    return state.entities.articles[articleId]
+  });
+  // state.entities.articles[state.ui.randomArticleId];
+  // article = state.entities.articles[state.ui.randomArticleId];
+  // city = state.entities.cities[article.city_id];
+  // image = state.entities.images[article.image_ids[0]];
 
 
+  // city,
+  // image,
   return {
-    article,
-    city,
-    image,
-    articleInState
+    articles,
+    articlesInState
   };
 
 };
@@ -73,4 +79,5 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(FeaturedArticle);
+export default FeaturedArticle;
+// export default connect(mapStateToProps, mapDispatchToProps)(FeaturedArticle);

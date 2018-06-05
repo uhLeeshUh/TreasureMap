@@ -40,11 +40,16 @@ class Api::ArticlesController < ApplicationController
      end
   end
 
-  def random_article
-    @article = Article.select_random_article
+  def random_articles
+    @articles = Article.select_random_articles
 
-    render :show
+    render 'api/articles/index'
   end
+  # def random_article
+  #   @article = Article.select_random_article
+  #
+  #   render :show
+  # end
 
   private
 
