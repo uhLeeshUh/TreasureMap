@@ -1,4 +1,4 @@
-import { RECEIVE_ARTICLES, RECEIVE_ARTICLE, REMOVE_ARTICLE, RECEIVE_RANDOM_ARTICLE } from '../actions/article_actions';
+import { RECEIVE_ARTICLES, RECEIVE_ARTICLE, REMOVE_ARTICLE, RECEIVE_RANDOM_ARTICLES } from '../actions/article_actions';
 import { RECEIVE_CITY } from '../actions/city_actions';
 import { RECEIVE_COUNTRY } from '../actions/country_actions';
 import { merge } from 'lodash';
@@ -7,10 +7,13 @@ const articlesReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_ARTICLE:
-    case RECEIVE_RANDOM_ARTICLE:
       let newState = merge({}, state, {
         [action.articlePayload.article.id]: action.articlePayload.article
       });
+      return newState;
+
+    case RECEIVE_RANDOM_ARTICLES:
+      newState = merge({}, state, action.articlePayload.articles);
       return newState;
 
     case REMOVE_ARTICLE:
