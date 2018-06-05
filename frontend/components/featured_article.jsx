@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ArticleThumb from './article_thumb';
+import FeaturedArticleThumb from './homepage/featured_article_thumb';
 import { fetchArticle, fetchRandomArticle } from '../actions/article_actions';
 import { Link } from 'react-router-dom';
 
@@ -19,19 +19,22 @@ class FeaturedArticle extends React.Component {
       return <div></div>;
     }
 
+    // <Link className="feature-article-link" to={`/articles/${this.props.article.id}`}>
+    //   <section className="feature-article-content">
+    //     <img key={this.props.image.id}className='feature-article-image' src={this.props.image.image_url}></img>
+    //     <h3 className="feature-article-city">{this.props.city.name}</h3>
+    //     <h1 className="feature-article-title">{this.props.article.name}</h1>
+    //     <p className="feature-article-description">{this.props.article.description}</p>
+    //   </section>
+    // </Link>
     return (
       <main className="feature-article-holder">
         <div className="feature-article-headline-holder">
           <h1 className="feature-article-header">Our Random Place</h1>
         </div>
-        <Link className="feature-article-link" to={`/articles/${this.props.article.id}`}>
-          <section className="feature-article-content">
-            <img key={this.props.image.id}className='feature-article-image' src={this.props.image.image_url}></img>
-            <h3 className="feature-article-city">{this.props.city.name}</h3>
-            <h1 className="feature-article-title">{this.props.article.name}</h1>
-            <p className="feature-article-description">{this.props.article.description}</p>
-          </section>
-        </Link>
+        <FeaturedArticleThumb key={this.props.article.id} article={this.props.article} image={this.props.image} city={this.props.city}/>
+        <FeaturedArticleThumb key={this.props.article.id} article={this.props.article} image={this.props.image} city={this.props.city}/>
+        <FeaturedArticleThumb key={this.props.article.id} article={this.props.article} image={this.props.image} city={this.props.city}/>
       </main>
     );
   }

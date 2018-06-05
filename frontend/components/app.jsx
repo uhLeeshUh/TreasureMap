@@ -3,7 +3,6 @@ import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { NavBar } from './navbar';
 import Footer from './anchors/footer';
-// import all other components!
 import SignupFormContainer from './signup_form_container';
 import LoginFormContainer from './login_form_container';
 import ArticleContainer from './article_container';
@@ -14,9 +13,7 @@ import CountryDetailContainer from './country_show/country_detail';
 import FeaturedArticleContainer from './featured_article';
 
 const App = () => {
-  // <NavBar /> //has no route, so it will render on every page. Put dropdowns and search here
-  // //routes, which will change the content in MainPage
-  // <Footer />
+
   return (
     <div className="root-container">
       <Route path="/" component={NavBar} />
