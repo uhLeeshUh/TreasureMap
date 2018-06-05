@@ -10,14 +10,12 @@ class FeaturedArticle extends React.Component {
   }
 
   componentDidMount(){
-    debugger
     this.props.fetchRandomArticles();
     // this.props.fetchRandomArticle();
   }
 
   render(){
-
-    if (!this.props.articleInState){
+    if (!this.props.articlesInState){
       return <div></div>;
     }
 
@@ -34,9 +32,15 @@ class FeaturedArticle extends React.Component {
     return (
       <main className="feature-article-holder">
         <div className="feature-article-headline-holder">
-          <h1 className="feature-article-header">Our Random Place</h1>
+          <h1 className="feature-article-header">Today's Featured Finds</h1>
         </div>
-        <FeaturedArticleThumb className="main-feature" key={this.props.articles[0]}  />
+        <FeaturedArticleThumb className="main-feature" key={this.props.articles[0].id} article={this.props.articles[0]} />
+        <FeaturedArticleThumb className="bottom-thumb" key={this.props.articles[1].id} article={this.props.articles[1]} />
+        <FeaturedArticleThumb className="bottom-thumb" key={this.props.articles[2].id} article={this.props.articles[2]} />
+        <FeaturedArticleThumb className="side-title" key={this.props.articles[3].id} article={this.props.articles[3]} />
+        <FeaturedArticleThumb className="side-title" key={this.props.articles[4].id} article={this.props.articles[4]} />
+        <FeaturedArticleThumb className="side-title" key={this.props.articles[5].id} article={this.props.articles[5]} />
+        <FeaturedArticleThumb className="side-title" key={this.props.articles[6].id} article={this.props.articles[6]} />
       </main>
     );
   }
