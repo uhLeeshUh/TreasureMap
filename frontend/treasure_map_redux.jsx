@@ -77,7 +77,9 @@ window.fetchSearchItems = PgSearchActions.fetchSearchItems;
 // window.fetchCountries = CountryActions.fetchCountries;
 // window.fetchCountry = CountryActions.fetchCountry;
 // window.createCountry = CountryAPIUtil.createCountry;
-window.createCountry = CountryActions.createCountry;
+// window.createCountry = CountryActions.createCountry;
+// window.fetchRandomArticles = ArticleAPIUtil.fetchRandomArticles;
+window.fetchRandomArticles = ArticleActions.fetchRandomArticles;
 
 
 // {name: "test", description: "test desc", long_description: 'long', body: 'hey', lat: 23.2, lng: 34.1, author_id: 1, city_id: 3}

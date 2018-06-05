@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import FeaturedArticleThumb from './homepage/featured_article_thumb';
-import { fetchArticle, fetchRandomArticle } from '../actions/article_actions';
+import { fetchArticle, fetchRandomArticles } from '../actions/article_actions';
 import { Link } from 'react-router-dom';
 
 class FeaturedArticle extends React.Component {
@@ -10,7 +10,9 @@ class FeaturedArticle extends React.Component {
   }
 
   componentDidMount(){
-    this.props.fetchRandomArticle();
+    debugger
+    this.props.fetchRandomArticles();
+    // this.props.fetchRandomArticle();
   }
 
   render(){
@@ -73,11 +75,12 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
+  // fetchRandomArticle: () => dispatch(fetchRandomArticle())
   return {
     fetchArticle: (id) => dispatch(fetchArticle(id)),
-    fetchRandomArticle: () => dispatch(fetchRandomArticle())
+    fetchRandomArticles: () => dispatch(fetchRandomArticles())
   };
 };
 
-export default FeaturedArticle;
-// export default connect(mapStateToProps, mapDispatchToProps)(FeaturedArticle);
+// export default FeaturedArticle;
+export default connect(mapStateToProps, mapDispatchToProps)(FeaturedArticle);
