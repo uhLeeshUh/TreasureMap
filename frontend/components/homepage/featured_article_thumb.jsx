@@ -15,7 +15,9 @@ const FeaturedArticleThumb = (props) => {
             <p className="feature-article-desc">{props.article.description}</p>
             <p className="feature-author-name">Contributed by: {props.author.username}</p>
           </div>
-          <img className="feature-image" key={props.image.id} src={props.image.image_url}></img>
+          <div className="feature-image-holder">
+            <img className="feature-image" key={props.image.id} src={props.image.image_url}></img>
+          </div>
         </section>
       </Link>
     </div>

@@ -34,6 +34,7 @@
 
 .main-feature .feature-thumb-holder{
   padding-right: 25px;
+  width: 350px;
 }
 
 .main-feature .feature-city{
@@ -73,20 +74,22 @@
   font-style: italic;
 }
 
+.main-feature .feature-image-holder{
+  width: 765px;
+  height: 490px;
+}
+
 .main-feature .feature-image{
-  max-width: 800px;
-  max-height: 490px;
-  min-height: 400px;
+  // width: 750px;
+  // max-height: 490px;
+  // min-height: 400px;
+  height: 100%;
+  width: 100%;
 }
 
 .main-feature .other-feature-image{
   display: none;
 }
-
-// .other-feature-image{
-//   width: 75%;
-//   height: 5%;
-// }
 
 .bottom-thumb .feature-author-name{
   display: none;
@@ -94,6 +97,16 @@
 
 .bottom-thumb .feature-image{
   display: none;
+}
+
+.feature-article-thumb .bottom-thumb {
+  max-height: 420px;
+  max-width: 365px;
+}
+
+.bottom-thumb .other-feature-image{
+  max-height: 250px;
+  max-width: 365px;
 }
 
 .side-title .feature-author-name {
