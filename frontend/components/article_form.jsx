@@ -68,12 +68,9 @@ class ArticleForm extends React.Component {
               formData.append(`article[${key}]`, article[key]);
             });
             if (article.id){
-              formData.append("id", article.id);  
+              formData.append("id", article.id);
             }
             formData.append("article[city_id]", cityResponse.cityPayload.city.id);
-            // if (this.props.formType === "Add a Place"){
-            //   formData.append("article[author_id]", this.props.author_id);
-            // }
 
             this.state.images.forEach(image => {
               let imageInfo = image.imageFile || image;
@@ -94,10 +91,6 @@ class ArticleForm extends React.Component {
           }
         );
       }
-
-  // collectMapData(){
-  //
-  // }
 
   handleChange(field, e){
     let inProgressArticle = this.state.article;

@@ -8,9 +8,6 @@ class Api::ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     @article.author_id = current_user.id
-    #removed author_id from strong params - make sure this works
-    # city = City.find_by({name: params["article"]["city_name"]})
-    # @article.city_id = city && city.id
 
     if @article.save
       render 'api/articles/show'

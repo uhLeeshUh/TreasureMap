@@ -18,7 +18,7 @@ class SearchBar extends React.Component{
     if (this.timeOut){
       clearTimeout(this.timeOut);
     }
-    this.timeOut = setTimeout(() => this.props.fetchSearchItems(this.state.query), 1500);
+    this.timeOut = setTimeout(() => this.props.fetchSearchItems(this.state.query), 500);
     this.setState({ query: e.target.value});
   }
 
