@@ -1,10 +1,10 @@
-import { RECEIVE_RANDOM_ARTICLE } from '../../actions/article_actions';
+import { RECEIVE_RANDOM_ARTICLES } from '../../actions/article_actions';
 
 const randomArticleReducer = (state = [], action) => {
   Object.freeze(state);
   switch (action.type) {
-    case RECEIVE_RANDOM_ARTICLE:
-      return [action.articlePayload.article.id];
+    case RECEIVE_RANDOM_ARTICLES:
+      return Object.keys(action.articlePayload.articles);
     default:
       return state;
   }
