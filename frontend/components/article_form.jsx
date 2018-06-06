@@ -19,9 +19,8 @@ class ArticleForm extends React.Component {
         editor_id: this.props.editorId || "",
         article_id: this.props.article.id
       },
-      images: this.props.images,
+      images: this.props.images || [],
     };
-    // images: [],
     this.submit = this.submit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.updateFile = this.updateFile.bind(this);
