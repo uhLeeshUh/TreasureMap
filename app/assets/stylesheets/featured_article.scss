@@ -181,6 +181,11 @@
   padding: 30px 20px 12px 10px;
 }
 
+.bottom-thumb:hover .feature-article-name{
+  text-decoration: underline;
+  text-decoration-color: gray;
+}
+
 .bottom-thumb .feature-article-desc{
   font-family: 'Cormorant Garamond', serif;
   font-size: 21px;
@@ -220,6 +225,11 @@
   color: #382d14;
   font-size: 26px;
   padding-bottom: 3px;
+}
+
+.side-title:hover .feature-article-name{
+  text-decoration: underline;
+  text-decoration-color: gray;
 }
 
 .side-title .feature-article-desc{
