@@ -19,8 +19,9 @@ class ArticleForm extends React.Component {
         editor_id: this.props.editorId || "",
         article_id: this.props.article.id
       },
-      images: [],
+      images: this.props.images,
     };
+    // images: [],
     this.submit = this.submit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.updateFile = this.updateFile.bind(this);
@@ -30,29 +31,31 @@ class ArticleForm extends React.Component {
   }
 
   componentDidMount(){
+    debugger
     window.scrollTo(0,0);
     //fetch the images in an edit form
 
-    //I would need to fetch the component here for an edit form?
   }
 
   componentDidUpdate(prevProps, prevState){
     //TODO: update this with city and country info, if needed with GM
     // will need to add images here too! Completely reset this.state
-    if (this.props.article.name !== prevProps.article.name) {
-      this.setState({
-        article: this.props.article,
-        country: this.props.country,
-        city: this.props.city,
-        articleEdit: {
-          article_id: this.props.article.id
-        },
-        images: this.props.images,
-      });
-    }
+    // debugger
+    // if (this.props.article.name !== prevProps.article.name) {
+    //   this.setState({
+    //     article: this.props.article,
+    //     country: this.props.country,
+    //     city: this.props.city,
+    //     articleEdit: {
+    //       article_id: this.props.article.id
+    //     },
+    //     images: this.props.images,
+    //   });
+    // }
   }
 
   submit(e){
+    debugger
     let { article, country, city } = this.state;
     e.preventDefault();
     this.props.clearArticleErrors();
@@ -60,7 +63,7 @@ class ArticleForm extends React.Component {
       (countryResponse) => {
         this.props.createCity(countryResponse.countryPayload.country, city).then(
           (cityResponse) => {
-            debugger
+            // debugger
             let formData = new FormData();
             const articleStrongParams = ["name", "description", "long_description", "body", "lat", "lng"];
             // Object.keys(article).forEach(key => {
@@ -73,6 +76,7 @@ class ArticleForm extends React.Component {
             formData.append("article[city_id]", cityResponse.cityPayload.city.id);
 
             this.state.images.forEach(image => {
+              debugger
               //image_url
               // let imageInfo = image.imageFile || image;
               formData.append("article[images_attributes[][image]]", image.image_url);

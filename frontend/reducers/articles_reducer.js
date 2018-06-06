@@ -10,6 +10,7 @@ const articlesReducer = (state = {}, action) => {
       let newState = merge({}, state, {
         [action.articlePayload.article.id]: action.articlePayload.article
       });
+      newState[action.articlePayload.article.id]["image_ids"] = action.articlePayload.article.image_ids;
       return newState;
 
     case RECEIVE_RANDOM_ARTICLES:

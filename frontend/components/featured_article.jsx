@@ -45,6 +45,8 @@ class FeaturedArticle extends React.Component {
             <FeaturedArticleThumb className="side-title" key={this.props.articles[6].id} article={this.props.articles[6]} />
           </div>
         </section>
+
+        
       </main>
     );
   }
