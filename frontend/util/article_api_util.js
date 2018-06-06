@@ -21,12 +21,6 @@ export const fetchRandomArticles = () => {
     url: '/api/articles/random_articles'
   });
 };
-// export const fetchRandomArticle = () => {
-//   return $.ajax({
-//     method: 'get',
-//     url: '/api/articles/random_article'
-//   });
-// };
 
 export const fetchArticles = (cityId) => {
   return $.ajax({
@@ -44,8 +38,6 @@ export const editArticle = (article) => {
     data: article
   });
 };
-
-// url: `/api/articles/${article.id}`,
 
 export const deleteArticle = (id) => {
   return $.ajax({

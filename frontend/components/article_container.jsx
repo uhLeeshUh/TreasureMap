@@ -130,24 +130,9 @@ const mapStateToProps = (state, ownProps) => {
       articleLoaded: false
     };
   }
-  //
-  // const defaultArticle = {
-  //   id: 1,
-  //   name: "",
-  //   description: "",
-  //   body: "",
-  //   author_id: 1,
-  //   city_id: 1,
-  //   image_ids: [],
-  //   editing_user_ids: []
-  // };
 
   const article = state.entities.articles[ownProps.match.params.articleId];
   const city = state.entities.cities[article.city_id];
-  // const images = article.image_ids.map(image_id => {
-  //   return (state.entities.images[image_id] || "");
-  // });
-  // const country = state.entities.countries[city.country_id];
   const author = state.entities.users[article.author_id];
   let editors;
   if (article.editing_user_ids){
@@ -163,16 +148,6 @@ const mapStateToProps = (state, ownProps) => {
       image_id => { return state.entities.images[image_id];}
     );
   }
-
-//TODO: replace city hardcording, replace image hardcoding to return the ids
-// to be fetched from redux store. Grab the country to user with city at top
-
-// [{id: 1, image_url: "https://assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvcGxhY2VfaW1hZ2VzLzc4Nzc2OTdiNjc3YWZkODEzZl8yMTQ0MjI3MzM3XzRhN2FjYjg1OTZfby5qcGciXSxbInAiLCJ0aHVtYiIsIjEyMDB4PiJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA4MSAtYXV0by1vcmllbnQiXV0"},
-// {id: 2, image_url: "https://assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvcGxhY2VfaW1hZ2VzLzc4Nzc2OTdiNjc3YWZkODEzZl8yMTQ0MjI3MzM3XzRhN2FjYjg1OTZfby5qcGciXSxbInAiLCJ0aHVtYiIsIjEyMDB4PiJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA4MSAtYXV0by1vcmllbnQiXV0"},
-// {id: 3, image_url: "https://assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvcGxhY2VfaW1hZ2VzLzc4Nzc2OTdiNjc3YWZkODEzZl8yMTQ0MjI3MzM3XzRhN2FjYjg1OTZfby5qcGciXSxbInAiLCJ0aHVtYiIsIjEyMDB4PiJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA4MSAtYXV0by1vcmllbnQiXV0"},
-// {id: 4, image_url: "https://assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvcGxhY2VfaW1hZ2VzLzc4Nzc2OTdiNjc3YWZkODEzZl8yMTQ0MjI3MzM3XzRhN2FjYjg1OTZfby5qcGciXSxbInAiLCJ0aHVtYiIsIjEyMDB4PiJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA4MSAtYXV0by1vcmllbnQiXV0"},
-// {id: 5, image_url: "https://assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvcGxhY2VfaW1hZ2VzLzc4Nzc2OTdiNjc3YWZkODEzZl8yMTQ0MjI3MzM3XzRhN2FjYjg1OTZfby5qcGciXSxbInAiLCJ0aHVtYiIsIjEyMDB4PiJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA4MSAtYXV0by1vcmllbnQiXV0"}
-// ],
 
   return {
     article,

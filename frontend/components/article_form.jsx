@@ -1,6 +1,5 @@
 import React from 'react';
 import { merge } from 'lodash';
-// import GoogleMapsArticleForm from './article_form/google_maps_article_form';
 import FormMap from './article_form/form_map';
 import PreviewImage from './article_form/preview_image';
 
@@ -31,24 +30,6 @@ class ArticleForm extends React.Component {
 
   componentDidMount(){
     window.scrollTo(0,0);
-    //fetch the images in an edit form
-
-  }
-
-  componentDidUpdate(prevProps, prevState){
-    //TODO: update this with city and country info, if needed with GM
-    // will need to add images here too! Completely reset this.state
-    // if (this.props.article.name !== prevProps.article.name) {
-    //   this.setState({
-    //     article: this.props.article,
-    //     country: this.props.country,
-    //     city: this.props.city,
-    //     articleEdit: {
-    //       article_id: this.props.article.id
-    //     },
-    //     images: this.props.images,
-    //   });
-    // }
   }
 
   submit(e){
@@ -61,7 +42,6 @@ class ArticleForm extends React.Component {
           (cityResponse) => {
             let formData = new FormData();
             const articleStrongParams = ["name", "description", "long_description", "body", "lat", "lng"];
-            // Object.keys(article).forEach(key => {
             articleStrongParams.forEach(key => {
               formData.append(`article[${key}]`, article[key]);
             });
@@ -71,8 +51,6 @@ class ArticleForm extends React.Component {
             formData.append("article[city_id]", cityResponse.cityPayload.city.id);
 
             this.state.images.forEach(image => {
-              //image_url
-              // let imageInfo = image.imageFile || image;
               formData.append("article[images_attributes[][image]]", image.image_url);
             });
 
@@ -106,7 +84,7 @@ class ArticleForm extends React.Component {
 
       Array.from(inputFiles).forEach(file => {
         currentImages.push({imageFile: file, image_url: fileReader.result});
-        //changed imageUrl to image_url
+        //changed imageUrl to image_url so all images hold this property
       });
       this.setState({ images: currentImages });
     }.bind(this);
@@ -234,19 +212,3 @@ class ArticleForm extends React.Component {
 }
 
 export default ArticleForm;
-
-//in both cases, check if country exists. If not, create it
-//in both cases, check if city exists. If not, create it
-//in both cases, submit the full article slice of baby s state
-// JUST FOR EDIT: create a new ArticleEdit
-
-//formType for "edit a place" or "add a place"
-//need to pass down the author id in mapStateToProps
-//make GoogleMaps stuff its own separate component
-//pass down buttonText in mapStateToProps
-
-//find a way to deal with form errors once they've been rendered
-//whem using google maps, I'll need to do the following:
-  // -grab lat and lng
-  // -grab city and use near matching to either assign to existing id or create new entry
-  // -grab country and do the same thing as above

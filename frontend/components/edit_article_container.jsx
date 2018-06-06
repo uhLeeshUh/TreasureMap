@@ -89,10 +89,3 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(EditArticleForm));
-
-//submission needs to both edit the article and create an entry in
-//ArticleEdits table
-
-//deal with new country and city creation
-//deal with adding an article edit and updating the slices of state
-//deal with updating the image slice of state and image_ids array for article, need to send up the images in the json view for article
