@@ -42,13 +42,8 @@ class Article < ApplicationRecord
   end
 
   def images_attributes=(images_data)
-    debugger
     self.images.destroy_all
-    debugger
     super(images_data)
   end
-  # def self.select_random_article
-  #   article = Article.all.sample
-  # end
 
 end

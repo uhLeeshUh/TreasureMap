@@ -34,7 +34,6 @@ class Article extends React.Component {
     }
 
     const images = this.props.images.map(image => {
-      debugger
       return (<img className="article-image" key={image.id} src={image.image_url}></img>);
     });
 
