@@ -10,7 +10,9 @@ const FeaturedArticleThumb = (props) => {
         <section className={props.className}>
           <img className="other-feature-image" key={props.image.id} src={props.image.image_url}></img>
           <div className="feature-thumb-holder">
-            <h3 className="feature-city">{props.city.name}</h3>
+            <div className="feature-city-holder">
+              <h3 className="feature-city">{props.city.name}</h3>
+            </div>
             <h1 className="feature-article-name">{props.article.name}</h1>
             <p className="feature-article-desc">{props.article.description}</p>
             <p className="feature-author-name">Contributed by: {props.author.username}</p>
