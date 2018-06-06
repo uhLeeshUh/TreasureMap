@@ -31,7 +31,6 @@ class ArticleForm extends React.Component {
   }
 
   componentDidMount(){
-    debugger
     window.scrollTo(0,0);
     //fetch the images in an edit form
 
@@ -40,7 +39,6 @@ class ArticleForm extends React.Component {
   componentDidUpdate(prevProps, prevState){
     //TODO: update this with city and country info, if needed with GM
     // will need to add images here too! Completely reset this.state
-    // debugger
     // if (this.props.article.name !== prevProps.article.name) {
     //   this.setState({
     //     article: this.props.article,
@@ -55,7 +53,6 @@ class ArticleForm extends React.Component {
   }
 
   submit(e){
-    debugger
     let { article, country, city } = this.state;
     e.preventDefault();
     this.props.clearArticleErrors();
@@ -63,7 +60,6 @@ class ArticleForm extends React.Component {
       (countryResponse) => {
         this.props.createCity(countryResponse.countryPayload.country, city).then(
           (cityResponse) => {
-            // debugger
             let formData = new FormData();
             const articleStrongParams = ["name", "description", "long_description", "body", "lat", "lng"];
             // Object.keys(article).forEach(key => {
@@ -76,7 +72,6 @@ class ArticleForm extends React.Component {
             formData.append("article[city_id]", cityResponse.cityPayload.city.id);
 
             this.state.images.forEach(image => {
-              debugger
               //image_url
               // let imageInfo = image.imageFile || image;
               formData.append("article[images_attributes[][image]]", image.image_url);
@@ -154,7 +149,6 @@ class ArticleForm extends React.Component {
 
 
   render(){
-    debugger
     let articleErrors;
     if (this.props.errors.length > 0) {
       articleErrors = this.props.errors.map((error, idx) => {
@@ -168,7 +162,6 @@ class ArticleForm extends React.Component {
         return <PreviewImage key={idx} idx={idx} imageUrl={image.image_url} removePreview={this.removePreview}/>;
       });
     }
-    debugger
 
     const placeCoords = { lat: this.props.article.lat, lng: this.props.article.lng };
     return (

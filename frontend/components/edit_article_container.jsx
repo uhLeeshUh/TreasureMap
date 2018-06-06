@@ -7,30 +7,14 @@ import { createCity } from '../actions/city_actions';
 import { withRouter } from 'react-router-dom';
 
 class EditArticleForm extends React.Component {
-  componentDidMount(){
-    // debugger
-    // this.props.fetchArticle(this.props.match.params.articleId);
-  }
-
-  // componentDidUpdate(prevProps, prevState){
-    // if (this.props.match.params.articleId !== prevProps.match.params.articleId) {
-    //   this.props.fetchArticle(this.props.match.params.articleId);
-    // }
-  // }
 
   shouldComponentUpdate(nextProps, nextState){
-    debugger
     if (this.props.article.id == nextProps.article.id) {
       return false;
     }
   }
 
   render(){
-    debugger
-
-    // if (!this.props.articleLoaded){
-    //   return <div></div>;
-    // }
 
     const { article, formType, editorId, buttonText, action, errors, clearArticleErrors, history, lastUpdatedArticleId, fetchArticle, createCountry, createCity, city, country, images} = this.props;
     return (
@@ -75,19 +59,8 @@ const mapStateToProps = (state, ownProps) => {
 
   const article = state.entities.articles[ownProps.match.params.articleId] || defaultArticle;
 
-  // let articleLoaded = true;
-  // debugger
-  // if (article === defaultArticle){
-  //   articleLoaded = false;
-  //   return {
-  //     articleLoaded
-  //   };
-  // }
-
-
   const city = state.entities.cities[article.city_id] || {name: ""};
   const country = state.entities.countries[city.country_id] || {name: ""};
-  debugger
   const images = article.image_ids.map(image_id => {
     return (state.entities.images[image_id]);
   })
