@@ -8,18 +8,41 @@ class SearchBar extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      query: ""
+      query: "",
+      searchIndexItems: "",
     };
     this.handleChange = this.handleChange.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
 
   handleChange(e){
+    this.setState({ query: e.target.value });
     if (this.timeOut){
       clearTimeout(this.timeOut);
     }
-    this.timeOut = setTimeout(() => this.props.fetchSearchItems(this.state.query), 500);
-    this.setState({ query: e.target.value});
+    this.timeOut = setTimeout(
+      () => {
+        if (this.state.query === ""){
+          this.setState({ searchIndexItems: ""});
+        } else {
+            this.props.fetchSearchItems(this.state.query)
+            .then((action) => {
+              this.setSearchResults(action);
+            });
+          }
+        }, 500);
+  }
+
+  setSearchResults(action){
+    if ((Object.values(action.searchItemsPayload).every(el => {
+      return ((el instanceof Array) && (el.length === 0));
+    }))) {
+      this.setState({
+        searchIndexItems:
+        <li className="search-index-item">Sorry, but nothing matches your search. <Link className="default-search-link" onClick={this.closeModal} to="/articles/new">Try adding it yourself!</Link></li>});
+    } else {
+      this.createSearchItems(action.searchItemsPayload);
+    }
   }
 
   closeModal(e){
@@ -36,22 +59,17 @@ class SearchBar extends React.Component{
         searchItems.push(<SearchIndexItem key={num} type={type} content={item.content} id={item.searchable_id} updateSearchStatus={this.props.updateSearchStatus}/>);
       });
     });
-    return searchItems;
+    this.setState({searchIndexItems: searchItems});
   }
 
   render(){
-    let searchIndexItems = <li className="search-index-item">Sorry, but nothing matches your search. <Link className="default-search-link" onClick={this.closeModal} to="/articles/new">Try adding it yourself!</Link></li>;
-
-    if ( this.props.itemsObject.articles.length > 0 || this.props.itemsObject.cities.length > 0 || this.props.itemsObject.countries.length > 0 ){
-      searchIndexItems = this.createSearchItems(this.props.itemsObject);
-    }
 
     return (
       <div className="search-modal-background" onClick={this.closeModal}>
         <div className="search-modal-child" onClick={(e) => e.stopPropagation()}>
           <input placeholder="What are you looking for?" className="search-input" onChange={this.handleChange} value={this.state.query}/>
             <ul className="search-index-items-holder">
-              { searchIndexItems }
+              { this.state.searchIndexItems }
             </ul>
         </div>
       </div>
