@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 const FeaturedArticleThumb = (props) => {
 
   return (
-    <div className="feature-article-thumb">
+    <div className={`${props.className}-feature-article-thumb`}>
       <Link to={`/articles/${props.article.id}`}>
         <section className={props.className}>
           <img className="other-feature-image" key={props.image.id} src={props.image.image_url}></img>
