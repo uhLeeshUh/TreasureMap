@@ -12,7 +12,6 @@ class SessionForm extends React.Component {
 
     };
 
-    debugger
 
     this.submit = this.submit.bind(this);
     this.signinDemoUser = this.signinDemoUser.bind(this);
@@ -37,12 +36,7 @@ class SessionForm extends React.Component {
     formData.append("user[username]", this.state.username);
     formData.append("user[password]", this.state.password);
     formData.append("user[image]", this.state.imageFile);
-    // debugger
     this.props.action(formData);
-    // .then(() => {
-    //   // debugger
-    //   // this.props.history.goBack();
-    // });
   }
 
   signinDemoUser(){
