@@ -13,7 +13,8 @@
     "react-router-dom": "^4.2.2",
     "redux": "^4.0.0",
     "redux-thunk": "^2.2.0",
-    "webpack": "^3.11.0"
+    "webpack": "^3.11.0",
+    "redux-logger": "^3.0.6"
   },
   "description": "An article platform to discover the world's oddest places",
   "version": "1.0.0",
@@ -22,9 +23,7 @@
     "doc": "docs",
     "test": "test"
   },
-  "devDependencies": {
-    "redux-logger": "^3.0.6",
-  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "webpack",
