@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 
 
-const Auth = ({ component: Component, path, loggedIn, exact} ) => {
+const Auth = ({ component: Component, path, loggedIn, exact, history, location } ) => {
   return (
   <Route path={path} exact={exact} render={
       (props) => {
@@ -11,8 +11,8 @@ const Auth = ({ component: Component, path, loggedIn, exact} ) => {
         return <Component {...props} />
       } else {
         return <Redirect to="/" />
+        }
       }
-    }
   }/>
   );
 };
