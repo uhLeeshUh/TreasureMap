@@ -45,12 +45,7 @@ class Api::ArticlesController < ApplicationController
 
     render 'api/articles/index'
   end
-  # def random_article
-  #   @article = Article.select_random_article
-  #
-  #   render :show
-  # end
-
+  
   private
 
   def article_params
