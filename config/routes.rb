@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       collection do
         get 'random_articles'
       end
-      resources :images, only: [:create]
+      # resources :images, only: [:create]
     end
 
     resources :countries, only: [:create, :show, :index] do
