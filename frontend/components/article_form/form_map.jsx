@@ -36,28 +36,6 @@
       }
     }
 
-    componentDidUpdate(prevProps){
-      //
-      // if (this.props.formType === 'Edit this Place'){
-      //   this.setState({
-      //     mapDisplayClass: 'map-shown',
-      //   }, () => this.createFormMap()
-      // );
-      // }
-      // if ((prevProps.placeCoords.lat !== this.props.placeCoords.lat) &&
-      //     (prevProps.placeCoords.lng !== this.props.placeCoords.lng)){
-      //       let lat = this.props.placeCoords.lat;
-      //       let lng = this.props.placeCoords.lng;
-        //   this.setState({
-        //     mapDisplayClass: 'map-shown',
-        //     lat: this.props.placeCoords.lat,
-        //     lng: this.props.placeCoords.lng,
-        //   }, () =>
-        //   this.createFormMap()
-        // );
-      // }
-    }
-
     createAutoComplete(){
       const autocomplete = new google.maps.places.Autocomplete(
         this.input.current,
