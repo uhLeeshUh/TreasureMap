@@ -12,11 +12,15 @@ import CityDetailContainer from './city_show/city_detail';
 import CountryDetailContainer from './country_show/country_detail';
 import FeaturedArticleContainer from './featured_article';
 
+//Test
+import SampleForm from './test/sample_form';
+
 const App = () => {
 
   return (
     <div className="root-container">
       <Route path="/" component={NavBar} />
+      <Route path="/sample" component={SampleForm} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <AuthRoute exact path="/signin" component={LoginFormContainer} />
       <Route exact path="/" component={FeaturedArticleContainer}/>

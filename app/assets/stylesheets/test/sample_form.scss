@@ -1,0 +1,30 @@
+.sample-form-holder{
+  // width: 100%;
+  // display: block;
+}
+
+.sample-form{
+  background-color: blue;
+  border-radius: 30px;
+  margin: 3% auto;
+  width: 20%;
+  // text-align: center;
+}
+
+#test-form-title{
+  text-align: center;
+}
+
+.test-form-label{
+  font-size: 20px;
+  font-family: fantasy;
+}
+
+.state-name{
+  font-size: 15px;
+}
+
+.counter-section{
+  display: flex;
+  justify-content: space-between;
+}
