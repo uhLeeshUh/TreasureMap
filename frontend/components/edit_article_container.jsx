@@ -44,20 +44,20 @@ class EditArticleForm extends React.Component {
 
 
 const mapStateToProps = (state, ownProps) => {
-  const defaultArticle = {
-    id: null,
-    name: "",
-    description: "",
-    long_description: "",
-    body: "",
-    lat: 0,
-    lng: 0,
-    author_id: 0,
-    city_id: 0,
-    image_ids: [],
-  };
+  // const defaultArticle = {
+  //   id: null,
+  //   name: "",
+  //   description: "",
+  //   long_description: "",
+  //   body: "",
+  //   lat: 0,
+  //   lng: 0,
+  //   author_id: 0,
+  //   city_id: 0,
+  //   image_ids: [],
+  // };
 
-  const article = state.entities.articles[ownProps.match.params.articleId] || defaultArticle;
+  const article = state.entities.articles[ownProps.match.params.articleId];
 
   const city = state.entities.cities[article.city_id] || {name: ""};
   const country = state.entities.countries[city.country_id] || {name: ""};
