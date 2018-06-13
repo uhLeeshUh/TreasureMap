@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       resources :cities, only: [:create]
     end
 
-    resources :cities, only: [:show] do
+    resources :cities, only: [:show, :index] do
       collection do
         get 'top_cities'
       end
