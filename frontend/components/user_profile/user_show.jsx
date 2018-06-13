@@ -1,11 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import ArticleIndex from '../articles/article_index';
 
 const UserShow = props => {
   return (
     <main>
       <section>
-        <img> </img>
-        <h3>username goes here</h3>
+        <img></img>
+        <h3>{props.user.username}</h3>
       </section>
       <section>
         <h3>user stats</h3>
@@ -16,16 +18,27 @@ const UserShow = props => {
       </section>
       <section>
         <h3>Articles written</h3>
-        <ul>
-          <li>Title of each article...</li>
-          <li>Title of each article...</li>
-          <li>Title of each article...</li>
-        </ul>
+        <ArticleIndex articles={props.articles} />
       </section>
     </main>
   );
 };
 
-// ImageIndex:
-// render() { return <ul>{images}</ul>}
-export default UserShow;
+
+
+const mapStateToProps = (state) => {
+  const user = state.entities.users[state.session.id];
+  //articles
+
+  return {
+    user,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserShow);
