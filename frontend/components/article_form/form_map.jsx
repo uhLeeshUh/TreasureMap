@@ -6,17 +6,12 @@
       super(props);
       this.input = React.createRef();
       this.formMap = React.createRef();
-      // this.place = null;
       if (this.props.formType === "Add a Place"){
         this.placeholderText = "E.g. 304 Deerfield Way, Normal, Illinois";
       } else {
         this.placeholderText = "Type to edit your place's address";
       }
-      // if (this.state.lat === 0 && this.lng === 0){
-      //   this.placeAddress = "";
-      // } else {
-      //   //write logic for geocode AJAX request
-      // }
+
 
       this.state = {
         mapDisplayClass: "map-hidden",
@@ -58,8 +53,6 @@
           lat: this.place.geometry.location.lat(),
           lng: this.place.geometry.location.lng(),
         });
-        // this.state.lat = this.place.geometry.location.lat();
-        // this.lng = this.place.geometry.location.lng();
 
         this.createFormMap();
 
@@ -88,14 +81,6 @@
     }
 
     render(){
-      // if (this.props.formType === 'Edit this Place'){
-      //   this.setState({
-      //     mapDisplayClass: 'map-shown',
-      //     lat: this.props.placeCoords.lat,
-      //     lng: this.props.placeCoords.lng,
-      //   });
-      //   this.createFormMap();
-      // }
 
       return (
         <section>
