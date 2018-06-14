@@ -93,25 +93,23 @@ class CityDetail extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   const cityId = ownProps.match.params.cityId;
+  const city = state.entities.cities[cityId];
   let cityLoaded = true;
-  if (
-    !state.entities.cities[cityId] ||
-    !state.entities.cities[cityId].article_ids
-  ) {
+  // check to see if full city info exists in Redux store, not just partial
+  // from map dropdown, before rendering this component
+  if (!city || !city.article_ids) {
     return {
       cityLoaded: false
     };
   }
 
-  const city = state.entities.cities[cityId];
   const country = state.entities.countries[city.country_id];
-
   let articles = [];
   let images = {};
-  city.article_ids.forEach(article_id => {
-    articles.push(state.entities.articles[article_id]);
-    let thumbImage =
-      state.entities.images[state.entities.articles[article_id].image_ids[0]];
+  city.article_ids.forEach(articleId => {
+    let article = state.entities.articles[articleId];
+    articles.push(article);
+    let thumbImage = state.entities.images[article.image_ids[0]];
     images[thumbImage.id] = thumbImage;
   });
 
@@ -134,7 +132,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(CityDetail);
-
-//send down country (id, name)
-//send down city name
-//send down article count
