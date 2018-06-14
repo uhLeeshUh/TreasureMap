@@ -13,8 +13,6 @@ const mapStateToProps = (state, ownProps) => {
     body: "",
     lat: 0,
     lng: 0
-    // author_id: 0,
-    // city_id: 0,
   };
 
   const country = { name: "" };

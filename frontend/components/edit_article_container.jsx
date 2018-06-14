@@ -12,9 +12,11 @@ import { withRouter } from "react-router-dom";
 
 class EditArticleForm extends React.Component {
   shouldComponentUpdate(nextProps, nextState) {
-    if (this.props.article.id == nextProps.article.id) {
+    if (this.props.article.id === nextProps.article.id) {
       return false;
     }
+    //if the city or country is created that article is subscribed to,
+    //there is no needed to re-render the component
   }
 
   render() {
@@ -58,25 +60,12 @@ class EditArticleForm extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  // const defaultArticle = {
-  //   id: null,
-  //   name: "",
-  //   description: "",
-  //   long_description: "",
-  //   body: "",
-  //   lat: 0,
-  //   lng: 0,
-  //   author_id: 0,
-  //   city_id: 0,
-  //   image_ids: [],
-  // };
-
   const article = state.entities.articles[ownProps.match.params.articleId];
 
   const city = state.entities.cities[article.city_id] || { name: "" };
   const country = state.entities.countries[city.country_id] || { name: "" };
-  const images = article.image_ids.map(image_id => {
-    return state.entities.images[image_id];
+  const images = article.image_ids.map(imageId => {
+    return state.entities.images[imageId];
   });
 
   return {

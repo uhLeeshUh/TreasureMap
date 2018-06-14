@@ -61,9 +61,9 @@ class Article extends React.Component {
       });
     }
 
-    const body = this.props.article.body.split("\n").map((par, idx) => {
+    const body = this.props.article.body.split("\n").map(par => {
       return (
-        <p key={idx} className="article-body">
+        <p key={shortid.generate()} className="article-body">
           {par}
         </p>
       );

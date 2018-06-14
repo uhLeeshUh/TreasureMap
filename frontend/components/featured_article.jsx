@@ -19,16 +19,6 @@ class FeaturedArticle extends React.Component {
       return <div />;
     }
 
-    // <Link className="feature-article-link" to={`/articles/${this.props.article.id}`}>
-    //   <section className="feature-article-content">
-    //     <img key={this.props.image.id}className='feature-article-image' src={this.props.image.image_url}></img>
-    //     <h3 className="feature-article-city">{this.props.city.name}</h3>
-    //     <h1 className="feature-article-title">{this.props.article.name}</h1>
-    //     <p className="feature-article-description">{this.props.article.description}</p>
-    //   </section>
-    // </Link>
-
-    // articleId={this.props.articles[0]}
     return (
       <main className="feature-article-holder">
         <div className="feature-article-headline-holder">
