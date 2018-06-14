@@ -1,4 +1,4 @@
-import { RECEIVE_COUNTRY } from '../../actions/country_actions';
+import { RECEIVE_COUNTRY } from "../../actions/country_actions";
 
 const currentCountryDetailReducer = (state = [], action) => {
   Object.freeze(state);

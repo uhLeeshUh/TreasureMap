@@ -1,22 +1,22 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import FeaturedArticleThumb from './homepage/featured_article_thumb';
-import { fetchArticle, fetchRandomArticles } from '../actions/article_actions';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { connect } from "react-redux";
+import FeaturedArticleThumb from "./homepage/featured_article_thumb";
+import { fetchArticle, fetchRandomArticles } from "../actions/article_actions";
+import { Link } from "react-router-dom";
 
 class FeaturedArticle extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.props.fetchRandomArticles();
     // this.props.fetchRandomArticle();
   }
 
-  render(){
-    if (!this.props.articlesInState){
-      return <div></div>;
+  render() {
+    if (!this.props.articlesInState) {
+      return <div />;
     }
 
     // <Link className="feature-article-link" to={`/articles/${this.props.article.id}`}>
@@ -34,46 +34,71 @@ class FeaturedArticle extends React.Component {
         <div className="feature-article-headline-holder">
           <h1 className="feature-article-header">Today's Featured Finds</h1>
         </div>
-        <FeaturedArticleThumb className="main-feature" key={this.props.articles[0].id} article={this.props.articles[0]} />
+        <FeaturedArticleThumb
+          className="main-feature"
+          key={this.props.articles[0].id}
+          article={this.props.articles[0]}
+        />
         <section className="feature-bottom-row">
-          <FeaturedArticleThumb className="bottom-thumb" key={this.props.articles[1].id} article={this.props.articles[1]} />
-          <FeaturedArticleThumb className="bottom-thumb" key={this.props.articles[2].id} article={this.props.articles[2]} />
+          <FeaturedArticleThumb
+            className="bottom-thumb"
+            key={this.props.articles[1].id}
+            article={this.props.articles[1]}
+          />
+          <FeaturedArticleThumb
+            className="bottom-thumb"
+            key={this.props.articles[2].id}
+            article={this.props.articles[2]}
+          />
           <div className="side-title-holder">
-            <FeaturedArticleThumb className="side-title" key={this.props.articles[3].id} article={this.props.articles[3]} />
-            <FeaturedArticleThumb className="side-title" key={this.props.articles[4].id} article={this.props.articles[4]} />
-            <FeaturedArticleThumb className="side-title" key={this.props.articles[5].id} article={this.props.articles[5]} />
-            <FeaturedArticleThumb className="side-title" key={this.props.articles[6].id} article={this.props.articles[6]} />
+            <FeaturedArticleThumb
+              className="side-title"
+              key={this.props.articles[3].id}
+              article={this.props.articles[3]}
+            />
+            <FeaturedArticleThumb
+              className="side-title"
+              key={this.props.articles[4].id}
+              article={this.props.articles[4]}
+            />
+            <FeaturedArticleThumb
+              className="side-title"
+              key={this.props.articles[5].id}
+              article={this.props.articles[5]}
+            />
+            <FeaturedArticleThumb
+              className="side-title"
+              key={this.props.articles[6].id}
+              article={this.props.articles[6]}
+            />
           </div>
         </section>
-
-        
       </main>
     );
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   let articles;
   // let article;
   // let city;
   // let image;
   let articlesInState = true;
 
-  if (state.ui.featuredArticleIds.length === 0){
-  // if (state.ui.randomArticleId.length === 0){
-    return{
+  if (state.ui.featuredArticleIds.length === 0) {
+    // if (state.ui.randomArticleId.length === 0){
+    return {
       articlesInState: false
     };
   }
 
   articles = state.ui.featuredArticleIds.map(articleId => {
-    return state.entities.articles[articleId]
+    return state.entities.articles[articleId];
   });
   // state.entities.articles[state.ui.randomArticleId];
   // article = state.entities.articles[state.ui.randomArticleId];
   // city = state.entities.cities[article.city_id];
   // image = state.entities.images[article.image_ids[0]];
-
 
   // city,
   // image,
@@ -81,16 +106,18 @@ const mapStateToProps = (state) => {
     articles,
     articlesInState
   };
-
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   // fetchRandomArticle: () => dispatch(fetchRandomArticle())
   return {
-    fetchArticle: (id) => dispatch(fetchArticle(id)),
+    fetchArticle: id => dispatch(fetchArticle(id)),
     fetchRandomArticles: () => dispatch(fetchRandomArticles())
   };
 };
 
 // export default FeaturedArticle;
-export default connect(mapStateToProps, mapDispatchToProps)(FeaturedArticle);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(FeaturedArticle);

@@ -1,7 +1,14 @@
-import { RECEIVE_CITIES, RECEIVE_CITY, RECEIVE_TOP_CITIES } from '../../actions/city_actions';
-import { RECEIVE_ARTICLE, RECEIVE_RANDOM_ARTICLES } from '../../actions/article_actions';
-import { RECEIVE_COUNTRY } from '../../actions/country_actions';
-import { merge } from 'lodash';
+import {
+  RECEIVE_CITIES,
+  RECEIVE_CITY,
+  RECEIVE_TOP_CITIES
+} from "../../actions/city_actions";
+import {
+  RECEIVE_ARTICLE,
+  RECEIVE_RANDOM_ARTICLES
+} from "../../actions/article_actions";
+import { RECEIVE_COUNTRY } from "../../actions/country_actions";
+import { merge } from "lodash";
 
 const citiesReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -12,11 +19,15 @@ const citiesReducer = (state = {}, action) => {
       return newState;
 
     case RECEIVE_CITY:
-      newState = merge({}, state, {[action.cityPayload.city.id]: action.cityPayload.city});
+      newState = merge({}, state, {
+        [action.cityPayload.city.id]: action.cityPayload.city
+      });
       return newState;
 
     case RECEIVE_ARTICLE:
-      newState = merge({}, state, {[action.articlePayload.city.id]: action.articlePayload.city});
+      newState = merge({}, state, {
+        [action.articlePayload.city.id]: action.articlePayload.city
+      });
       return newState;
 
     case RECEIVE_RANDOM_ARTICLES:

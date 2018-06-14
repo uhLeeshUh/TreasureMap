@@ -1,4 +1,4 @@
-import { RECEIVE_TOP_COUNTRIES } from '../../actions/country_actions';
+import { RECEIVE_TOP_COUNTRIES } from "../../actions/country_actions";
 // import { merge } from 'lodash';
 
 const topCountryReducer = (state = [], action) => {

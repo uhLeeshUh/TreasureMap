@@ -1,26 +1,31 @@
-import React from 'react';
-import GoogleMaps from '../google_maps';
-import { connect } from 'react-redux';
+import React from "react";
+import GoogleMaps from "../google_maps";
+import { connect } from "react-redux";
 
-const GoogleMapsArticleForm = (props) => {
+const GoogleMapsArticleForm = props => {
   return (
-    <GoogleMaps sendUpLocation={props.sendUpLocation} cities={props.cities} countries={props.countries}/>
+    <GoogleMaps
+      sendUpLocation={props.sendUpLocation}
+      cities={props.cities}
+      countries={props.countries}
+    />
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
-    cities:
-      [{id: 1, name: 'Bruceville, IN', country_id: 1},
-      {id: 2, name: 'Hugo, OK', country_id: 1},
-      {id: 3, name: 'Paris, TX', country_id: 1},
-      {id: 4, name: 'New York, NY', country_id: 1},
-      {id: 5, name: 'Kutna Hora', country_id: 2}],
+    cities: [
+      { id: 1, name: "Bruceville, IN", country_id: 1 },
+      { id: 2, name: "Hugo, OK", country_id: 1 },
+      { id: 3, name: "Paris, TX", country_id: 1 },
+      { id: 4, name: "New York, NY", country_id: 1 },
+      { id: 5, name: "Kutna Hora", country_id: 2 }
+    ],
     countries: {
-      1: {id: 1, name: "United States of America"},
-      2: {id: 2, name: "Czech Republic"},
+      1: { id: 1, name: "United States of America" },
+      2: { id: 2, name: "Czech Republic" }
     }
-};
+  };
   // cities: state.entities.cities,
   // countries: state.entities.countries
 };

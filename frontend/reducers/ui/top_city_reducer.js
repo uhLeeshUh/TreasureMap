@@ -1,5 +1,5 @@
-import { RECEIVE_TOP_CITIES } from '../../actions/city_actions';
-import { merge } from 'lodash';
+import { RECEIVE_TOP_CITIES } from "../../actions/city_actions";
+import { merge } from "lodash";
 
 const topCityReducer = (state = [], action) => {
   Object.freeze(state);

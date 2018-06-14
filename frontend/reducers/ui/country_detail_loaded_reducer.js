@@ -1,4 +1,7 @@
-import { RECEIVE_COUNTRY, CHANGE_COUNTRY_DETAIL_LOADED } from '../../actions/country_actions';
+import {
+  RECEIVE_COUNTRY,
+  CHANGE_COUNTRY_DETAIL_LOADED
+} from "../../actions/country_actions";
 
 const countryDetailLoadedReducer = (state = false, action) => {
   Object.freeze(state);

@@ -1,17 +1,17 @@
-export const signup = (user) => {
+export const signup = user => {
   return $.ajax({
-    method: 'post',
-    url: 'api/users',
+    method: "post",
+    url: "api/users",
     contentType: false,
     processData: false,
     data: user
   });
 };
 
-export const login = (user) => {
+export const login = user => {
   return $.ajax({
-    method: 'post',
-    url: 'api/session',
+    method: "post",
+    url: "api/session",
     contentType: false,
     processData: false,
     data: user
@@ -20,7 +20,7 @@ export const login = (user) => {
 
 export const logout = () => {
   return $.ajax({
-    method: 'delete',
-    url: 'api/session'
+    method: "delete",
+    url: "api/session"
   });
 };

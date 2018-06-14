@@ -1,9 +1,9 @@
-import { connect } from 'react-redux';
-import { login, clearErrors } from '../actions/session_actions';
-import SessionForm from './session_form';
-import { withRouter } from 'react-router-dom';
+import { connect } from "react-redux";
+import { login, clearErrors } from "../actions/session_actions";
+import SessionForm from "./session_form";
+import { withRouter } from "react-router-dom";
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     headerText: "Sign In to Treasure Map",
     alternateText: "NOT A MEMBER?",
@@ -14,12 +14,17 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    action: (user) => dispatch(login(user)),
-    login: (user) => dispatch(login(user)),
+    action: user => dispatch(login(user)),
+    login: user => dispatch(login(user)),
     clearErrors: () => dispatch(clearErrors())
   };
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SessionForm));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(SessionForm)
+);

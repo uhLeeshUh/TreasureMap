@@ -1,7 +1,12 @@
-import { RECEIVE_ARTICLES, RECEIVE_ARTICLE, REMOVE_ARTICLE, RECEIVE_RANDOM_ARTICLES } from '../actions/article_actions';
-import { RECEIVE_CITY } from '../actions/city_actions';
-import { RECEIVE_COUNTRY } from '../actions/country_actions';
-import { merge } from 'lodash';
+import {
+  RECEIVE_ARTICLES,
+  RECEIVE_ARTICLE,
+  REMOVE_ARTICLE,
+  RECEIVE_RANDOM_ARTICLES
+} from "../actions/article_actions";
+import { RECEIVE_CITY } from "../actions/city_actions";
+import { RECEIVE_COUNTRY } from "../actions/country_actions";
+import { merge } from "lodash";
 
 const articlesReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -10,7 +15,8 @@ const articlesReducer = (state = {}, action) => {
       let newState = merge({}, state, {
         [action.articlePayload.article.id]: action.articlePayload.article
       });
-      newState[action.articlePayload.article.id]["image_ids"] = action.articlePayload.article.image_ids;
+      newState[action.articlePayload.article.id]["image_ids"] =
+        action.articlePayload.article.image_ids;
       return newState;
 
     case RECEIVE_RANDOM_ARTICLES:
@@ -36,10 +42,6 @@ const articlesReducer = (state = {}, action) => {
 };
 
 export default articlesReducer;
-
-
-
-
 
 //shouldn't need this because there is no articles#index action, city will pull up articles always
 // case RECEIVE_ARTICLES:

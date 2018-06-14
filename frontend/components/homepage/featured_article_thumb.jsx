@@ -1,26 +1,37 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+import React from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-const FeaturedArticleThumb = (props) => {
-
+const FeaturedArticleThumb = props => {
   return (
     <div className={`${props.className}-feature-article-thumb`}>
       <Link to={`/articles/${props.article.id}`}>
         <section className={props.className}>
-          <img className="other-feature-image" key={props.image.id} src={props.image.image_url}></img>
+          <img
+            className="other-feature-image"
+            key={props.image.id}
+            src={props.image.image_url}
+          />
           <section className="feature-background-image">
             <div className="feature-thumb-holder">
               <div className="feature-city-holder">
                 <h3 className="feature-city">{props.city.name}</h3>
               </div>
               <h1 className="feature-article-name">{props.article.name}</h1>
-              <p className="feature-article-desc">{props.article.description}</p>
-              <p className="feature-author-name">Contributed by: {props.author.username}</p>
+              <p className="feature-article-desc">
+                {props.article.description}
+              </p>
+              <p className="feature-author-name">
+                Contributed by: {props.author.username}
+              </p>
             </div>
           </section>
           <div className="feature-image-holder">
-            <img className="feature-image" key={props.image.id} src={props.image.image_url}></img>
+            <img
+              className="feature-image"
+              key={props.image.id}
+              src={props.image.image_url}
+            />
           </div>
         </section>
       </Link>
@@ -37,7 +48,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     image,
     city,
-    author,
+    author
   };
 };
 

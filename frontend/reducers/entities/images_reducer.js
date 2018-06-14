@@ -1,10 +1,13 @@
-import { RECEIVE_IMAGE, RECEIVE_IMAGES } from '../../actions/image_actions';
-import { RECEIVE_ARTICLE, RECEIVE_RANDOM_ARTICLES } from '../../actions/article_actions';
-import { RECEIVE_CITY } from '../../actions/city_actions';
-import { RECEIVE_COUNTRY } from '../../actions/country_actions';
-import { merge } from 'lodash';
+import { RECEIVE_IMAGE, RECEIVE_IMAGES } from "../../actions/image_actions";
+import {
+  RECEIVE_ARTICLE,
+  RECEIVE_RANDOM_ARTICLES
+} from "../../actions/article_actions";
+import { RECEIVE_CITY } from "../../actions/city_actions";
+import { RECEIVE_COUNTRY } from "../../actions/country_actions";
+import { merge } from "lodash";
 
-const imagesReducer = (state = {} , action) => {
+const imagesReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_IMAGES:
@@ -16,7 +19,7 @@ const imagesReducer = (state = {} , action) => {
       return newState;
 
     case RECEIVE_IMAGE:
-      newState = merge({}, state, {[action.image.id]: action.image});
+      newState = merge({}, state, { [action.image.id]: action.image });
       return newState;
 
     case RECEIVE_ARTICLE:

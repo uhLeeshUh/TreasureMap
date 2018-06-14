@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
-const PreviewImage = (props) => {
+const PreviewImage = props => {
   return (
     <button onClick={props.removePreview(props.idx)}>
-      <img className="preview-image" src={props.imageUrl}></img>
+      <img className="preview-image" src={props.imageUrl} />
     </button>
   );
 };

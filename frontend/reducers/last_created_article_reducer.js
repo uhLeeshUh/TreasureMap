@@ -1,4 +1,4 @@
-import { RECEIVE_ARTICLE } from '../actions/article_actions';
+import { RECEIVE_ARTICLE } from "../actions/article_actions";
 
 const lastCreatedArticleReducer = (state = [], action) => {
   Object.freeze(state);

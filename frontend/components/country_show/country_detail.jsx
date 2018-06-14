@@ -1,79 +1,96 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import ArticleThumb from '../article_thumb';
-import Map from '../map';
-import { connect } from 'react-redux';
-import { fetchCountry, changeCountryDetailLoaded } from '../../actions/country_actions';
+import React from "react";
+import { Link } from "react-router-dom";
+import ArticleThumb from "../article_thumb";
+import Map from "../map";
+import { connect } from "react-redux";
+import {
+  fetchCountry,
+  changeCountryDetailLoaded
+} from "../../actions/country_actions";
 
 class CountryDetail extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.props.fetchCountry(this.props.match.params.countryId);
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
   }
 
-  componentDidUpdate(prevProps, prevState){
-    if (this.props.match.params.countryId !== prevProps.match.params.countryId) {
+  componentDidUpdate(prevProps, prevState) {
+    if (
+      this.props.match.params.countryId !== prevProps.match.params.countryId
+    ) {
       this.props.fetchCountry(this.props.match.params.countryId);
     }
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     this.props.changeCountryDetailLoaded(false);
   }
 
-  render(){
-    if ((!this.props.countryDetailLoaded) || (this.props.newCountryNotFetched)){
-      return <div></div>;
+  render() {
+    if (!this.props.countryDetailLoaded || this.props.newCountryNotFetched) {
+      return <div />;
     }
 
     const that = this;
 
     const articleCount = this.props.articles.length;
     let thing = "things";
-    if (articleCount === 1) {thing = "thing";}
+    if (articleCount === 1) {
+      thing = "thing";
+    }
 
     const articleThumbs = this.props.articles.map((article, idx) => {
       const city = that.props.cities[that.props.articles[idx].city_id];
-      return <ArticleThumb key={article.id} city={city} article={article} image={that.props.images[article.image_ids[0]]} count={idx + 1}/>;
+      return (
+        <ArticleThumb
+          key={article.id}
+          city={city}
+          article={article}
+          image={that.props.images[article.image_ids[0]]}
+          count={idx + 1}
+        />
+      );
     });
 
     return (
       <main>
         <div className="city-show-header">
-
           <div className="city-show-holder-wrapper">
             <section className="city-show-holder" />
 
             <div className="city-show-text">
               <h2 className="city-show-intro">The Treasure Map guide to</h2>
-              <h2 className="city-show-main-title">Hidden {this.props.country.name}</h2>
-              <p className="city-show-tag">Discover {articleCount} cool and unusual {thing} to do in {this.props.country.name}</p>
+              <h2 className="city-show-main-title">
+                Hidden {this.props.country.name}
+              </h2>
+              <p className="city-show-tag">
+                Discover {articleCount} cool and unusual {thing} to do in{" "}
+                {this.props.country.name}
+              </p>
             </div>
           </div>
-
         </div>
 
-        <section className="city-show-article-thumbs">
-          {articleThumbs}
-        </section>
+        <section className="city-show-article-thumbs">{articleThumbs}</section>
 
         <div className="city-show-footer">
           <div className="city-show-map-wrapper">
-            <section className="city-show-google-map"></section>
+            <section className="city-show-google-map" />
 
             <div className="city-show-map-text">
-              <h2 className="city-show-footer-holder">Explore {this.props.country.name}</h2>
+              <h2 className="city-show-footer-holder">
+                Explore {this.props.country.name}
+              </h2>
               <div className="city-show-google-maps-container">
-                <Map articles={this.props.articles} zoom="4"/>
+                <Map articles={this.props.articles} zoom="4" />
               </div>
             </div>
           </div>
         </div>
-
       </main>
     );
   }
@@ -81,7 +98,7 @@ class CountryDetail extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   const countryDetailLoaded = state.ui.countryDetailLoaded;
-  if (!countryDetailLoaded){
+  if (!countryDetailLoaded) {
     return {
       countryDetailLoaded
     };
@@ -89,7 +106,7 @@ const mapStateToProps = (state, ownProps) => {
   let currentCountryDetailId = state.ui.currentCountryDetailId[0];
   currentCountryDetailId = currentCountryDetailId.toString();
   let newCountryNotFetched = false;
-  if (currentCountryDetailId !== ownProps.match.params.countryId){
+  if (currentCountryDetailId !== ownProps.match.params.countryId) {
     return {
       newCountryNotFetched: true
     };
@@ -108,9 +125,9 @@ const mapStateToProps = (state, ownProps) => {
   // }
   let cities = {};
   // if (country.city_ids) {
-    country.city_ids.forEach(city_id => {
-      cities[city_id] = state.entities.cities[city_id];
-      // cities.push(state.entities.cities[city_id]);
+  country.city_ids.forEach(city_id => {
+    cities[city_id] = state.entities.cities[city_id];
+    // cities.push(state.entities.cities[city_id]);
     // });
   });
 
@@ -127,7 +144,8 @@ const mapStateToProps = (state, ownProps) => {
       articles.push(state.entities.articles[article_id]);
 
       // if (state.entities.articles[article_id] && state.entities.articles[article_id].image_ids.length > 0){
-      let thumbImage = state.entities.images[state.entities.articles[article_id].image_ids[0]];
+      let thumbImage =
+        state.entities.images[state.entities.articles[article_id].image_ids[0]];
       images[thumbImage.id] = thumbImage;
       // }
     });
@@ -143,15 +161,17 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    fetchCountry: (id) => dispatch(fetchCountry(id)),
-    changeCountryDetailLoaded: (bool) => dispatch(changeCountryDetailLoaded(bool))
+    fetchCountry: id => dispatch(fetchCountry(id)),
+    changeCountryDetailLoaded: bool => dispatch(changeCountryDetailLoaded(bool))
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CountryDetail);
-
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CountryDetail);
 
 //send down country (id, name)
 //send down city name

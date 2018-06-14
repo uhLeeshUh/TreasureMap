@@ -1,10 +1,9 @@
-import React from 'react';
-import ArticleThumb from '../article_thumb';
+import React from "react";
+import ArticleThumb from "../article_thumb";
 
-const ArticleIndex = (props) => {
-
+const ArticleIndex = props => {
   // const articleThumbs = props.articles.map(article => {
-  //
+  //  return <ArticleThumb article={article} />
   // });
 
   // {articleThumbs}

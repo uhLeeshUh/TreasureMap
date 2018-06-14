@@ -1,4 +1,4 @@
-import * as ArticleAPIUtil from '../util/article_api_util';
+import * as ArticleAPIUtil from "../util/article_api_util";
 
 export const RECEIVE_ARTICLES = "RECEIVE_ARTICLES";
 export const RECEIVE_ARTICLE = "RECEIVE_ARTICLE";
@@ -8,21 +8,21 @@ export const RECEIVE_ARTICLE_ERRORS = "RECEIVE_ARTICLE_ERRORS";
 export const CLEAR_ARTICLE_ERRORS = "CLEAR_ARTICLE_ERRORS";
 
 // synchronous action creators
-export const receiveArticles = (articlesPayload) => {
+export const receiveArticles = articlesPayload => {
   return {
     type: RECEIVE_ARTICLES,
     articlesPayload
   };
 };
 
-export const receiveArticle = (articlePayload) => {
+export const receiveArticle = articlePayload => {
   return {
     type: RECEIVE_ARTICLE,
     articlePayload
   };
 };
 
-export const receiveRandomArticles = (articlesPayload) => {
+export const receiveRandomArticles = articlesPayload => {
   return {
     type: RECEIVE_RANDOM_ARTICLES,
     articlesPayload
@@ -35,14 +35,14 @@ export const receiveRandomArticles = (articlesPayload) => {
 //   };
 // };
 
-export const removeArticle = (id) => {
+export const removeArticle = id => {
   return {
     type: REMOVE_ARTICLE,
     id
   };
 };
 
-export const receiveArticleErrors = (errors) => {
+export const receiveArticleErrors = errors => {
   return {
     type: RECEIVE_ARTICLE_ERRORS,
     errors
@@ -55,32 +55,39 @@ export const clearArticleErrors = () => {
   };
 };
 
-
 //asynchronous thunk action creators
 
-export const createArticle = (article) => {
-  return (dispatch) => {
+export const createArticle = article => {
+  return dispatch => {
     return ArticleAPIUtil.createArticle(article).then(
-      (article) => {dispatch(receiveArticle(article));},
-      (errors) => {dispatch(receiveArticleErrors(errors));}
+      article => {
+        dispatch(receiveArticle(article));
+      },
+      errors => {
+        dispatch(receiveArticleErrors(errors));
+      }
     );
   };
 };
 
-export const fetchArticle = (id) => {
-  return (dispatch) => {
+export const fetchArticle = id => {
+  return dispatch => {
     return ArticleAPIUtil.fetchArticle(id).then(
-      (articlePayload) => {dispatch(receiveArticle(articlePayload));},
-      (errors) => {dispatch(receiveArticleErrors(errors));}
+      articlePayload => {
+        dispatch(receiveArticle(articlePayload));
+      },
+      errors => {
+        dispatch(receiveArticleErrors(errors));
+      }
     );
   };
 };
 
 export const fetchRandomArticles = () => {
-  return (dispatch) => {
+  return dispatch => {
     return ArticleAPIUtil.fetchRandomArticles().then(
-      (articlePayload) => dispatch(receiveRandomArticles(articlePayload)),
-      (errors) => dispatch(receiveArticleErrors(errors))
+      articlePayload => dispatch(receiveRandomArticles(articlePayload)),
+      errors => dispatch(receiveArticleErrors(errors))
     );
   };
 };
@@ -93,29 +100,41 @@ export const fetchRandomArticles = () => {
 //   };
 // };
 
-export const fetchArticles = (cityId) => {
-  return (dispatch) => {
+export const fetchArticles = cityId => {
+  return dispatch => {
     return ArticleAPIUtil.fetchArticles(cityId).then(
-      (articlesPayload) => {dispatch(receiveArticle(articlesPayload));},
-      (errors) => {dispatch(receiveArticleErrors(errors));}
+      articlesPayload => {
+        dispatch(receiveArticle(articlesPayload));
+      },
+      errors => {
+        dispatch(receiveArticleErrors(errors));
+      }
     );
   };
 };
 
-export const editArticle = (article) => {
-  return (dispatch) => {
+export const editArticle = article => {
+  return dispatch => {
     return ArticleAPIUtil.editArticle(article).then(
-      (articlePayload) => {dispatch(receiveArticle(articlePayload));},
-      (errors) => {dispatch(receiveArticleErrors(errors));}
+      articlePayload => {
+        dispatch(receiveArticle(articlePayload));
+      },
+      errors => {
+        dispatch(receiveArticleErrors(errors));
+      }
     );
   };
 };
 
-export const deleteArticle = (id) => {
-  return (dispatch) => {
+export const deleteArticle = id => {
+  return dispatch => {
     return ArticleAPIUtil.deleteArticle(id).then(
-      () => {dispatch(removeArticle(id));},
-      (errors) => {dispatch(receiveArticleErrors(errors));}
+      () => {
+        dispatch(removeArticle(id));
+      },
+      errors => {
+        dispatch(receiveArticleErrors(errors));
+      }
     );
   };
 };

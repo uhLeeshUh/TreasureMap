@@ -1,15 +1,15 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-const ArticleThumb = (props) => {
-  if (!props.image){
-    return <div></div>;
+const ArticleThumb = props => {
+  if (!props.image) {
+    return <div />;
   }
   return (
     <div className="thumb-holder col-1-4">
       <Link to={`/articles/${props.article.id}`}>
         <section className="article-thumb">
-          <img className="article-thumb-image" src={props.image.image_url}></img>
+          <img className="article-thumb-image" src={props.image.image_url} />
           <div className="article-thumb-count">
             <p>{props.count}</p>
           </div>
@@ -19,19 +19,13 @@ const ArticleThumb = (props) => {
             <li className="thumb-article-desc">{props.article.description}</li>
           </ul>
         </section>
-        <div className="thumb-border"></div>
+        <div className="thumb-border" />
       </Link>
     </div>
   );
 };
 
 export default ArticleThumb;
-
-
-
-
-
-
 
 // const imageFill = {
 //   backgroundImage: `url(${props.image.image_url})`

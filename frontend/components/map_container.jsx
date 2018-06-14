@@ -1,8 +1,5 @@
-import React from 'react';
-
+import React from "react";
 
 export default () => {
-  return (
-    "Discover the world's most hidden places."
-  );
+  return "Discover the world's most hidden places.";
 };

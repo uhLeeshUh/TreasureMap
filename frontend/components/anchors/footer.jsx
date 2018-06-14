@@ -1,28 +1,25 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-const Footer = function(props){
+const Footer = function(props) {
   const restrictedPaths = ["/articles/new", "/signin", "/signup"];
 
   let footerButton = "";
-  if (!restrictedPaths.includes(props.location.pathname)){
-    footerButton =
-    <section className="footer-bottom">
-      <div className="footer-outline"></div>
-      <div className="footer-button">
-        <Link className="footer-link" to="/articles/new">
-          <i id="map-pin" className="fas fa-map-pin"></i>
-          ADD A PLACE TO THE ATLAS
-        </Link>
-      </div>
-    </section>;
+  if (!restrictedPaths.includes(props.location.pathname)) {
+    footerButton = (
+      <section className="footer-bottom">
+        <div className="footer-outline" />
+        <div className="footer-button">
+          <Link className="footer-link" to="/articles/new">
+            <i id="map-pin" className="fas fa-map-pin" />
+            ADD A PLACE TO THE ATLAS
+          </Link>
+        </div>
+      </section>
+    );
   }
 
-    return (
-      footerButton
-    );
-
+  return footerButton;
 };
-
 
 export default Footer;

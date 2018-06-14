@@ -1,22 +1,40 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import ArticleForm from './article_form';
-import { editArticle, fetchArticle, clearArticleErrors } from '../actions/article_actions';
-import { createCountry } from '../actions/country_actions';
-import { createCity } from '../actions/city_actions';
-import { withRouter } from 'react-router-dom';
+import React from "react";
+import { connect } from "react-redux";
+import ArticleForm from "./article_form";
+import {
+  editArticle,
+  fetchArticle,
+  clearArticleErrors
+} from "../actions/article_actions";
+import { createCountry } from "../actions/country_actions";
+import { createCity } from "../actions/city_actions";
+import { withRouter } from "react-router-dom";
 
 class EditArticleForm extends React.Component {
-
-  shouldComponentUpdate(nextProps, nextState){
+  shouldComponentUpdate(nextProps, nextState) {
     if (this.props.article.id == nextProps.article.id) {
       return false;
     }
   }
 
-  render(){
-
-    const { article, formType, editorId, buttonText, action, errors, clearArticleErrors, history, lastUpdatedArticleId, fetchArticle, createCountry, createCity, city, country, images} = this.props;
+  render() {
+    const {
+      article,
+      formType,
+      editorId,
+      buttonText,
+      action,
+      errors,
+      clearArticleErrors,
+      history,
+      lastUpdatedArticleId,
+      fetchArticle,
+      createCountry,
+      createCity,
+      city,
+      country,
+      images
+    } = this.props;
     return (
       <ArticleForm
         article={article}
@@ -34,14 +52,10 @@ class EditArticleForm extends React.Component {
         createCity={createCity}
         history={history}
         images={images}
-
-        />
+      />
     );
   }
-
-
 }
-
 
 const mapStateToProps = (state, ownProps) => {
   // const defaultArticle = {
@@ -59,11 +73,11 @@ const mapStateToProps = (state, ownProps) => {
 
   const article = state.entities.articles[ownProps.match.params.articleId];
 
-  const city = state.entities.cities[article.city_id] || {name: ""};
-  const country = state.entities.countries[city.country_id] || {name: ""};
+  const city = state.entities.cities[article.city_id] || { name: "" };
+  const country = state.entities.countries[city.country_id] || { name: "" };
   const images = article.image_ids.map(image_id => {
-    return (state.entities.images[image_id]);
-  })
+    return state.entities.images[image_id];
+  });
 
   return {
     article,
@@ -78,14 +92,19 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    action: (article) => dispatch(editArticle(article)),
-    fetchArticle: (id) => dispatch(fetchArticle(id)),
+    action: article => dispatch(editArticle(article)),
+    fetchArticle: id => dispatch(fetchArticle(id)),
     clearArticleErrors: () => dispatch(clearArticleErrors()),
-    createCountry: (country) => dispatch(createCountry(country)),
+    createCountry: country => dispatch(createCountry(country)),
     createCity: (country, city) => dispatch(createCity(country, city))
   };
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(EditArticleForm));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(EditArticleForm)
+);

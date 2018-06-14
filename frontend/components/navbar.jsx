@@ -1,11 +1,11 @@
-import React from 'react';
-import MapDropdown from './anchors/map_dropdown';
-import SessionDropdownContainer from './session_dropdown_container';
-import SearchContainer from './anchors/search/search_container';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import React from "react";
+import MapDropdown from "./anchors/map_dropdown";
+import SessionDropdownContainer from "./session_dropdown_container";
+import SearchContainer from "./anchors/search/search_container";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
-export const NavBar = (props) => {
+export const NavBar = props => {
   let map;
   let sessionDropdown;
   let search;
@@ -13,15 +13,15 @@ export const NavBar = (props) => {
 
   if (!hiddenPaths.includes(props.location.pathname)) {
     map = <MapDropdown />;
-    sessionDropdown = <SessionDropdownContainer class="sessionDropdown"/>;
-    search = <SearchContainer class="search"/>;
+    sessionDropdown = <SessionDropdownContainer class="sessionDropdown" />;
+    search = <SearchContainer class="search" />;
   }
 
-  return(
+  return (
     <section className="nav">
       <div className="logo">
         <Link to="/">
-          <img className="logo-image" src={ window.images.treasureMapLogo }></img>
+          <img className="logo-image" src={window.images.treasureMapLogo} />
           <p>Treasure Map</p>
         </Link>
       </div>
@@ -33,7 +33,7 @@ export const NavBar = (props) => {
           <li>{sessionDropdown}</li>
           <li>{search}</li>
         </ul>
-    </div>
+      </div>
     </section>
   );
 };

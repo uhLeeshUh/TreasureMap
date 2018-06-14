@@ -1,4 +1,4 @@
-import { RECEIVE_RANDOM_ARTICLES } from '../../actions/article_actions';
+import { RECEIVE_RANDOM_ARTICLES } from "../../actions/article_actions";
 
 const randomArticleReducer = (state = [], action) => {
   Object.freeze(state);

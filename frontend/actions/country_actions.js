@@ -1,4 +1,4 @@
-import * as CountryAPIUtil from '../util/country_api_util';
+import * as CountryAPIUtil from "../util/country_api_util";
 
 export const RECEIVE_COUNTRIES = "RECEIVE_COUNTRIES";
 export const RECEIVE_TOP_COUNTRIES = "RECEIVE_TOP_COUNTRIES";
@@ -9,28 +9,28 @@ export const CHANGE_COUNTRY_DETAIL_LOADED = "CHANGE_COUNTRY_DETAIL_LOADED";
 
 //synchronous action creators
 
-export const receiveCountries = (countriesPayload) => {
+export const receiveCountries = countriesPayload => {
   return {
     type: RECEIVE_COUNTRIES,
     countriesPayload
   };
 };
 
-export const receiveTopCountries = (countriesPayload) => {
+export const receiveTopCountries = countriesPayload => {
   return {
     type: RECEIVE_TOP_COUNTRIES,
     countriesPayload
   };
 };
 
-export const receiveCountry = (countryPayload) => {
+export const receiveCountry = countryPayload => {
   return {
     type: RECEIVE_COUNTRY,
     countryPayload
   };
 };
 
-export const receiveCountryErrors = (errors) => {
+export const receiveCountryErrors = errors => {
   return {
     type: RECEIVE_COUNTRY_ERRORS,
     errors
@@ -43,7 +43,7 @@ export const removeCountryErrors = () => {
   };
 };
 
-export const changeCountryDetailLoaded = (boolean) => {
+export const changeCountryDetailLoaded = boolean => {
   return {
     type: CHANGE_COUNTRY_DETAIL_LOADED,
     boolean
@@ -53,37 +53,37 @@ export const changeCountryDetailLoaded = (boolean) => {
 //asynchronous action creators
 
 export const fetchCountries = () => {
-  return (dispatch) => {
+  return dispatch => {
     return CountryAPIUtil.fetchCountries().then(
-      (countriesPayload) => dispatch(receiveCountries(countriesPayload)),
-      (errors) => dispatch(receiveCountryErrors)
+      countriesPayload => dispatch(receiveCountries(countriesPayload)),
+      errors => dispatch(receiveCountryErrors)
     );
   };
 };
 
-export const fetchCountry = (id) => {
-  return (dispatch) => {
+export const fetchCountry = id => {
+  return dispatch => {
     return CountryAPIUtil.fetchCountry(id).then(
-      (countryPayload) => dispatch(receiveCountry(countryPayload)),
-      (errors) => dispatch(receiveCountryErrors)
+      countryPayload => dispatch(receiveCountry(countryPayload)),
+      errors => dispatch(receiveCountryErrors)
     );
   };
 };
 
 export const fetchTopCountries = () => {
-  return (dispatch) => {
+  return dispatch => {
     return CountryAPIUtil.fetchTopCountries().then(
-      (countriesPayload) => dispatch(receiveTopCountries(countriesPayload)),
-      (errors) => dispatch(receiveCountryErrors)
+      countriesPayload => dispatch(receiveTopCountries(countriesPayload)),
+      errors => dispatch(receiveCountryErrors)
     );
   };
 };
 
-export const createCountry = (country) => {
-  return (dispatch) => {
+export const createCountry = country => {
+  return dispatch => {
     return CountryAPIUtil.createCountry(country).then(
-      (countryResponse) => dispatch(receiveCountry(countryResponse)),
-      (errors) => dispatch(receiveCountryErrors)
+      countryResponse => dispatch(receiveCountry(countryResponse)),
+      errors => dispatch(receiveCountryErrors)
     );
   };
 };

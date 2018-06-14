@@ -1,4 +1,7 @@
-import { RECEIVE_IMAGE_ERRORS, CLEAR_IMAGE_ERRORS } from '../../actions/image_actions';
+import {
+  RECEIVE_IMAGE_ERRORS,
+  CLEAR_IMAGE_ERRORS
+} from "../../actions/image_actions";
 
 const imageErrorsReducer = (state = [], action) => {
   Object.freeze(state);
