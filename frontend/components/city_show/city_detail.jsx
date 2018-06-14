@@ -16,8 +16,9 @@ class CityDetail extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.props.match.params.cityId !== prevProps.match.params.cityId) {
-      this.props.fetchCity(this.props.match.params.cityId);
+    const newCityId = this.props.match.params.cityId;
+    if (newCityId !== prevProps.match.params.cityId) {
+      this.props.fetchCity(newCityId);
     }
   }
 

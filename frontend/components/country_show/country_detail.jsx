@@ -19,10 +19,9 @@ class CountryDetail extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (
-      this.props.match.params.countryId !== prevProps.match.params.countryId
-    ) {
-      this.props.fetchCountry(this.props.match.params.countryId);
+    const newCountryId = this.props.match.params.countryId;
+    if (newCountryId !== prevProps.match.params.countryId) {
+      this.props.fetchCountry(newCountryId);
     }
   }
 
@@ -31,6 +30,7 @@ class CountryDetail extends React.Component {
   }
 
   render() {
+    // (!this.props.countryDetailLoaded || this.props.newCountryNotFetched)
     if (!this.props.countryDetailLoaded || this.props.newCountryNotFetched) {
       return <div />;
     }
@@ -98,59 +98,46 @@ class CountryDetail extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   const countryDetailLoaded = state.ui.countryDetailLoaded;
+  // check to see that the component has loaded before, and therefore
+  // the full set of country info is in Redux store
+  // (not just what is needed for map dropdown)
   if (!countryDetailLoaded) {
     return {
       countryDetailLoaded
     };
   }
+
   let currentCountryDetailId = state.ui.currentCountryDetailId[0];
   currentCountryDetailId = currentCountryDetailId.toString();
+  // check to see that full target country info exists in Redux state,
+  // not just what is needed for map dropdown
   let newCountryNotFetched = false;
-  if (currentCountryDetailId !== ownProps.match.params.countryId) {
+  const countryId = ownProps.match.params.countryId;
+  if (currentCountryDetailId !== countryId) {
     return {
       newCountryNotFetched: true
     };
   }
 
-  const countryId = ownProps.match.params.countryId;
-
-  // const defaultCountry = {id: 3, name: "China"};
-  // const defaultCity = {id: 17, name: "Beijing", country_id: 3 };
-
-  // let country = defaultCountry;
-  // if (state.entities.countries[countryId]) {
   const country = state.entities.countries[countryId];
-  //
-  // {id: 1, name: "USA", city_ids: []};
-  // }
   let cities = {};
-  // if (country.city_ids) {
-  country.city_ids.forEach(city_id => {
-    cities[city_id] = state.entities.cities[city_id];
-    // cities.push(state.entities.cities[city_id]);
-    // });
+  country.city_ids.forEach(cityId => {
+    cities[cityId] = state.entities.cities[cityId];
   });
 
   let articles = [];
   let images = {};
-  //PICK UP HERE!!
-  // if (country.city_ids){
-  //   country.city_ids.forEach(city_id)
-  // }
 
-  // if (city.article_ids) {
   Object.values(cities).forEach(city => {
-    city.article_ids.forEach(article_id => {
-      articles.push(state.entities.articles[article_id]);
+    city.article_ids.forEach(articleId => {
+      let article = state.entities.articles[articleId];
+      articles.push(article);
 
-      // if (state.entities.articles[article_id] && state.entities.articles[article_id].image_ids.length > 0){
-      let thumbImage =
-        state.entities.images[state.entities.articles[article_id].image_ids[0]];
+      let thumbImage = state.entities.images[article.image_ids[0]];
       images[thumbImage.id] = thumbImage;
-      // }
     });
   });
-  // }
+
   return {
     country,
     cities,
@@ -172,7 +159,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(CountryDetail);
-
-//send down country (id, name)
-//send down city name
-//send down article count
