@@ -28,7 +28,7 @@ class Country < ApplicationRecord
   }
 
   def self.top_countries_by_article_count
-    countries = Country.select('countries.*').joins(:cities).joins(:articles).group('countries.id').order('COUNT(articles.id) DESC').limit(6)
+    Country.select('countries.*').joins(:cities).joins(:articles).group('countries.id').order('COUNT(articles.id) DESC').limit(6)
   end
 
   def self.existing_country(country_name)

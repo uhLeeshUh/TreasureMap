@@ -28,7 +28,7 @@ class City < ApplicationRecord
   }
 
   def self.top_cities_by_article_count
-    cities = City.select('cities.*').joins(:articles).group('cities.id').order('COUNT(articles.id) DESC').limit(12)
+    City.select('cities.*').joins(:articles).group('cities.id').order('COUNT(articles.id) DESC').limit(12)
   end
 
   def self.existing_city(city_name, country_id)
