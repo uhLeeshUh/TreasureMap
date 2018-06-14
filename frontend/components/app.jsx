@@ -11,6 +11,7 @@ import EditArticleContainer from './edit_article_container';
 import CityDetailContainer from './city_show/city_detail';
 import CountryDetailContainer from './country_show/country_detail';
 import FeaturedArticleContainer from './featured_article';
+import UserShowContainer from './user_profile/user_show';
 
 const App = () => {
 
@@ -25,6 +26,7 @@ const App = () => {
         <Route exact path="/articles/:articleId" component={ArticleContainer}/>
       </Switch>
       <ProtectedRoute exact path="/articles/:articleId/edit" component={EditArticleContainer}/>
+      <ProtectedRoute exact path="/users/:userId" component={UserShowContainer} />
       <Route exact path="/cities/:cityId" component={CityDetailContainer}/>
       <Route exact path="/countries/:countryId" component={CountryDetailContainer}/>
       <Route path="/" component={Footer}/>
