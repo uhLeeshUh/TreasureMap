@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { fetchArticle, deleteArticle } from "../actions/article_actions";
 import { Link } from "react-router-dom";
+import shortid from "shortid";
 import Map from "./map";
 
 class Article extends React.Component {
@@ -47,7 +48,7 @@ class Article extends React.Component {
           zIndex: idx
         };
         return (
-          <li className="article-editor-info" key={editor.id}>
+          <li className="article-editor-info" key={shortid.generate()}>
             <img
               className="article-editor-image"
               src={editor.image_url}
