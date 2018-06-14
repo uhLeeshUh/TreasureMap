@@ -11,7 +11,6 @@ class FeaturedArticle extends React.Component {
 
   componentDidMount() {
     this.props.fetchRandomArticles();
-    // this.props.fetchRandomArticle();
   }
 
   render() {
@@ -70,13 +69,9 @@ class FeaturedArticle extends React.Component {
 
 const mapStateToProps = state => {
   let articles;
-  // let article;
-  // let city;
-  // let image;
   let articlesInState = true;
 
   if (state.ui.featuredArticleIds.length === 0) {
-    // if (state.ui.randomArticleId.length === 0){
     return {
       articlesInState: false
     };
@@ -85,13 +80,7 @@ const mapStateToProps = state => {
   articles = state.ui.featuredArticleIds.map(articleId => {
     return state.entities.articles[articleId];
   });
-  // state.entities.articles[state.ui.randomArticleId];
-  // article = state.entities.articles[state.ui.randomArticleId];
-  // city = state.entities.cities[article.city_id];
-  // image = state.entities.images[article.image_ids[0]];
 
-  // city,
-  // image,
   return {
     articles,
     articlesInState
@@ -99,14 +88,12 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  // fetchRandomArticle: () => dispatch(fetchRandomArticle())
   return {
     fetchArticle: id => dispatch(fetchArticle(id)),
     fetchRandomArticles: () => dispatch(fetchRandomArticles())
   };
 };
 
-// export default FeaturedArticle;
 export default connect(
   mapStateToProps,
   mapDispatchToProps

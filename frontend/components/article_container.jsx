@@ -148,35 +148,30 @@ class Article extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
+  const article = state.entities.articles[ownProps.match.params.articleId];
   let articleLoaded = true;
-  if (
-    !state.entities.articles[ownProps.match.params.articleId] ||
-    !state.entities.articles[ownProps.match.params.articleId].body
-  ) {
+  //check to see if full article info exists in Redux state,
+  // not just what is needed for thumbs
+  if (!article || !article.body) {
     return {
       articleLoaded: false
     };
   }
 
-  const article = state.entities.articles[ownProps.match.params.articleId];
   const city = state.entities.cities[article.city_id];
   const author = state.entities.users[article.author_id];
   let editors;
+  // check to see if article has any editors to render on page
   if (article.editing_user_ids) {
-    editors = article.editing_user_ids.map(editor_id => {
-      return state.entities.users[editor_id];
+    editors = article.editing_user_ids.map(editorId => {
+      return state.entities.users[editorId];
     });
   }
   const viewerId = state.session.id;
 
-  let images = [];
-  if (state.entities.articles[ownProps.match.params.articleId]) {
-    images = state.entities.articles[
-      ownProps.match.params.articleId
-    ].image_ids.map(image_id => {
-      return state.entities.images[image_id];
-    });
-  }
+  const images = article.image_ids.map(imageId => {
+    return state.entities.images[imageId];
+  });
 
   return {
     article,
@@ -200,20 +195,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Article);
-
-//need to make thunk action creator and API util ajax method to fetch an article
-// by its id
-
-//pass down city so I can grab name
-//pass down article so I can get its name, description
-
-//need to pass down the article's associated images
-// figure out our array of images to render them in img tags before passing to return
-
-//need to pass down the article's author so I can grab the username and photo
-
-//need to pass down article editors, which I will handle outside of render's return
-//to generate an array of lis (to layer on top of each other!)
-// need photo and username
-
-//make the reducer to handle the ajax request!
