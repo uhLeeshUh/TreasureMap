@@ -33,50 +33,88 @@ class ArticleForm extends React.Component {
   }
 
   submit(e) {
-    let { article, country, city } = this.state;
     e.preventDefault();
+
+    let { country, city, article } = this.state;
     this.props.clearArticleErrors();
-    this.createCountry(this.state.country).then(countryResponse => {
+    this.createCountry(country).then(countryResponse => {
       this.props
         .createCity(countryResponse.countryPayload.country, city)
         .then(cityResponse => {
-          let formData = new FormData();
-          const articleStrongParams = [
-            "name",
-            "description",
-            "long_description",
-            "body",
-            "lat",
-            "lng"
-          ];
-          articleStrongParams.forEach(key => {
-            formData.append(`article[${key}]`, article[key]);
-          });
-          if (article.id) {
-            formData.append("id", article.id);
-          }
-          formData.append("article[city_id]", cityResponse.cityPayload.city.id);
-
-          this.state.images.forEach(image => {
-            formData.append(
-              "article[images_attributes][][image]",
-              image.image_url
-            );
-          });
-
-          if (this.props.editorId) {
-            formData.append(
-              "article[edits_attributes][][editor_id]",
-              this.props.editorId
-            );
-          }
-
-          this.props.action(formData).then(() => {
-            return this.props.history.push(
-              `/articles/${this.props.lastUpdatedArticleId}`
-            );
-          });
+          this.handleArticleSubmit(cityResponse, article);
+          // let formData = new FormData();
+          // const articleStrongParams = [
+          //   "name",
+          //   "description",
+          //   "long_description",
+          //   "body",
+          //   "lat",
+          //   "lng"
+          // ];
+          // articleStrongParams.forEach(key => {
+          //   formData.append(`article[${key}]`, article[key]);
+          // });
+          // if (article.id) {
+          //   formData.append("id", article.id);
+          // }
+          // formData.append("article[city_id]", cityResponse.cityPayload.city.id);
+          //
+          // this.state.images.forEach(image => {
+          //   formData.append(
+          //     "article[images_attributes][][image]",
+          //     image.image_url
+          //   );
+          // });
+          //
+          // if (this.props.editorId) {
+          //   formData.append(
+          //     "article[edits_attributes][][editor_id]",
+          //     this.props.editorId
+          //   );
+          // }
+          //
+          // this.props.action(formData).then(() => {
+          //   return this.props.history.push(
+          //     `/articles/${this.props.lastUpdatedArticleId}`
+          //   );
+          // });
         });
+    });
+  }
+
+  handleArticleSubmit(cityResponse, article) {
+    let formData = new FormData();
+    const articleStrongParams = [
+      "name",
+      "description",
+      "long_description",
+      "body",
+      "lat",
+      "lng"
+    ];
+    articleStrongParams.forEach(key => {
+      formData.append(`article[${key}]`, article[key]);
+    });
+    if (article.id) {
+      formData.append("id", article.id);
+    }
+    formData.append("article[city_id]", cityResponse.cityPayload.city.id);
+
+    this.state.images.forEach(image => {
+      formData.append("article[images_attributes][][image]", image.image_url);
+    });
+
+    if (this.props.editorId) {
+      formData.append(
+        "article[edits_attributes][][editor_id]",
+        this.props.editorId
+      );
+    }
+
+    this.props.action(formData).then(() => {
+      return this.props.history.push(
+        `/articles/${this.props.lastUpdatedArticleId}`
+      );
     });
   }
 
