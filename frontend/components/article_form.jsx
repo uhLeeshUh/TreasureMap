@@ -20,6 +20,8 @@ class ArticleForm extends React.Component {
       },
       images: this.props.images || []
     };
+    this.articleFormData = new FormData();
+
     this.submit = this.submit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.updateFile = this.updateFile.bind(this);
@@ -83,7 +85,53 @@ class ArticleForm extends React.Component {
   }
 
   handleArticleSubmit(cityResponse, article) {
-    let formData = new FormData();
+    // put all article-relevant info into a FormData object
+    // to comply with paperclip gem (for image parsing)
+
+    // let formData = new FormData();
+    // const articleStrongParams = [
+    //   "name",
+    //   "description",
+    //   "long_description",
+    //   "body",
+    //   "lat",
+    //   "lng"
+    // ];
+    // articleStrongParams.forEach(key => {
+    //   formData.append(`article[${key}]`, article[key]);
+    // });
+    // if (article.id) {
+    //   formData.append("id", article.id);
+    // }
+    // formData.append("article[city_id]", cityResponse.cityPayload.city.id);
+
+    this.appendArticleInfo(cityResponse, article);
+    this.appendImageInfo();
+    this.appendEditInfo();
+
+    // this.state.images.forEach(image => {
+    //   formData.append("article[images_attributes][][image]", image.image_url);
+    // });
+
+    // if (this.props.editorId) {
+    //   formData.append(
+    //     "article[edits_attributes][][editor_id]",
+    //     this.props.editorId
+    //   );
+    // }
+
+    this.props.action(this.articleFormData).then(submitResponse => {
+      //TODO: pick up here to figure out how to not use lastUpdatedArticleId
+      debugger;
+      console.log(submitResponse);
+      return this.props.history.push(
+        `/articles/${this.props.lastUpdatedArticleId}`
+      );
+    });
+  }
+
+  appendArticleInfo(cityResponse, article) {
+    // let formData = new FormData();
     const articleStrongParams = [
       "name",
       "description",
@@ -93,29 +141,36 @@ class ArticleForm extends React.Component {
       "lng"
     ];
     articleStrongParams.forEach(key => {
-      formData.append(`article[${key}]`, article[key]);
+      this.articleFormData.append(`article[${key}]`, article[key]);
     });
     if (article.id) {
-      formData.append("id", article.id);
+      this.articleFormData.append("id", article.id);
     }
-    formData.append("article[city_id]", cityResponse.cityPayload.city.id);
+    this.articleFormData.append(
+      "article[city_id]",
+      cityResponse.cityPayload.city.id
+    );
+    // return formData;
+  }
 
+  appendImageInfo() {
     this.state.images.forEach(image => {
-      formData.append("article[images_attributes][][image]", image.image_url);
+      this.articleFormData.append(
+        "article[images_attributes][][image]",
+        image.image_url
+      );
     });
+    // return formData;
+  }
 
+  appendEditInfo() {
     if (this.props.editorId) {
-      formData.append(
+      this.articleFormData.append(
         "article[edits_attributes][][editor_id]",
         this.props.editorId
       );
     }
-
-    this.props.action(formData).then(() => {
-      return this.props.history.push(
-        `/articles/${this.props.lastUpdatedArticleId}`
-      );
-    });
+    // return formData;
   }
 
   handleChange(field, e) {
