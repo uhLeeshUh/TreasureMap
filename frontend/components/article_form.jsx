@@ -36,14 +36,23 @@ class ArticleForm extends React.Component {
 
   submit(e) {
     e.preventDefault();
+    // clear any submission errors so they may repopulate in this
+    // submission attempt if needed
+    this.props.clearArticleErrors();
 
     let { country, city, article } = this.state;
-    this.props.clearArticleErrors();
     this.createCountry(country).then(countryResponse => {
       this.props
         .createCity(countryResponse.countryPayload.country, city)
         .then(cityResponse => {
           this.handleArticleSubmit(cityResponse, article);
+          // this.props.action(this.articleFormData).then(submitResponse => {
+          //   //TODO: pick up here to figure out how to not use lastUpdatedArticleId
+          //   //submitResponse.articlePayload.article.id
+          //   return this.props.history.push(
+          //     `/articles/${this.props.lastUpdatedArticleId}`
+          //   );
+          // });
           // let formData = new FormData();
           // const articleStrongParams = [
           //   "name",
@@ -119,13 +128,9 @@ class ArticleForm extends React.Component {
     //     this.props.editorId
     //   );
     // }
-
     this.props.action(this.articleFormData).then(submitResponse => {
-      //TODO: pick up here to figure out how to not use lastUpdatedArticleId
-      debugger;
-      console.log(submitResponse);
       return this.props.history.push(
-        `/articles/${this.props.lastUpdatedArticleId}`
+        `/articles/${submitResponse.articlePayload.article.id}`
       );
     });
   }

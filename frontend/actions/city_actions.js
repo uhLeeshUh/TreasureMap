@@ -65,7 +65,7 @@ export const fetchTopCities = () => {
 export const createCity = (country, city) => {
   return dispatch => {
     return CityAPIUtil.createCity(country, city).then(
-      city => dispatch(receiveCity(city)),
+      cityResponse => dispatch(receiveCity(cityResponse)),
       errors => dispatch(receiveCityErrors(errors))
     );
   };

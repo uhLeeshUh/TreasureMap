@@ -373,6 +373,8 @@ Aware of people’s interest in the house due to its somewhat well-known status 
     author_id: User.find_by(username: "Alicia").id,
     city_id: City.find_by(name: "Brooklyn, NY").id
   },
+  # PICK UP HERE ADDING IMAGES TO THE TOWNHOUSE ARTICLE
+
   # { name: "",
   #   description: "",
   #   long_description: "",

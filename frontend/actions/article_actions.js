@@ -28,12 +28,6 @@ export const receiveRandomArticles = articlesPayload => {
     articlesPayload
   };
 };
-// export const receiveRandomArticle = (articlePayload) => {
-//   return {
-//     type: RECEIVE_RANDOM_ARTICLE,
-//     articlePayload
-//   };
-// };
 
 export const removeArticle = id => {
   return {
@@ -60,11 +54,11 @@ export const clearArticleErrors = () => {
 export const createArticle = article => {
   return dispatch => {
     return ArticleAPIUtil.createArticle(article).then(
-      article => {
-        dispatch(receiveArticle(article));
+      articleResponse => {
+        return dispatch(receiveArticle(articleResponse));
       },
       errors => {
-        dispatch(receiveArticleErrors(errors));
+        return dispatch(receiveArticleErrors(errors));
       }
     );
   };
@@ -74,10 +68,10 @@ export const fetchArticle = id => {
   return dispatch => {
     return ArticleAPIUtil.fetchArticle(id).then(
       articlePayload => {
-        dispatch(receiveArticle(articlePayload));
+        return dispatch(receiveArticle(articlePayload));
       },
       errors => {
-        dispatch(receiveArticleErrors(errors));
+        return dispatch(receiveArticleErrors(errors));
       }
     );
   };
@@ -91,24 +85,12 @@ export const fetchRandomArticles = () => {
     );
   };
 };
-// export const fetchRandomArticle = () => {
-//   return (dispatch) => {
-//     return ArticleAPIUtil.fetchRandomArticle().then(
-//       (articlePayload) => dispatch(receiveRandomArticle(articlePayload)),
-//       (errors) => dispatch(receiveArticleErrors(errors))
-//     );
-//   };
-// };
 
 export const fetchArticles = cityId => {
   return dispatch => {
     return ArticleAPIUtil.fetchArticles(cityId).then(
-      articlesPayload => {
-        dispatch(receiveArticle(articlesPayload));
-      },
-      errors => {
-        dispatch(receiveArticleErrors(errors));
-      }
+      articlesPayload => dispatch(receiveArticle(articlesPayload)),
+      errors => dispatch(receiveArticleErrors(errors))
     );
   };
 };
@@ -117,10 +99,10 @@ export const editArticle = article => {
   return dispatch => {
     return ArticleAPIUtil.editArticle(article).then(
       articlePayload => {
-        dispatch(receiveArticle(articlePayload));
+        return dispatch(receiveArticle(articlePayload));
       },
       errors => {
-        dispatch(receiveArticleErrors(errors));
+        return dispatch(receiveArticleErrors(errors));
       }
     );
   };
@@ -130,10 +112,10 @@ export const deleteArticle = id => {
   return dispatch => {
     return ArticleAPIUtil.deleteArticle(id).then(
       () => {
-        dispatch(removeArticle(id));
+        return dispatch(removeArticle(id));
       },
       errors => {
-        dispatch(receiveArticleErrors(errors));
+        return dispatch(receiveArticleErrors(errors));
       }
     );
   };
