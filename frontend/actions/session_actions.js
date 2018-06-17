@@ -36,11 +36,11 @@ export const clearErrors = () => {
 export const signup = user => {
   return dispatch => {
     return SessionAPIUtil.signup(user).then(
-      user => {
-        dispatch(receiveCurrentUser(user));
+      userResponse => {
+        return dispatch(receiveCurrentUser(userResponse));
       },
       errors => {
-        dispatch(receiveErrors(errors));
+        return dispatch(receiveErrors(errors));
       }
     );
   };
@@ -49,11 +49,11 @@ export const signup = user => {
 export const login = user => {
   return dispatch => {
     return SessionAPIUtil.login(user).then(
-      user => {
-        dispatch(receiveCurrentUser(user));
+      userResponse => {
+        return dispatch(receiveCurrentUser(userResponse));
       },
       errors => {
-        dispatch(receiveErrors(errors));
+        return dispatch(receiveErrors(errors));
       }
     );
   };

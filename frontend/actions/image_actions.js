@@ -34,11 +34,11 @@ export const clearImageErrors = () => {
 };
 
 //asynchronous action creators
-export const createImage = image => {
-  return dispatch => {
-    return ImageAPIUtil.createImage(image).then(
-      image => dispatch(receiveImage(image)),
-      errors => dispatch(receiveImageErrors(errors))
-    );
-  };
-};
+// export const createImage = image => {
+//   return dispatch => {
+//     return ImageAPIUtil.createImage(image).then(
+//       image => dispatch(receiveImage(image)),
+//       errors => dispatch(receiveImageErrors(errors))
+//     );
+//   };
+// };
