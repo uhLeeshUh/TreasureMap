@@ -10,11 +10,10 @@ import searchBarStatusReducer from "./ui/search/search_bar_status_reducer";
 import { combineReducers } from "redux";
 
 export default combineReducers({
-  lastArticleId: lastCreatedArticleReducer,
-  countryDetailLoaded: countryDetailLoadedReducer,
-  currentCountryDetailId: currentCountryDetailReducer,
   topCountryIds: topCountryReducer,
   topCityIds: topCityReducer,
+  countryDetailLoaded: countryDetailLoadedReducer,
+  currentCountryDetailId: currentCountryDetailReducer,
   featuredArticleIds: randomArticlesReducer,
   searchItems: searchItemsReducer,
   searchBarOpen: searchBarStatusReducer

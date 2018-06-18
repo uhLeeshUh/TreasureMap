@@ -30,7 +30,6 @@ class CountryDetail extends React.Component {
   }
 
   render() {
-    // (!this.props.countryDetailLoaded || this.props.newCountryNotFetched)
     if (!this.props.countryDetailLoaded || this.props.newCountryNotFetched) {
       return <div />;
     }

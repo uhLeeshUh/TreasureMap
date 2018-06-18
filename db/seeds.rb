@@ -359,20 +359,20 @@ City.create!([
     lng: -74.0134,
     author_id: User.find_by(username: "Alicia").id,
     city_id: City.find_by(name: "New York, NY").id
-  },
-  { name: "Brooklyn Townhouse Secret Subway Exit",
-    description: "This innocent-looking townhome is actually a subway exit.",
-    long_description: "Brooklynites pass by any number of townhouses every day without giving them a second thought, including this one, but it deserves a second look. This house isn’t actually a house at all—it’s a hidden NYC Subway fan plant (ventilation building) and emergency exit.",
-    body: "It looks normal at first glance, located on Joralemon Street close to the East River in Brooklyn Heights, but its blacked-out windows make it seem just a bit off, indicating its secret as a disguised fan plant & emergency exit for the subway.
-
-Originally built as a private residence in 1847, it was converted to a ventilation building/emergency exit during the construction of the Interborough Rapid Transit Company’s Joralemon Street Tunnel extension of the subway from Bowling Green in Manhattan to Borough Hall in Brooklyn which opened in 1908 and is served by today’s 4 and 5 trains.
-
-Aware of people’s interest in the house due to its somewhat well-known status as a decoy for the exit, the NYPD has heightened security measures around the “entrance” to the “house” in an attempt to prevent curious passersby from any subterranean exploration.",
-    lat: 40.6935,
-    lng: -73.9974,
-    author_id: User.find_by(username: "Alicia").id,
-    city_id: City.find_by(name: "Brooklyn, NY").id
-  },
+  }
+#   { name: "Brooklyn Townhouse Secret Subway Exit",
+#     description: "This innocent-looking townhome is actually a subway exit.",
+#     long_description: "Brooklynites pass by any number of townhouses every day without giving them a second thought, including this one, but it deserves a second look. This house isn’t actually a house at all—it’s a hidden NYC Subway fan plant (ventilation building) and emergency exit.",
+#     body: "It looks normal at first glance, located on Joralemon Street close to the East River in Brooklyn Heights, but its blacked-out windows make it seem just a bit off, indicating its secret as a disguised fan plant & emergency exit for the subway.
+#
+# Originally built as a private residence in 1847, it was converted to a ventilation building/emergency exit during the construction of the Interborough Rapid Transit Company’s Joralemon Street Tunnel extension of the subway from Bowling Green in Manhattan to Borough Hall in Brooklyn which opened in 1908 and is served by today’s 4 and 5 trains.
+#
+# Aware of people’s interest in the house due to its somewhat well-known status as a decoy for the exit, the NYPD has heightened security measures around the “entrance” to the “house” in an attempt to prevent curious passersby from any subterranean exploration.",
+#     lat: 40.6935,
+#     lng: -73.9974,
+#     author_id: User.find_by(username: "Alicia").id,
+#     city_id: City.find_by(name: "Brooklyn, NY").id
+#   },
   # PICK UP HERE ADDING IMAGES TO THE TOWNHOUSE ARTICLE
 
   # { name: "",

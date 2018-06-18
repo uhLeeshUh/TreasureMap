@@ -45,7 +45,7 @@ class Api::ArticlesController < ApplicationController
 
     render 'api/articles/index'
   end
-  
+
   private
 
   def article_params
