@@ -17,6 +17,7 @@ const mapStateToProps = (state, ownProps) => {
 
   const country = { name: "" };
   const city = { name: "" };
+  const images = [];
 
   return {
     article:
@@ -26,9 +27,9 @@ const mapStateToProps = (state, ownProps) => {
     author_id: state.session.id,
     buttonText: "SUBMIT THIS PLACE",
     errors: state.errors.article,
-    lastUpdatedArticleId: state.ui.lastArticleId[0],
     country,
-    city
+    city,
+    images
   };
 };
 

@@ -74,7 +74,6 @@ const mapStateToProps = (state, ownProps) => {
     editorId: state.session.id,
     buttonText: "SUBMIT THIS EDIT",
     errors: state.errors.article,
-    lastUpdatedArticleId: state.ui.lastArticleId,
     city,
     country,
     images

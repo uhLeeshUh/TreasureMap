@@ -31,6 +31,7 @@ export const receiveCountry = countryPayload => {
 };
 
 export const receiveCountryErrors = errors => {
+  debugger;
   return {
     type: RECEIVE_COUNTRY_ERRORS,
     errors
@@ -83,7 +84,10 @@ export const createCountry = country => {
   return dispatch => {
     return CountryAPIUtil.createCountry(country).then(
       countryResponse => dispatch(receiveCountry(countryResponse)),
-      errors => dispatch(receiveCountryErrors)
+      errors => {
+        debugger;
+        return dispatch(receiveCountryErrors(errors));
+      }
     );
   };
 };

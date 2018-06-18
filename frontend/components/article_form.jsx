@@ -8,17 +8,9 @@ class ArticleForm extends React.Component {
     super(props);
     this.state = {
       article: this.props.article,
-      country: {
-        name: this.props.country.name
-      },
-      city: {
-        name: this.props.city.name
-      },
-      articleEdit: {
-        editor_id: this.props.editorId || "",
-        article_id: this.props.article.id
-      },
-      images: this.props.images || []
+      country: this.props.country,
+      city: this.props.city,
+      images: this.props.images
     };
     this.articleFormData = new FormData();
 
@@ -46,49 +38,6 @@ class ArticleForm extends React.Component {
         .createCity(countryResponse.countryPayload.country, city)
         .then(cityResponse => {
           this.handleArticleSubmit(cityResponse, article);
-          // this.props.action(this.articleFormData).then(submitResponse => {
-          //   //TODO: pick up here to figure out how to not use lastUpdatedArticleId
-          //   //submitResponse.articlePayload.article.id
-          //   return this.props.history.push(
-          //     `/articles/${this.props.lastUpdatedArticleId}`
-          //   );
-          // });
-          // let formData = new FormData();
-          // const articleStrongParams = [
-          //   "name",
-          //   "description",
-          //   "long_description",
-          //   "body",
-          //   "lat",
-          //   "lng"
-          // ];
-          // articleStrongParams.forEach(key => {
-          //   formData.append(`article[${key}]`, article[key]);
-          // });
-          // if (article.id) {
-          //   formData.append("id", article.id);
-          // }
-          // formData.append("article[city_id]", cityResponse.cityPayload.city.id);
-          //
-          // this.state.images.forEach(image => {
-          //   formData.append(
-          //     "article[images_attributes][][image]",
-          //     image.image_url
-          //   );
-          // });
-          //
-          // if (this.props.editorId) {
-          //   formData.append(
-          //     "article[edits_attributes][][editor_id]",
-          //     this.props.editorId
-          //   );
-          // }
-          //
-          // this.props.action(formData).then(() => {
-          //   return this.props.history.push(
-          //     `/articles/${this.props.lastUpdatedArticleId}`
-          //   );
-          // });
         });
     });
   }
@@ -96,38 +45,9 @@ class ArticleForm extends React.Component {
   handleArticleSubmit(cityResponse, article) {
     // put all article-relevant info into a FormData object
     // to comply with paperclip gem (for image parsing)
-
-    // let formData = new FormData();
-    // const articleStrongParams = [
-    //   "name",
-    //   "description",
-    //   "long_description",
-    //   "body",
-    //   "lat",
-    //   "lng"
-    // ];
-    // articleStrongParams.forEach(key => {
-    //   formData.append(`article[${key}]`, article[key]);
-    // });
-    // if (article.id) {
-    //   formData.append("id", article.id);
-    // }
-    // formData.append("article[city_id]", cityResponse.cityPayload.city.id);
-
     this.appendArticleInfo(cityResponse, article);
     this.appendImageInfo();
     this.appendEditInfo();
-
-    // this.state.images.forEach(image => {
-    //   formData.append("article[images_attributes][][image]", image.image_url);
-    // });
-
-    // if (this.props.editorId) {
-    //   formData.append(
-    //     "article[edits_attributes][][editor_id]",
-    //     this.props.editorId
-    //   );
-    // }
     this.props.action(this.articleFormData).then(submitResponse => {
       return this.props.history.push(
         `/articles/${submitResponse.articlePayload.article.id}`
@@ -136,7 +56,6 @@ class ArticleForm extends React.Component {
   }
 
   appendArticleInfo(cityResponse, article) {
-    // let formData = new FormData();
     const articleStrongParams = [
       "name",
       "description",
@@ -155,7 +74,6 @@ class ArticleForm extends React.Component {
       "article[city_id]",
       cityResponse.cityPayload.city.id
     );
-    // return formData;
   }
 
   appendImageInfo() {
@@ -165,7 +83,6 @@ class ArticleForm extends React.Component {
         image.image_url
       );
     });
-    // return formData;
   }
 
   appendEditInfo() {
@@ -175,7 +92,6 @@ class ArticleForm extends React.Component {
         this.props.editorId
       );
     }
-    // return formData;
   }
 
   handleChange(field, e) {
@@ -231,7 +147,7 @@ class ArticleForm extends React.Component {
     });
   }
 
-  render() {
+  populateArticleErrors() {
     let articleErrors;
     if (this.props.errors.length > 0) {
       articleErrors = this.props.errors.map((error, idx) => {
@@ -242,7 +158,10 @@ class ArticleForm extends React.Component {
         );
       });
     }
+    return articleErrors;
+  }
 
+  populatePreviewImages() {
     let previewImages;
     if (this.state.images.length > 0) {
       previewImages = this.state.images.map((image, idx) => {
@@ -256,6 +175,12 @@ class ArticleForm extends React.Component {
         );
       });
     }
+    return previewImages;
+  }
+
+  render() {
+    let articleErrors = this.populateArticleErrors();
+    let previewImages = this.populatePreviewImages();
 
     const placeCoords = {
       lat: this.props.article.lat,
