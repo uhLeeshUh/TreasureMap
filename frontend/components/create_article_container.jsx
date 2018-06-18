@@ -18,11 +18,8 @@ const mapStateToProps = (state, ownProps) => {
   const country = { name: "" };
   const city = { name: "" };
   const images = [];
-
   return {
-    article:
-      state.entities.articles[ownProps.match.params.articleId] ||
-      defaultArticle,
+    article: defaultArticle,
     formType: "Add a Place",
     author_id: state.session.id,
     buttonText: "SUBMIT THIS PLACE",

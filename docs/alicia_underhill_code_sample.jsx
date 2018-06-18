@@ -73,7 +73,7 @@ class ArticleForm extends React.Component {
 
 // From create_article_container.jsx:
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   const defaultArticle = {
     name: "",
     description: "",
@@ -87,9 +87,7 @@ const mapStateToProps = (state, ownProps) => {
   const images = [];
 
   return {
-    article:
-      state.entities.articles[ownProps.match.params.articleId] ||
-      defaultArticle,
+    article: defaultArticle,
     formType: "Add a Place",
     author_id: state.session.id,
     buttonText: "SUBMIT THIS PLACE",
@@ -112,7 +110,7 @@ const mapDispatchToProps = dispatch => {
 
 // -------------------------------------------------------------------
 // Countries and Cities controllers' #create method conditionally
-// create new entries by checking first to see if DB already has them.
+// creates a new entry by checking first to see if DB already has it.
 // For example, below is the country logic:
 // -------------------------------------------------------------------
 
