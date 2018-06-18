@@ -31,7 +31,7 @@ class Api::CitiesController < ApplicationController
 
   def top_cities
     @cities = City.top_cities_by_article_count
-    render 'api/cities/index'
+    render :index
   end
 
   #custom route for the top X cities

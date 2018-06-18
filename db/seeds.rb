@@ -546,7 +546,7 @@ ArticleEdit.create!([
   {article_id: Article.find_by(name: "New York Marble Cemetery").id, editor_id: User.find_by(username: "Alicia").id},
   {article_id: Article.find_by(name: "Showmen's Rest").id, editor_id: User.find_by(username: "Craig").id},
   {article_id: Article.find_by(name: "Showmen's Rest").id, editor_id: User.find_by(username: "Jimmy").id},
-  {article_id: Article.find_by(name: "Showmen's Rest").id, editor_id: User.find_by(username: "Alicia").id},
-  {article_id: Article.find_by(name: "Brooklyn Townhouse Secret Subway Exit").id, editor_id: User.find_by(username: "Collin").id},
-  {article_id: Article.find_by(name: "Brooklyn Townhouse Secret Subway Exit").id, editor_id: User.find_by(username: "Jimmy").id},
+  {article_id: Article.find_by(name: "Showmen's Rest").id, editor_id: User.find_by(username: "Alicia").id}
+  # {article_id: Article.find_by(name: "Brooklyn Townhouse Secret Subway Exit").id, editor_id: User.find_by(username: "Collin").id},
+  # {article_id: Article.find_by(name: "Brooklyn Townhouse Secret Subway Exit").id, editor_id: User.find_by(username: "Jimmy").id},
   ])
